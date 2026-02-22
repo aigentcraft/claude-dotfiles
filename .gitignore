@@ -1,0 +1,20 @@
+# Never sync credentials or local-only settings
+.credentials.json
+settings.local.json
+
+# Cache and temp
+cache/
+debug/
+downloads/
+paste-cache/
+shell-snapshots/
+stats-cache.json
+statsig/
+todos/
+tasks/
+plans/
+history.jsonl
+file-history/
+backups/
+projects/
+plugins/
