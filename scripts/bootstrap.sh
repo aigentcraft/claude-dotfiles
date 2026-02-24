@@ -52,7 +52,24 @@ echo ""
 echo -e "${YELLOW}[sync] Pulling latest knowledge from all sources...${NC}"
 bash "$CLAUDE_DOTFILES_DIR/scripts/sync.sh" pull
 
-# --- 5. シェル起動時の自動 pull を提案 ---
+# --- 5. npx skills でインストール済みスキルを復元 ---
+echo ""
+echo -e "${YELLOW}[skills] Restoring npx-managed skills from skills-lock.json...${NC}"
+if command -v npx &>/dev/null; then
+  # claude-dotfiles の skills-lock.json から復元（antigravity からブリッジ済み）
+  if [ -f "$CLAUDE_DOTFILES_DIR/skills-lock.json" ]; then
+    cd "$CLAUDE_DOTFILES_DIR"
+    npx --yes skills experimental_install --global --yes 2>/dev/null \
+      && echo -e "${GREEN}[skills] Restored from skills-lock.json${NC}" \
+      || echo -e "${YELLOW}[skills] experimental_install failed, skipping${NC}"
+  else
+    echo "[skills] No skills-lock.json found, skipping."
+  fi
+else
+  echo "[skills] npx not found. Install Node.js to enable skill restore."
+fi
+
+# --- 6. シェル起動時の自動 pull を提案 ---
 echo ""
 echo -e "${GREEN}======================================${NC}"
 echo -e "${GREEN}   Bootstrap complete!                ${NC}"

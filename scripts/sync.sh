@@ -5,6 +5,7 @@
 DOTFILES_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 CLAUDE_DIR="$HOME/.claude"
 ANTIGRAVITY_DIR="$HOME/antigravity-dotfiles"
+AGENTS_DIR="$HOME/.agents/skills"
 
 # Copy files from dotfiles repo to ~/.claude/ (for Windows where symlinks may not work)
 apply_to_claude() {
@@ -33,6 +34,8 @@ bridge_from_antigravity() {
     mkdir -p "$DOTFILES_DIR/knowledge" "$DOTFILES_DIR/skills"
     [ -d "$ANTIGRAVITY_DIR/knowledge" ] && cp -Rf "$ANTIGRAVITY_DIR/knowledge/"* "$DOTFILES_DIR/knowledge/" 2>/dev/null
     [ -d "$ANTIGRAVITY_DIR/skills" ]   && cp -Rf "$ANTIGRAVITY_DIR/skills/"*   "$DOTFILES_DIR/skills/"   2>/dev/null
+    # skills-lock.json も同期（npx skills でインストールされたスキルの記録）
+    [ -f "$ANTIGRAVITY_DIR/skills-lock.json" ] && cp -f "$ANTIGRAVITY_DIR/skills-lock.json" "$DOTFILES_DIR/skills-lock.json" 2>/dev/null
     echo "[claude-dotfiles] Bridge complete."
   fi
 }
@@ -47,6 +50,16 @@ collect_from_claude() {
     mkdir -p "$DOTFILES_DIR/knowledge"
     cp -Rf "$CLAUDE_DIR/knowledge/"* "$DOTFILES_DIR/knowledge/" 2>/dev/null
   fi
+  # npx skills (skills.sh) でインストールされたスキルを回収
+  # ~/.agents/skills/* → claude-dotfiles/skills/
+  if [ -d "$AGENTS_DIR" ]; then
+    for skill_dir in "$AGENTS_DIR"/*/; do
+      [ -d "$skill_dir" ] || continue
+      skill_name=$(basename "$skill_dir")
+      mkdir -p "$DOTFILES_DIR/skills/$skill_name"
+      cp -rf "$skill_dir"* "$DOTFILES_DIR/skills/$skill_name/" 2>/dev/null
+    done
+  fi
 }
 
 # Bridge: claude-dotfiles の knowledge/skills を antigravity-dotfiles に書き戻す
@@ -56,6 +69,8 @@ bridge_to_antigravity() {
     mkdir -p "$ANTIGRAVITY_DIR/knowledge" "$ANTIGRAVITY_DIR/skills"
     [ -d "$DOTFILES_DIR/knowledge" ] && cp -Rf "$DOTFILES_DIR/knowledge/"* "$ANTIGRAVITY_DIR/knowledge/" 2>/dev/null
     [ -d "$DOTFILES_DIR/skills" ]   && cp -Rf "$DOTFILES_DIR/skills/"*   "$ANTIGRAVITY_DIR/skills/"   2>/dev/null
+    # skills-lock.json を antigravity にも同期
+    [ -f "$DOTFILES_DIR/skills-lock.json" ] && cp -f "$DOTFILES_DIR/skills-lock.json" "$ANTIGRAVITY_DIR/skills-lock.json" 2>/dev/null
     cd "$ANTIGRAVITY_DIR"
     if [ -n "$(git status --porcelain)" ]; then
       git add -A
