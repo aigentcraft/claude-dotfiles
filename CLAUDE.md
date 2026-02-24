@@ -47,7 +47,15 @@
 - 修正があれば随時反映し、フォルダ相互の関連性を常に確認しながら開発を進めること
 - これにより別セッション・別マシンからでもプロジェクト構造を即座に把握できるようにする
 
+## 知識ベース自動同期（必須）
+- **セッション開始時に必ず** `bash ~/claude-dotfiles/scripts/sync.sh pull` を実行すること
+  - これにより antigravity-dotfiles の最新 knowledge・skills が自動的に反映される
+- pull 後に `~/claude-dotfiles/knowledge/error-graph/moc.md` が存在すれば読み、蓄積された知識を確認すること
+- タスク完了時は `bash ~/claude-dotfiles/scripts/sync.sh push` で知識を同期すること
+- **新しいマシンでの初回セットアップ**: `bash ~/claude-dotfiles/scripts/bootstrap.sh` を実行すること
+
 ## 開発環境
 - Windows PC と Mac の2台で開発中
 - Claude Code の設定は claude-dotfiles リポジトリで同期している
+- 知識は antigravity-dotfiles ↔ claude-dotfiles ↔ ~/.claude/ の3層でブリッジ同期
 - npm install には基本的に `--legacy-peer-deps` を試すこと（peer dep 競合が多い）

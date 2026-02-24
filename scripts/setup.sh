@@ -13,6 +13,7 @@ echo ""
 
 # Ensure .claude directory exists
 mkdir -p "$CLAUDE_DIR/skills"
+mkdir -p "$CLAUDE_DIR/knowledge"
 
 # --- settings.json ---
 if [ -f "$CLAUDE_DIR/settings.json" ] && [ ! -L "$CLAUDE_DIR/settings.json" ]; then
@@ -49,11 +50,25 @@ for skill_dir in "$DOTFILES_DIR/skills"/*/; do
   echo "[link] skills/$skill_name"
 done
 
+# --- knowledge (symlink dir if exists, otherwise leave for sync to populate) ---
+if [ -d "$DOTFILES_DIR/knowledge" ]; then
+  if [ -d "$CLAUDE_DIR/knowledge" ] && [ ! -L "$CLAUDE_DIR/knowledge" ]; then
+    echo "[backup] knowledge/ -> knowledge.bak"
+    mv "$CLAUDE_DIR/knowledge" "$CLAUDE_DIR/knowledge.bak"
+  fi
+  [ -L "$CLAUDE_DIR/knowledge" ] && rm "$CLAUDE_DIR/knowledge"
+  ln -sf "$DOTFILES_DIR/knowledge" "$CLAUDE_DIR/knowledge"
+  echo "[link] knowledge/"
+fi
+
 echo ""
 echo "=== Setup complete! ==="
 echo ""
-echo "Auto-sync (optional):"
+echo "Next: pull latest knowledge from all sources:"
+echo "  bash $DOTFILES_DIR/scripts/sync.sh pull"
+echo ""
+echo "Auto-sync in background (optional):"
 echo "  bash $DOTFILES_DIR/scripts/sync.sh watch"
 echo ""
-echo "Or add to shell startup (~/.bashrc or ~/.zshrc):"
+echo "Or add to shell startup (~/.zshrc or ~/.bashrc):"
 echo "  bash $DOTFILES_DIR/scripts/sync.sh pull"

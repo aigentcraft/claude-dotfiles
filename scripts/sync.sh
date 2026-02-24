@@ -4,6 +4,7 @@
 
 DOTFILES_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 CLAUDE_DIR="$HOME/.claude"
+ANTIGRAVITY_DIR="$HOME/antigravity-dotfiles"
 
 # Copy files from dotfiles repo to ~/.claude/ (for Windows where symlinks may not work)
 apply_to_claude() {
@@ -16,6 +17,24 @@ apply_to_claude() {
     mkdir -p "$CLAUDE_DIR/skills/$skill_name"
     cp -rf "$skill_dir"* "$CLAUDE_DIR/skills/$skill_name/" 2>/dev/null
   done
+  # Knowledge: copy to ~/.claude/knowledge/
+  if [ -d "$DOTFILES_DIR/knowledge" ]; then
+    mkdir -p "$CLAUDE_DIR/knowledge"
+    cp -Rf "$DOTFILES_DIR/knowledge/"* "$CLAUDE_DIR/knowledge/" 2>/dev/null
+  fi
+}
+
+# Bridge: pull latest knowledge/skills from antigravity-dotfiles into claude-dotfiles
+bridge_from_antigravity() {
+  if [ -d "$ANTIGRAVITY_DIR" ]; then
+    echo "[claude-dotfiles] Bridging knowledge from antigravity-dotfiles..."
+    cd "$ANTIGRAVITY_DIR"
+    git pull --rebase 2>/dev/null || git pull
+    mkdir -p "$DOTFILES_DIR/knowledge" "$DOTFILES_DIR/skills"
+    [ -d "$ANTIGRAVITY_DIR/knowledge" ] && cp -Rf "$ANTIGRAVITY_DIR/knowledge/"* "$DOTFILES_DIR/knowledge/" 2>/dev/null
+    [ -d "$ANTIGRAVITY_DIR/skills" ]   && cp -Rf "$ANTIGRAVITY_DIR/skills/"*   "$DOTFILES_DIR/skills/"   2>/dev/null
+    echo "[claude-dotfiles] Bridge complete."
+  fi
 }
 
 # Copy files from ~/.claude/ back to dotfiles repo (detect local changes)
@@ -28,6 +47,7 @@ sync_pull() {
   echo "[claude-dotfiles] Pulling latest..."
   cd "$DOTFILES_DIR"
   git pull --rebase 2>/dev/null || git pull
+  bridge_from_antigravity
   apply_to_claude
   echo "[claude-dotfiles] Pull & apply complete."
 }
