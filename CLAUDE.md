@@ -59,3 +59,18 @@
 - Claude Code の設定は claude-dotfiles リポジトリで同期している
 - 知識は antigravity-dotfiles ↔ claude-dotfiles ↔ ~/.claude/ の3層でブリッジ同期
 - npm install には基本的に `--legacy-peer-deps` を試すこと（peer dep 競合が多い）
+
+## 現在の作業状態
+
+### 完了済み
+- スマホ・Web対応 SessionStart フック実装（2026-02-24）
+  - `.claude/hooks/session-start.sh`: Webセッション開始時に settings.json / CLAUDE.md / skills / knowledge を自動適用
+  - `.claude/settings.json`: フックを SessionStart イベントに登録
+  - `CLAUDE_CODE_REMOTE=true` の場合のみ実行（ローカル環境は影響なし）
+
+### 未解決・次のタスク
+- スマホからの使い方: claude.ai をブラウザで開き、このリポジトリを開くとフックが自動実行される
+- 必要なら async モード（バックグラウンド実行）に変更可能（現在は同期モード）
+
+### 環境情報
+- 特に必要な環境変数なし（フックは CLAUDE_CODE_REMOTE / CLAUDE_PROJECT_DIR を自動参照）
