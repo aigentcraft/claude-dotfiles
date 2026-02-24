@@ -1,16 +1,67 @@
 ---
-name: skill-auto-installer
-description: ユーザーの目的に合わせてGitHub等から有用なAntigravity Skillを自動検索、評価、インストールします。
+name: skill-installer
+description: ユーザーの目的に合わせて skills.sh レジストリから有用なスキルを検索・インストールします。「〇〇のスキルを探して」「〇〇できるスキルある？」「スキルをインストールして」などと言われたら使用してください。
 ---
-# Skill Auto Installer
 
-## 実行手順
-1. **要件定義**: ユーザーが実装したいシステム（例：自動化ツール、Webアプリなど）をヒアリングします。
-2. **検索フェーズ**: 
-   - ターミナルで `curl` や専用の検索スクリプトを用い、GitHub（例: `guanyang/antigravity-skills` のような公開リポジトリ）やWeb記事から、目的に合致する `SKILL.md` の記述例やスクリプトを検索・抽出してください。
-3. **評価フェーズ**: 
-   - 見つけたSkillが現在のプロジェクトに有用か（依存関係やセキュリティリスクがないか）を評価し、ユーザーに提案します。
-4. **インストールフェーズ**:
-   - 承認を得たら、`skills/<新規スキル名>/` ディレクトリを自動作成します。
-   - 抽出した内容をもとに `SKILL.md` （および必要な `scripts/` 等）を適切な形式で生成し、保存してください。
-   - **（最重要ステップ）**: 新しいスキルファイルを保存した直後、必ず `knowledge/skills-moc.md` を開き、新スキルのリンクを追加してください。（例: `- [[../skills/<新規スキル名>/SKILL.md|<新規スキル名>]] : <機能の説明>`）
+# Skill Installer
+
+`npx skills` CLI（skills.sh）を使ってスキルを検索・インストールします。
+
+## スキル検索
+
+```bash
+# キーワードで検索
+npx skills search <keyword>
+
+# 例
+npx skills search copywriting
+npx skills search testing
+npx skills search nextjs
+```
+
+検索結果には `owner/repo@skill名` と install数が表示されます。人気順に表示されるので、上位のものが信頼性が高い傾向にあります。
+
+## スキルのインストール
+
+```bash
+# グローバルインストール（推奨: Claude Code + Antigravity 両方に反映）
+npx skills add <owner/repo> --skill <skill名> --global --yes
+
+# 例
+npx skills add coreyhaines31/marketingskills --skill copywriting --global --yes
+
+# GitHub URL でも可
+npx skills add https://github.com/coreyhaines31/marketingskills --skill copywriting --global --yes
+
+# リポジトリ内の全スキルをインストール
+npx skills add <owner/repo> --all
+```
+
+## インストール後の同期
+
+インストール後は必ず claude-dotfiles と antigravity-dotfiles に同期すること：
+
+```bash
+bash ~/claude-dotfiles/scripts/sync.sh push
+```
+
+これにより knowledge/skills-moc.md も含めて GitHub に反映され、
+他のデバイスや他のツールでも同じスキルが使えるようになります。
+
+## インストール済みスキルの確認
+
+```bash
+npx skills list
+```
+
+## スキルの更新
+
+```bash
+npx skills update
+```
+
+## 注意事項
+
+- `--global` フラグを付けると `~/.agents/skills/` にインストールされ、Claude Code・Antigravity・Gemini CLI などに自動でシンボリックリンクされます
+- インストール時にセキュリティリスク評価（Gen/Socket/Snyk）が自動で行われます
+- スキルはエージェントにフルパーミッションで渡されるため、インストール前に概要を確認してください
