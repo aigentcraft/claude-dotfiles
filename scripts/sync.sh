@@ -38,9 +38,34 @@ bridge_from_antigravity() {
 }
 
 # Copy files from ~/.claude/ back to dotfiles repo (detect local changes)
+# ※ symlink環境では不要だが Windows のコピー運用向けに knowledge も回収する
 collect_from_claude() {
   cp -f "$CLAUDE_DIR/settings.json" "$DOTFILES_DIR/settings.json" 2>/dev/null
   cp -f "$CLAUDE_DIR/CLAUDE.md" "$DOTFILES_DIR/CLAUDE.md" 2>/dev/null
+  # Knowledge: ~/.claude/knowledge/ に追記された内容を claude-dotfiles に回収
+  if [ -d "$CLAUDE_DIR/knowledge" ] && [ ! -L "$CLAUDE_DIR/knowledge" ]; then
+    mkdir -p "$DOTFILES_DIR/knowledge"
+    cp -Rf "$CLAUDE_DIR/knowledge/"* "$DOTFILES_DIR/knowledge/" 2>/dev/null
+  fi
+}
+
+# Bridge: claude-dotfiles の knowledge/skills を antigravity-dotfiles に書き戻す
+bridge_to_antigravity() {
+  if [ -d "$ANTIGRAVITY_DIR" ]; then
+    echo "[claude-dotfiles] Bridging knowledge back to antigravity-dotfiles..."
+    mkdir -p "$ANTIGRAVITY_DIR/knowledge" "$ANTIGRAVITY_DIR/skills"
+    [ -d "$DOTFILES_DIR/knowledge" ] && cp -Rf "$DOTFILES_DIR/knowledge/"* "$ANTIGRAVITY_DIR/knowledge/" 2>/dev/null
+    [ -d "$DOTFILES_DIR/skills" ]   && cp -Rf "$DOTFILES_DIR/skills/"*   "$ANTIGRAVITY_DIR/skills/"   2>/dev/null
+    cd "$ANTIGRAVITY_DIR"
+    if [ -n "$(git status --porcelain)" ]; then
+      git add -A
+      git commit -m "auto-sync (from Claude Code): $(date '+%Y-%m-%d %H:%M:%S')"
+      git push
+      echo "[claude-dotfiles] antigravity-dotfiles push complete."
+    else
+      echo "[claude-dotfiles] No changes to push to antigravity-dotfiles."
+    fi
+  fi
 }
 
 sync_pull() {
@@ -55,6 +80,7 @@ sync_pull() {
 sync_push() {
   cd "$DOTFILES_DIR"
   collect_from_claude
+  # 1. claude-dotfiles を GitHub に push
   if [ -n "$(git status --porcelain)" ]; then
     echo "[claude-dotfiles] Changes detected, pushing..."
     git add -A
@@ -64,6 +90,8 @@ sync_push() {
   else
     echo "[claude-dotfiles] No changes to push."
   fi
+  # 2. antigravity-dotfiles にも書き戻して push（双方向 HIVEMIND）
+  bridge_to_antigravity
 }
 
 sync_watch() {
