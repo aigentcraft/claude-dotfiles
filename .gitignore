@@ -1,3 +1,8 @@
+# macOS
+.DS_Store
+.DS_Store?
+._*
+
 # Never sync credentials or local-only settings
 .credentials.json
 settings.local.json
