@@ -38,10 +38,11 @@ Common triggers for Type B:
 
 ## Phase 1: CHECK (Before starting any complex task)
 
-1. Read `~/claude-dotfiles/knowledge/error-graph/moc.md`
-2. Identify nodes relevant to current task or error
-3. Read relevant nodes
-4. **Apply Prevention Strategies** before acting
+1. Read `~/claude-dotfiles/knowledge/error-graph/moc.md` (Layer 2: lightweight index)
+2. Apply **Quick Rules** from the MOC immediately
+3. Identify relevant **Cluster(s)** from the MOC table and load them (Layer 1)
+4. Read individual nodes from `nodes/` only if cluster summary is insufficient (Layer 0)
+5. **Apply Prevention Strategies** before acting
 
 ---
 
@@ -125,10 +126,25 @@ correction_category: "[see categories below]"
 
 ---
 
-## Updating the MOC
+## Updating the Knowledge Graph (3-step process)
 
-After creating any node, add a wikilink to `moc.md` under the relevant category:
+After creating any node:
 
+### Step 1: Update the Cluster (Layer 1) — 必須
+Open the relevant cluster file in `clusters/` and:
+- Add the new node to the "ノード一覧" section
+- Add or update a "蒸留ルール" if the node introduces a new behavioral rule
+- Update the `Node count` and `Last updated` footer
+
+### Step 2: Update the MOC (Layer 2) — 必須
+Add a wikilink to `moc.md` under "全ノードインデックス" with its cluster label:
 ```
-- [[nodes/uc-abstract-knowledge-label.md]] - uc: Used abstract "重要な知見" instead of concrete categories
+- [[nodes/new-node.md]] — `cluster-name` cluster
 ```
+Update the cluster table's node count if it changed.
+
+### Step 3: Check Escalation Rules — 昇格チェック
+After every update, check the MOC's "スケールメンテナンスルール" table:
+- If the cluster now has **3+ nodes on the same topic** → distill a new rule into the cluster
+- If cluster rules reach **5+** → promote top rules to MOC Quick Rules
+- If Quick Rules reach **10+** → promote to `SKILL.md` behavioral rules section
