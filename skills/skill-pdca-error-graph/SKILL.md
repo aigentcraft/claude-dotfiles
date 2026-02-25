@@ -5,32 +5,56 @@ description: An automated self-correction system that instructs the AI to record
 
 # PDCA Error Knowledge Graph Skill
 
-This skill implements the "Plan, Do, Check, Act" (PDCA) cycle for AI self-correction. Instead of making the same mistake twice, you will proactively consult past failures before acting and automatically document new failures when they occur.
+This skill implements the "Plan, Do, Check, Act" (PDCA) cycle for AI self-correction.
+Instead of making the same mistake twice, proactively consult past failures before acting and automatically document new failures when they occur.
 
 ## The Knowledge Graph Directory
-The error graph is located at:
-`c:\Users\user\.gemini\antigravity\knowledge\error-graph\`
 
-- `moc.md`: The Map of Content (Index).
-- `nodes/`: The directory containing individual markdown files for each failure case.
+```
+~/claude-dotfiles/knowledge/error-graph/
+  moc.md          ← Index of all nodes
+  nodes/          ← Individual markdown files per failure case
+  timestamps.json ← Last-updated tracking
+```
 
-## Phase 1: CHECK (Before starting a task or debugging an error)
-Whenever you encounter an error (e.g., a crash, a build failure, API limit) or before starting a complex task:
-1. Use `view_file` to read `c:\Users\user\.gemini\antigravity\knowledge\error-graph\moc.md`.
-2. See if there are any linked nodes relevant to your current error or task.
-3. If a relevant node exists, read it using `view_file`.
-4. **Apply the Prevention Strategy** documented in that node to your current plan.
+---
 
-## Phase 2: ACT / RECORD (After resolving a new error)
-Whenever you successfully fix a bug or resolve an error that cost you multiple steps or was not immediately obvious, you **MUST** document it so you do not repeat it.
+## PDCA Record Types
 
-1. **Create a Node:** Use `write_to_file` to create a new markdown file in `c:\Users\user\.gemini\antigravity\knowledge\error-graph\nodes\`.
-   - Name the file descriptively (e.g., `api-rate-limit-exceeded.md`).
-   - The file MUST contain YAML frontmatter and PDCA sections as shown below:
+### Type A: Technical Error
+**When to record**: A code error, build failure, API limit, or tool issue required multiple steps to resolve and was not immediately obvious.
+
+### Type B: User Correction
+**When to record**: The user had to correct, redirect, or add requirements AFTER Claude produced output — meaning Claude failed to fulfill the intent on the first attempt.
+
+Common triggers for Type B:
+- User says "そうじゃなくて" / "それは違う" / "〜してほしかった"
+- User adds follow-up requirements that should have been addressed upfront
+- User repeats an instruction Claude already received but ignored
+- Claude over-engineered when simplicity was asked
+- Claude used abstract/vague language when specificity was needed
+
+---
+
+## Phase 1: CHECK (Before starting any complex task)
+
+1. Read `~/claude-dotfiles/knowledge/error-graph/moc.md`
+2. Identify nodes relevant to current task or error
+3. Read relevant nodes
+4. **Apply Prevention Strategies** before acting
+
+---
+
+## Phase 2: ACT / RECORD
+
+### Template A: Technical Error Node
+
+File: `nodes/[descriptive-slug].md`
 
 ```markdown
 ---
 title: "[Short title of the error]"
+type: "technical-error"
 description: "[1-2 sentence description of what failed and the key takeaway]"
 tags: ["[tag1]", "[tag2]"]
 relationships:
@@ -43,17 +67,68 @@ relationships:
 [What were you trying to do when the error occurred?]
 
 ## 2. Do / The Error
-[What was the explicit error message, stack trace, or failure behavior? Include code snippets if helpful.]
+[What was the explicit error message, stack trace, or failure behavior?]
 
 ## 3. Check / Root Cause
-[Why did it fail? What was the underlying misunderstanding or missing configuration?]
+[Why did it fail?]
 
-## 4. Act / Prevention Strategy (Fix)
-[How did you fix it? AND MORE IMPORTANTLY: What specific action should the AI take in the future to NEVER make this mistake again?]
+## 4. Act / Prevention Strategy
+[How did you fix it? What must the AI do differently next time?]
 ```
 
-2. **Update the MOC:** Use `replace_file_content` or `multi_replace_file_content` to add a wikilink to your new node in `c:\Users\user\.gemini\antigravity\knowledge\error-graph\moc.md`.
-   - Add it under the relevant category heading.
-   - Example format: `- [[nodes/api-rate-limit-exceeded.md]] - [Short title]`
+---
 
-By strictly adhering to this skill, you will continuously build a searchable, associative memory of past mistakes and drastically improve your efficiency.
+### Template B: User Correction Node
+
+File: `nodes/uc-[descriptive-slug].md`  (prefix `uc-` for User Correction)
+
+```markdown
+---
+title: "[Short title of the misalignment]"
+type: "user-correction"
+description: "[What the user had to correct and what the correct intent was]"
+tags: ["user-correction", "[context-tag]"]
+correction_category: "[see categories below]"
+---
+
+## 1. Plan / What was asked
+[What the user originally requested]
+
+## 2. Do / What Claude actually produced
+[What Claude said or did that fell short of the intent]
+
+## 3. Check / Why the user had to correct
+[The specific gap. Classify by correction_category:]
+- `misunderstood-requirements` — Claude misread what was wanted
+- `over-engineered` — Claude added unnecessary complexity
+- `missed-explicit-instruction` — User had already said it; Claude ignored it
+- `wrong-assumption` — Claude assumed without confirming
+- `too-abstract` — Claude used vague language when concrete specifics were needed
+- `incomplete-output` — Only part of the request was fulfilled
+
+## 4. Act / Behavioral Rule for Next Time
+[Specific, concrete rule: "Next time when X, I must Y. Never do Z."]
+```
+
+---
+
+## Phase 3: END-OF-SESSION CHECKPOINT (Mandatory)
+
+**Before completing any task or pushing code**, pause and reflect:
+
+> "Did the user have to correct me or add follow-up requirements during this session?"
+
+- If YES → Create a Type B node documenting the correction
+- If a technical error was encountered → Create a Type A node
+
+**This reflection CANNOT be skipped. It is a hard prerequisite to marking any task as complete.**
+
+---
+
+## Updating the MOC
+
+After creating any node, add a wikilink to `moc.md` under the relevant category:
+
+```
+- [[nodes/uc-abstract-knowledge-label.md]] - uc: Used abstract "重要な知見" instead of concrete categories
+```
