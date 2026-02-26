@@ -1,5 +1,17 @@
 {
   "autoUpdatesChannel": "latest",
   "effortLevel": "high",
-  "model": "opus"
+  "model": "opus",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash $HOME/claude-dotfiles/.claude/hooks/session-start.sh"
+          }
+        ]
+      }
+    ]
+  }
 }

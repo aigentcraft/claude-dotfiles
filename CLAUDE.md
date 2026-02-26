@@ -59,9 +59,8 @@
 - セッション内では `~/claude-dotfiles` への直接 push ができないため、**staging 経由で同期**する
 - エラーノード・知識ファイルは `.claude-knowledge-staging/` ディレクトリに配置して push する
 - push をトリガーに GitHub Actions が自動で `claude-dotfiles` の `knowledge/` に同期し、staging を削除する
-- **新しいプロジェクトへの導入手順**:
-  1. `claude-dotfiles/templates/sync-knowledge-to-dotfiles.yml` を対象リポジトリの `.github/workflows/` にコピーする
-  2. 対象リポジトリの Settings > Secrets に `CLAUDE_DOTFILES_PAT`（claude-dotfiles への write 権限付き PAT）を登録する
+- **ワークフローの自動インストール**: セッション開始時に `session-start.sh` が自動で `.github/workflows/sync-knowledge-to-dotfiles.yml` を検出・インストールする（手動コピー不要）
+- **新しいプロジェクトへの唯一の手動作業**: 対象リポジトリの Settings > Secrets に `CLAUDE_DOTFILES_PAT`（claude-dotfiles への write 権限付き PAT）を一度だけ登録する
 
 ### 共通：セッション開始時に以下を順番に読むこと
 1. `~/claude-dotfiles/knowledge/me.md` — ユーザーの個人コンテキスト（最優先で読む）
@@ -114,9 +113,14 @@
   - CLAUDE.md「知識ベース自動同期」をローカル／Web の2方式に分けて更新
   - エラーノード2件追加: `supabase-v2-types-resolve-never.md`・`ai-sdk-v6-renamed-properties.md`
   - MOC に `database-orm`・`sdk-migration` クラスター追加
+- ワークフロー自動インストール機能実装（2026-02-26）
+  - `session-start.sh` 改修: セッション開始時に対象プロジェクトへ `sync-knowledge-to-dotfiles.yml` を自動コピー・commit・push
+  - `settings.json`（root）にフック追加: `~/.claude/settings.json` 経由で全プロジェクトのセッション開始時にフックが動くよう設定
+  - DOTFILES_DIR をスクリプト位置から固定パスで取得するよう refactor
+  - 手動コピー作業を完全撤廃（PAT シークレット登録のみ残る）
 
 ### 未解決・次のタスク
-- 各プロジェクトに `sync-knowledge-to-dotfiles.yml` をコピーして `CLAUDE_DOTFILES_PAT` シークレットを設定する（Maia-ai など）
+- 各プロジェクトの Settings > Secrets に `CLAUDE_DOTFILES_PAT` を登録する（Maia-ai など）※ワークフロー自体はセッション開始時に自動インストール
 - Skills GraphRAG の実際の挙動を検証し、補完エッジを調整する
 - me.md の Conversation Log を会話ごとに積み上げていく（次セッション以降）
 
