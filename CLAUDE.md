@@ -51,10 +51,20 @@
 - **セッション開始時に必ず** `bash ~/claude-dotfiles/scripts/sync.sh pull` を実行すること
   - これにより antigravity-dotfiles の最新 knowledge・skills が自動的に反映される
 - pull 後に以下を順番に読むこと:
-  1. `~/claude-dotfiles/knowledge/error-graph/moc.md` — 失敗の知識・Quick Rules
-  2. `~/claude-dotfiles/knowledge/skills-moc.md` — スキル一覧と合成プロトコル
+  1. `~/claude-dotfiles/knowledge/me.md` — ユーザーの個人コンテキスト（最優先で読む）
+  2. `~/claude-dotfiles/knowledge/error-graph/moc.md` — 失敗の知識・Quick Rules
+  3. `~/claude-dotfiles/knowledge/skills-moc.md` — スキル一覧と合成プロトコル
 - タスク完了時は `bash ~/claude-dotfiles/scripts/sync.sh push` で知識を同期すること
 - **新しいマシンでの初回セットアップ**: `bash ~/claude-dotfiles/scripts/bootstrap.sh` を実行すること
+
+## Personal Memory ルール（必須）
+- セッション開始時に `~/claude-dotfiles/knowledge/me.md` を読み、ユーザーの人物・目標・文脈を把握すること
+- 会話の中で以下が発生したら `me.md` の該当セクションを更新すること:
+  - 重要な気づき・決断 → Conversation Log に追記
+  - 新しい技術習得・実績 → Growth Map に追記
+  - 目標の変化・明確化 → Goals を更新
+- commit & push 時は CLAUDE.md・GRAPH_RAG.md と合わせて me.md も確認・更新すること
+- AIは「もう1人の土屋健太」として振る舞い、目標達成の「半歩先」を常に意識すること
 
 ## Skills GraphRAG ルール（必須）
 - スキルを使用する際は **1スキル発見→即実行を禁止** とする
@@ -80,11 +90,16 @@
   - `knowledge/skills-moc.md`: 合成プロトコル追加（1スキル即実行禁止ルール）
   - `GRAPH_RAG.md`: プロジェクト構造グラフ新設
   - 4クラスター（X/SNS・画像生成・プロジェクト管理・開発）の補完関係を定義
+- Personal Memory 実装（2026-02-26）
+  - `knowledge/me.md`: ユーザー（土屋健太）の人物・キャリア・目標・会話ログを記録する個人コンテキストファイル
+  - CLAUDE.md に `Personal Memory ルール` 追加（セッション開始時の読み込み・更新ルール）
+  - 読み込み順序の更新: me.md → error-graph → skills-moc の順に
 
 ### 未解決・次のタスク
 - スマホからの使い方: claude.ai をブラウザで開き、このリポジトリを開くとフックが自動実行される
 - 必要なら async モード（バックグラウンド実行）に変更可能（現在は同期モード）
 - Skills GraphRAG の実際の挙動を検証し、補完エッジを調整する
+- me.md の Conversation Log を会話ごとに積み上げていく（次セッション以降）
 
 ### 環境情報
 - 特に必要な環境変数なし（フックは CLAUDE_CODE_REMOTE / CLAUDE_PROJECT_DIR を自動参照）
