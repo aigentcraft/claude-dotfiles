@@ -11,12 +11,13 @@ DOTFILES_DIR="$(cd "$(dirname "$0")/../.." && pwd)"
 CLAUDE_DIR="$HOME/.claude"
 
 # 現在開いているプロジェクト（Claude Code が CLAUDE_PROJECT_DIR にセット）
-# 未設定の場合は claude-dotfiles 自身と見なす
-CURRENT_PROJECT="${CLAUDE_PROJECT_DIR:-$DOTFILES_DIR}"
+# 未設定の場合は $PWD（フック実行時のプロジェクトルート）を使う
+CURRENT_PROJECT="${CLAUDE_PROJECT_DIR:-$PWD}"
 
 echo "=== claude-dotfiles: Setting up web session ==="
 echo "Dotfiles dir:    $DOTFILES_DIR"
 echo "Current project: $CURRENT_PROJECT"
+echo "  (CLAUDE_PROJECT_DIR=${CLAUDE_PROJECT_DIR:-<not set, used PWD>})"
 echo "Claude dir:      $CLAUDE_DIR"
 
 # Ensure ~/.claude directories exist
