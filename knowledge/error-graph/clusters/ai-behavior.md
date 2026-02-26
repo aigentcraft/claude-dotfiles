@@ -28,6 +28,12 @@
 - **チェック**: 「ユーザーが一緒に成長したい・PDCAを回したい」= AIの行動改善の話。ストレージ設計に終始しない
 - 詳細: [[../nodes/uc-abstract-knowledge-label.md]]
 
+### R5: セッション宣言 vs 仕組み — 口頭約束は無効
+「次回からやります」という発言はセッションが終わると消える。何も変わらない。
+- **対策**: 宣言した瞬間にファイルへ書き込む。書いてコミットして初めて有効
+- **判断基準**: 「次回から〜」と言いそうになったら → 今すぐ CLAUDE.md か error-graph に書く
+- 詳細: [[../nodes/uc-session-promise-vs-system.md]]
+
 ### R4: セマンティックリンク — エッジの意味を明記する
 `[[link]]` だけでは関係の種類が不明。AIも人間もグラフの意味を正確に把握できない。
 - **対策**: リンクには必ずエッジタイプを明記（`caused_by`, `related_to`, `fixes` 等）
@@ -45,6 +51,7 @@
 | ナレッジシステムや記録システムを設計する | R3: 抽象ラベルを使わず具体的なカテゴリで定義する |
 | グラフにリンクを追加する | R4: エッジタイプを明記する |
 | ユーザーが「成長」「PDCA」と言った | R3: ストレージではなく行動改善の設計をする |
+| AIが「次回からやります」と言った | R5: 今すぐファイルに書いてコミットする |
 
 ---
 
@@ -54,6 +61,7 @@
 - [[../nodes/ai-instruction-enforcement.md]] — `ai-behavior`, `prompt-engineering`, `pdca`
 - [[../nodes/uc-abstract-knowledge-label.md]] — `user-correction`, `too-abstract`, `knowledge-design`
 - [[../nodes/semantic-graph-relationships.md]] — `system-design`, `knowledge-graph`, `semantics`
+- [[../nodes/uc-session-promise-vs-system.md]] — `user-correction`, `too-ephemeral`, `system-design`
 
 ---
 
@@ -61,4 +69,4 @@
 
 > 次回レビュー時: R1〜R4 は十分に検証済み → SKILL.md の "行動ルール" セクションへの昇格を検討する
 
-*Last updated: 2026-02-25 | Node count: 4*
+*Last updated: 2026-02-26 | Node count: 5*

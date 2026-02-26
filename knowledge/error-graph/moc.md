@@ -18,6 +18,7 @@
 3. **外部APIの `await`**: 必ずタイムアウトで包む（`Promise.race` 等）。タイムアウトなし `await` は禁止
 4. **設計提案の具体化**: 「誰が・いつ・何をトリガーに・何を書くか」まで具体化する。抽象ラベル（「重要な知見」等）禁止
 5. **バグ修正コミットの出口条件**: バグ修正コミットを作る前に必ずエラーノード（`nodes/` + クラスター更新 + MOC 追記）を作成する。コミットメッセージに `fix:` が含まれる場合は必須
+6. **セッション宣言は無効**: 「次回からやります」は何も変えない。宣言したい内容は **今すぐ** CLAUDE.md か error-graph に書いてコミットする
 
 ---
 
@@ -66,6 +67,7 @@
 ### [Type B] User Corrections (uc-)
 - [[nodes/uc-abstract-knowledge-label.md]] — `ai-behavior` cluster (`too-abstract`)
 - [[nodes/copywriting-indirect-motivation.md]] — `copywriting-psychology` cluster
+- [[nodes/uc-session-promise-vs-system.md]] — `ai-behavior` cluster (`too-ephemeral`)
 
 ---
 
