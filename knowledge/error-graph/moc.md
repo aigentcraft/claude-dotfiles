@@ -27,6 +27,9 @@
 | [[clusters/ai-behavior.md]] | AI行動パターン・システム設計・知識グラフ設計 | 4 | AI設計・スケール・ナレッジシステム系タスク |
 | [[clusters/api-network.md]] | API/ネットワーク・非同期・タイムアウト | 2 | 外部API・ネットワークリクエストを書く時 |
 | [[clusters/platform-syntax.md]] | PowerShell/Windows固有の構文エラー | 1 | PowerShell・Windowsスクリプト作業時 |
+| [[clusters/copywriting-psychology.md]] | コピーライティング心理学・間接的動機づけ設計 | 1 | 記事・LP・SNS投稿のコピーを書く時 |
+| `database-orm` | Database/ORM の型・スキーマ・クエリエラー | 1 | Supabase・Prisma・ORM を使う時 |
+| `sdk-migration` | SDK バージョンアップグレード時のブレーキングチェンジ | 1 | ライブラリをアップグレードする時 |
 
 ---
 
@@ -54,9 +57,12 @@
 - [[nodes/powershell-hash-literal-git.md]] — `platform-syntax` cluster
 - [[nodes/semantic-graph-relationships.md]] — `ai-behavior` cluster
 - [[nodes/slack-api-silent-hang.md]] — `api-network` cluster
+- [[nodes/supabase-v2-types-resolve-never.md]] — `database-orm` cluster
+- [[nodes/ai-sdk-v6-renamed-properties.md]] — `sdk-migration` cluster
 
 ### [Type B] User Corrections (uc-)
 - [[nodes/uc-abstract-knowledge-label.md]] — `ai-behavior` cluster (`too-abstract`)
+- [[nodes/copywriting-indirect-motivation.md]] — `copywriting-psychology` cluster
 
 ---
 

@@ -1,0 +1,111 @@
+name: Sync Knowledge to claude-dotfiles
+
+on:
+  push:
+    paths:
+      - '.claude-knowledge-staging/**'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    # .claude-knowledge-staging への同期コミット自身では再実行しない
+    if: "!contains(github.event.head_commit.message, '[knowledge-sync]')"
+
+    steps:
+      - name: Checkout source repo
+        uses: actions/checkout@v4
+
+      - name: Checkout claude-dotfiles
+        uses: actions/checkout@v4
+        with:
+          repository: aigentcraft/claude-dotfiles
+          token: ${{ secrets.CLAUDE_DOTFILES_PAT }}
+          path: claude-dotfiles
+
+      - name: Sync knowledge files
+        run: |
+          set -e
+          STAGING=".claude-knowledge-staging"
+          DEST="claude-dotfiles"
+
+          # ターゲットディレクトリを確保
+          mkdir -p "$DEST/knowledge/error-graph/nodes"
+
+          # --- .md ファイルの同期 ---
+          find "$STAGING" -maxdepth 1 -name "*.md" | while read f; do
+            filename=$(basename "$f")
+            # HANDOFF- / moc- / README 始まりはノードにコピーしない
+            if [[ "$filename" == HANDOFF-* ]] || [[ "$filename" == moc-* ]] || [[ "$filename" == README* ]]; then
+              echo "Skipping $filename (excluded pattern)"
+              continue
+            fi
+            echo "Copying node: $filename"
+            cp "$f" "$DEST/knowledge/error-graph/nodes/$filename"
+          done
+
+          # --- moc-updated.md があれば moc.md に上書き ---
+          if [ -f "$STAGING/moc-updated.md" ]; then
+            echo "Updating moc.md"
+            cp "$STAGING/moc-updated.md" "$DEST/knowledge/error-graph/moc.md"
+          fi
+
+          # --- サブディレクトリは knowledge/ 配下にコピー ---
+          find "$STAGING" -mindepth 1 -maxdepth 1 -type d | while read dir; do
+            dirname=$(basename "$dir")
+            echo "Copying subdirectory: $dirname"
+            mkdir -p "$DEST/knowledge/$dirname"
+            cp -r "$dir/." "$DEST/knowledge/$dirname/"
+          done
+
+          # --- JSON ファイルは error-graph/ 直下にコピー ---
+          find "$STAGING" -maxdepth 1 -name "*.json" | while read f; do
+            filename=$(basename "$f")
+            echo "Copying JSON: $filename"
+            cp "$f" "$DEST/knowledge/error-graph/$filename"
+          done
+
+      - name: Remove staging directory from source repo and commit
+        run: |
+          set -e
+          # staging ディレクトリを削除してソースリポジトリに push
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git rm -rf ".claude-knowledge-staging" || true
+          if ! git diff --cached --quiet; then
+            git commit -m "[knowledge-sync] remove staging after sync"
+            git push origin ${{ github.ref_name }}
+          fi
+
+      - name: Commit and push to claude-dotfiles (with retry)
+        run: |
+          set -e
+          cd claude-dotfiles
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add -A
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+
+          git commit -m "[knowledge-sync] sync from ${{ github.repository }}@${{ github.sha }}"
+
+          # Push with exponential backoff retry (up to 4 times)
+          for attempt in 1 2 3 4; do
+            echo "Push attempt $attempt..."
+            if git push origin master; then
+              echo "Push succeeded"
+              exit 0
+            fi
+            if [ $attempt -lt 4 ]; then
+              sleep_sec=$((2 ** attempt))
+              echo "Push failed, retrying in ${sleep_sec}s..."
+              sleep $sleep_sec
+              git pull --rebase origin master
+            fi
+          done
+
+          echo "All push attempts failed"
+          exit 1

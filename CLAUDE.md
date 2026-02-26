@@ -48,14 +48,25 @@
 - これにより別セッション・別マシンからでもプロジェクト構造を即座に把握できるようにする
 
 ## 知識ベース自動同期（必須）
+
+### ローカルマシン（Windows / Mac）
 - **セッション開始時に必ず** `bash ~/claude-dotfiles/scripts/sync.sh pull` を実行すること
   - これにより antigravity-dotfiles の最新 knowledge・skills が自動的に反映される
-- pull 後に以下を順番に読むこと:
-  1. `~/claude-dotfiles/knowledge/me.md` — ユーザーの個人コンテキスト（最優先で読む）
-  2. `~/claude-dotfiles/knowledge/error-graph/moc.md` — 失敗の知識・Quick Rules
-  3. `~/claude-dotfiles/knowledge/skills-moc.md` — スキル一覧と合成プロトコル
 - タスク完了時は `bash ~/claude-dotfiles/scripts/sync.sh push` で知識を同期すること
 - **新しいマシンでの初回セットアップ**: `bash ~/claude-dotfiles/scripts/bootstrap.sh` を実行すること
+
+### Claude Code on the Web（スマホ含む）
+- セッション内では `~/claude-dotfiles` への直接 push ができないため、**staging 経由で同期**する
+- エラーノード・知識ファイルは `.claude-knowledge-staging/` ディレクトリに配置して push する
+- push をトリガーに GitHub Actions が自動で `claude-dotfiles` の `knowledge/` に同期し、staging を削除する
+- **新しいプロジェクトへの導入手順**:
+  1. `claude-dotfiles/templates/sync-knowledge-to-dotfiles.yml` を対象リポジトリの `.github/workflows/` にコピーする
+  2. 対象リポジトリの Settings > Secrets に `CLAUDE_DOTFILES_PAT`（claude-dotfiles への write 権限付き PAT）を登録する
+
+### 共通：セッション開始時に以下を順番に読むこと
+1. `~/claude-dotfiles/knowledge/me.md` — ユーザーの個人コンテキスト（最優先で読む）
+2. `~/claude-dotfiles/knowledge/error-graph/moc.md` — 失敗の知識・Quick Rules
+3. `~/claude-dotfiles/knowledge/skills-moc.md` — スキル一覧と合成プロトコル
 
 ## Personal Memory ルール（必須）
 - セッション開始時に `~/claude-dotfiles/knowledge/me.md` を読み、ユーザーの人物・目標・文脈を把握すること
@@ -94,10 +105,18 @@
   - `knowledge/me.md`: ユーザー（土屋健太）の人物・キャリア・目標・会話ログを記録する個人コンテキストファイル
   - CLAUDE.md に `Personal Memory ルール` 追加（セッション開始時の読み込み・更新ルール）
   - 読み込み順序の更新: me.md → error-graph → skills-moc の順に
+- スマホ→claude-dotfiles 間接同期システム実装（2026-02-26）
+  - `templates/sync-knowledge-to-dotfiles.yml`: GitHub Actions ワークフローテンプレート
+    - `.claude-knowledge-staging/` への push をトリガーに claude-dotfiles へ自動同期
+    - HANDOFF- / moc- / README ファイルはノードにコピーしない除外ルール
+    - `[knowledge-sync]` コミットでの再実行防止
+    - push リトライ4回・指数バックオフ対応
+  - CLAUDE.md「知識ベース自動同期」をローカル／Web の2方式に分けて更新
+  - エラーノード2件追加: `supabase-v2-types-resolve-never.md`・`ai-sdk-v6-renamed-properties.md`
+  - MOC に `database-orm`・`sdk-migration` クラスター追加
 
 ### 未解決・次のタスク
-- スマホからの使い方: claude.ai をブラウザで開き、このリポジトリを開くとフックが自動実行される
-- 必要なら async モード（バックグラウンド実行）に変更可能（現在は同期モード）
+- 各プロジェクトに `sync-knowledge-to-dotfiles.yml` をコピーして `CLAUDE_DOTFILES_PAT` シークレットを設定する（Maia-ai など）
 - Skills GraphRAG の実際の挙動を検証し、補完エッジを調整する
 - me.md の Conversation Log を会話ごとに積み上げていく（次セッション以降）
 
