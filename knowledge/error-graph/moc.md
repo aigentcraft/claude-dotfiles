@@ -30,6 +30,7 @@
 | [[clusters/copywriting-psychology.md]] | コピーライティング心理学・間接的動機づけ設計 | 1 | 記事・LP・SNS投稿のコピーを書く時 |
 | `database-orm` | Database/ORM の型・スキーマ・クエリエラー | 1 | Supabase・Prisma・ORM を使う時 |
 | `sdk-migration` | SDK バージョンアップグレード時のブレーキングチェンジ | 1 | ライブラリをアップグレードする時 |
+| [[clusters/shell-hook-env.md]] | Claude Code フック・シェル環境変数の落とし穴 | 1 | Claude Code フック・session-start.sh・シェルスクリプトを書く時 |
 
 ---
 
@@ -59,6 +60,7 @@
 - [[nodes/slack-api-silent-hang.md]] — `api-network` cluster
 - [[nodes/supabase-v2-types-resolve-never.md]] — `database-orm` cluster
 - [[nodes/ai-sdk-v6-renamed-properties.md]] — `sdk-migration` cluster
+- [[nodes/claude-hook-env-project-dir.md]] — `shell-hook-env` cluster
 
 ### [Type B] User Corrections (uc-)
 - [[nodes/uc-abstract-knowledge-label.md]] — `ai-behavior` cluster (`too-abstract`)
