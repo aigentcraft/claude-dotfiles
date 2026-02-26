@@ -62,6 +62,16 @@
 - **ワークフローの自動インストール**: セッション開始時に `session-start.sh` が自動で `.github/workflows/sync-knowledge-to-dotfiles.yml` を検出・インストールする（手動コピー不要）
 - **新しいプロジェクトへの唯一の手動作業**: 対象リポジトリの Settings > Secrets に `CLAUDE_DOTFILES_PAT`（claude-dotfiles への write 権限付き PAT）を一度だけ登録する
 
+### PAT セットアップリマインダールール（必須）
+- セッション開始フック出力に `ACTION REQUIRED: CLAUDE_DOTFILES_PAT` が含まれている場合:
+  - 会話の冒頭で必ずユーザーに PAT 登録を促すこと
+  - 登録手順: GitHub リポジトリ > Settings > Secrets and variables > Actions > New repository secret
+    - Name: `CLAUDE_DOTFILES_PAT` / Value: `claude-dotfiles` への write 権限付き PAT
+- ユーザーが「PAT登録済み」「登録した」「done」「セットアップ済み」等を伝えたら:
+  1. `.claude/.knowledge-sync-ready` ファイルを作成（中身: 登録日時）
+  2. `git add .claude/.knowledge-sync-ready && git commit -m "[knowledge-sync] mark PAT as configured" && git push`
+  3. 以降このプロジェクトでは起動時リマインドが表示されなくなる、とユーザーに伝える
+
 ### 共通：セッション開始時に以下を順番に読むこと
 1. `~/claude-dotfiles/knowledge/me.md` — ユーザーの個人コンテキスト（最優先で読む）
 2. `~/claude-dotfiles/knowledge/error-graph/moc.md` — 失敗の知識・Quick Rules
@@ -118,9 +128,13 @@
   - `settings.json`（root）にフック追加: `~/.claude/settings.json` 経由で全プロジェクトのセッション開始時にフックが動くよう設定
   - DOTFILES_DIR をスクリプト位置から固定パスで取得するよう refactor
   - 手動コピー作業を完全撤廃（PAT シークレット登録のみ残る）
+- PAT セットアップリマインダー実装（2026-02-26）
+  - `session-start.sh`: workflow 存在 + `.claude/.knowledge-sync-ready` 未存在の場合に起動時リマインドを表示
+  - `CLAUDE.md`: AI が会話冒頭でリマインド → ユーザー確認後にマーカーファイルを作成するルール追加
+  - 一度登録すれば以降リマインド非表示（マーカーファイルで管理）
 
 ### 未解決・次のタスク
-- 各プロジェクトの Settings > Secrets に `CLAUDE_DOTFILES_PAT` を登録する（Maia-ai など）※ワークフロー自体はセッション開始時に自動インストール
+- 各プロジェクトの Settings > Secrets に `CLAUDE_DOTFILES_PAT` を登録する（Maia-ai など）※ワークフロー自体はセッション開始時に自動インストール、登録後は「PAT登録済み」と伝えると自動完了
 - Skills GraphRAG の実際の挙動を検証し、補完エッジを調整する
 - me.md の Conversation Log を会話ごとに積み上げていく（次セッション以降）
 

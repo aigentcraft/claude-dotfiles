@@ -103,4 +103,30 @@ if [ "$CURRENT_PROJECT" != "$DOTFILES_DIR" ] && \
   fi
 fi
 
+# ---------------------------------------------------------------
+# PAT setup reminder
+# workflow が存在するが .claude/.knowledge-sync-ready がない場合にリマインド
+# ---------------------------------------------------------------
+PAT_READY_MARKER="$CURRENT_PROJECT/.claude/.knowledge-sync-ready"
+WORKFLOW_CHECK="$CURRENT_PROJECT/.github/workflows/sync-knowledge-to-dotfiles.yml"
+
+if [ "$CURRENT_PROJECT" != "$DOTFILES_DIR" ] && \
+   [ -f "$WORKFLOW_CHECK" ] && \
+   [ ! -f "$PAT_READY_MARKER" ]; then
+  echo ""
+  echo "=========================================================="
+  echo "  ACTION REQUIRED: CLAUDE_DOTFILES_PAT not yet confirmed"
+  echo "=========================================================="
+  echo "  このプロジェクトの knowledge sync を有効にするには:"
+  echo "  GitHub Settings > Secrets and variables > Actions"
+  echo "  → New repository secret"
+  echo "  Name : CLAUDE_DOTFILES_PAT"
+  echo "  Value: claude-dotfiles への write 権限付き PAT"
+  echo ""
+  echo "  登録済みの場合は Claude に「PAT登録済み」と伝えてください。"
+  echo "  (マーカーを作成して以降このメッセージを非表示にします)"
+  echo "=========================================================="
+  echo ""
+fi
+
 echo "=== claude-dotfiles: Web session setup complete ==="
