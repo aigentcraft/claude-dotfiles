@@ -50,9 +50,17 @@
 ## 知識ベース自動同期（必須）
 - **セッション開始時に必ず** `bash ~/claude-dotfiles/scripts/sync.sh pull` を実行すること
   - これにより antigravity-dotfiles の最新 knowledge・skills が自動的に反映される
-- pull 後に `~/claude-dotfiles/knowledge/error-graph/moc.md` が存在すれば読み、蓄積された知識を確認すること
+- pull 後に以下を順番に読むこと:
+  1. `~/claude-dotfiles/knowledge/error-graph/moc.md` — 失敗の知識・Quick Rules
+  2. `~/claude-dotfiles/knowledge/skills-moc.md` — スキル一覧と合成プロトコル
 - タスク完了時は `bash ~/claude-dotfiles/scripts/sync.sh push` で知識を同期すること
 - **新しいマシンでの初回セットアップ**: `bash ~/claude-dotfiles/scripts/bootstrap.sh` を実行すること
+
+## Skills GraphRAG ルール（必須）
+- スキルを使用する際は **1スキル発見→即実行を禁止** とする
+- 必ず `knowledge/skills-graph/relationships.md` を読んで補完スキルを確認すること
+- 補完スキルが存在する場合、タスクの性質に応じて読み込み数を判断して統合すること
+- 新しいスキルをインストールした時は relationships.md に補完エッジを追記すること
 
 ## 開発環境
 - Windows PC と Mac の2台で開発中
@@ -67,10 +75,16 @@
   - `.claude/hooks/session-start.sh`: Webセッション開始時に settings.json / CLAUDE.md / skills / knowledge を自動適用
   - `.claude/settings.json`: フックを SessionStart イベントに登録
   - `CLAUDE_CODE_REMOTE=true` の場合のみ実行（ローカル環境は影響なし）
+- Skills GraphRAG 実装（2026-02-26）
+  - `knowledge/skills-graph/relationships.md`: スキル間補完エッジの中央グラフ
+  - `knowledge/skills-moc.md`: 合成プロトコル追加（1スキル即実行禁止ルール）
+  - `GRAPH_RAG.md`: プロジェクト構造グラフ新設
+  - 4クラスター（X/SNS・画像生成・プロジェクト管理・開発）の補完関係を定義
 
 ### 未解決・次のタスク
 - スマホからの使い方: claude.ai をブラウザで開き、このリポジトリを開くとフックが自動実行される
 - 必要なら async モード（バックグラウンド実行）に変更可能（現在は同期モード）
+- Skills GraphRAG の実際の挙動を検証し、補完エッジを調整する
 
 ### 環境情報
 - 特に必要な環境変数なし（フックは CLAUDE_CODE_REMOTE / CLAUDE_PROJECT_DIR を自動参照）
