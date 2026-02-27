@@ -61,6 +61,15 @@ relationships:
 | プライマリスキル | 補完スキル | 理由 |
 |---|---|---|
 | `skill-hyperbrowser-reference` | `skill-project-map` | 実装前にプロジェクト構造を把握してから参照 |
+| `slack-remote-run` | `skill-project-map` | リモートコマンド実行前にプロジェクト構造を把握して安全に操作する |
+| `slack-remote-run` | `auto-sync-rule` | リモート操作前に最新コードへの同期を保証する |
+
+### システム・ガバナンスクラスター
+
+| プライマリスキル | 補完スキル | 理由 |
+|---|---|---|
+| `auto-sync-rule` | `skill-pdca-error-graph` | 同期後に失敗知識を確認してから開発を進める |
+| `skill-installer` | `auto-sync-rule` | 新スキルインストール後は同期ルールを即適用する |
 
 ---
 

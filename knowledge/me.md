@@ -99,6 +99,13 @@
 - Profile / Goals / Conversation Log / Growth Map の4構造で me.md を初期作成
 - Goals: 「AI活用コンサル」「不労所得で自由な暮らし」が明確な方向性
 
+### 2026-02-27 — UCスルー防止・Skills GraphRAG 整備
+- 「スルーしてしまうのは問題だな」→ 宣言だけでなく仕組みで防ぐという設計思想を確認
+- UC検出トリガーワード一覧を Quick Rules #7 に追加（返答より先にノード作成を開始する強制設計）
+- push前UCスキャン（自問チェック）を Quick Rules #8 と CLAUDE.md に追加
+- Skills GraphRAG の未登録スキル（auto-sync-rule, skill-installer, slack-remote-run）を補完グラフに追加
+- relationships.md に「システム・ガバナンスクラスター」新設
+
 ---
 
 ## Growth Map（成長の軌跡）

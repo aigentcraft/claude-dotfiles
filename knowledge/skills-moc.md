@@ -21,7 +21,9 @@ relationships:
 
 ## Core Configuration Skills
 - [[../skills/auto-sync-rule/SKILL.md|auto-sync-rule]] : Enforces global synchronization rules.
+  - 補完: `skill-pdca-error-graph`
 - [[../skills/skill-installer/SKILL.md|skill-installer]] : Auto-searches and installs skills from GitHub.
+  - 補完: `auto-sync-rule`（インストール後に同期ルールを即適用）、インストール後は relationships.md を必ず更新
 
 ## Knowledge & Debugging
 - [[../skills/skill-pdca-error-graph/SKILL.md|skill-pdca-error-graph]] : The self-correction engine powering the error graph.
@@ -30,6 +32,7 @@ relationships:
 
 ## Development & Operations
 - [[../skills/slack-remote-run/SKILL.md|slack-remote-run]] : Remote command execution proxy.
+  - 補完: `skill-project-map`, `auto-sync-rule`
 - [[../skills/skill-hyperbrowser-reference/SKILL.md|skill-hyperbrowser-reference]] : Reference for scraping and Next.js applications.
   - 補完: `skill-project-map`
 

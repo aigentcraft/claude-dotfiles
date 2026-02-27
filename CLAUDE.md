@@ -139,11 +139,18 @@
   - `session-start.sh`: workflow 存在 + `.claude/.knowledge-sync-ready` 未存在の場合に起動時リマインドを表示
   - `CLAUDE.md`: AI が会話冒頭でリマインド → ユーザー確認後にマーカーファイルを作成するルール追加
   - 一度登録すれば以降リマインド非表示（マーカーファイルで管理）
+- UCスルー防止・仕組み化（2026-02-27）
+  - `error-graph/moc.md` Quick Rules #7: UC検出トリガーワード一覧（「足りない」「まずい」「そうじゃない」等）→ 返答前にノード作成開始
+  - Quick Rules #8: push前UCスキャン（自問チェック）
+  - `CLAUDE.md` Git同期ルールに push前UCスキャンと UC検出トリガーを追記
+- Skills GraphRAG 整備（2026-02-27）
+  - `relationships.md` に「システム・ガバナンスクラスター」新設（auto-sync-rule / skill-installer）
+  - 未登録スキル（slack-remote-run, auto-sync-rule, skill-installer）の補完エッジを追加
+  - `skills-moc.md` の全エントリに補完スキル情報を追記
 
 ### 未解決・次のタスク
 - 各プロジェクトの Settings > Secrets に `CLAUDE_DOTFILES_PAT` を登録する（Maia-ai など）※ワークフロー自体はセッション開始時に自動インストール、登録後は「PAT登録済み」と伝えると自動完了
-- Skills GraphRAG の実際の挙動を検証し、補完エッジを調整する
-- me.md の Conversation Log を会話ごとに積み上げていく（次セッション以降）
+- me.md の Conversation Log を会話ごとに積み上げていく（継続中）
 
 ### 環境情報
 - 特に必要な環境変数なし（フックは CLAUDE_CODE_REMOTE / CLAUDE_PROJECT_DIR を自動参照）
