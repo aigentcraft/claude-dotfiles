@@ -87,9 +87,50 @@ sync_pull() {
   echo "[claude-dotfiles] Pulling latest..."
   cd "$DOTFILES_DIR"
   git pull --rebase 2>/dev/null || git pull
+
+  # Web/スマホセッションのナレッジを取り込む
+  # claude/ ブランチのナレッジ変更は master に届かないため、ローカルが橋渡し役になる
+  fetch_knowledge_from_claude_branches
+
   bridge_from_antigravity
   apply_to_claude
   echo "[claude-dotfiles] Pull & apply complete."
+}
+
+# claude/ ブランチの knowledge/ 変更を master に取り込む（ローカル橋渡し）
+fetch_knowledge_from_claude_branches() {
+  cd "$DOTFILES_DIR"
+  # remote の claude/ ブランチを全取得
+  git fetch origin 'refs/heads/claude/*:refs/remotes/origin/claude/*' 2>/dev/null || return
+
+  # master より新しいコミットを持つ claude/ ブランチを新しい順に取得
+  CLAUDE_BRANCHES=$(git for-each-ref \
+    --sort=-committerdate \
+    --format='%(refname:short)' \
+    refs/remotes/origin/claude/ 2>/dev/null)
+
+  [ -z "$CLAUDE_BRANCHES" ] && return
+
+  MERGED_ANY=0
+  for branch in $CLAUDE_BRANCHES; do
+    # master との diff で knowledge/ CLAUDE.md GRAPH_RAG.md のみ変更か確認
+    KNOWLEDGE_DIFF=$(git diff --name-only origin/master..."$branch" -- \
+      knowledge/ CLAUDE.md GRAPH_RAG.md 2>/dev/null)
+    [ -z "$KNOWLEDGE_DIFF" ] && continue
+
+    echo "[claude-dotfiles] Applying knowledge from $branch:"
+    echo "$KNOWLEDGE_DIFF" | sed 's/^/  /'
+    git checkout "$branch" -- knowledge/ CLAUDE.md GRAPH_RAG.md 2>/dev/null || continue
+    MERGED_ANY=1
+  done
+
+  # 変更があったら master にコミット＆push（ローカルが橋渡し）
+  if [ "$MERGED_ANY" = "1" ] && [ -n "$(git status --porcelain)" ]; then
+    echo "[claude-dotfiles] Committing knowledge changes to master..."
+    git add knowledge/ CLAUDE.md GRAPH_RAG.md 2>/dev/null
+    git commit -m "[knowledge-sync] Pull knowledge from claude/ branches to master ($(date '+%Y-%m-%d %H:%M:%S'))"
+    git push origin master 2>/dev/null || echo "[claude-dotfiles] Push to master failed (retry with sync push)"
+  fi
 }
 
 sync_push() {

@@ -82,6 +82,7 @@
 - [[../nodes/uc-repeat-master-push-despite-known-403.md]] — `user-correction`, `repeat-known-constraint`, `git`
 - [[../nodes/uc-local-pattern-no-generalization.md]] — `user-correction`, `local-pattern`, `no-generalization`
 - [[../nodes/uc-knowledge-branch-isolation.md]] — `user-correction`, `branch-isolation`, `knowledge-propagation`
+- [[../nodes/uc-partial-solution-without-automation-path.md]] — `user-correction`, `partial-solution`, `automation`
 
 ---
 
@@ -89,4 +90,4 @@
 
 > 次回レビュー時: R1〜R4 は十分に検証済み → SKILL.md の "行動ルール" セクションへの昇格を検討する
 
-*Last updated: 2026-02-28 | Node count: 8*
+*Last updated: 2026-02-28 | Node count: 9*
