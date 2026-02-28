@@ -97,15 +97,19 @@ sync_pull() {
   echo "[claude-dotfiles] Pull & apply complete."
 }
 
-# claude/ ブランチの knowledge/ 変更を master に取り込む（ローカル橋渡し）
+# claude/ ブランチの knowledge/ + scripts/ 変更を master に取り込む（ローカル橋渡し）
+# 対象ファイル: knowledge/ CLAUDE.md GRAPH_RAG.md scripts/sync.sh
+# ※ scripts/sync.sh を含めることでこの関数自体もself-updateできる
+KNOWLEDGE_PATHS="knowledge/ CLAUDE.md GRAPH_RAG.md scripts/sync.sh"
+
 fetch_knowledge_from_claude_branches() {
   cd "$DOTFILES_DIR"
   # remote の claude/ ブランチを全取得
   git fetch origin 'refs/heads/claude/*:refs/remotes/origin/claude/*' 2>/dev/null || return
 
-  # master より新しいコミットを持つ claude/ ブランチを新しい順に取得
+  # 古い順（昇順）に取得 → ループの最後＝最新が最終的に適用されて勝つ
   CLAUDE_BRANCHES=$(git for-each-ref \
-    --sort=-committerdate \
+    --sort=committerdate \
     --format='%(refname:short)' \
     refs/remotes/origin/claude/ 2>/dev/null)
 
@@ -113,21 +117,21 @@ fetch_knowledge_from_claude_branches() {
 
   MERGED_ANY=0
   for branch in $CLAUDE_BRANCHES; do
-    # master との diff で knowledge/ CLAUDE.md GRAPH_RAG.md のみ変更か確認
+    # master との diff で対象パスに変更があるか確認
     KNOWLEDGE_DIFF=$(git diff --name-only origin/master..."$branch" -- \
-      knowledge/ CLAUDE.md GRAPH_RAG.md 2>/dev/null)
+      $KNOWLEDGE_PATHS 2>/dev/null)
     [ -z "$KNOWLEDGE_DIFF" ] && continue
 
     echo "[claude-dotfiles] Applying knowledge from $branch:"
     echo "$KNOWLEDGE_DIFF" | sed 's/^/  /'
-    git checkout "$branch" -- knowledge/ CLAUDE.md GRAPH_RAG.md 2>/dev/null || continue
+    git checkout "$branch" -- $KNOWLEDGE_PATHS 2>/dev/null || continue
     MERGED_ANY=1
   done
 
   # 変更があったら master にコミット＆push（ローカルが橋渡し）
   if [ "$MERGED_ANY" = "1" ] && [ -n "$(git status --porcelain)" ]; then
     echo "[claude-dotfiles] Committing knowledge changes to master..."
-    git add knowledge/ CLAUDE.md GRAPH_RAG.md 2>/dev/null
+    git add $KNOWLEDGE_PATHS 2>/dev/null
     git commit -m "[knowledge-sync] Pull knowledge from claude/ branches to master ($(date '+%Y-%m-%d %H:%M:%S'))"
     git push origin master 2>/dev/null || echo "[claude-dotfiles] Push to master failed (retry with sync push)"
   fi
