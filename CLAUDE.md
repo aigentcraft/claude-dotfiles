@@ -147,6 +147,9 @@
   - `relationships.md` に「システム・ガバナンスクラスター」新設（auto-sync-rule / skill-installer）
   - 未登録スキル（slack-remote-run, auto-sync-rule, skill-installer）の補完エッジを追加
   - `skills-moc.md` の全エントリに補完スキル情報を追記
+- システムアーキテクチャ図作成（2026-02-28）
+  - `SYSTEM_ARCHITECTURE.md` 新設: 3層構造・4同期経路・知識システム・フック＆ガバナンス・スキル構成・GitHub Actions パイプライン・セッションライフサイクル・設計原則を包括的に図示
+  - `GRAPH_RAG.md` に N19 ノード（SYSTEM_ARCHITECTURE.md）と補完エッジを追加
 
 ### 未解決・次のタスク
 - 各プロジェクトの Settings > Secrets に `CLAUDE_DOTFILES_PAT` を登録する（Maia-ai など）※ワークフロー自体はセッション開始時に自動インストール、登録後は「PAT登録済み」と伝えると自動完了
