@@ -1,9 +1,9 @@
 # Error Knowledge Graph: MOC (Global Index) — Layer 2
 
-**AIへの指示**: 複雑なタスク開始前・エラー発生時に必ずこのファイルを読む。
-1. Quick Rules を適用する
-2. 関連するクラスターを特定してロードする
-3. 個別詳細が必要なら nodes/ の該当ファイルを読む
+**AIへの指示**: アクション実行前・エラー発生時・ユーザー指摘時に以下を順番に行う。
+1. [[relationships.md]] を読み、今の**アクション種別**に対応するフラグをトラバーサルする
+2. 該当フラグを適用してからアクションを実行する
+3. Quick Rules は頻出パターンのショートカット（relationships.md の補完）
 
 *Related MOC*: [[../skills-moc.md|Skills Knowledge Graph (MOC)]]
 
