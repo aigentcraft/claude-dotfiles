@@ -1,0 +1,91 @@
+name: Auto-merge knowledge from claude/ branches to master
+
+# claude/ ブランチで knowledge/ CLAUDE.md GRAPH_RAG.md のみ変更された場合に
+# 自動で master にマージする。コード変更が混入していた場合はスキップ（手動マージ）。
+
+on:
+  push:
+    branches:
+      - 'claude/**'
+
+jobs:
+  auto-merge-knowledge:
+    runs-on: ubuntu-latest
+    # [knowledge-sync] コミットによる無限ループを防止
+    if: "!contains(github.event.head_commit.message, '[knowledge-sync]') && !contains(github.event.head_commit.message, '[skip-auto-merge]')"
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check if only knowledge files changed
+        id: check_files
+        run: |
+          # master との差分ファイル一覧を取得
+          git fetch origin master
+          CHANGED=$(git diff --name-only origin/master...HEAD)
+          echo "Changed files:"
+          echo "$CHANGED"
+
+          # knowledge/ CLAUDE.md GRAPH_RAG.md 以外のファイルが含まれているか確認
+          NON_KNOWLEDGE=$(echo "$CHANGED" | grep -v \
+            -e '^knowledge/' \
+            -e '^CLAUDE\.md$' \
+            -e '^GRAPH_RAG\.md$' \
+            -e '^\.claude-knowledge-staging/' \
+            || true)
+
+          if [ -n "$NON_KNOWLEDGE" ]; then
+            echo "Non-knowledge files detected — skipping auto-merge:"
+            echo "$NON_KNOWLEDGE"
+            echo "knowledge_only=false" >> $GITHUB_OUTPUT
+          else
+            echo "Knowledge-only changes detected — proceeding with auto-merge"
+            echo "knowledge_only=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Configure git
+        if: steps.check_files.outputs.knowledge_only == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Merge knowledge changes to master
+        if: steps.check_files.outputs.knowledge_only == 'true'
+        run: |
+          BRANCH="${GITHUB_REF#refs/heads/}"
+          git checkout master
+          git pull origin master
+
+          # マージを試みる（fast-forward または マージコミット）
+          if git merge --no-ff "$BRANCH" -m "[knowledge-sync] Auto-merge knowledge from ${BRANCH}
+
+Automatically merged knowledge-only changes:
+$(git diff --name-only origin/master...${BRANCH})
+
+Source branch: ${BRANCH}
+Triggered by: ${{ github.event.head_commit.message }}"; then
+            # リトライ付き push
+            for i in 1 2 3 4; do
+              if git push origin master; then
+                echo "Successfully pushed to master"
+                break
+              else
+                echo "Push failed (attempt $i/4), retrying..."
+                WAIT=$((2 ** i))
+                sleep $WAIT
+              fi
+            done
+          else
+            echo "Merge conflict detected — skipping auto-merge. Manual merge required."
+            exit 0
+          fi
+
+      - name: Skip notification
+        if: steps.check_files.outputs.knowledge_only == 'false'
+        run: |
+          echo "Skipped: Non-knowledge files detected in ${{ github.ref }}"
+          echo "Create a PR to merge manually."

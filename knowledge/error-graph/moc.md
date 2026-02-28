@@ -1,9 +1,9 @@
 # Error Knowledge Graph: MOC (Global Index) — Layer 2
 
-**AIへの指示**: 複雑なタスク開始前・エラー発生時に必ずこのファイルを読む。
-1. Quick Rules を適用する
-2. 関連するクラスターを特定してロードする
-3. 個別詳細が必要なら nodes/ の該当ファイルを読む
+**AIへの指示**: アクション実行前・エラー発生時・ユーザー指摘時に以下を順番に行う。
+1. [[relationships.md]] を読み、今の**アクション種別**に対応するフラグをトラバーサルする
+2. 該当フラグを適用してからアクションを実行する
+3. Quick Rules は頻出パターンのショートカット（relationships.md の補完）
 
 *Related MOC*: [[../skills-moc.md|Skills Knowledge Graph (MOC)]]
 
@@ -26,6 +26,10 @@
    - 「そうじゃない」「違う」「ちがう」「それは違います」
    → UCノード（`uc-*.md`）を nodes/ に作り、クラスターと MOC を更新してからコミット
 8. **コミット前 UC スキャン**: push 前に「このセッションでユーザー指摘はあったか？」を必ず自問する。あれば UC ノードが作成済みか確認する
+   ※ git push のブランチ制約は `pre-bash-git-push.sh` フックが自動強制 — ルールではなくコードで解決済み
+9. **パターン実装後の横展開チェック**: 新しい構造・ファイル・パターンを「ある場所に」実装したら必ず自問する
+   > 「これは局所要件か、この種の構造すべてに必要な汎用要件か？」
+   > 同種の構造が他にあれば、同じパターンを即座に展開する（例: relationships.md → 全グラフ構造）
 
 ---
 
@@ -33,7 +37,7 @@
 
 | クラスター | 内容 | ノード数 | ロード条件 |
 |---|---|---|---|
-| [[clusters/ai-behavior.md]] | AI行動パターン・システム設計・知識グラフ設計 | 4 | AI設計・スケール・ナレッジシステム系タスク |
+| [[clusters/ai-behavior.md]] | AI行動パターン・システム設計・知識グラフ設計 | 9 | AI設計・スケール・ナレッジシステム系タスク |
 | [[clusters/api-network.md]] | API/ネットワーク・非同期・タイムアウト | 2 | 外部API・ネットワークリクエストを書く時 |
 | [[clusters/platform-syntax.md]] | PowerShell/Windows固有の構文エラー | 1 | PowerShell・Windowsスクリプト作業時 |
 | [[clusters/copywriting-psychology.md]] | コピーライティング心理学・間接的動機づけ設計 | 1 | 記事・LP・SNS投稿のコピーを書く時 |
@@ -75,6 +79,10 @@
 - [[nodes/uc-abstract-knowledge-label.md]] — `ai-behavior` cluster (`too-abstract`)
 - [[nodes/copywriting-indirect-motivation.md]] — `copywriting-psychology` cluster
 - [[nodes/uc-session-promise-vs-system.md]] — `ai-behavior` cluster (`too-ephemeral`)
+- [[nodes/uc-repeat-master-push-despite-known-403.md]] — `ai-behavior` cluster (`repeat-known-constraint`)
+- [[nodes/uc-local-pattern-no-generalization.md]] — `ai-behavior` cluster (`local-pattern`, `no-generalization`)
+- [[nodes/uc-knowledge-branch-isolation.md]] — `ai-behavior` cluster (`branch-isolation`, `knowledge-propagation`)
+- [[nodes/uc-partial-solution-without-automation-path.md]] — `ai-behavior` cluster (`partial-solution`, `automation`)
 
 ---
 
