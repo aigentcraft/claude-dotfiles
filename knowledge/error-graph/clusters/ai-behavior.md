@@ -41,6 +41,14 @@
 - **判断基準**: 「次回から〜」と言いそうになったら → 今すぐ CLAUDE.md か error-graph に書く
 - 詳細: [[../nodes/uc-session-promise-vs-system.md]]
 
+### R9: 局所実装の横展開 — パターンは「同種の構造すべて」に適用する
+
+あるパターンを特定の場所に実装した後、「同種の構造が他にないか」を確認しなかった。
+- **具体例**: `skills-graph/relationships.md` を作成後、`error-graph/relationships.md` を作らなかった
+- **根本**: パターンを「局所要件」として捉えた。「グラフ構造には必ずエッジ定義が要る」という汎用要件として捉えなかった
+- **対策**: 新しい構造を実装したら即自問する → 「これは局所か汎用か？同種の構造が他にあるか？」
+- 詳細: [[../nodes/uc-local-pattern-no-generalization.md]]
+
 ### R4: セマンティックリンク — エッジの意味を明記する
 `[[link]]` だけでは関係の種類が不明。AIも人間もグラフの意味を正確に把握できない。
 - **対策**: リンクには必ずエッジタイプを明記（`caused_by`, `related_to`, `fixes` 等）
@@ -60,6 +68,7 @@
 | ユーザーが「成長」「PDCA」と言った | R3: ストレージではなく行動改善の設計をする |
 | AIが「次回からやります」と言った | R5: 今すぐファイルに書いてコミットする |
 | セッション内でpush/操作が一度失敗した | R6: 同じコマンドを再実行しない。制約を確認してから実行する |
+| あるパターン（ファイル・構造・ルール）を作った | R9: 「同種の構造が他にないか」を即座に確認し横展開する |
 
 ---
 
@@ -71,6 +80,7 @@
 - [[../nodes/semantic-graph-relationships.md]] — `system-design`, `knowledge-graph`, `semantics`
 - [[../nodes/uc-session-promise-vs-system.md]] — `user-correction`, `too-ephemeral`, `system-design`
 - [[../nodes/uc-repeat-master-push-despite-known-403.md]] — `user-correction`, `repeat-known-constraint`, `git`
+- [[../nodes/uc-local-pattern-no-generalization.md]] — `user-correction`, `local-pattern`, `no-generalization`
 
 ---
 
@@ -78,4 +88,4 @@
 
 > 次回レビュー時: R1〜R4 は十分に検証済み → SKILL.md の "行動ルール" セクションへの昇格を検討する
 
-*Last updated: 2026-02-26 | Node count: 5*
+*Last updated: 2026-02-28 | Node count: 7*

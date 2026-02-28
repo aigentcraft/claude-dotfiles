@@ -27,6 +27,9 @@
    → UCノード（`uc-*.md`）を nodes/ に作り、クラスターと MOC を更新してからコミット
 8. **コミット前 UC スキャン**: push 前に「このセッションでユーザー指摘はあったか？」を必ず自問する。あれば UC ノードが作成済みか確認する
    ※ git push のブランチ制約は `pre-bash-git-push.sh` フックが自動強制 — ルールではなくコードで解決済み
+9. **パターン実装後の横展開チェック**: 新しい構造・ファイル・パターンを「ある場所に」実装したら必ず自問する
+   > 「これは局所要件か、この種の構造すべてに必要な汎用要件か？」
+   > 同種の構造が他にあれば、同じパターンを即座に展開する（例: relationships.md → 全グラフ構造）
 
 ---
 
@@ -34,7 +37,7 @@
 
 | クラスター | 内容 | ノード数 | ロード条件 |
 |---|---|---|---|
-| [[clusters/ai-behavior.md]] | AI行動パターン・システム設計・知識グラフ設計 | 4 | AI設計・スケール・ナレッジシステム系タスク |
+| [[clusters/ai-behavior.md]] | AI行動パターン・システム設計・知識グラフ設計 | 5 | AI設計・スケール・ナレッジシステム系タスク |
 | [[clusters/api-network.md]] | API/ネットワーク・非同期・タイムアウト | 2 | 外部API・ネットワークリクエストを書く時 |
 | [[clusters/platform-syntax.md]] | PowerShell/Windows固有の構文エラー | 1 | PowerShell・Windowsスクリプト作業時 |
 | [[clusters/copywriting-psychology.md]] | コピーライティング心理学・間接的動機づけ設計 | 1 | 記事・LP・SNS投稿のコピーを書く時 |
@@ -77,6 +80,7 @@
 - [[nodes/copywriting-indirect-motivation.md]] — `copywriting-psychology` cluster
 - [[nodes/uc-session-promise-vs-system.md]] — `ai-behavior` cluster (`too-ephemeral`)
 - [[nodes/uc-repeat-master-push-despite-known-403.md]] — `ai-behavior` cluster (`repeat-known-constraint`)
+- [[nodes/uc-local-pattern-no-generalization.md]] — `ai-behavior` cluster (`local-pattern`, `no-generalization`)
 
 ---
 
