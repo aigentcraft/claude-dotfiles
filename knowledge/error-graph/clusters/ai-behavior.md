@@ -28,6 +28,13 @@
 - **チェック**: 「ユーザーが一緒に成長したい・PDCAを回したい」= AIの行動改善の話。ストレージ設計に終始しない
 - 詳細: [[../nodes/uc-abstract-knowledge-label.md]]
 
+### R6: 既知制約の再適用 — 一度知った制約は毎回チェックする
+セッション内で「この操作はXの理由で失敗する」と判明した場合、次の同種操作でも同じ失敗を繰り返す。
+- **原因**: 「知っている」と「適用する」が分離している。習慣的なコマンドパターンが制約より優先される
+- **対策**: push実行前に「このセッションでpush失敗はあったか？ブランチ制約はあるか？」を必ず自問する
+- **具体例**: 403でmasterへのpushが失敗した → 以降のpushはすべてclaude/ブランチへ
+- 詳細: [[../nodes/uc-repeat-master-push-despite-known-403.md]]
+
 ### R5: セッション宣言 vs 仕組み — 口頭約束は無効
 「次回からやります」という発言はセッションが終わると消える。何も変わらない。
 - **対策**: 宣言した瞬間にファイルへ書き込む。書いてコミットして初めて有効
@@ -52,6 +59,7 @@
 | グラフにリンクを追加する | R4: エッジタイプを明記する |
 | ユーザーが「成長」「PDCA」と言った | R3: ストレージではなく行動改善の設計をする |
 | AIが「次回からやります」と言った | R5: 今すぐファイルに書いてコミットする |
+| セッション内でpush/操作が一度失敗した | R6: 同じコマンドを再実行しない。制約を確認してから実行する |
 
 ---
 
@@ -62,6 +70,7 @@
 - [[../nodes/uc-abstract-knowledge-label.md]] — `user-correction`, `too-abstract`, `knowledge-design`
 - [[../nodes/semantic-graph-relationships.md]] — `system-design`, `knowledge-graph`, `semantics`
 - [[../nodes/uc-session-promise-vs-system.md]] — `user-correction`, `too-ephemeral`, `system-design`
+- [[../nodes/uc-repeat-master-push-despite-known-403.md]] — `user-correction`, `repeat-known-constraint`, `git`
 
 ---
 

@@ -26,6 +26,10 @@
    - 「そうじゃない」「違う」「ちがう」「それは違います」
    → UCノード（`uc-*.md`）を nodes/ に作り、クラスターと MOC を更新してからコミット
 8. **コミット前 UC スキャン**: push 前に「このセッションでユーザー指摘はあったか？」を必ず自問する。あれば UC ノードが作成済みか確認する
+9. **git push 前のブランチ制約チェック（必須）**: `git push` を実行する前に以下を必ず確認する
+   - システム指示・CLAUDE.md に「push先ブランチの指定」はあるか？ → あれば必ずそのブランチへ
+   - このセッションで push が失敗したことはあるか？ → あれば同じコマンドを繰り返さない
+   - **具体例**: システム指示に `claude/` ブランチ指定がある場合、`git push origin master` は実行禁止
 
 ---
 
@@ -75,6 +79,7 @@
 - [[nodes/uc-abstract-knowledge-label.md]] — `ai-behavior` cluster (`too-abstract`)
 - [[nodes/copywriting-indirect-motivation.md]] — `copywriting-psychology` cluster
 - [[nodes/uc-session-promise-vs-system.md]] — `ai-behavior` cluster (`too-ephemeral`)
+- [[nodes/uc-repeat-master-push-despite-known-403.md]] — `ai-behavior` cluster (`repeat-known-constraint`)
 
 ---
 
