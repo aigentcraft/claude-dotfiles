@@ -1,48 +1,46 @@
 ---
-title: "AI SDK v5→v6: maxTokens Renamed to maxOutputTokens"
-description: "AI SDK v5 から v6 へのアップグレードで maxTokens プロパティが maxOutputTokens にリネームされ、旧プロパティ名を使うとランタイムエラーまたは無視される。"
-tags: ["ai-sdk", "vercel", "migration", "v6", "maxTokens", "maxOutputTokens"]
+title: "AI SDK v6 Renamed Properties (maxTokens → maxOutputTokens)"
+description: "AI SDK v6 renamed several properties from v5. Using old property names causes TypeScript errors but may still work at runtime, making bugs silent."
+tags: ["ai-sdk", "vercel-ai", "typescript", "api-migration"]
+relationships:
+  caused_by: []
+  related_to: []
+  fixes_node: []
 ---
 
 ## 1. Plan / Context
-Vercel AI SDK を使ったプロジェクトで v5 から v6 へアップグレードした際に、LLM 呼び出しのオプションが変更されていた。
+Maia.ai で AI SDK v6（`ai@6.0.94`）を使って `streamText()` と `generateText()` を呼び出す API エンドポイントを実装していた。
 
 ## 2. Do / The Error
-v5 のコードで `maxTokens` を指定していた箇所がそのまま残っており、v6 環境で実行すると期待通りに出力トークン数が制限されない、またはプロパティ不明の型エラーが発生する。
-
-```typescript
-// v5 の書き方（v6 では動作しない）
-const result = await generateText({
-  model: openai('gpt-4o'),
-  prompt: 'Hello',
-  maxTokens: 1000,  // ← v6 では無効
-})
 ```
-
-TypeScript を使っている場合:
+error TS2353: Object literal may only specify known properties,
+and 'maxTokens' does not exist in type 'CallSettings & ...'
 ```
-Object literal may only specify known properties, and 'maxTokens' does not exist in type 'GenerateTextOptions'.
-```
+`streamText()` および `generateText()` の呼び出しで `maxTokens` プロパティが型エラーになった。
 
 ## 3. Check / Root Cause
-AI SDK v6 のブレーキングチェンジで `maxTokens` が `maxOutputTokens` にリネームされた。SDK 内部でモデルの入力トークン数（`maxInputTokens`）と出力トークン数（`maxOutputTokens`）を明確に区別するための変更。旧プロパティ名は v6 では型定義から削除されている。
+AI SDK v6 で以下のプロパティ名が変更された:
+- `maxTokens` → `maxOutputTokens`
+- `body` オプション（useChat）の仕様変更
+
+ランタイムではエラーにならないが（プロパティは単に無視される可能性がある）、TypeScript の型チェックでは検出される。既存コード（`chat+api.ts`）で `maxTokens` を使っていたが、TypeScript チェックを頻繁に実行していなかったため見逃されていた。
 
 ## 4. Act / Prevention Strategy (Fix)
-**Fix Applied**: プロパティ名を `maxTokens` → `maxOutputTokens` に変更するだけ。
 
+### 修正
 ```typescript
-// v6 の書き方
-const result = await generateText({
-  model: openai('gpt-4o'),
-  prompt: 'Hello',
-  maxOutputTokens: 1000,  // ← 正しいプロパティ名
-})
+// Before (v5 style)
+streamText({ model, system, messages, maxTokens: 1024 })
+
+// After (v6 style)
+streamText({ model, system, messages, maxOutputTokens: 1024 })
 ```
 
-**一括置換コマンド**:
-```bash
-# プロジェクト全体で置換
-find src -name "*.ts" -o -name "*.tsx" | xargs sed -i 's/maxTokens:/maxOutputTokens:/g'
-```
-
-**Future AI Instruction**: AI SDK を v5 → v6 にアップグレードする際は `maxTokens` を `maxOutputTokens` にリネームすること。他のリネームも確認するために [AI SDK v6 Migration Guide](https://sdk.vercel.ai/docs/migration-guides) を参照すること。
+### 予防策
+- **AI SDK のメジャーバージョンアップ時は、changelog で renamed properties を必ず確認する**
+- `npx tsc --noEmit` を新しいファイル作成後に都度実行して、型エラーを早期検出する
+- AI SDK v6 の主な変更点:
+  - `maxTokens` → `maxOutputTokens`
+  - `useChat` の `body` オプションの型変更
+  - `UIMessage` の `content` → `parts` 配列（`getMessageText()` を使用）
+  - `sendMessage({ text })` 形式（v5 の `{ role, content }` ではない）
