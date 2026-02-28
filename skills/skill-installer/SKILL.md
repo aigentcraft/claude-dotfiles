@@ -37,16 +37,37 @@ npx skills add https://github.com/coreyhaines31/marketingskills --skill copywrit
 npx skills add <owner/repo> --all
 ```
 
-## インストール後の同期
+## インストール後の必須手順（順番通りに実行すること）
 
-インストール後は必ず claude-dotfiles と antigravity-dotfiles に同期すること：
+### 1. 新スキルの内容を読む
+```bash
+cat ~/.claude/skills/<スキル名>/SKILL.md
+```
 
+### 2. Skills GraphRAG を更新する
+
+**`~/claude-dotfiles/knowledge/skills-graph/relationships.md` を読み**、新スキルと既存スキルの補完関係を判断して追記する。
+
+判断基準:
+- 「一緒に使うとアウトプットが良くなるか？」→ 補完エッジを追加
+- どのクラスターに属するか？ → 既存クラスターに追記 or 新クラスター作成
+
+**`~/claude-dotfiles/knowledge/skills-moc.md` にも新スキルのエントリを追記する:**
+```markdown
+- [[../skills/<スキル名>/SKILL.md|<スキル名>]] : <概要1行>
+  - 補完: `<関連スキル名>`  ← あれば
+```
+
+### 3. GRAPH_RAG.md を更新する
+
+`~/claude-dotfiles/GRAPH_RAG.md` のノード一覧に新スキルを追記する。
+
+### 4. claude-dotfiles と antigravity-dotfiles に同期する
 ```bash
 bash ~/claude-dotfiles/scripts/sync.sh push
 ```
 
-これにより knowledge/skills-moc.md も含めて GitHub に反映され、
-他のデバイスや他のツールでも同じスキルが使えるようになります。
+これにより他のデバイス・他のセッションでも即座に新スキルとグラフが使えるようになります。
 
 ## インストール済みスキルの確認
 

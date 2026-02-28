@@ -1,0 +1,72 @@
+# Cluster: AI行動パターン & システム設計
+
+> Layer 1 Community Summary — 関連ノードの蒸留サマリー。
+> このクラスターが関連するタスク開始時にロードする。個別詳細は nodes/ を参照。
+
+**対象タグ**: `ai-behavior`, `system-design`, `knowledge-graph`, `user-correction`, `prompt-engineering`
+
+---
+
+## 蒸留ルール（Distilled Rules）
+
+### R1: スケール問題 — コンテキスト外のファイルは見えない
+プロジェクトが成長すると、AIはファイルの関係性を把握できなくなり重複・依存破壊が起きる。
+- **対策**: ファイル作成・変更前に `PROJECT_MAP.md` を必ず読む
+- **更新タイミング**: 構造変更（新規・移動・削除）のたびに更新する
+- 詳細: [[../nodes/ai-context-blindness-at-scale.md]]
+
+### R2: 指示の強制 — "後でやる"は機能しない
+「タスク完了後にドキュメントを書く」という指示は、完了の達成感で消える。
+- **対策**: 重要な後処理は「完了の出口条件」として設計する。「〜しないとpushできない」形式に変える
+- **禁止**: "Do X, then remember to do Y later" という形式
+- **推奨**: "You cannot push until you verify Y is done" という形式
+- 詳細: [[../nodes/ai-instruction-enforcement.md]]
+
+### R3: 具体性の原則 — 抽象ラベル禁止
+「重要な知見」「有用な情報」等の抽象ラベルはシステム設計では使用禁止。
+- **対策**: 設計提案時は必ず「誰が・いつ・何をトリガーに・何を書くか」まで具体化する
+- **チェック**: 「ユーザーが一緒に成長したい・PDCAを回したい」= AIの行動改善の話。ストレージ設計に終始しない
+- 詳細: [[../nodes/uc-abstract-knowledge-label.md]]
+
+### R5: セッション宣言 vs 仕組み — 口頭約束は無効
+「次回からやります」という発言はセッションが終わると消える。何も変わらない。
+- **対策**: 宣言した瞬間にファイルへ書き込む。書いてコミットして初めて有効
+- **判断基準**: 「次回から〜」と言いそうになったら → 今すぐ CLAUDE.md か error-graph に書く
+- 詳細: [[../nodes/uc-session-promise-vs-system.md]]
+
+### R4: セマンティックリンク — エッジの意味を明記する
+`[[link]]` だけでは関係の種類が不明。AIも人間もグラフの意味を正確に把握できない。
+- **対策**: リンクには必ずエッジタイプを明記（`caused_by`, `related_to`, `fixes` 等）
+- **YAMLフロントマター**: `relationships:` セクションで構造的に定義する
+- 詳細: [[../nodes/semantic-graph-relationships.md]]
+
+---
+
+## クイック参照テーブル
+
+| 状況 | 適用するルール |
+|---|---|
+| 新しいファイルを作ろうとしている | R1: PROJECT_MAP.md を先に読む |
+| タスク完了前のチェックリスト設計 | R2: 後処理を出口条件にする |
+| ナレッジシステムや記録システムを設計する | R3: 抽象ラベルを使わず具体的なカテゴリで定義する |
+| グラフにリンクを追加する | R4: エッジタイプを明記する |
+| ユーザーが「成長」「PDCA」と言った | R3: ストレージではなく行動改善の設計をする |
+| AIが「次回からやります」と言った | R5: 今すぐファイルに書いてコミットする |
+
+---
+
+## このクラスターのノード一覧
+
+- [[../nodes/ai-context-blindness-at-scale.md]] — `ai-behavior`, `scaling`, `system-design`
+- [[../nodes/ai-instruction-enforcement.md]] — `ai-behavior`, `prompt-engineering`, `pdca`
+- [[../nodes/uc-abstract-knowledge-label.md]] — `user-correction`, `too-abstract`, `knowledge-design`
+- [[../nodes/semantic-graph-relationships.md]] — `system-design`, `knowledge-graph`, `semantics`
+- [[../nodes/uc-session-promise-vs-system.md]] — `user-correction`, `too-ephemeral`, `system-design`
+
+---
+
+## 昇格候補（SKILL.md へ昇格すべきルール）
+
+> 次回レビュー時: R1〜R4 は十分に検証済み → SKILL.md の "行動ルール" セクションへの昇格を検討する
+
+*Last updated: 2026-02-26 | Node count: 5*
