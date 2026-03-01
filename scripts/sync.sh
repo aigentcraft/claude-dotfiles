@@ -21,6 +21,11 @@ sync_pull() {
     # Bridging copy logic removed. Rely on Directory Junctions / Symlinks.
   fi
 
+  # Extract PDCA nodes from recent commit messages
+  if [ -f "$WORKSPACE_DIR/scripts/extract-pdca.sh" ]; then
+    bash "$WORKSPACE_DIR/scripts/extract-pdca.sh" --since=3.days.ago
+  fi
+
   echo "[Antigravity] Pull complete."
 }
 
@@ -43,6 +48,11 @@ sync_push() {
     echo "$CONFLICT_FILES" | sed 's/^/  /'
     echo "Resolve before pushing."
     return 1
+  fi
+
+  # Extract PDCA nodes from recent commits before push (safety net)
+  if [ -f "$WORKSPACE_DIR/scripts/extract-pdca.sh" ]; then
+    bash "$WORKSPACE_DIR/scripts/extract-pdca.sh" --since=1.day.ago
   fi
 
   # Generate MOC before checking status to ensure index is up to date
