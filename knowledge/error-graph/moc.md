@@ -66,27 +66,28 @@
 > 通常はクラスター経由でアクセスする。完全参照が必要な時のみこちらを使う。
 
 ### [Type A] Technical Errors
-- [[nodes/ai-context-blindness-at-scale.md]] — `ai-behavior` cluster
-- [[nodes/ai-instruction-enforcement.md]] — `ai-behavior` cluster
-- [[nodes/api-rate-limit-exceeded.md]] — `api-network` cluster
-- [[nodes/powershell-hash-literal-git.md]] — `platform-syntax` cluster
-- [[nodes/semantic-graph-relationships.md]] — `ai-behavior` cluster
-- [[nodes/slack-api-silent-hang.md]] — `api-network` cluster
-- [[nodes/supabase-v2-types-resolve-never.md]] — `database-orm` cluster
-- [[nodes/ai-sdk-v6-renamed-properties.md]] — `sdk-migration` cluster
-- [[nodes/claude-hook-env-project-dir.md]] — `shell-hook-env` cluster
+- [[nodes/ai-context-blindness-at-scale.md]] — `ai-behavior` cluster (`scaling,system-design,architecture`)
+- [[nodes/ai-instruction-enforcement.md]] — `ai-behavior` cluster (`prompt-engineering,system-design`)
+- [[nodes/ai-sdk-v6-renamed-properties.md]] — `ai-sdk` cluster (`vercel-ai,typescript,api-migration`)
+- [[nodes/api-rate-limit-exceeded.md]] — `api` cluster (`network,rate-limit`)
+- [[nodes/claude-hook-env-project-dir.md]] — unknown
+- [[nodes/copywriting-indirect-motivation.md]] — `copywriting` cluster (`psychology,content-writing,behavioral,self-determination`)
+- [[nodes/powershell-hash-literal-git.md]] — `powershell` cluster (`git,syntax-error`)
+- [[nodes/semantic-graph-relationships.md]] — `system-design` cluster (`knowledge-graph,semantics,obsidian`)
+- [[nodes/slack-api-silent-hang.md]] — `slack` cluster (`api,timeout,mcp`)
+- [[nodes/supabase-v2-types-resolve-never.md]] — `supabase` cluster (`typescript,database,type-safety`)
+- [[nodes/test-mobile-sync-20260228.md]] — unknown
 
 ### [Type B] User Corrections (uc-)
-- [[nodes/uc-skipped-pdca-on-pivot.md]] — `ai-behavior` cluster (`pdca-bypass`, `pivot-masking`)
-- [[nodes/uc-abstract-knowledge-label.md]] — `ai-behavior` cluster (`too-abstract`)
-- [[nodes/copywriting-indirect-motivation.md]] — `copywriting-psychology` cluster
-- [[nodes/uc-session-promise-vs-system.md]] — `ai-behavior` cluster (`too-ephemeral`)
-- [[nodes/uc-repeat-master-push-despite-known-403.md]] — `ai-behavior` cluster (`repeat-known-constraint`)
-- [[nodes/uc-local-pattern-no-generalization.md]] — `ai-behavior` cluster (`local-pattern`, `no-generalization`)
-- [[nodes/uc-knowledge-branch-isolation.md]] — `ai-behavior` cluster (`branch-isolation`, `knowledge-propagation`)
-- [[nodes/uc-partial-solution-without-automation-path.md]] — `ai-behavior` cluster (`partial-solution`, `automation`)
-- [[nodes/uc-unverified-hazudesu-reporting.md]] — `ai-behavior` cluster (`unverified-claim`, `hazudesu`, `test-verification`)
+- [[nodes/uc-abstract-knowledge-label.md]] — `knowledge-design` cluster (`system-design`)
+- [[nodes/uc-knowledge-branch-isolation.md]] — unknown
+- [[nodes/uc-local-pattern-no-generalization.md]] — unknown
+- [[nodes/uc-partial-solution-without-automation-path.md]] — unknown
+- [[nodes/uc-repeat-master-push-despite-known-403.md]] — unknown
+- [[nodes/uc-session-promise-vs-system.md]] — unknown
+- [[nodes/uc-skipped-pdca-on-pivot.md]] — `assumption` cluster (`pivot-masking`)
+- [[nodes/uc-unverified-hazudesu-reporting.md]] — unknown
 
 ---
 
-*Note: 新しいノードを作成したら (1) nodes/ にファイルを作る → (2) 該当クラスターのサマリーを更新する → (3) この全ノードインデックスに追記する*
+*Note: 新しいノードを作成したら (1) nodes/ にファイルを作る → (2) 該当クラスターのサマリーを更新する → (3) このインデックスは自動生成コマンド(`scripts/generate-moc.ps1`)で生成されます。*

@@ -1,0 +1,3 @@
+# Auto-generated files: regenerate rather than merge during conflicts
+error-graph/moc.md merge=ours
+skills-moc.md merge=ours
