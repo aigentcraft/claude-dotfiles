@@ -1,6 +1,7 @@
 ---
 title: "Semantic Graph Relationships vs Untyped Links"
 description: "Basic markdown wikilinks [[node]] lack semantic meaning (edge labels). To ensure the AI truly understands correlations and to enable advanced visualization, we must use typed relationships."
+type: "technical-error"
 tags: ["system-design", "knowledge-graph", "semantics", "obsidian"]
 ---
 

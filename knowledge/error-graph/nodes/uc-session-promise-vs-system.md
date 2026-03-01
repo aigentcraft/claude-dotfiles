@@ -1,9 +1,10 @@
-# Node: uc-session-promise-vs-system
-
-**Cluster**: `ai-behavior`
-**Type**: User Correction (Type B)
-**Tag**: `too-ephemeral`, `system-design`, `user-correction`
-**Date**: 2026-02-26
+---
+title: "uc-session-promise-vs-system"
+type: "user-correction"
+tags: ["ai-behavior", "too-ephemeral", "system-design"]
+correction_category: "promise-vs-system"
+date: "2026-02-26"
+---
 
 ---
 

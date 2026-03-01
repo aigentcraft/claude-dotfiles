@@ -1,8 +1,10 @@
-# Node: claude-hook-env-project-dir
-
-**Cluster**: `shell-hook-env`
-**Type**: Technical Error (Type A)
-**Date**: 2026-02-26
+---
+title: "claude-hook-env-project-dir"
+type: "technical-error"
+tags: ["shell-hook-env"]
+correction_category: "environment-variable-fallback"
+date: "2026-02-26"
+---
 
 ---
 

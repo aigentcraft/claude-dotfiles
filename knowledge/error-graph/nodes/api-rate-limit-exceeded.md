@@ -1,6 +1,7 @@
 ---
 title: "Mock Test: API Rate Limit Exceeded"
 description: "Third-party API returned 429 Too Many Requests due to lack of throttling. Implemented exponential backoff."
+type: "technical-error"
 tags: ["api", "network", "rate-limit"]
 ---
 

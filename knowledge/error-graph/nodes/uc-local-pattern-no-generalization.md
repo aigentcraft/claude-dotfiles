@@ -1,9 +1,10 @@
-# UC: パターンの局所実装 — 同種構造への横展開が発生しなかった
-
-## Type
-User Correction — `uc-local-pattern-no-generalization`
-**Date**: 2026-02-28
-**Cluster**: `ai-behavior`
+---
+title: "uc-local-pattern-no-generalization"
+type: "user-correction"
+tags: ["ai-behavior", "generalization", "system-design"]
+correction_category: "pattern-application"
+date: "2026-02-28"
+---
 
 ---
 

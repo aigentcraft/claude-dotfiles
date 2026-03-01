@@ -1,7 +1,10 @@
-# UC: 既知の403制約を無視してmasterにpushを試みた（2度目）
-
-## Type
-User Correction — `uc-repeat-known-constraint`
+---
+title: "uc-repeat-master-push-despite-known-403"
+type: "user-correction"
+tags: ["git", "permissions", "repeat-error"]
+correction_category: "instruction-enforcement"
+date: "2026-02-28"
+---
 
 ## 症状
 - セッション内で「masterへのpushは403になる」ことがすでに判明していた

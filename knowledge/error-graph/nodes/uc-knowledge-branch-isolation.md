@@ -1,9 +1,10 @@
-# UC: claude/ブランチで作ったナレッジがmasterに届かず他端末・antigravityに伝播しない
-
-## Type
-User Correction — `uc-knowledge-branch-isolation`
-**Date**: 2026-02-28
-**Cluster**: `ai-behavior`
+---
+title: "uc-knowledge-branch-isolation"
+type: "user-correction"
+tags: ["ai-behavior", "branch-isolation", "knowledge-propagation"]
+correction_category: "structural-oversight"
+date: "2026-02-28"
+---
 
 ---
 

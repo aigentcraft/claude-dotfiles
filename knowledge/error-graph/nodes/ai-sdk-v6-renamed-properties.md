@@ -1,6 +1,7 @@
 ---
 title: "AI SDK v6 Renamed Properties (maxTokens → maxOutputTokens)"
 description: "AI SDK v6 renamed several properties from v5. Using old property names causes TypeScript errors but may still work at runtime, making bugs silent."
+type: "technical-error"
 tags: ["ai-sdk", "vercel-ai", "typescript", "api-migration"]
 relationships:
   caused_by: []

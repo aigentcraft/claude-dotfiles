@@ -1,6 +1,7 @@
 ---
 title: "AI Instruction Adherence & Checkpoint Enforcement"
 description: "AI agents tend to forget post-task administrative instructions (like documentation) when hyper-focused on solving immediate errors. Enforce behavior via hard checkpoints before task completion constraints."
+type: "technical-error"
 tags: ["ai-behavior", "prompt-engineering", "system-design", "pdca"]
 ---
 

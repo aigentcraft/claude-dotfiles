@@ -1,6 +1,7 @@
 ---
 title: "Slack API postMessage Silent Hang"
 description: "Slack API chat.postMessage can sometimes hang indefinitely without throwing an error, causing MCP long-polling tools to block forever."
+type: "technical-error"
 tags: ["slack", "api", "timeout", "mcp"]
 ---
 

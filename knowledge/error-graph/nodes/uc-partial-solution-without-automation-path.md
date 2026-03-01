@@ -1,9 +1,10 @@
-# UC: 自動化要求に対して「手動対応」で終わらせた
-
-## Type
-User Correction — `uc-partial-solution-without-automation-path`
-**Date**: 2026-02-28
-**Cluster**: `ai-behavior`
+---
+title: "uc-partial-solution-without-automation-path"
+type: "user-correction"
+tags: ["ai-behavior", "automation", "system-design"]
+correction_category: "solution-design"
+date: "2026-02-28"
+---
 
 ---
 

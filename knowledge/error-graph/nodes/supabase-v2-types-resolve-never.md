@@ -1,6 +1,7 @@
 ---
 title: "Supabase v2 TypeScript Types Resolve to `never` for Ungenerated Schemas"
 description: "When using @supabase/supabase-js v2 with a manually defined Database type that lacks proper Insert/Update row types, all .insert() and .update() calls resolve to `never`, causing TypeScript errors."
+type: "technical-error"
 tags: ["supabase", "typescript", "database", "type-safety"]
 relationships:
   caused_by: []

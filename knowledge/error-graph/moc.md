@@ -66,28 +66,27 @@
 > Complete index below. Use clusters for structured entry.
 
 ### [Type A] Technical Errors
-- [[nodes/ai-context-blindness-at-scale.md]] 窶・`ai-behavior` cluster (`scaling`, `system-design`, `architecture`)
-- [[nodes/ai-instruction-enforcement.md]] 窶・`ai-behavior` cluster (`prompt-engineering`, `system-design`)
-- [[nodes/ai-sdk-v6-renamed-properties.md]] 窶・`ai-sdk` cluster (`vercel-ai`, `typescript`, `api-migration`)
-- [[nodes/api-rate-limit-exceeded.md]] 窶・`api` cluster (`network`, `rate-limit`)
-- [[nodes/bash-awk-regex-and-array-accumulation.md]] 窶・`bash` cluster (`awk`, `regex`, `arrays`, `windows`, `git-bash`, `cross-platform`)
-- [[nodes/claude-hook-env-project-dir.md]] 窶・`unknown
-- [[nodes/copywriting-indirect-motivation.md]] 窶・`copywriting` cluster (`psychology`, `content-writing`, `behavioral`, `self-determination`)
-- [[nodes/powershell-hash-literal-git.md]] 窶・`powershell` cluster (`git`, `syntax-error`)
-- [[nodes/semantic-graph-relationships.md]] 窶・`system-design` cluster (`knowledge-graph`, `semantics`, `obsidian`)
-- [[nodes/slack-api-silent-hang.md]] 窶・`slack` cluster (`api`, `timeout`, `mcp`)
-- [[nodes/supabase-v2-types-resolve-never.md]] 窶・`supabase` cluster (`typescript`, `database`, `type-safety`)
-- [[nodes/test-mobile-sync-20260228.md]] 窶・`unknown
+- [[nodes/ai-context-blindness-at-scale.md]] — `ai-behavior` cluster (`scaling`, `system-design`, `architecture`)
+- [[nodes/ai-instruction-enforcement.md]] — `ai-behavior` cluster (`prompt-engineering`, `system-design`)
+- [[nodes/ai-sdk-v6-renamed-properties.md]] — `ai-sdk` cluster (`vercel-ai`, `typescript`, `api-migration`)
+- [[nodes/api-rate-limit-exceeded.md]] — `api` cluster (`network`, `rate-limit`)
+- [[nodes/bash-awk-regex-and-array-accumulation.md]] — `bash` cluster (`awk`, `regex`, `arrays`, `windows`, `git-bash`, `cross-platform`)
+- [[nodes/claude-hook-env-project-dir.md]] — `shell-hook-env` cluster
+- [[nodes/copywriting-indirect-motivation.md]] — `copywriting` cluster (`psychology`, `content-writing`, `behavioral`, `self-determination`)
+- [[nodes/powershell-hash-literal-git.md]] — `powershell` cluster (`git`, `syntax-error`)
+- [[nodes/semantic-graph-relationships.md]] — `system-design` cluster (`knowledge-graph`, `semantics`, `obsidian`)
+- [[nodes/slack-api-silent-hang.md]] — `slack` cluster (`api`, `timeout`, `mcp`)
+- [[nodes/supabase-v2-types-resolve-never.md]] — `supabase` cluster (`typescript`, `database`, `type-safety`)
 
 ### [Type B] User Corrections (uc-)
-- [[nodes/uc-abstract-knowledge-label.md]] 窶・`knowledge-design` cluster (`system-design`)
-- [[nodes/uc-knowledge-branch-isolation.md]] 窶・`unknown
-- [[nodes/uc-local-pattern-no-generalization.md]] 窶・`unknown
-- [[nodes/uc-partial-solution-without-automation-path.md]] 窶・`unknown
-- [[nodes/uc-repeat-master-push-despite-known-403.md]] 窶・`unknown
-- [[nodes/uc-session-promise-vs-system.md]] 窶・`unknown
-- [[nodes/uc-skipped-pdca-on-pivot.md]] 窶・`assumption` cluster (`pivot-masking`)
-- [[nodes/uc-unverified-hazudesu-reporting.md]] 窶・`unknown
+- [[nodes/uc-abstract-knowledge-label.md]] — `knowledge-design` cluster (`system-design`)
+- [[nodes/uc-knowledge-branch-isolation.md]] — `ai-behavior` cluster (`branch-isolation`, `knowledge-propagation`)
+- [[nodes/uc-local-pattern-no-generalization.md]] — `ai-behavior` cluster (`generalization`, `system-design`)
+- [[nodes/uc-partial-solution-without-automation-path.md]] — `ai-behavior` cluster (`automation`, `system-design`)
+- [[nodes/uc-repeat-master-push-despite-known-403.md]] — `git` cluster (`permissions`, `repeat-error`)
+- [[nodes/uc-session-promise-vs-system.md]] — `ai-behavior` cluster (`too-ephemeral`, `system-design`)
+- [[nodes/uc-skipped-pdca-on-pivot.md]] — `assumption` cluster (`pivot-masking`)
+- [[nodes/uc-unverified-hazudesu-reporting.md]] — `ai-behavior` cluster (`unverified-claim`, `hazudesu`, `test-verification`)
 
 ---
 

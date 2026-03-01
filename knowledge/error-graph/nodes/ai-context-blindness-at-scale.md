@@ -1,6 +1,7 @@
 ---
 title: "AI Context Window Blindness at Scale"
 description: "As projects grow beyond what fits in the AI's working memory, it loses track of file relationships and creates duplicates or breaks dependencies. A 'Project Architecture Map' must be maintained as a lightweight index."
+type: "technical-error"
 tags: ["ai-behavior", "scaling", "system-design", "architecture"]
 relationships:
   caused_by: []

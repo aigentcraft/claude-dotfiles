@@ -1,8 +1,10 @@
-# Node: uc-unverified-hazudesu-reporting
-
-**Cluster**: `ai-behavior`
-**Type**: User Correction (Type B)
-**Tag**: `unverified-claim`, `hazudesu`, `test-verification`, `user-correction`
+---
+title: "uc-unverified-hazudesu-reporting"
+type: "user-correction"
+tags: ["ai-behavior", "unverified-claim", "hazudesu", "test-verification"]
+correction_category: "empirical-verification"
+date: "2026-02-28"
+---
 
 ---
 

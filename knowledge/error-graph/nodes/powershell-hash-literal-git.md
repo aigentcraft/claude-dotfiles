@@ -1,6 +1,7 @@
 ---
 title: "PowerShell Hash Table Literal parsing in Git commands"
 description: "Using git @{u} syntax in PowerShell scripts causes a ParserError because PowerShell interprets it as an empty hash table literal."
+type: "technical-error"
 tags: ["powershell", "git", "syntax-error"]
 ---
 
