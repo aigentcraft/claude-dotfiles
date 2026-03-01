@@ -86,18 +86,7 @@
 
 ---
 
-## Conversation Log（セッションの記憶）
-
-### 2026-02-26 — claude-dotfiles 設計セッション
-- 「使うほど賢くなるシステムがGraphRAGの根幹」と理解・言語化
-- Skills補完グラフ（knowledge/skills-graph/relationships.md）を設計・実装
-- 「もう1人の自分になって欲しい」という要求が生まれ、me.md設計へ
-- GRAPH_RAG.md を新設しプロジェクト構造をグラフ化
-
-### 2026-02-26 — me.md 初期設定
-- 職務経歴書・LinkedInプロフィール全文を提供
-- Profile / Goals / Conversation Log / Growth Map の4構造で me.md を初期作成
-- Goals: 「AI活用コンサル」「不労所得で自由な暮らし」が明確な方向性
+## Conversation Log（直近3件 — 過去分は [conversation-archive/](conversation-archive/) を参照）
 
 ### 2026-02-27 — UCスルー防止・Skills GraphRAG 整備
 - 「スルーしてしまうのは問題だな」→ 宣言だけでなく仕組みで防ぐという設計思想を確認
@@ -105,6 +94,15 @@
 - push前UCスキャン（自問チェック）を Quick Rules #8 と CLAUDE.md に追加
 - Skills GraphRAG の未登録スキル（auto-sync-rule, skill-installer, slack-remote-run）を補完グラフに追加
 - relationships.md に「システム・ガバナンスクラスター」新設
+
+### 2026-02-28 — システムアーキテクチャ図作成
+- SYSTEM_ARCHITECTURE.md 新設（3層構造・4同期経路・9セクションの包括的ドキュメント）
+
+### 2026-03-01 — システム監査＆10項目改善
+- AIが自律構築したシステムを「自分の原則に照らして自己監査」するプロセスを初実施
+- 「通常RAGはスケールしないのでナレッジとして構築してはいけない」→ MOCフラットリスト問題を発見
+- 「仕組みが作られていないこと自体が問題」→ バリデーション+フックで自動強制化
+- rule-vs-code / system-not-promise 原則の再帰的適用（原則を自分自身のシステムに適用）
 
 ---
 
@@ -130,11 +128,11 @@
 ## このファイルの更新ルール
 
 - **更新タイミング**: セッション終了時（commit & push の前）
-- **Conversation Log**: 重要な気づき・決断・設計があれば日付付きで追加
+- **Conversation Log**: 重要な気づき・決断・設計があれば日付付きで追加。**直近3件のみ保持**。4件以上になったら古いものを `conversation-archive/YYYY-MM.md` に月別アーカイブする
 - **Growth Map**: 新しい技術習得・実績が生まれたら追記
 - **Goals**: 達成したら移動、新たな目標が生まれたら追加
 - **読み込み**: セッション開始時に session-start.sh が自動適用
 
 ---
 
-*最終更新: 2026-02-26 | セッション: claude-dotfiles設計*
+*最終更新: 2026-03-01 | セッション: システム監査＆10項目改善*

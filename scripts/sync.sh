@@ -73,7 +73,7 @@ bridge_to_antigravity() {
     [ -f "$DOTFILES_DIR/skills-lock.json" ] && cp -f "$DOTFILES_DIR/skills-lock.json" "$ANTIGRAVITY_DIR/skills-lock.json" 2>/dev/null
     cd "$ANTIGRAVITY_DIR"
     if [ -n "$(git status --porcelain)" ]; then
-      git add -A
+      git add knowledge/ skills/ skills-lock.json 2>/dev/null
       git commit -m "auto-sync (from Claude Code): $(date '+%Y-%m-%d %H:%M:%S')"
       git push
       echo "[claude-dotfiles] antigravity-dotfiles push complete."
@@ -137,16 +137,23 @@ fetch_knowledge_from_claude_branches() {
   fi
 }
 
+# 同期対象の明示的パスリスト（git add -A の代わりに使用）
+SYNC_PATHS="settings.json CLAUDE.md GRAPH_RAG.md CHANGELOG.md SYSTEM_ARCHITECTURE.md skills/ knowledge/ scripts/ templates/ .claude/ .github/ .gitignore skills-lock.json README.md"
+
 sync_push() {
   cd "$DOTFILES_DIR"
   collect_from_claude
-  # 1. claude-dotfiles を GitHub に push
+  # 1. claude-dotfiles を GitHub に push（明示的パスのみ）
   if [ -n "$(git status --porcelain)" ]; then
     echo "[claude-dotfiles] Changes detected, pushing..."
-    git add -A
-    git commit -m "auto-sync: $(date '+%Y-%m-%d %H:%M:%S')"
-    git push
-    echo "[claude-dotfiles] Push complete."
+    git add $SYNC_PATHS 2>/dev/null
+    if git diff --cached --quiet; then
+      echo "[claude-dotfiles] No tracked changes to push."
+    else
+      git commit -m "auto-sync: $(date '+%Y-%m-%d %H:%M:%S')"
+      git push
+      echo "[claude-dotfiles] Push complete."
+    fi
   else
     echo "[claude-dotfiles] No changes to push."
   fi

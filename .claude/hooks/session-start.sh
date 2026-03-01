@@ -23,19 +23,19 @@ echo "Claude dir:      $CLAUDE_DIR"
 # Ensure ~/.claude directories exist
 mkdir -p "$CLAUDE_DIR/skills" "$CLAUDE_DIR/knowledge"
 
-# Apply settings.json (model, effort level etc.)
+# Apply settings.json (model, effort level etc.) — 設定は常に最新を上書き
 if [ -f "$DOTFILES_DIR/settings.json" ]; then
   cp -f "$DOTFILES_DIR/settings.json" "$CLAUDE_DIR/settings.json"
   echo "[OK] settings.json applied"
 fi
 
-# Apply global CLAUDE.md (rules, GraphRAG rules, sync rules)
+# Apply global CLAUDE.md (rules) — ルールは常に最新を上書き
 if [ -f "$DOTFILES_DIR/CLAUDE.md" ]; then
   cp -f "$DOTFILES_DIR/CLAUDE.md" "$CLAUDE_DIR/CLAUDE.md"
   echo "[OK] CLAUDE.md applied"
 fi
 
-# Apply skills
+# Apply skills — スキルは常に最新を上書き
 SKILL_COUNT=0
 for skill_dir in "$DOTFILES_DIR/skills"/*/; do
   [ -d "$skill_dir" ] || continue
@@ -46,16 +46,33 @@ for skill_dir in "$DOTFILES_DIR/skills"/*/; do
 done
 echo "[OK] $SKILL_COUNT skills applied"
 
-# Apply knowledge base
+# Apply knowledge base — マージ方式（既存ファイルを保護、新しいファイルのみ追加）
+# Web セッション中に作成された知識が上書きされることを防ぐ
 if [ -d "$DOTFILES_DIR/knowledge" ]; then
   mkdir -p "$CLAUDE_DIR/knowledge"
-  cp -Rf "$DOTFILES_DIR/knowledge/"* "$CLAUDE_DIR/knowledge/" 2>/dev/null || true
-  echo "[OK] knowledge base applied"
+  # rsync があれば使う（新しいファイルのみ追加、既存は上書きしない）
+  if command -v rsync &>/dev/null; then
+    rsync -r --ignore-existing "$DOTFILES_DIR/knowledge/" "$CLAUDE_DIR/knowledge/"
+  else
+    # rsync がない場合は cp -rn（-n = no-clobber）で代替
+    cp -rn "$DOTFILES_DIR/knowledge/"* "$CLAUDE_DIR/knowledge/" 2>/dev/null || true
+  fi
+  echo "[OK] knowledge base applied (merge mode — existing files preserved)"
 fi
 
 # Export DOTFILES_DIR for the session
 if [ -n "${CLAUDE_ENV_FILE:-}" ]; then
   echo "export DOTFILES_DIR=\"$DOTFILES_DIR\"" >> "$CLAUDE_ENV_FILE"
+fi
+
+# ---------------------------------------------------------------
+# Knowledge validation (claude-dotfiles プロジェクトの場合のみ)
+# ---------------------------------------------------------------
+VALIDATE_SCRIPT="$DOTFILES_DIR/scripts/validate-knowledge.sh"
+if [ "$CURRENT_PROJECT" = "$DOTFILES_DIR" ] && [ -f "$VALIDATE_SCRIPT" ]; then
+  echo ""
+  bash "$VALIDATE_SCRIPT" 2>&1 || echo "[WARN] Knowledge validation found issues (see above)"
+  echo ""
 fi
 
 # ---------------------------------------------------------------

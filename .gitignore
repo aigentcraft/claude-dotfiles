@@ -6,6 +6,12 @@
 # Never sync credentials or local-only settings
 .credentials.json
 settings.local.json
+.env
+.env.*
+*.pem
+*.key
+*secret*
+*token*
 
 # Cache and temp
 cache/
