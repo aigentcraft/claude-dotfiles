@@ -24,7 +24,7 @@ if (-not (Test-Path $MocFile)) {
 $MocLines = Get-Content $MocFile -Encoding UTF8
 $BeforeIndex = @()
 foreach ($line in $MocLines) {
-    if ($line -match '^## 全ノードインデックス（nodes/）') {
+    if ($line -match '^## .*nodes/') {
         # We stop preserving here
         break
     }

@@ -18,7 +18,7 @@ fi
 TEMP_FILE=$(mktemp)
 
 # 1. Read the existing MOC to preserve everything BEFORE the index section
-awk '/^## 全ノードインデックス（nodes\/\）/ {exit} {print}' "$MOC_FILE" > "$TEMP_FILE"
+awk '/^## .*nodes\// {exit} {print}' "$MOC_FILE" > "$TEMP_FILE"
 
 # Append the header
 echo -e "## 全ノードインデックス（nodes/）\n" >> "$TEMP_FILE"
@@ -52,7 +52,7 @@ for node_path in "$NODES_DIR"/*.md; do
     if [ -n "$parsed_tags" ]; then
         # Parse first tag as cluster (skipping generic ones)
         IFS=',' read -ra TAGS <<< "$parsed_tags"
-        declare -a clusters
+        clusters=()
         for tag in "${TAGS[@]}"; do
             # trim whitespace/quotes
             t=$(echo "$tag" | xargs | sed -e 's/^"//' -e 's/"$//' -e "s/^'//" -e "s/'$//")
