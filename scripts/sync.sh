@@ -28,13 +28,39 @@ sync_push() {
   has_changes=false
   current_date=$(date '+%Y-%m-%d %H:%M:%S')
 
+  # Pre-flight: validate nodes
+  if [ -f "$WORKSPACE_DIR/scripts/validate-nodes.sh" ]; then
+    bash "$WORKSPACE_DIR/scripts/validate-nodes.sh" || {
+      echo "[ERROR] Node validation failed. Fix before pushing."
+      return 1
+    }
+  fi
+
+  # Pre-flight: detect merge conflict markers (line-anchored to avoid false positives in docs)
+  CONFLICT_FILES=$(grep -rl '^<<<<<<< ' "$WORKSPACE_DIR/knowledge/" "$WORKSPACE_DIR/skills/" 2>/dev/null || true)
+  if [ -n "$CONFLICT_FILES" ]; then
+    echo "[ERROR] Merge conflict markers detected in:"
+    echo "$CONFLICT_FILES" | sed 's/^/  /'
+    echo "Resolve before pushing."
+    return 1
+  fi
+
   # Generate MOC before checking status to ensure index is up to date
   bash "$WORKSPACE_DIR/scripts/generate-moc.sh" >/dev/null 2>&1
 
   # Bridge: Copy local changes to claude-dotfiles
   if [ -d "$CLAUDE_DOTFILES_DIR" ]; then
     # Bridging copy logic removed. Rely on Directory Junctions / Symlinks.
-    
+
+    # Pre-flight: detect conflict markers in claude-dotfiles too
+    CLAUDE_CONFLICTS=$(grep -rl '^<<<<<<< ' "$CLAUDE_DOTFILES_DIR/knowledge/" "$CLAUDE_DOTFILES_DIR/skills/" 2>/dev/null || true)
+    if [ -n "$CLAUDE_CONFLICTS" ]; then
+      echo "[ERROR] Merge conflict markers detected in claude-dotfiles:"
+      echo "$CLAUDE_CONFLICTS" | sed 's/^/  /'
+      echo "Resolve before pushing."
+      return 1
+    fi
+
     # Push claude-dotfiles
     cd "$CLAUDE_DOTFILES_DIR"
     if [ -n "$(git status --porcelain)" ]; then
