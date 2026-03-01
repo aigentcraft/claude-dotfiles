@@ -77,6 +77,7 @@
 - [[nodes/claude-hook-env-project-dir.md]] — `shell-hook-env` cluster
 
 ### [Type B] User Corrections (uc-)
+- [[nodes/uc-skipped-pdca-on-pivot.md]] — `ai-behavior` cluster (`pdca-bypass`, `pivot-masking`)
 - [[nodes/uc-abstract-knowledge-label.md]] — `ai-behavior` cluster (`too-abstract`)
 - [[nodes/copywriting-indirect-motivation.md]] — `copywriting-psychology` cluster
 - [[nodes/uc-session-promise-vs-system.md]] — `ai-behavior` cluster (`too-ephemeral`)
