@@ -148,8 +148,25 @@
   - 未登録スキル（slack-remote-run, auto-sync-rule, skill-installer）の補完エッジを追加
   - `skills-moc.md` の全エントリに補完スキル情報を追記
 
+- 分散 Hivemind 同期アーキテクチャ構築（2026-03-01〜02）
+  - NTFS Directory Junction で knowledge/ skills/ scripts/ を claude-dotfiles ↔ antigravity-dotfiles 間で物理共有
+  - Proposal 2 採用: Atomic Nodes + Auto-generated MOC + Pre-flight Rebase（Submodule は不採用）
+  - `scripts/generate-moc.sh` / `.ps1`: ノードインデックスの自動生成（手動編集による競合を排除）
+  - `scripts/validate-nodes.sh`: YAML frontmatter バリデーション（push 前ゲート）
+  - `scripts/extract-pdca.sh` / `.ps1`: コミットメッセージの PDCA: ブロックからノード自動生成（Gemini プランナー回避）
+  - `sync.sh`: Pre-flight Rebase (`--autostash`) + validate-nodes + コンフリクトマーカー検知 + extract-pdca を統合
+  - `knowledge/.gitattributes`: `merge=ours` 設定（自動生成ファイルの競合時安全弁）
+  - 既存8ノードの YAML frontmatter 一括修復
+- Antigravity PDCA システム第三者監査（2026-03-02）
+  - 8件の構造的問題を発見・文書化（`PDCA_REMEDIATION_PLAN_FOR_ANTIGRAVITY.md`）
+  - Fix 1〜5 を設計、Fix 4b（コミットメッセージ PDCA 抽出）が実戦で稼働確認
+
 ### 未解決・次のタスク
-- 各プロジェクトの Settings > Secrets に `CLAUDE_DOTFILES_PAT` を登録する（Maia-ai など）※ワークフロー自体はセッション開始時に自動インストール、登録後は「PAT登録済み」と伝えると自動完了
+- **P0: sync.ps1 のパリティ修正** — Windows 主環境なのに validate-nodes / コンフリクト検知 / extract-pdca が sync.ps1 に未実装（sync.sh にはある）
+- **P1: GraphRAG の自動生成化** — GRAPH_RAG.md / skills-moc.md / skills-graph/relationships.md を自動生成するスクリプトがない（純粋なドキュメント状態で既に陳腐化）
+- **P2: クラスター孤立ノードの解消** — 5件（25%）のノードがどのクラスターにも属していない
+- **P3: relationships.md トラバーサルのコード化** — 現状は AI が読んで従うだけ。PreToolUse フックで自動化を検討
+- 各プロジェクトの Settings > Secrets に `CLAUDE_DOTFILES_PAT` を登録する（Maia-ai など）
 - me.md の Conversation Log を会話ごとに積み上げていく（継続中）
 
 ### 環境情報
