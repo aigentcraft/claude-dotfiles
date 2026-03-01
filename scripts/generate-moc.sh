@@ -65,7 +65,7 @@ for node_path in "$NODES_DIR"/*.md; do
             cluster_match="\`${clusters[0]}\` cluster"
             if [ ${#clusters[@]} -gt 1 ]; then
                 extra=$(IFS=, ; echo "${clusters[*]:1}")
-                extra=$(echo "$extra" | sed 's/, /`, `/g')
+                extra=$(echo "$extra" | sed 's/,/`, `/g')
                 cluster_match="\`${clusters[0]}\` cluster (\`${extra}\`)"
             fi
         fi
