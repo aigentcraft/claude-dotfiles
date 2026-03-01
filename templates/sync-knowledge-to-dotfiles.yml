@@ -43,11 +43,10 @@ jobs:
             cp "$f" "$DEST/knowledge/error-graph/nodes/$filename"
           done
 
-          # --- moc-updated.md があれば moc.md に上書き ---
-          if [ -f "$STAGING/moc-updated.md" ]; then
-            echo "Updating moc.md"
-            cp "$STAGING/moc-updated.md" "$DEST/knowledge/error-graph/moc.md"
-          fi
+          # NOTE: moc-updated.md は意図的に無視する
+          # moc.md（Quick Rules・クラスター定義）は claude-dotfiles 専用の構造ファイルであり、
+          # 他プロジェクトの staging から上書きされると構造が破壊される。
+          # MOC の更新は claude-dotfiles セッション内で直接行うこと。
 
           # --- サブディレクトリは knowledge/ 配下にコピー ---
           find "$STAGING" -mindepth 1 -maxdepth 1 -type d | while read dir; do

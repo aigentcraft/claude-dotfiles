@@ -69,6 +69,7 @@
 | AIが「次回からやります」と言った | R5: 今すぐファイルに書いてコミットする |
 | セッション内でpush/操作が一度失敗した | R6: 同じコマンドを再実行しない。制約を確認してから実行する |
 | あるパターン（ファイル・構造・ルール）を作った | R9: 「同種の構造が他にないか」を即座に確認し横展開する |
+| テスト・動作確認の結果を報告する | R10: 「はずです」禁止。`gh run list` / `ls` / `git show` で実測してから報告する |
 
 ---
 
@@ -83,11 +84,19 @@
 - [[../nodes/uc-local-pattern-no-generalization.md]] — `user-correction`, `local-pattern`, `no-generalization`
 - [[../nodes/uc-knowledge-branch-isolation.md]] — `user-correction`, `branch-isolation`, `knowledge-propagation`
 - [[../nodes/uc-partial-solution-without-automation-path.md]] — `user-correction`, `partial-solution`, `automation`
+- [[../nodes/uc-unverified-hazudesu-reporting.md]] — `user-correction`, `unverified-claim`, `hazudesu`, `test-verification`
 
 ---
 
 ## 昇格候補（SKILL.md へ昇格すべきルール）
 
-> 次回レビュー時: R1〜R4 は十分に検証済み → SKILL.md の "行動ルール" セクションへの昇格を検討する
+> Node count が 10 に達した。次回レビュー時に R1〜R4 を SKILL.md の "行動ルール" セクションへ昇格し、クラスターを再整理する
 
-*Last updated: 2026-02-28 | Node count: 9*
+### R10: 実測報告の義務（R-HAZUDESU）
+テスト・動作確認タスクでは「〜のはずです」「〜されます」は報告ではない。実測結果のみが報告。
+- **禁止**: 「はずです」「されるはずです」「確認してください」で終わる
+- **必須**: `gh run list` / `ls` / `git show` 等で実測してから状態を報告する
+- **確認不可の場合**: 「確認できない理由」を明記し、ユーザーが実行できる具体的コマンドを提示する
+- 詳細: [[../nodes/uc-unverified-hazudesu-reporting.md]]
+
+*Last updated: 2026-02-28 | Node count: 10*
