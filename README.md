@@ -2,7 +2,8 @@
 
 **布団の中から本番バグを直す**ための、Claude Code 設定一式。
 
-複数マシン間の設定同期 ＋ スマホ・ブラウザでの Claude Code Web セッション対応。
+Windows / Mac のマルチマシン同期 ＋ スマホ・ブラウザでの Web セッション対応。
+Gemini（Antigravity）との知識共有にも対応したマルチエージェント構成。
 
 ---
 
@@ -10,24 +11,52 @@
 
 | 機能 | 説明 |
 |---|---|
-| **マルチマシン同期** | Windows / Mac / Linux で同じ設定・スキル・知識ベースを共有 |
-| **Webセッション自動設定** | スマホブラウザから開くと、ルール・スキル・知識が自動ロード |
-| **スキル管理** | カスタムスキルをリポジトリで管理・同期 |
-| **知識ベース** | エラーグラフ（PDCA ナレッジ）をセッションをまたいで蓄積 |
+| **マルチマシン同期** | Windows / Mac で同じ設定・スキル・知識ベースを共有 |
+| **Web セッション自動設定** | スマホブラウザから開くとルール・スキル・知識が自動ロード |
+| **スキル管理** | 14 個のカスタムスキルをリポジトリで管理・同期 |
+| **PDCA 知識ベース** | エラーグラフ（21 ノード / 5 クラスター）をセッション横断で蓄積 |
+| **マルチエージェント共有** | Gemini（Antigravity）と junction 経由で knowledge / skills / scripts を共有 |
+| **コミットメッセージ PDCA 抽出** | `fix:` コミットに `PDCA:` ブロックを書くだけでノードが自動生成 |
 
 ---
 
-## 仕組み
+## アーキテクチャ
 
 ```
-スマホ (claude.ai)
-  └─ GitHub リポジトリを開く
-       └─ SessionStart フック自動実行
-            └─ settings.json / CLAUDE.md / skills / knowledge を ~/.claude/ に適用
-                 └─ すぐに開発できる状態になる
+┌─────────────────────────────────────────────────────────┐
+│                    claude-dotfiles                       │
+│              （Source of Truth リポジトリ）               │
+│                                                         │
+│   knowledge/          skills/          scripts/         │
+│   ├── error-graph/    ├── 14 skills    ├── sync.sh/ps1  │
+│   │   ├── nodes/      └── ...          ├── extract-pdca │
+│   │   ├── clusters/                    ├── generate-moc │
+│   │   ├── moc.md                       ├── validate-nodes│
+│   │   └── relationships.md             └── bootstrap    │
+│   ├── skills-graph/                                     │
+│   │   └── relationships.md                              │
+│   └── me.md                                             │
+└──────────────┬──────────────────────┬───────────────────┘
+               │ junction             │ junction
+               ▼                      ▼
+┌──────────────────────┐   ┌──────────────────────┐
+│  Antigravity         │   │  ~/.claude/           │
+│  (.gemini/antigravity)│   │  (Claude Code local) │
+│  Gemini エージェント  │   │  symlink で参照      │
+└──────────────────────┘   └──────────────────────┘
+               │                      │
+               ▼                      ▼
+         PDCA ノード自動生成    セッション開始時に自動適用
+         コミットメッセージ経由   session-start.sh フック
 ```
 
-ローカルマシンでは `sync.sh` が設定を双方向に同期する。
+### Append-Only ルール
+
+複数エージェントが同じファイルを編集するため、以下のファイルは **追記のみ・書き換え禁止**：
+
+- `knowledge/me.md` — ユーザーの個人コンテキスト
+- `knowledge/skills-graph/relationships.md` — スキル補完グラフ
+- `knowledge/error-graph/relationships.md` — エラートラバーサルグラフ
 
 ---
 
@@ -40,14 +69,24 @@ git clone https://github.com/aigentcraft/claude-dotfiles.git ~/claude-dotfiles
 bash ~/claude-dotfiles/scripts/bootstrap.sh
 ```
 
+bootstrap.sh が以下を実行：
+- `~/.claude/` に settings.json / CLAUDE.md のシンボリックリンクを作成
+- skills / knowledge ディレクトリをリンク
+
 ### 手動同期
 
 ```bash
-bash ~/claude-dotfiles/scripts/sync.sh pull   # 最新を取得して ~/.claude/ に適用
-bash ~/claude-dotfiles/scripts/sync.sh push   # ローカルの変更を GitHub に送信
+bash ~/claude-dotfiles/scripts/sync.sh pull   # 最新を取得
+bash ~/claude-dotfiles/scripts/sync.sh push   # ローカルの変更を送信
 ```
 
-### 自動同期（30秒ごと）
+push 時に自動実行される安全チェック：
+1. `validate-nodes.sh` — 全 PDCA ノードの YAML frontmatter 検証
+2. コンフリクトマーカー検出 — `<<<<<<< ` が残っていたら push ブロック
+3. `extract-pdca.sh` — 直近コミットから PDCA ノード自動抽出
+4. `generate-moc.sh` — MOC（目次）の自動再生成
+
+### 自動同期（30 秒ごと）
 
 ```bash
 bash ~/claude-dotfiles/scripts/sync.sh watch
@@ -55,106 +94,120 @@ bash ~/claude-dotfiles/scripts/sync.sh watch
 
 ---
 
+## PDCA ナレッジシステム
+
+エラーや失敗を構造化して蓄積し、再発防止に活用する仕組み。
+
+### 構造
+
+```
+knowledge/error-graph/
+├── moc.md              # 全ノードの目次（自動生成）
+├── relationships.md    # アクション種別 → 思考パターンフラグ（トラバーサルグラフ）
+├── nodes/              # 個別のエラー / ユーザー指摘ノード（21 件）
+├── clusters/           # トピック別サマリー（5 クラスター）
+└── timestamps.json     # ノード抽出の重複防止用タイムスタンプ
+```
+
+### ノードの作り方
+
+手動作成は不要。コミットメッセージに `PDCA:` ブロックを書くだけ：
+
+```
+fix: APIタイムアウトを修正
+
+PDCA:
+  node: api-timeout-missing-race
+  type: technical-error
+  tags: api, timeout, async
+  cluster: api-network
+  symptom: 外部API呼び出しがハングした
+  root-cause: Promise.race でタイムアウトを設定していなかった
+  fix: 30秒タイムアウトを追加
+  prevention: 外部APIの await には必ずタイムアウトを設定する
+```
+
+`sync.sh push` 時に `extract-pdca.sh` がコミットログを解析し、`nodes/` にノードファイルを自動生成。
+
+### スケールルール
+
+| 条件 | アクション |
+|---|---|
+| クラスターに 3 件以上追加 | クラスターサマリーを更新 |
+| 蒸留ルールが 5 件以上 | Quick Rules に昇格 |
+| Quick Rules が 10 件以上 | SKILL.md に昇格して MOC から削除 |
+
+---
+
+## スキル一覧（14 個）
+
+| カテゴリ | スキル | 概要 |
+|---|---|---|
+| **SNS / コピー** | `x-viral-writing` | X バイラル投稿・スレッド |
+| | `x-image-prompt` | X 投稿用アイキャッチ画像プロンプト |
+| | `ai-social-media-content` | TikTok / Instagram / YouTube / X 向けコンテンツ |
+| | `copywriting` | Web ページのマーケティングコピー |
+| **画像生成** | `nanobanana` | Gemini 画像生成（Nano Banana Pro） |
+| | `gpt-image-1-5` | OpenAI GPT Image 1.5 |
+| | `nano-banana-pro-prompts-recommend-skill` | 6000+ プロンプトから最適推薦 |
+| **開発** | `skill-hyperbrowser-reference` | Hyperbrowser SDK リファレンス |
+| | `slack-remote-run` | Slack 経由リモートコマンド実行 |
+| | `skill-installer` | skills.sh レジストリからスキル検索・インストール |
+| **管理** | `skill-pdca-error-graph` | PDCA エラーグラフの自動記録 |
+| | `skill-project-map` | PROJECT_MAP.md 自動維持 |
+| | `auto-sync-rule` | マルチデバイス同期ルールの自動適用 |
+
+スキル間の補完関係は `knowledge/skills-graph/relationships.md` で管理。
+
+---
+
 ## スマホから使う
 
 1. このリポジトリを fork する
-2. `CLAUDE.md` に自分のルールを書く（モデル設定、コーディングルール等）
+2. `CLAUDE.md` に自分のルールを書く
 3. `claude.ai` のブラウザでそのリポジトリを開く
 4. スマホで指示を打つだけ
 
-> セッション開始時に `.claude/hooks/session-start.sh` が自動実行され、
-> 設定・スキル・知識がすべて適用された状態でスタートする。
+セッション開始時に `.claude/hooks/session-start.sh` が自動実行され、設定・スキル・知識がすべて適用された状態でスタートする（`CLAUDE_CODE_REMOTE=true` の場合のみ）。
+
+### 知識ベースの間接同期（スマホ → claude-dotfiles）
+
+スマホからは直接 push できないため、GitHub Actions 経由で間接同期する。
+
+```
+スマホセッション
+  └─ .claude-knowledge-staging/ に push
+       └─ GitHub Actions（sync-knowledge-to-dotfiles.yml）が起動
+            └─ CLAUDE_DOTFILES_PAT を使って claude-dotfiles に書き込む
+```
+
+対象リポジトリの Settings > Secrets に `CLAUDE_DOTFILES_PAT`（`repo` スコープの PAT）を登録する必要がある。ワークフローファイル自体は `session-start.sh` がセッション開始時に自動インストールする。
 
 ---
 
 ## PAT（Personal Access Token）の管理
 
-知識ベースの自動同期（GitHub Actions）には `CLAUDE_DOTFILES_PAT` が必要。
-複数 PC ・複数人で使う場合の管理方法をここにまとめる。
-
-### なぜ PAT が必要か
-
-```
-スマホセッション
-  └─ .claude-knowledge-staging/ に push
-       └─ GitHub Actions が起動
-            └─ CLAUDE_DOTFILES_PAT を使って claude-dotfiles に書き込む
-```
-
-PAT は `claude-dotfiles` リポジトリへの **write 権限**が必要。
-
----
-
 ### PAT の作成
 
 1. GitHub → Settings → Developer settings → Personal access tokens → **Tokens (classic)**
-2. **Generate new token (classic)** をクリック
-3. 設定:
-   - Note: `claude-dotfiles-sync`（わかりやすい名前）
-   - Expiration: 90日 or 1年（長すぎず短すぎず）
-   - Scope: `repo` にチェック（それだけでOK）
-4. 生成されたトークン（`ghp_xxxx...`）をコピー → **この画面を閉じると二度と見えない**
-
----
-
-### PAT の保管（複数 PC 対応）
-
-**推奨：Bitwarden（無料・クラウド同期）**
-
-どの PC からでも同じ場所から取り出せるため、「どこに保存したか」問題がなくなる。
-
-```
-1. bitwarden.com でアカウント作成
-2. Windows・Mac 両方にアプリインストール
-3. 「安全なメモ」で以下を保存：
-
-Name: GitHub PAT - claude-dotfiles-sync
----
-Token: ghp_xxxxxxxxxxxxxxxxxx
-Scope: repo
-Expiration: 2026-05-01
-登録先:
-  - yourname/your-project (Secrets: CLAUDE_DOTFILES_PAT)
-  - yourname/other-project (Secrets: CLAUDE_DOTFILES_PAT)
-```
-
-> **ポイント**：「登録先リポジトリ」も一緒にメモしておく。
-> 有効期限切れ時に「どこに登録したっけ？」を防げる。
-
-**やってはいけないこと**
-
-| NG | 理由 |
-|---|---|
-| `.env` を git commit | 公開リポジトリだと漏洩 |
-| Slack・Notion に平文保存 | ログ流出のリスク |
-| 複数プロジェクトで使い回し | 1つ漏れると全滅 |
-
----
+2. **Generate new token (classic)**
+3. Scope: `repo` にチェック → 生成
 
 ### GitHub Secrets への登録
-
-PAT を作成したら、使うリポジトリそれぞれに登録する。
 
 ```
 リポジトリ → Settings → Secrets and variables → Actions
 → New repository secret
   Name:  CLAUDE_DOTFILES_PAT
-  Value: ghp_xxxxxxxxxxxxxxxxxx（Bitwarden からコピー）
+  Value: ghp_xxxxxxxxxxxxxxxxxx
 ```
 
-登録後、Claude に「PAT登録済み」と伝えると `.claude/.knowledge-sync-ready` が自動作成され、以降のリマインドが止まる。
+登録後、Claude に「PAT 登録済み」と伝えると `.claude/.knowledge-sync-ready` が自動作成され、リマインドが止まる。
 
----
+### 有効期限切れ時の更新
 
-### 有効期限切れ時の更新手順
-
-```
 1. GitHub で新しい PAT を生成
-2. Bitwarden のメモを更新（Token と Expiration）
-3. 登録先リポジトリの Secrets を更新（古い値を上書き）
-```
-
-これだけ。GitHub Actions は Secrets を参照するので、コードの変更は不要。
+2. 登録先リポジトリの Secrets を更新（古い値を上書き）
 
 ---
 
@@ -164,44 +217,35 @@ PAT を作成したら、使うリポジトリそれぞれに登録する。
 claude-dotfiles/
 ├── .claude/
 │   ├── hooks/
-│   │   └── session-start.sh   # Webセッション開始時に自動実行
-│   └── settings.json          # フック登録
-├── settings.json              # Claude Code 設定（モデル・effort等）
-├── CLAUDE.md                  # グローバルルール（AIへの指示）
-├── skills/                    # カスタムスキル集
+│   │   └── session-start.sh       # Web セッション開始時に自動実行
+│   └── settings.json              # フック登録
+├── settings.json                  # Claude Code 設定（モデル・effort 等）
+├── CLAUDE.md                      # グローバルルール（AI への指示）
+├── GRAPH_RAG.md                   # プロジェクト構造グラフ
+├── skills/                        # カスタムスキル集（14 個）
 │   ├── x-viral-writing/
 │   ├── skill-pdca-error-graph/
-│   └── ...（14スキル）
+│   ├── nanobanana/
+│   └── ...
 ├── knowledge/
-│   └── error-graph/           # 蓄積された知識ベース（PDCA）
-└── scripts/
-    ├── bootstrap.sh           # 新マシンの初回セットアップ
-    ├── setup.sh               # シンボリックリンク作成
-    └── sync.sh                # 双方向同期スクリプト
-```
-
----
-
-## fork して使う場合のカスタマイズ
-
-**最低限これだけ変えれば動く：**
-
-1. `CLAUDE.md` — 自分のプロジェクトルール・開発スタイルを書く
-2. `settings.json` — 使いたいモデルや effort レベルを変更
-3. `skills/` — 不要なスキルを消して、自分のスキルを追加
-
----
-
-## SessionStart フックについて
-
-`.claude/hooks/session-start.sh` は `CLAUDE_CODE_REMOTE=true`（Webセッション）のときだけ実行される。ローカル環境には影響しない。
-
-```bash
-# ブラウザ（Web）セッションのときだけ実行
-if [ "${CLAUDE_CODE_REMOTE:-}" != "true" ]; then
-  exit 0
-fi
-# → settings.json / CLAUDE.md / skills / knowledge を ~/.claude/ にコピー
+│   ├── me.md                      # ユーザー個人コンテキスト
+│   ├── skills-moc.md              # スキルナレッジグラフ目次
+│   ├── skills-graph/
+│   │   └── relationships.md       # スキル間補完エッジ
+│   └── error-graph/
+│       ├── moc.md                 # エラーグラフ目次（自動生成）
+│       ├── relationships.md       # トラバーサルグラフ
+│       ├── nodes/                 # PDCA ノード（21 件）
+│       └── clusters/              # クラスターサマリー（5 件）
+├── scripts/
+│   ├── bootstrap.sh / .ps1        # 新マシンの初回セットアップ
+│   ├── sync.sh / .ps1             # 双方向同期（安全チェック付き）
+│   ├── extract-pdca.sh / .ps1     # コミットメッセージから PDCA ノード抽出
+│   ├── generate-moc.sh / .ps1     # MOC 目次の自動生成
+│   ├── validate-nodes.sh / .ps1   # ノード YAML frontmatter 検証
+│   └── setup.sh                   # シンボリックリンク作成
+└── templates/
+    └── sync-knowledge-to-dotfiles.yml  # スマホ間接同期用 GitHub Actions
 ```
 
 ---
