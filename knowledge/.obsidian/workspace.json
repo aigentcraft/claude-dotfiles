@@ -1,0 +1,255 @@
+{
+  "main": {
+    "id": "545def9ca92abac6",
+    "type": "split",
+    "children": [
+      {
+        "id": "a04d694f393c031d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6e8379003c5d324b",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "グラフビュー"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "ce921473e1a5499e",
+    "type": "split",
+    "children": [
+      {
+        "id": "083a6a7ddab77956",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f92e451c61234a83",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "ファイルエクスプローラ"
+            }
+          },
+          {
+            "id": "78b0d074f909c962",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "検索"
+            }
+          },
+          {
+            "id": "eaea3e34590ee106",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "ブックマーク"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "f2acf0dd0cfba863",
+    "type": "split",
+    "children": [
+      {
+        "id": "e140cbe204822a44",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "372fcc5b075557ce",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "excalibrain.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "excalibrainへのバックリンク"
+            }
+          },
+          {
+            "id": "a827aa482c8f67ff",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "excalibrain.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "excalibrainからのアウトゴーイングリンク"
+            }
+          },
+          {
+            "id": "ce9d99fdf073f7a3",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "タグ"
+            }
+          },
+          {
+            "id": "94749b9b88fddab9",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "すべてのプロパティ"
+            }
+          },
+          {
+            "id": "e2779ee2e33e3c63",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "excalibrain.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "excalibrainのアウトライン"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:クイックスイッチャーを開く": false,
+      "graph:グラフビューを開く": false,
+      "canvas:新規キャンバスを作成": false,
+      "daily-notes:今日のデイリーノートを開く": false,
+      "templates:テンプレートを挿入": false,
+      "command-palette:コマンドパレットを開く": false,
+      "bases:Create new base": false,
+      "obsidian-excalidraw-plugin:New drawing": false
+    }
+  },
+  "floating": {
+    "id": "26b6a34034e5a028",
+    "type": "floating",
+    "children": [
+      {
+        "id": "2995292ec49243ff",
+        "type": "window",
+        "children": [
+          {
+            "id": "d471e9e5a2fa9775",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "65760869b019a056",
+                "type": "leaf",
+                "state": {
+                  "type": "excalidraw",
+                  "state": {
+                    "file": "excalibrain.md"
+                  },
+                  "icon": "excalidraw-icon",
+                  "title": "excalibrain"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical",
+        "x": 448,
+        "y": 116,
+        "width": 1024,
+        "height": 800,
+        "maximize": false,
+        "zoom": 0
+      }
+    ]
+  },
+  "active": "6e8379003c5d324b",
+  "lastOpenFiles": [
+    "error-graph/nodes/uc-session-promise-vs-system.md",
+    "error-graph/moc.md",
+    "excalibrain.md",
+    "error-graph/nodes/uc-premature-success-declaration.md",
+    "error-graph/nodes/windows-env-var-propagation-ai-session.md",
+    "error-graph/nodes/uc-repeat-master-push-despite-known-403.md",
+    "error-graph/nodes/uc-partial-solution-without-automation-path.md",
+    "error-graph/nodes/uc-local-pattern-no-generalization.md",
+    "error-graph/nodes/uc-knowledge-branch-isolation.md",
+    "error-graph/nodes/uc-abstract-knowledge-label.md",
+    "error-graph/nodes/test-mobile-sync-20260228.md",
+    "error-graph/nodes/supabase-v2-types-resolve-never.md",
+    "error-graph/nodes/HANDOFF-TO-DOTFILES.md",
+    "error-graph/nodes/copywriting-indirect-motivation.md",
+    "error-graph/nodes/claude-hook-env-project-dir.md",
+    "error-graph/nodes/ai-sdk-v6-renamed-properties.md",
+    "skills-graph/timestamps.json",
+    "nodes/timestamps.json",
+    "error-graph/clusters/shell-hook-env.md",
+    "error-graph/clusters/platform-syntax.md",
+    "error-graph/clusters/copywriting-psychology.md",
+    "error-graph/clusters/api-network.md",
+    "error-graph/clusters/ai-behavior.md",
+    "error-graph/clusters",
+    "timestamps.json",
+    "moc.md",
+    "me.md",
+    "skills-graph/relationships.md",
+    "skills-graph",
+    "nodes/api-rate-limit-exceeded.md",
+    "nodes",
+    "error-graph/relationships.md"
+  ]
+}
