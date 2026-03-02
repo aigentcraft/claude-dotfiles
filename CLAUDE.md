@@ -160,9 +160,11 @@
 - Antigravity PDCA システム第三者監査（2026-03-02）
   - 8件の構造的問題を発見・文書化（`PDCA_REMEDIATION_PLAN_FOR_ANTIGRAVITY.md`）
   - Fix 1〜5 を設計、Fix 4b（コミットメッセージ PDCA 抽出）が実戦で稼働確認
+- P0: sync.ps1 パリティ修正（2026-03-02）
+  - `scripts/validate-nodes.ps1` 新設（YAML frontmatter バリデーション Windows 版）
+  - `scripts/sync.ps1` に全6安全ゲートを移植（validate-nodes / コンフリクト検知×2 / extract-pdca×2 / generate-moc 実行順序修正）
 
 ### 未解決・次のタスク
-- **P0: sync.ps1 のパリティ修正** — Windows 主環境なのに validate-nodes / コンフリクト検知 / extract-pdca が sync.ps1 に未実装（sync.sh にはある）
 - **P1: GraphRAG の自動生成化** — GRAPH_RAG.md / skills-moc.md / skills-graph/relationships.md を自動生成するスクリプトがない（純粋なドキュメント状態で既に陳腐化）
 - **P2: クラスター孤立ノードの解消** — 5件（25%）のノードがどのクラスターにも属していない
 - **P3: relationships.md トラバーサルのコード化** — 現状は AI が読んで従うだけ。PreToolUse フックで自動化を検討
