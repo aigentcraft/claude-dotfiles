@@ -77,7 +77,6 @@
 - [[nodes/semantic-graph-relationships.md]] — `system-design` cluster (`knowledge-graph`, `semantics`, `obsidian`)
 - [[nodes/slack-api-silent-hang.md]] — `slack` cluster (`api`, `timeout`, `mcp`)
 - [[nodes/supabase-v2-types-resolve-never.md]] — `supabase` cluster (`typescript`, `database`, `type-safety`)
-- [[nodes/test-pdca-extraction-claude.md]] — `test` cluster (`automation`)
 
 ### [Type B] User Corrections (uc-)
 - [[nodes/uc-abstract-knowledge-label.md]] — `knowledge-design` cluster (`system-design`)
