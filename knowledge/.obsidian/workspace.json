@@ -11,10 +11,14 @@
             "id": "6e8379003c5d324b",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "グラフビュー"
+              "type": "markdown",
+              "state": {
+                "file": "error-graph/clusters/ai-behavior.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "ai-behavior"
             }
           }
         ]
@@ -219,6 +223,7 @@
   },
   "active": "6e8379003c5d324b",
   "lastOpenFiles": [
+    "無題のファイル.canvas",
     "error-graph/nodes/uc-session-promise-vs-system.md",
     "error-graph/moc.md",
     "excalibrain.md",
@@ -249,7 +254,6 @@
     "skills-graph/relationships.md",
     "skills-graph",
     "nodes/api-rate-limit-exceeded.md",
-    "nodes",
-    "error-graph/relationships.md"
+    "nodes"
   ]
 }
