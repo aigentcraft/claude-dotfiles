@@ -79,6 +79,7 @@
 - [[nodes/stale-claude-md-duplicate-implementation.md]] — `multi-machine` cluster (`git`, `claude-md`, `session-handoff`, `duplicate-work`)
 - [[nodes/supabase-v2-types-resolve-never.md]] — `supabase` cluster (`typescript`, `database`, `type-safety`)
 - [[nodes/windows-claude-cli-subprocess-needs-cmd-and-gitbash.md]] — `windows` cluster (`claude-code`, `subprocess`, `python`, `headless`, `npm`)
+- [[nodes/windows-claude-stream-burst-false-inactivity-kill.md]] — `windows` cluster (`claude-code`, `subprocess`, `streaming`, `timeout`, `buffering`)
 - [[nodes/windows-python3-store-stub-silent-hook-failure.md]] — `windows` cluster (`python`, `hooks`, `claude-code`, `secrets`, `silent-failure`)
 - [[nodes/wrangler-toml-referenced-file-missing.md]] — `cloudflare` cluster (`pages`, `d1`, `wrangler`, `deploy`, `lead-pipeline`)
 
