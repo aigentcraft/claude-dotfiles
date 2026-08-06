@@ -106,6 +106,12 @@
 - Skills GraphRAG の未登録スキル（auto-sync-rule, skill-installer, slack-remote-run）を補完グラフに追加
 - relationships.md に「システム・ガバナンスクラスター」新設
 
+### 2026-07-25 — kintone受注メディアのAI組織設計
+- 新プロジェクト「Kintone受注目的メディア運営自動化」開始（受注獲得チャネルの構築 = Goals短期「実績・事例を作る」に直結）
+- .AI Portalの自動運転4事例（補助金メディア/Pokémon Agent OS/モノWebラボ/ec-ops）を合成し、HOOTL準拠のメディア自動運営組織を設計
+- 決断: 人間の関与は「kill switch/KPI設定/監査/商談」のみ。Calibrated Autonomyで段階的に無人化
+- リード管理はkintoneでdogfooding（運用自体が営業実績になる設計）
+
 ---
 
 ## Growth Map（成長の軌跡）
