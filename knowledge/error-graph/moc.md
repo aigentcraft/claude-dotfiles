@@ -82,6 +82,7 @@
 - [[nodes/windows-claude-cli-subprocess-needs-cmd-and-gitbash.md]] — `windows` cluster (`claude-code`, `subprocess`, `python`, `headless`, `npm`)
 - [[nodes/windows-claude-stream-burst-false-inactivity-kill.md]] — `windows` cluster (`claude-code`, `subprocess`, `streaming`, `timeout`, `buffering`)
 - [[nodes/windows-python3-store-stub-silent-hook-failure.md]] — `windows` cluster (`python`, `hooks`, `claude-code`, `secrets`, `silent-failure`)
+- [[nodes/windows-subprocess-cp932-decode-crash.md]] — `windows` cluster (`python`, `subprocess`, `encoding`, `cp932`, `utf8`)
 - [[nodes/wrangler-toml-referenced-file-missing.md]] — `cloudflare` cluster (`pages`, `d1`, `wrangler`, `deploy`, `lead-pipeline`)
 
 ### [Type B] User Corrections (uc-)
