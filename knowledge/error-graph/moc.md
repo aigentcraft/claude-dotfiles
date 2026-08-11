@@ -75,6 +75,7 @@
 - [[nodes/copywriting-indirect-motivation.md]] — `copywriting` cluster (`psychology`, `content-writing`, `behavioral`, `self-determination`)
 - [[nodes/pipeline-resume-guard-orphaned-early-stage-drafts.md]] — `pullie` cluster (`pipeline`, `orchestration`, `resume`, `orphan`)
 - [[nodes/powershell-hash-literal-git.md]] — `powershell` cluster (`git`, `syntax-error`)
+- [[nodes/publish-worker-not-idempotent-after-push.md]] — `git` cluster (`idempotency`, `pipeline`, `publish`, `cloudflare-pages`)
 - [[nodes/semantic-graph-relationships.md]] — `system-design` cluster (`knowledge-graph`, `semantics`, `obsidian`)
 - [[nodes/slack-api-silent-hang.md]] — `slack` cluster (`api`, `timeout`, `mcp`)
 - [[nodes/stale-claude-md-duplicate-implementation.md]] — `multi-machine` cluster (`git`, `claude-md`, `session-handoff`, `duplicate-work`)
