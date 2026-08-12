@@ -74,6 +74,7 @@
 - [[nodes/claude-hook-env-project-dir.md]] — `shell-hook-env` cluster
 - [[nodes/copywriting-indirect-motivation.md]] — `copywriting` cluster (`psychology`, `content-writing`, `behavioral`, `self-determination`)
 - [[nodes/discard-path-topic-requeue-leak.md]] — `pipeline` cluster (`state-machine`, `cleanup`, `sqlite`)
+- [[nodes/llm-json-extract-object-regex-breaks-arrays.md]] — `llm` cluster (`json`, `regex`, `parsing`)
 - [[nodes/pipeline-resume-guard-orphaned-early-stage-drafts.md]] — `pullie` cluster (`pipeline`, `orchestration`, `resume`, `orphan`)
 - [[nodes/powershell-hash-literal-git.md]] — `powershell` cluster (`git`, `syntax-error`)
 - [[nodes/publish-worker-not-idempotent-after-push.md]] — `git` cluster (`idempotency`, `pipeline`, `publish`, `cloudflare-pages`)
