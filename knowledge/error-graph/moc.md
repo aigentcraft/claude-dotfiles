@@ -81,6 +81,7 @@
 - [[nodes/sqlite-unique-slug-permanent-crash-loop.md]] — `pipeline` cluster (`sqlite`, `unique-constraint`, `pullie`, `self-healing`)
 - [[nodes/uc-mechanical-automation-wastes-llm-metacognition.md]] — `llm` cluster (`uc`, `architecture`, `metacognition`, `pullie`)
 - [[nodes/uc-sns-posts-lack-context-and-persona.md]] — `copywriting` cluster (`uc`, `sns`, `persona`, `pullie`)
+- [[nodes/uc-visual-inspection-of-rendered-reality.md]] — `llm` cluster (`uc`, `visual`, `organization`, `pullie`)
 - [[nodes/windows-wsl-sqlite-transient-open-failure.md]] — `pipeline` cluster (`sqlite`, `wsl`, `wal`, `file-lock`, `pullie`)
 - [[nodes/powershell-hash-literal-git.md]] — `powershell` cluster (`git`, `syntax-error`)
 - [[nodes/publish-worker-not-idempotent-after-push.md]] — `git` cluster (`idempotency`, `pipeline`, `publish`, `cloudflare-pages`)
