@@ -76,6 +76,7 @@
 - [[nodes/discard-path-topic-requeue-leak.md]] — `pipeline` cluster (`state-machine`, `cleanup`, `sqlite`)
 - [[nodes/llm-json-extract-object-regex-breaks-arrays.md]] — `llm` cluster (`json`, `regex`, `parsing`)
 - [[nodes/pipeline-resume-guard-orphaned-early-stage-drafts.md]] — `pullie` cluster (`pipeline`, `orchestration`, `resume`, `orphan`)
+- [[nodes/llm-json-raw-control-characters.md]] — `llm` cluster (`json`, `parsing`, `pullie`)
 - [[nodes/llm-self-reported-index-silent-drop.md]] — `llm` cluster (`contract-validation`, `silent-failure`, `pullie`)
 - [[nodes/sqlite-unique-slug-permanent-crash-loop.md]] — `pipeline` cluster (`sqlite`, `unique-constraint`, `pullie`, `self-healing`)
 - [[nodes/windows-wsl-sqlite-transient-open-failure.md]] — `pipeline` cluster (`sqlite`, `wsl`, `wal`, `file-lock`, `pullie`)
