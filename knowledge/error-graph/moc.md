@@ -79,6 +79,7 @@
 - [[nodes/llm-json-raw-control-characters.md]] — `llm` cluster (`json`, `parsing`, `pullie`)
 - [[nodes/llm-self-reported-index-silent-drop.md]] — `llm` cluster (`contract-validation`, `silent-failure`, `pullie`)
 - [[nodes/sqlite-unique-slug-permanent-crash-loop.md]] — `pipeline` cluster (`sqlite`, `unique-constraint`, `pullie`, `self-healing`)
+- [[nodes/uc-sns-posts-lack-context-and-persona.md]] — `copywriting` cluster (`uc`, `sns`, `persona`, `pullie`)
 - [[nodes/windows-wsl-sqlite-transient-open-failure.md]] — `pipeline` cluster (`sqlite`, `wsl`, `wal`, `file-lock`, `pullie`)
 - [[nodes/powershell-hash-literal-git.md]] — `powershell` cluster (`git`, `syntax-error`)
 - [[nodes/publish-worker-not-idempotent-after-push.md]] — `git` cluster (`idempotency`, `pipeline`, `publish`, `cloudflare-pages`)
