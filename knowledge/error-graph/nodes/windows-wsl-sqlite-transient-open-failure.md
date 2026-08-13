@@ -23,7 +23,12 @@ pullie のWSL側手動run終盤（正午前後の約20分間）、5つのワー�
 
 - run_pipeline: `acquire_lock()` を `db.connect()` より先に移動（ロック退出プロセスはsqlite非接触）
   + 取得後〜tryブロック到達前の例外でロックを漏らさない except-release-reraise を追加
-- db.connect(): 「unable to open database file」に限定した有界リトライ（3回・5/10秒バックオフ）
+- db.connect(): 「unable to open database file」に限定した有界リトライ
+  - **追記（同日2回目の実走で15秒リトライが突破された）**: ロック窓は数分規模。
+    5/10/20/40/60秒の計135秒へ延長
+  - パターン: **大量書き込みフェーズ（執筆・検閲のLLMコスト/リフレクション書込）の直後**に発生
+    → Windows常駐スキャナ（Defender/インデクサ）が書込後の -wal を掴む説が最有力
+  - 根治はWindows Defenderの除外設定にプロジェクトフォルダを追加（ユーザー操作）
 
 ## 予防ルール（Prevention）
 
