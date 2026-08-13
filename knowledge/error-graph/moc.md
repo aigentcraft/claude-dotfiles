@@ -80,6 +80,7 @@
 - [[nodes/llm-self-reported-index-silent-drop.md]] — `llm` cluster (`contract-validation`, `silent-failure`, `pullie`)
 - [[nodes/sqlite-unique-slug-permanent-crash-loop.md]] — `pipeline` cluster (`sqlite`, `unique-constraint`, `pullie`, `self-healing`)
 - [[nodes/uc-mechanical-automation-wastes-llm-metacognition.md]] — `llm` cluster (`uc`, `architecture`, `metacognition`, `pullie`)
+- [[nodes/uc-premature-completion-reports.md]] — `pipeline` cluster (`uc`, `verification`, `reporting`, `pullie`)
 - [[nodes/uc-sns-posts-lack-context-and-persona.md]] — `copywriting` cluster (`uc`, `sns`, `persona`, `pullie`)
 - [[nodes/uc-visual-inspection-of-rendered-reality.md]] — `llm` cluster (`uc`, `visual`, `organization`, `pullie`)
 - [[nodes/windows-wsl-sqlite-transient-open-failure.md]] — `pipeline` cluster (`sqlite`, `wsl`, `wal`, `file-lock`, `pullie`)
