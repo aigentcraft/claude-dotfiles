@@ -85,6 +85,7 @@
 - [[../nodes/uc-knowledge-branch-isolation.md]] — `user-correction`, `branch-isolation`, `knowledge-propagation`
 - [[../nodes/uc-partial-solution-without-automation-path.md]] — `user-correction`, `partial-solution`, `automation`
 - [[../nodes/uc-unverified-hazudesu-reporting.md]] — `user-correction`, `unverified-claim`, `hazudesu`, `test-verification`
+- [[../nodes/uc-visualization-without-audit-purpose.md]] — `user-correction`, `dashboard`, `requirements`, `verification`
 
 ---
 
@@ -99,4 +100,4 @@
 - **確認不可の場合**: 「確認できない理由」を明記し、ユーザーが実行できる具体的コマンドを提示する
 - 詳細: [[../nodes/uc-unverified-hazudesu-reporting.md]]
 
-*Last updated: 2026-02-28 | Node count: 10*
+*Last updated: 2026-08-14 | Node count: 11*

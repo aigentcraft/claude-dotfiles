@@ -39,7 +39,7 @@
 | クラスター | 内容 | ノード数 | ロード条件 |
 |---|---|---|---|
 | [[clusters/ai-behavior.md]] | AI行動パターン・システム設計・知識グラフ設計 | 10 | AI設計・スケール・ナレッジシステム系タスク |
-| [[clusters/api-network.md]] | API/ネットワーク・非同期・タイムアウト | 2 | 外部API・ネットワークリクエストを書く時 |
+| [[clusters/api-network.md]] | API/ネットワーク・非同期・タイムアウト・プラットフォーム規制 | 3 | 外部API・ネットワークリクエストを書く時 |
 | [[clusters/platform-syntax.md]] | PowerShell/Windows固有の構文エラー | 1 | PowerShell・Windowsスクリプト作業時 |
 | [[clusters/copywriting-psychology.md]] | コピーライティング心理学・間接的動機づけ設計 | 1 | 記事・LP・SNS投稿のコピーを書く時 |
 | `database-orm` | Database/ORM の型・スキーマ・クエリエラー | 1 | Supabase・Prisma・ORM を使う時 |
@@ -75,19 +75,14 @@
 - [[nodes/copywriting-indirect-motivation.md]] — `copywriting` cluster (`psychology`, `content-writing`, `behavioral`, `self-determination`)
 - [[nodes/discard-path-topic-requeue-leak.md]] — `pipeline` cluster (`state-machine`, `cleanup`, `sqlite`)
 - [[nodes/llm-json-extract-object-regex-breaks-arrays.md]] — `llm` cluster (`json`, `regex`, `parsing`)
+- [[nodes/llm-json-raw-control-characters.md]] — `llm` cluster (`json`, `parsing`, `python`, `pullie`)
+- [[nodes/llm-self-reported-index-silent-drop.md]] — `llm` cluster (`contract-validation`, `pullie`, `images`, `silent-failure`)
 - [[nodes/pipeline-resume-guard-orphaned-early-stage-drafts.md]] — `pullie` cluster (`pipeline`, `orchestration`, `resume`, `orphan`)
-- [[nodes/llm-json-raw-control-characters.md]] — `llm` cluster (`json`, `parsing`, `pullie`)
-- [[nodes/llm-self-reported-index-silent-drop.md]] — `llm` cluster (`contract-validation`, `silent-failure`, `pullie`)
-- [[nodes/sqlite-unique-slug-permanent-crash-loop.md]] — `pipeline` cluster (`sqlite`, `unique-constraint`, `pullie`, `self-healing`)
-- [[nodes/uc-mechanical-automation-wastes-llm-metacognition.md]] — `llm` cluster (`uc`, `architecture`, `metacognition`, `pullie`)
-- [[nodes/uc-premature-completion-reports.md]] — `pipeline` cluster (`uc`, `verification`, `reporting`, `pullie`)
-- [[nodes/uc-sns-posts-lack-context-and-persona.md]] — `copywriting` cluster (`uc`, `sns`, `persona`, `pullie`)
-- [[nodes/uc-visual-inspection-of-rendered-reality.md]] — `llm` cluster (`uc`, `visual`, `organization`, `pullie`)
-- [[nodes/windows-wsl-sqlite-transient-open-failure.md]] — `pipeline` cluster (`sqlite`, `wsl`, `wal`, `file-lock`, `pullie`)
 - [[nodes/powershell-hash-literal-git.md]] — `powershell` cluster (`git`, `syntax-error`)
 - [[nodes/publish-worker-not-idempotent-after-push.md]] — `git` cluster (`idempotency`, `pipeline`, `publish`, `cloudflare-pages`)
 - [[nodes/semantic-graph-relationships.md]] — `system-design` cluster (`knowledge-graph`, `semantics`, `obsidian`)
 - [[nodes/slack-api-silent-hang.md]] — `slack` cluster (`api`, `timeout`, `mcp`)
+- [[nodes/sqlite-unique-slug-permanent-crash-loop.md]] — `sqlite` cluster (`unique-constraint`, `pipeline`, `pullie`, `slug`, `self-healing`)
 - [[nodes/stale-claude-md-duplicate-implementation.md]] — `multi-machine` cluster (`git`, `claude-md`, `session-handoff`, `duplicate-work`)
 - [[nodes/supabase-v2-types-resolve-never.md]] — `supabase` cluster (`typescript`, `database`, `type-safety`)
 - [[nodes/windows-claude-cli-subprocess-needs-cmd-and-gitbash.md]] — `windows` cluster (`claude-code`, `subprocess`, `python`, `headless`, `npm`)
@@ -95,7 +90,9 @@
 - [[nodes/windows-codex-imagegen-triple-failure.md]] — `windows` cluster (`codex`, `imagegen`, `subprocess`, `acl`, `npm-shim`, `sandbox`)
 - [[nodes/windows-python3-store-stub-silent-hook-failure.md]] — `windows` cluster (`python`, `hooks`, `claude-code`, `secrets`, `silent-failure`)
 - [[nodes/windows-subprocess-cp932-decode-crash.md]] — `windows` cluster (`python`, `subprocess`, `encoding`, `cp932`, `utf8`)
+- [[nodes/windows-wsl-sqlite-transient-open-failure.md]] — `sqlite` cluster (`wsl`, `windows`, `wal`, `file-lock`, `pullie`)
 - [[nodes/wrangler-toml-referenced-file-missing.md]] — `cloudflare` cluster (`pages`, `d1`, `wrangler`, `deploy`, `lead-pipeline`)
+- [[nodes/x-api-reply-restriction-403.md]] — `api` cluster (`x-twitter`, `policy-change`, `403`, `mcp`)
 
 ### [Type B] User Corrections (uc-)
 - [[nodes/catalog-key-added-without-consumer-sync.md]] — `multi-agent` cluster (`skill-sync`, `screenshot`, `pipeline`)
@@ -104,16 +101,23 @@
 - [[nodes/uc-approval-flow-not-operable-from-notification.md]] — `uc` cluster (`hitl`, `discord`, `approval`, `ux`, `pullie`)
 - [[nodes/uc-knowledge-branch-isolation.md]] — `ai-behavior` cluster (`branch-isolation`, `knowledge-propagation`)
 - [[nodes/uc-local-pattern-no-generalization.md]] — `ai-behavior` cluster (`generalization`, `system-design`)
+- [[nodes/uc-mechanical-automation-wastes-llm-metacognition.md]] — `uc` cluster (`pullie`, `architecture`, `metacognition`, `agent-design`, `llm`)
+- [[nodes/uc-notification-instead-of-self-healing.md]] — `uc` cluster (`pullie`, `notification-policy`, `self-healing`, `hootl`)
 - [[nodes/uc-partial-solution-without-automation-path.md]] — `ai-behavior` cluster (`automation`, `system-design`)
 - [[nodes/uc-permission-prompt-fatigue.md]] — `ai-behavior` cluster (`permissions`, `claude-code`, `workflow-friction`)
+- [[nodes/uc-premature-completion-reports.md]] — `uc` cluster (`pullie`, `verification`, `reporting`, `discipline`)
 - [[nodes/uc-rejection-should-trigger-immediate-rework.md]] — `uc` cluster (`hitl`, `pipeline`, `feedback-loop`, `ux`, `pullie`)
 - [[nodes/uc-repeat-master-push-despite-known-403.md]] — `git` cluster (`permissions`, `repeat-error`)
 - [[nodes/uc-reverted-user-config-without-asking-intent.md]] — `uc` cluster (`settings`, `permissions`, `user-intent`, `claude-code`)
 - [[nodes/uc-session-promise-vs-system.md]] — `ai-behavior` cluster (`too-ephemeral`, `system-design`)
 - [[nodes/uc-skipped-pdca-on-pivot.md]] — `assumption` cluster (`pivot-masking`)
 - [[nodes/uc-sns-operation-is-not-just-posting.md]] — `sns` cluster (`x-twitter`, `operation-design`, `proposal`)
+- [[nodes/uc-sns-posts-lack-context-and-persona.md]] — `uc` cluster (`pullie`, `sns`, `copywriting`, `persona`, `context`)
 - [[nodes/uc-tutorial-images-must-cover-every-step.md]] — `uc` cluster (`pullie`, `content-quality`, `screenshots`, `tutorial`)
 - [[nodes/uc-unverified-hazudesu-reporting.md]] — `ai-behavior` cluster (`unverified-claim`, `hazudesu`, `test-verification`)
+- [[nodes/uc-verify-artifact-before-human-approval.md]] — `uc` cluster (`pullie`, `approval-flow`, `visual`, `asset-paths`, `llm-contract`)
+- [[nodes/uc-visual-inspection-of-rendered-reality.md]] — `uc` cluster (`pullie`, `visual`, `organization`, `knowledge-db`, `multimodal`)
+- [[nodes/uc-visualization-without-audit-purpose.md]] — `ai-behavior` cluster (`requirements`, `dashboard`, `verification`)
 - [[nodes/uc-x-engagement-should-self-drive.md]] — `sns` cluster (`autonomy`, `hitl`, `notification-design`)
 
 ---

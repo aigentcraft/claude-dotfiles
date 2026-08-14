@@ -24,6 +24,13 @@
 - **禁止**: `await externalApi()` のみ（タイムアウトなし）
 - 詳細: [[../nodes/slack-api-silent-hang.md]]
 
+### R3: プラットフォームのポリシー変更 — ラッパー経由でも回避にならない
+外部プラットフォーム（X/Twitter等）のAPIは、ポリシー変更で特定機能が予告なく403化する。
+- **対策**: 403等の恒久エラーは自己修復リトライでなく代替経路（UI操作・別エンドポイント）へ切替
+- **禁止**: 「MCP/SDK経由だから制限が違う」という仮定（制限は常にプラットフォーム側で判定）
+- **兆候**: 新機能が最初から一度も成功しない → コードでなく前提（利用可否・権限・ポリシー）を疑う
+- 詳細: [[../nodes/x-api-reply-restriction-403.md]]
+
 ---
 
 ## クイック参照テーブル
@@ -34,6 +41,7 @@
 | 外部API（Slack, GitHub, etc.）の await を書く | R2: タイムアウトで包む |
 | MCPツール・長時間スクリプト内のAPI呼び出し | R2: 必ずタイムアウトを実装 |
 | 429 エラーが発生した | R1: retry ロジックが抜けている |
+| 403 が新機能で最初から出続ける | R3: プラットフォーム規制を疑い経路を切替 |
 
 ---
 
@@ -41,7 +49,8 @@
 
 - [[../nodes/api-rate-limit-exceeded.md]] — `api`, `rate-limit`, `network`
 - [[../nodes/slack-api-silent-hang.md]] — `slack`, `api`, `timeout`, `mcp`
+- [[../nodes/x-api-reply-restriction-403.md]] — `api`, `x-twitter`, `policy-change`, `403`, `mcp`
 
 ---
 
-*Last updated: 2026-02-25 | Node count: 2*
+*Last updated: 2026-08-14 | Node count: 3*
