@@ -102,6 +102,7 @@
 ### [Type B] User Corrections (uc-)
 - [[nodes/catalog-key-added-without-consumer-sync.md]] — `multi-agent` cluster (`skill-sync`, `screenshot`, `pipeline`)
 - [[nodes/uc-abstract-knowledge-label.md]] — `knowledge-design` cluster (`system-design`)
+- [[nodes/uc-agents-must-learn-from-own-failed-work.md]] — `pullie` cluster (`learning-loop`, `self-retrospective`, `knowledge-db`, `agent-design`)
 - [[nodes/uc-antigravity-sync-isolation.md]] — `ai-behavior` cluster (`sync-failure`, `r-hazudesu`, `automation`)
 - [[nodes/uc-approval-flow-not-operable-from-notification.md]] — `uc` cluster (`hitl`, `discord`, `approval`, `ux`, `pullie`)
 - [[nodes/uc-articles-must-carry-own-positioning.md]] — `pullie` cluster (`positioning`, `content-strategy`, `conversion`, `compliance`)
