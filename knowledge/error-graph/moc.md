@@ -87,6 +87,7 @@
 - [[nodes/sqlite-unique-slug-permanent-crash-loop.md]] — `sqlite` cluster (`unique-constraint`, `pipeline`, `pullie`, `slug`, `self-healing`)
 - [[nodes/stale-claude-md-duplicate-implementation.md]] — `multi-machine` cluster (`git`, `claude-md`, `session-handoff`, `duplicate-work`)
 - [[nodes/supabase-v2-types-resolve-never.md]] — `supabase` cluster (`typescript`, `database`, `type-safety`)
+- [[nodes/utc-timestamps-render-as-last-night.md]] — `sqlite` cluster (`timezone`, `utc`, `dashboard`, `jst`, `pullie`)
 - [[nodes/windows-claude-cli-subprocess-needs-cmd-and-gitbash.md]] — `windows` cluster (`claude-code`, `subprocess`, `python`, `headless`, `npm`)
 - [[nodes/windows-claude-stream-burst-false-inactivity-kill.md]] — `windows` cluster (`claude-code`, `subprocess`, `streaming`, `timeout`, `buffering`)
 - [[nodes/windows-codex-imagegen-triple-failure.md]] — `windows` cluster (`codex`, `imagegen`, `subprocess`, `acl`, `npm-shim`, `sandbox`)
