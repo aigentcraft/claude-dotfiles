@@ -74,6 +74,7 @@
 - [[nodes/bash-awk-regex-and-array-accumulation.md]] — `bash` cluster (`awk`, `regex`, `arrays`, `windows`, `git-bash`, `cross-platform`)
 - [[nodes/claude-hook-env-project-dir.md]] — `shell-hook-env` cluster
 - [[nodes/copywriting-indirect-motivation.md]] — `copywriting` cluster (`psychology`, `content-writing`, `behavioral`, `self-determination`)
+- [[nodes/deploy-wait-http-200-races-stale-build.md]] — `cloudflare` cluster (`pages`, `deploy`, `race-condition`, `verification`, `pullie`)
 - [[nodes/discard-path-topic-requeue-leak.md]] — `pipeline` cluster (`state-machine`, `cleanup`, `sqlite`)
 - [[nodes/frontmatter-field-not-wired-into-all-renderers.md]] — `producer-consumer-sync` cluster (`astro`, `schema-sync`, `renderer`, `visual-inspector`, `pullie`)
 - [[nodes/intersection-threshold-hides-tall-sections.md]] — `web-frontend` cluster (`intersection-observer`, `reveal-animation`, `mobile`, `viewport`, `pullie`)
