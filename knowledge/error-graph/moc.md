@@ -109,6 +109,7 @@
 - [[nodes/uc-agents-must-learn-from-own-failed-work.md]] — `pullie` cluster (`learning-loop`, `self-retrospective`, `knowledge-db`, `agent-design`)
 - [[nodes/uc-antigravity-sync-isolation.md]] — `ai-behavior` cluster (`sync-failure`, `r-hazudesu`, `automation`)
 - [[nodes/uc-approval-flow-not-operable-from-notification.md]] — `uc` cluster (`hitl`, `discord`, `approval`, `ux`, `pullie`)
+- [[nodes/uc-approval-preview-must-exist-in-every-channel.md]] — `pullie` cluster (`approval-flow`, `preview`, `note`, `prosemirror`, `verification`)
 - [[nodes/uc-articles-must-carry-own-positioning.md]] — `pullie` cluster (`positioning`, `content-strategy`, `conversion`, `compliance`)
 - [[nodes/uc-inspection-must-match-reader-conditions.md]] — `pullie` cluster (`visual-inspection`, `viewport`, `verification`, `approval-flow`)
 - [[nodes/uc-knowledge-branch-isolation.md]] — `ai-behavior` cluster (`branch-isolation`, `knowledge-propagation`)
