@@ -130,6 +130,7 @@
 - [[nodes/uc-sns-operation-is-not-just-posting.md]] — `sns` cluster (`x-twitter`, `operation-design`, `proposal`)
 - [[nodes/uc-sns-posts-lack-context-and-persona.md]] — `uc` cluster (`pullie`, `sns`, `copywriting`, `persona`, `context`)
 - [[nodes/uc-tutorial-images-must-cover-every-step.md]] — `uc` cluster (`pullie`, `content-quality`, `screenshots`, `tutorial`)
+- [[nodes/uc-typography-must-meet-readability-floor.md]] — `uc` cluster (`pullie`, `typography`, `readability`, `design-port`, `web-frontend`)
 - [[nodes/uc-unverified-hazudesu-reporting.md]] — `ai-behavior` cluster (`unverified-claim`, `hazudesu`, `test-verification`)
 - [[nodes/uc-verify-artifact-before-human-approval.md]] — `uc` cluster (`pullie`, `approval-flow`, `visual`, `asset-paths`, `llm-contract`)
 - [[nodes/uc-visual-inspection-of-rendered-reality.md]] — `uc` cluster (`pullie`, `visual`, `organization`, `knowledge-db`, `multimodal`)
