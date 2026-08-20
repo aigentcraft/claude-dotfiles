@@ -83,6 +83,7 @@
 - [[nodes/intersection-threshold-hides-tall-sections.md]] — `web-frontend` cluster (`intersection-observer`, `reveal-animation`, `mobile`, `viewport`, `pullie`)
 - [[nodes/llm-json-extract-object-regex-breaks-arrays.md]] — `llm` cluster (`json`, `regex`, `parsing`)
 - [[nodes/llm-json-raw-control-characters.md]] — `llm` cluster (`json`, `parsing`, `python`, `pullie`)
+- [[nodes/llm-json-unescaped-inner-quotes.md]] — `llm` cluster (`json`, `parsing`, `python`, `pullie`)
 - [[nodes/llm-self-reported-index-silent-drop.md]] — `llm` cluster (`contract-validation`, `pullie`, `images`, `silent-failure`)
 - [[nodes/pipeline-resume-guard-orphaned-early-stage-drafts.md]] — `pullie` cluster (`pipeline`, `orchestration`, `resume`, `orphan`)
 - [[nodes/powershell-hash-literal-git.md]] — `powershell` cluster (`git`, `syntax-error`)
@@ -102,6 +103,7 @@
 - [[nodes/windows-wsl-sqlite-transient-open-failure.md]] — `sqlite` cluster (`wsl`, `windows`, `wal`, `file-lock`, `pullie`)
 - [[nodes/wrangler-toml-referenced-file-missing.md]] — `cloudflare` cluster (`pages`, `d1`, `wrangler`, `deploy`, `lead-pipeline`)
 - [[nodes/x-api-reply-restriction-403.md]] — `api` cluster (`x-twitter`, `policy-change`, `403`, `mcp`)
+- [[nodes/x-users-search-ascii-only-query.md]] — `api` cluster (`x-twitter`, `400`, `validation`, `pullie`)
 
 ### [Type B] User Corrections (uc-)
 - [[nodes/catalog-key-added-without-consumer-sync.md]] — `multi-agent` cluster (`skill-sync`, `screenshot`, `pipeline`)
