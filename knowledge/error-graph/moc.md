@@ -112,6 +112,7 @@
 - [[nodes/uc-approval-flow-not-operable-from-notification.md]] — `uc` cluster (`hitl`, `discord`, `approval`, `ux`, `pullie`)
 - [[nodes/uc-approval-preview-must-exist-in-every-channel.md]] — `pullie` cluster (`approval-flow`, `preview`, `note`, `prosemirror`, `verification`)
 - [[nodes/uc-articles-must-carry-own-positioning.md]] — `pullie` cluster (`positioning`, `content-strategy`, `conversion`, `compliance`)
+- [[nodes/uc-demo-screens-are-sales-assets.md]] — `uc` cluster (`pullie`, `screenshots`, `demo-quality`, `kintone`, `sales-perception`)
 - [[nodes/uc-inspection-must-match-reader-conditions.md]] — `pullie` cluster (`visual-inspection`, `viewport`, `verification`, `approval-flow`)
 - [[nodes/uc-knowledge-branch-isolation.md]] — `ai-behavior` cluster (`branch-isolation`, `knowledge-propagation`)
 - [[nodes/uc-local-pattern-no-generalization.md]] — `ai-behavior` cluster (`generalization`, `system-design`)
