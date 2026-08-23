@@ -132,6 +132,7 @@
 - [[nodes/uc-rejection-should-trigger-immediate-rework.md]] — `uc` cluster (`hitl`, `pipeline`, `feedback-loop`, `ux`, `pullie`)
 - [[nodes/uc-repeat-master-push-despite-known-403.md]] — `git` cluster (`permissions`, `repeat-error`)
 - [[nodes/uc-reverted-user-config-without-asking-intent.md]] — `uc` cluster (`settings`, `permissions`, `user-intent`, `claude-code`)
+- [[nodes/uc-reviewer-verdict-had-no-enforcement-channel.md]] — `uc` cluster (`pullie`, `review-gate`, `llm-judgment`, `enforcement`, `completeness`)
 - [[nodes/uc-rewrite-approval-must-declare-itself.md]] — `pullie` cluster (`approval-flow`, `notification`, `rewrite`, `human-in-the-loop`)
 - [[nodes/uc-session-promise-vs-system.md]] — `ai-behavior` cluster (`too-ephemeral`, `system-design`)
 - [[nodes/uc-skipped-pdca-on-pivot.md]] — `assumption` cluster (`pivot-masking`)
