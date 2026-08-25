@@ -46,7 +46,7 @@
 | `sdk-migration` | SDK バージョンアップグレード時のブレーキングチェンジ | 1 | ライブラリをアップグレードする時 |
 | [[clusters/shell-hook-env.md]] | Claude Code フック・シェル環境変数の落とし穴 | 1 | Claude Code フック・session-start.sh・シェルスクリプトを書く時 |
 | [[clusters/producer-consumer-sync.md]] | 定義（スキーマ/カタログ/キー一覧）拡張時の消費側同期漏れ | 2 | スキーマ・カタログ・enum・frontmatterフィールドを拡張する時 |
-| [[clusters/kintone.md]] | kintone カスタマイズ（REST API・カスタムJS/CSS・全体カスタマイズ）の落とし穴 | 3 | kintone アプリ構築・カスタマイズ作業時 |
+| [[clusters/kintone.md]] | kintone カスタマイズ（REST API・カスタムJS/CSS・全体カスタマイズ）の落とし穴 | 4 | kintone アプリ構築・カスタマイズ作業時 |
 
 ---
 
@@ -84,6 +84,7 @@
 - [[nodes/intersection-threshold-hides-tall-sections.md]] — `web-frontend` cluster (`intersection-observer`, `reveal-animation`, `mobile`, `viewport`, `pullie`)
 - [[nodes/kintone-calc-no-today-function.md]] — `kintone` cluster (`api`, `calc-field`, `GAIA_IL01`, `pullie`)
 - [[nodes/kintone-delivered-js-manual-commentout-corruption.md]] — `kintone` cluster (`custom-js`, `syntax-error`, `diagnosis`, `client-edit`, `block-comment`)
+- [[nodes/kintone-dropdown-query-nonexistent-option-error.md]] — `kintone` cluster (`rest-api`, `query`, `dropdown`, `dynamic-range`, `error-handling`)
 - [[nodes/kintone-system-js-head-execution-body-null.md]] — `kintone` cluster (`custom-js`, `portal`, `dom-timing`, `mutation-observer`)
 - [[nodes/llm-json-extract-object-regex-breaks-arrays.md]] — `llm` cluster (`json`, `regex`, `parsing`)
 - [[nodes/llm-json-raw-control-characters.md]] — `llm` cluster (`json`, `parsing`, `python`, `pullie`)
