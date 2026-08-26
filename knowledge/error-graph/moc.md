@@ -97,6 +97,7 @@
 - [[nodes/powershell-hash-literal-git.md]] — `powershell` cluster (`git`, `syntax-error`)
 - [[nodes/publish-worker-not-idempotent-after-push.md]] — `git` cluster (`idempotency`, `pipeline`, `publish`, `cloudflare-pages`)
 - [[nodes/queue-adjacency-same-article-consecutive-posts.md]] — `pullie` cluster (`sns`, `queue`, `scheduling`, `x-twitter`, `dedup`)
+- [[nodes/rotation-starvation-by-unengageable-accounts.md]] — `producer-consumer-sync` cluster (`scheduling`, `starvation`, `x-twitter`, `silent-failure`, `budget`, `pullie`)
 - [[nodes/semantic-graph-relationships.md]] — `system-design` cluster (`knowledge-graph`, `semantics`, `obsidian`)
 - [[nodes/slack-api-silent-hang.md]] — `slack` cluster (`api`, `timeout`, `mcp`)
 - [[nodes/sqlite-unique-slug-permanent-crash-loop.md]] — `sqlite` cluster (`unique-constraint`, `pipeline`, `pullie`, `slug`, `self-healing`)
