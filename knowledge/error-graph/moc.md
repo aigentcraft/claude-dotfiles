@@ -74,6 +74,7 @@
 - [[nodes/api-rate-limit-exceeded.md]] — `api` cluster (`network`, `rate-limit`)
 - [[nodes/bash-awk-regex-and-array-accumulation.md]] — `bash` cluster (`awk`, `regex`, `arrays`, `windows`, `git-bash`, `cross-platform`)
 - [[nodes/claude-hook-env-project-dir.md]] — `shell-hook-env` cluster
+- [[nodes/cloudflare-github-app-single-account-binding.md]] — `cloudflare-pages` cluster (`github-app`, `git-integration`, `infrastructure`, `multi-account`)
 - [[nodes/copywriting-indirect-motivation.md]] — `copywriting` cluster (`psychology`, `content-writing`, `behavioral`, `self-determination`)
 - [[nodes/deploy-wait-http-200-races-stale-build.md]] — `cloudflare` cluster (`pages`, `deploy`, `race-condition`, `verification`, `pullie`)
 - [[nodes/discard-path-topic-requeue-leak.md]] — `pipeline` cluster (`state-machine`, `cleanup`, `sqlite`)
@@ -143,6 +144,7 @@
 - [[nodes/uc-skipped-pdca-on-pivot.md]] — `assumption` cluster (`pivot-masking`)
 - [[nodes/uc-sns-operation-is-not-just-posting.md]] — `sns` cluster (`x-twitter`, `operation-design`, `proposal`)
 - [[nodes/uc-sns-posts-lack-context-and-persona.md]] — `uc` cluster (`pullie`, `sns`, `copywriting`, `persona`, `context`)
+- [[nodes/uc-taste-recommendation-without-data.md]] — `ux-judgment` cluster (`branding`, `recommendation-framing`, `data-honesty`)
 - [[nodes/uc-tutorial-images-must-cover-every-step.md]] — `uc` cluster (`pullie`, `content-quality`, `screenshots`, `tutorial`)
 - [[nodes/uc-typography-must-meet-readability-floor.md]] — `uc` cluster (`pullie`, `typography`, `readability`, `design-port`, `web-frontend`)
 - [[nodes/uc-unverified-hazudesu-reporting.md]] — `ai-behavior` cluster (`unverified-claim`, `hazudesu`, `test-verification`)
