@@ -79,6 +79,16 @@ SplitText / DrawSVG / stagger from center + back.out / elastic ホバー / power
 公式ドキュメントのコード例のまま使い、独自調整はその後。
 - 詳細: [[../nodes/uc-handrolled-animation-low-quality-use-gsap-examples.md]]
 
+### R15 人に「見た目」を承認させる前に、機械が「見た目」を検査する
+ファイル検査（寸法・比率・重複）だけでは HTML/CSS 層の破綻（figure 化漏れ・キャプションの重なり・cover の切り抜き）を検出できない。
+承認依頼の前に実ブラウザ（Playwright PC/SP）で矩形を測るプローブを通す。画像+キャプションは Markdown 上で別ブロックにする。
+- 詳細: [[../nodes/uc-article-image-cropped-caption-overlap.md]]
+
+### R16 記事構造は読者の意思決定から逆算する（実測の深さは根拠であって主役ではない）
+アフィリエイトの転換点は「決断」。初心者読者には最初の 1 画面で「得られる結果」「迷ったらこれ」、本線は最短手順 3〜5 ステップ。
+深掘りは末尾に隔離。推奨は実測値+「合わない人」でのみ行い、根拠のない強調（安直な訴求）は書かない。差し戻し理由は必ず writer の入力に届いているか実装を追う。
+- 詳細: [[../nodes/uc-articles-too-advanced-for-beginner-readers.md]]
+
 ## このクラスターのノード一覧
 
 - [[../nodes/uc-approval-request-local-path-instead-of-url.md]] — `user-correction`, `hitl`, `approval-flow`, `stale-assumption`
@@ -89,4 +99,5 @@ SplitText / DrawSVG / stagger from center + back.out / elastic ホバー / power
 - [[../nodes/uc-graph-focus-relayout-and-click-feedback.md]] — `user-correction`, `graph`, `mind-map`, `motion`, `color`
 - [[../nodes/uc-handrolled-animation-low-quality-use-gsap-examples.md]] — `user-correction`, `animation`, `gsap`, `motion-quality`
 - [[../nodes/uc-focus-labels-too-small-after-zoom.md]] — `user-correction`, `graph`, `typography`, `readability`（R13 の補足: 状態ごとの実効フォントサイズを保証）
-
+- [[../nodes/uc-article-image-cropped-caption-overlap.md]] — `user-correction`, `images`, `captions`, `preview`（R15）
+- [[../nodes/uc-articles-too-advanced-for-beginner-readers.md]] — `user-correction`, `editorial`, `audience`, `beginner`（R16）
