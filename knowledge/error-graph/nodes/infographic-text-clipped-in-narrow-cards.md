@@ -20,5 +20,6 @@ tags: ["images", "rendering", "infographic", "overflow", "self-verification", "w
 - CSS: `overflow-wrap:anywhere` をテキスト要素に付与、`.cols[data-n="3"]` で列数別サイズ
 - `render.mjs` が #stage 内の要素の `scrollWidth/Height > client` と #stage 外への突出を数えて `OVERFLOW n` を出力
 - `diagram_render.render()` は 2 パス: overflow > 0 なら `#stage.compact`（全種別 20〜30% 縮小）で描き直し、それでも残れば warn
+- 計測の注意（同日追記）: CJK フォントは line-height < 1.4 で字面が行箱をはみ出し `scrollHeight > clientHeight` になる偽陽性がある。縦方向の検査は `overflow-y` が visible でないクリップ箱（.col / #stage）に限定し、横方向は全要素で検査する
 - **予防ルール: 文字サイズを大きくする変更は「最も狭いレイアウト（最大列数・最長トークン）」で確認し、描画器に自己検証（overflow 計測）を持たせる**
 - 関連: [[uc-article-image-cropped-caption-overlap]] [[uc-article-images-decorative-not-explanatory]]
