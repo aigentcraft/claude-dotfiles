@@ -51,6 +51,15 @@ LLMは曖昧さを成果が大きく見える方向に解消する（自己報�
 「前提 X が未完了だから後回し」とした実装は、X の完了をトリガーに再評価する。
 - 詳細: [[../nodes/uc-approval-request-local-path-instead-of-url.md]]
 
+### R10: 人間が最初に見る面（デザイン・画像）を先に作り、テンプレ既定値のまま見せない
+パイプラインを先に完成させても、承認者が見るのは記事の見た目と画像。ブランド資産（ロゴ）は見つけた時点で
+確認して起点にし、価値提供（構造化）はナビゲーション・記事内構造・画像の役割にまで翻訳する。
+画像は「装飾」でなく「読者の理解を進める情報」— 見出しごとに役割を定義し、手順は実スクショ + 加工。
+- 詳細: [[../nodes/uc-site-design-direction-before-content.md]] / [[../nodes/uc-article-images-decorative-not-explanatory.md]]
+
 ## このクラスターのノード一覧
 
 - [[../nodes/uc-approval-request-local-path-instead-of-url.md]] — `user-correction`, `hitl`, `approval-flow`, `stale-assumption`
+- [[../nodes/uc-site-design-direction-before-content.md]] — `user-correction`, `design`, `site-structure`, `brand`
+- [[../nodes/uc-article-images-decorative-not-explanatory.md]] — `user-correction`, `images`, `content-quality`, `screenshots`
+
