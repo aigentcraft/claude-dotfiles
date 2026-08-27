@@ -57,9 +57,16 @@ LLMは曖昧さを成果が大きく見える方向に解消する（自己報�
 画像は「装飾」でなく「読者の理解を進める情報」— 見出しごとに役割を定義し、手順は実スクショ + 加工。
 - 詳細: [[../nodes/uc-site-design-direction-before-content.md]] / [[../nodes/uc-article-images-decorative-not-explanatory.md]]
 
+### R11: ビジュアルは参照物（コード + スクショ + 実測メトリクス）を取ってから組む
+トークンと機能が揃っていても、配置のリズム・大きさの対比・視線誘導は参照無しでは平均的になる。
+ユーザー指定の参照サイトを curl + Playwright で取得し、余白・文字サイズ・角丸・モーションを数値で書き出してから写す。
+モーションは「振幅・周期・イージング」まで数値で決める（ふよふよ = 4〜9px / 8〜18s / 位相ずらし、ホバー = scale 2.2 + バネ）。
+- 詳細: [[../nodes/uc-layout-without-design-reference.md]]
+
 ## このクラスターのノード一覧
 
 - [[../nodes/uc-approval-request-local-path-instead-of-url.md]] — `user-correction`, `hitl`, `approval-flow`, `stale-assumption`
 - [[../nodes/uc-site-design-direction-before-content.md]] — `user-correction`, `design`, `site-structure`, `brand`
 - [[../nodes/uc-article-images-decorative-not-explanatory.md]] — `user-correction`, `images`, `content-quality`, `screenshots`
+- [[../nodes/uc-layout-without-design-reference.md]] — `user-correction`, `design`, `layout`, `reference-driven`
 

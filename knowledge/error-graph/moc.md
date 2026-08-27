@@ -137,6 +137,7 @@
 - [[nodes/uc-demo-screens-are-sales-assets.md]] — `uc` cluster (`pullie`, `screenshots`, `demo-quality`, `kintone`, `sales-perception`)
 - [[nodes/uc-inspection-must-match-reader-conditions.md]] — `pullie` cluster (`visual-inspection`, `viewport`, `verification`, `approval-flow`)
 - [[nodes/uc-knowledge-branch-isolation.md]] — `ai-behavior` cluster (`branch-isolation`, `knowledge-propagation`)
+- [[nodes/uc-layout-without-design-reference.md]] — `design` cluster (`layout`, `reference-driven`, `top-page`, `weevee`)
 - [[nodes/uc-local-pattern-no-generalization.md]] — `ai-behavior` cluster (`generalization`, `system-design`)
 - [[nodes/uc-mechanical-automation-wastes-llm-metacognition.md]] — `uc` cluster (`pullie`, `architecture`, `metacognition`, `agent-design`, `llm`)
 - [[nodes/uc-notification-instead-of-self-healing.md]] — `uc` cluster (`pullie`, `notification-policy`, `self-healing`, `hootl`)
