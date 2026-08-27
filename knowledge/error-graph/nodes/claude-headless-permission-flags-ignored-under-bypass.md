@@ -28,3 +28,4 @@ weevee の researcher（`claude -p` ヘッドレス）に Bash を許可して�
 - Windows では `Bash|PowerShell` 両方を想定し、プロンプト側にも「PowerShell の場合がある（`timeout` は待機コマンド）」と書く
 - 補助策を併用する: 子プロセス環境から秘密情報を除去（`scrub_secrets`）・cwd を隔離ディレクトリに・Write/Edit/Task を `--disallowedTools`・終了時にコンテナを機械回収
 - 関連: [[uc-approval-request-local-path-instead-of-url]]（同日の HITL 改善）・[[windows-claude-cli-subprocess-needs-cmd-and-gitbash]]
+- 追記（同日の誤ブロック）: 複合コマンドを `&&`/`;`/`|` で単純分割すると `docker exec c bash -c "apt-get update && …"` の引用符内が先頭コマンドとして検査され `apt-get` を誤拒否した。**分割は引用符の内側では行わない**（状態機械で quote 追跡）。禁止パターンは分割前の全文に対して検査するので、引用符内の危険な内容は引き続き捕捉できる
