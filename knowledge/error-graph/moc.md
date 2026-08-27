@@ -76,6 +76,7 @@
 - [[nodes/cdp-port-9222-hijacked-by-wsl-relay-wrong-browser.md]] — `wsl` cluster (`cdp`, `playwright`, `chrome`, `port-collision`, `misdiagnosis`, `pullie`)
 - [[nodes/checklist-references-file-not-in-skill-refs.md]] — `producer-consumer-sync` cluster (`skill-sync`, `agent-manifest`, `llm-pipeline`, `weevee`)
 - [[nodes/claude-headless-chunk-timeout-truncation.md]] — `claude-headless` cluster (`llm-pipeline`, `timeout`, `streaming`, `weevee`)
+- [[nodes/claude-headless-permission-flags-ignored-under-bypass.md]] — `claude-headless` cluster (`permissions`, `hooks`, `sandbox`, `windows`, `weevee`)
 - [[nodes/claude-hook-env-project-dir.md]] — `shell-hook-env` cluster
 - [[nodes/cloudflare-github-app-single-account-binding.md]] — `cloudflare-pages` cluster (`github-app`, `git-integration`, `infrastructure`, `multi-account`)
 - [[nodes/copywriting-indirect-motivation.md]] — `copywriting` cluster (`psychology`, `content-writing`, `behavioral`, `self-determination`)
