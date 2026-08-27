@@ -63,10 +63,16 @@ LLMは曖昧さを成果が大きく見える方向に解消する（自己報�
 モーションは「振幅・周期・イージング」まで数値で決める（ふよふよ = 4〜9px / 8〜18s / 位相ずらし、ホバー = scale 2.2 + バネ）。
 - 詳細: [[../nodes/uc-layout-without-design-reference.md]]
 
+### R12: グラフ UI は「全体 → 寄る → 選ぶ」の 3 段 + 実行時レイアウト + 読者の語彙の親ノード
+30 を超えるノードを静的 1 スケールに収めると必ず小さく隙間だらけになる。配置は画面寸法から計算し、
+選択でカメラを寄せて子を大きく見せる。親ノードは内部データの軸ではなく読者の大分類（LLM / TTS / ノーコード…）。
+- 詳細: [[../nodes/uc-graph-hierarchy-zoom-and-fit.md]]
+
 ## このクラスターのノード一覧
 
 - [[../nodes/uc-approval-request-local-path-instead-of-url.md]] — `user-correction`, `hitl`, `approval-flow`, `stale-assumption`
 - [[../nodes/uc-site-design-direction-before-content.md]] — `user-correction`, `design`, `site-structure`, `brand`
 - [[../nodes/uc-article-images-decorative-not-explanatory.md]] — `user-correction`, `images`, `content-quality`, `screenshots`
 - [[../nodes/uc-layout-without-design-reference.md]] — `user-correction`, `design`, `layout`, `reference-driven`
+- [[../nodes/uc-graph-hierarchy-zoom-and-fit.md]] — `user-correction`, `graph`, `layout`, `zoom`, `taxonomy`
 
