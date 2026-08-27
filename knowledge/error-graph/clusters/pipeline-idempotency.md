@@ -3,7 +3,7 @@
 > Layer 1 Community Summary — 関連ノードの蒸留サマリー。
 > 「成果物があれば再生成しない」「途中再開」など、冪等スキップ／再利用を実装・変更する時にロードする。
 
-**対象タグ**: `idempotency`, `images`, `pipeline`, `caption-mismatch`, `resume`
+**対象タグ**: `idempotency`, `images`, `pipeline`, `caption-mismatch`, `resume`, `lock`
 
 ---
 
@@ -20,6 +20,10 @@
 ### R3: 参照が外れた成果物は掃除する
 番号がずれた旧ファイルを残すと、次回の再利用判定や重複検知・プレビュー配信を汚染する。参照集合に無いものは削除。
 
+### R4: ロック/リースの残骸は「所有者の生存」で判定する（年齢は二次条件）
+kill・クラッシュは年齢ゼロのロックを残す。pid を保存しているなら生存確認に使う。Windows で `os.kill(pid, 0)` は TerminateProcess になるため `tasklist`/psutil を使う。
+- 詳細: [[../nodes/stale-pipeline-lock-after-killed-run.md]]
+
 ---
 
 ## 状況 → ルール
@@ -29,7 +33,9 @@
 | 「既存ファイルがあればスキップ」を書く | R1: 同一性キー（マニフェスト）で判定 |
 | 差し戻し／リライトで章構成が変わる | R2: 再利用経路を実走確認 |
 | 生成物のファイル名に連番を使う | R3: 参照外の連番ファイルを掃除 |
+| ロックファイル/リースの残骸判定を書く | R4: 所有 pid の生存確認を一次条件に |
 
 ## このクラスターのノード一覧
 
 - [[../nodes/image-reuse-by-section-index-after-restructure.md]] — `images`, `idempotency`, `pipeline`, `caption-mismatch`
+- [[../nodes/stale-pipeline-lock-after-killed-run.md]] — `lock`, `pipeline`, `resume`, `windows`
