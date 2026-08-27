@@ -58,3 +58,6 @@ relationships:
 **Graph Connections:**
 [[skills-graph/relationships.md|Skills Complement Graph（補完関係の詳細）]]
 [[error-graph/moc.md|Error PDCA MOC（失敗の知識）]]
+
+## References（基礎知識・参照資料）
+- [[references/gsap-animation-gallery.md]] — GSAP アニメーション 100 種の基礎（目的→サンプル key の早見表 + 原文コード）。モーション実装前に必ず参照（error-graph uc R14）
