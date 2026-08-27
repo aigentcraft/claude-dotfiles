@@ -114,3 +114,4 @@ LLM は「ドラフトに無い＝NG」と判定し、別層が保証する項�
 
 *Last updated: 2026-08-27 | Node count: 13*
 - [[../nodes/writer-output-truncated-by-code-fence-misparse.md]] — `parsing`, `llm-output`, `regex`, `silent-degradation`（フォールバック段が一次パーサと同じバグを共有）
+- [[../nodes/reviewer-send-back-loop-on-unfixable-screenshot-item.md]] — `reviewer`, `send-back-loop`, `structural-constraint`（差し戻し理由は次ラウンドで解消可能なものに限る）
