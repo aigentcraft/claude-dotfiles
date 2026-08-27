@@ -68,6 +68,11 @@ LLMは曖昧さを成果が大きく見える方向に解消する（自己報�
 選択でカメラを寄せて子を大きく見せる。親ノードは内部データの軸ではなく読者の大分類（LLM / TTS / ノーコード…）。
 - 詳細: [[../nodes/uc-graph-hierarchy-zoom-and-fit.md]]
 
+### R13: インタラクティブな図は「状態ごとのレイアウト・面の充填・枝の色・反応→遷移の順序」を仕様に含める
+カメラだけの「寄る」は読めない。フォーカス専用の整列（マインドマップ）へ補間で遷移し、根ノードと全周展開で面を埋め、
+色は枝単位、クリックは反応（~330ms）を先に見せてから動かす。
+- 詳細: [[../nodes/uc-graph-focus-relayout-and-click-feedback.md]]
+
 ## このクラスターのノード一覧
 
 - [[../nodes/uc-approval-request-local-path-instead-of-url.md]] — `user-correction`, `hitl`, `approval-flow`, `stale-assumption`
@@ -75,4 +80,5 @@ LLMは曖昧さを成果が大きく見える方向に解消する（自己報�
 - [[../nodes/uc-article-images-decorative-not-explanatory.md]] — `user-correction`, `images`, `content-quality`, `screenshots`
 - [[../nodes/uc-layout-without-design-reference.md]] — `user-correction`, `design`, `layout`, `reference-driven`
 - [[../nodes/uc-graph-hierarchy-zoom-and-fit.md]] — `user-correction`, `graph`, `layout`, `zoom`, `taxonomy`
+- [[../nodes/uc-graph-focus-relayout-and-click-feedback.md]] — `user-correction`, `graph`, `mind-map`, `motion`, `color`
 
