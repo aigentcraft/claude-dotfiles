@@ -94,6 +94,7 @@
 - [[nodes/kintone-delivered-js-manual-commentout-corruption.md]] — `kintone` cluster (`custom-js`, `syntax-error`, `diagnosis`, `client-edit`, `block-comment`)
 - [[nodes/kintone-dropdown-query-nonexistent-option-error.md]] — `kintone` cluster (`rest-api`, `query`, `dropdown`, `dynamic-range`, `error-handling`)
 - [[nodes/kintone-system-js-head-execution-body-null.md]] — `kintone` cluster (`custom-js`, `portal`, `dom-timing`, `mutation-observer`)
+- [[nodes/lab-guard-blocked-readonly-utils-and-own-volume.md]] — `lab-guard` cluster (`allowlist`, `false-block`, `docker`, `researcher`, `weevee`)
 - [[nodes/llm-json-extract-object-regex-breaks-arrays.md]] — `llm` cluster (`json`, `regex`, `parsing`)
 - [[nodes/llm-json-raw-control-characters.md]] — `llm` cluster (`json`, `parsing`, `python`, `pullie`)
 - [[nodes/llm-json-unescaped-inner-quotes.md]] — `llm` cluster (`json`, `parsing`, `python`, `pullie`)
