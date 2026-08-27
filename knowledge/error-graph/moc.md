@@ -135,6 +135,7 @@
 - [[nodes/uc-article-images-decorative-not-explanatory.md]] — `images` cluster (`content-quality`, `screenshots`, `image-pipeline`, `weevee`)
 - [[nodes/uc-articles-must-carry-own-positioning.md]] — `pullie` cluster (`positioning`, `content-strategy`, `conversion`, `compliance`)
 - [[nodes/uc-demo-screens-are-sales-assets.md]] — `uc` cluster (`pullie`, `screenshots`, `demo-quality`, `kintone`, `sales-perception`)
+- [[nodes/uc-focus-labels-too-small-after-zoom.md]] — `graph` cluster (`typography`, `zoom`, `readability`, `weevee`)
 - [[nodes/uc-graph-focus-relayout-and-click-feedback.md]] — `graph` cluster (`layout`, `mind-map`, `motion`, `color`, `weevee`)
 - [[nodes/uc-graph-hierarchy-zoom-and-fit.md]] — `graph` cluster (`layout`, `zoom`, `taxonomy`, `responsive`, `weevee`)
 - [[nodes/uc-handrolled-animation-low-quality-use-gsap-examples.md]] — `animation` cluster (`gsap`, `motion-quality`, `reference-driven`, `weevee`)

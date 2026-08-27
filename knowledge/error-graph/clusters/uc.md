@@ -88,4 +88,5 @@ SplitText / DrawSVG / stagger from center + back.out / elastic ホバー / power
 - [[../nodes/uc-graph-hierarchy-zoom-and-fit.md]] — `user-correction`, `graph`, `layout`, `zoom`, `taxonomy`
 - [[../nodes/uc-graph-focus-relayout-and-click-feedback.md]] — `user-correction`, `graph`, `mind-map`, `motion`, `color`
 - [[../nodes/uc-handrolled-animation-low-quality-use-gsap-examples.md]] — `user-correction`, `animation`, `gsap`, `motion-quality`
+- [[../nodes/uc-focus-labels-too-small-after-zoom.md]] — `user-correction`, `graph`, `typography`, `readability`（R13 の補足: 状態ごとの実効フォントサイズを保証）
 
