@@ -44,3 +44,13 @@ opacity残留・画像欠落・背景色・アルファ・外周余白はコー�
 LLMは曖昧さを成果が大きく見える方向に解消する（自己報告の粉飾バイアス）。送り/受けの語彙は
 契約で固定し、監査は「記録の実在」でなく「主張の文言」単位で一次データと突き合わせる。
 - 詳細: [[../nodes/uc-activity-report-inverted-engagement-direction.md]]
+
+### R9: 人間宛ての依頼には「その人の受信環境で開ける URL」を載せる
+ローカルパスやコマンドはスマホの Discord では開けない。承認依頼＝人間が実物を見る接点なので、
+プレビューデプロイ等の公開 URL を必須にし、ローカル情報は補足に留める。
+「前提 X が未完了だから後回し」とした実装は、X の完了をトリガーに再評価する。
+- 詳細: [[../nodes/uc-approval-request-local-path-instead-of-url.md]]
+
+## このクラスターのノード一覧
+
+- [[../nodes/uc-approval-request-local-path-instead-of-url.md]] — `user-correction`, `hitl`, `approval-flow`, `stale-assumption`

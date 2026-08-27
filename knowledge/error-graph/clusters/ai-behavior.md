@@ -59,6 +59,8 @@
 多層パイプライン（ドラフト→テンプレ→ビルド）で、要件だけを列挙した checklist を渡すと
 LLM は「ドラフトに無い＝NG」と判定し、別層が保証する項目で差し戻しループを起こす。
 - **対策**: チェック項目ごとに「どの層・どの成果物で満たされるか」と逆条件（手書きなら二重挿入NG）を明記する
+- **対策**: 同様に「適用条件」（記事タイプ・案件アサイン有無・フェーズ）も併記する。無条件の項目は該当しない対象にも減点され、score 床で破棄が連鎖する
+  - 詳細: [[../nodes/reviewer-checklist-without-applicability-conditions.md]]
 - **対策**: LLM 生応答を常時ダンプ（gitignore下）し、誤判定の一次証拠を残す。推測での修正は空振りする
 - 詳細: [[../nodes/llm-reviewer-false-ng-on-template-layer-items.md]]
 
@@ -95,6 +97,7 @@ LLM は「ドラフトに無い＝NG」と判定し、別層が保証する項�
 - [[../nodes/uc-unverified-hazudesu-reporting.md]] — `user-correction`, `unverified-claim`, `hazudesu`, `test-verification`
 - [[../nodes/uc-visualization-without-audit-purpose.md]] — `user-correction`, `dashboard`, `requirements`, `verification`
 - [[../nodes/llm-reviewer-false-ng-on-template-layer-items.md]] — `ai-behavior`, `llm-pipeline`, `reviewer`, `checklist`, `audit-log`
+- [[../nodes/reviewer-checklist-without-applicability-conditions.md]] — `ai-behavior`, `llm-pipeline`, `reviewer`, `checklist`, `scoring`
 
 ---
 
@@ -109,4 +112,4 @@ LLM は「ドラフトに無い＝NG」と判定し、別層が保証する項�
 - **確認不可の場合**: 「確認できない理由」を明記し、ユーザーが実行できる具体的コマンドを提示する
 - 詳細: [[../nodes/uc-unverified-hazudesu-reporting.md]]
 
-*Last updated: 2026-08-27 | Node count: 12*
+*Last updated: 2026-08-27 | Node count: 13*
