@@ -55,6 +55,13 @@
 - **YAMLフロントマター**: `relationships:` セクションで構造的に定義する
 - 詳細: [[../nodes/semantic-graph-relationships.md]]
 
+### R11: LLM検閲の判定基準には「充足される層」を併記する
+多層パイプライン（ドラフト→テンプレ→ビルド）で、要件だけを列挙した checklist を渡すと
+LLM は「ドラフトに無い＝NG」と判定し、別層が保証する項目で差し戻しループを起こす。
+- **対策**: チェック項目ごとに「どの層・どの成果物で満たされるか」と逆条件（手書きなら二重挿入NG）を明記する
+- **対策**: LLM 生応答を常時ダンプ（gitignore下）し、誤判定の一次証拠を残す。推測での修正は空振りする
+- 詳細: [[../nodes/llm-reviewer-false-ng-on-template-layer-items.md]]
+
 ---
 
 ## クイック参照テーブル
@@ -70,6 +77,7 @@
 | セッション内でpush/操作が一度失敗した | R6: 同じコマンドを再実行しない。制約を確認してから実行する |
 | あるパターン（ファイル・構造・ルール）を作った | R9: 「同種の構造が他にないか」を即座に確認し横展開する |
 | テスト・動作確認の結果を報告する | R10: 「はずです」禁止。`gh run list` / `ls` / `git show` で実測してから報告する |
+| LLM に検閲/判定用チェックリストを渡す | R11: 各項目に「充足される層」を併記し、生応答ダンプを残す |
 
 ---
 
@@ -86,6 +94,7 @@
 - [[../nodes/uc-partial-solution-without-automation-path.md]] — `user-correction`, `partial-solution`, `automation`
 - [[../nodes/uc-unverified-hazudesu-reporting.md]] — `user-correction`, `unverified-claim`, `hazudesu`, `test-verification`
 - [[../nodes/uc-visualization-without-audit-purpose.md]] — `user-correction`, `dashboard`, `requirements`, `verification`
+- [[../nodes/llm-reviewer-false-ng-on-template-layer-items.md]] — `ai-behavior`, `llm-pipeline`, `reviewer`, `checklist`, `audit-log`
 
 ---
 
@@ -100,4 +109,4 @@
 - **確認不可の場合**: 「確認できない理由」を明記し、ユーザーが実行できる具体的コマンドを提示する
 - 詳細: [[../nodes/uc-unverified-hazudesu-reporting.md]]
 
-*Last updated: 2026-08-14 | Node count: 11*
+*Last updated: 2026-08-27 | Node count: 12*

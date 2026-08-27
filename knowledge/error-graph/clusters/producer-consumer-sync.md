@@ -19,6 +19,10 @@ grepで洗い出し、同一コミット内で結線または明示的に対象�
   （[[../nodes/catalog-key-added-without-consumer-sync.md]]）
 - 例2: heroImage追加 → /articles/ のみ結線・トップページ未結線 → 本番プレースホルダ露出
   （[[../nodes/frontmatter-field-not-wired-into-all-renderers.md]]）
+- 例3: reviewer checklist が ng_phrases.md を引用 → reviewer manifest の skill_refs に未同梱 →
+  LLM が「手元にないため部分照合」と自己申告して静かに劣化（rc=0・NGなし）
+  （[[../nodes/checklist-references-file-not-in-skill-refs.md]]）
+  → **プロンプト/checklist で `xxx.md` を引用したら、そのエージェントの manifest に同梱されているか grep で確認する**
 
 ### R2: 「表示されていない」の一次切り分けは「データは存在するか」
 プレースホルダ・空欄・画像なしを検知したら、先にデータ実在を確認する。
@@ -56,3 +60,5 @@ grepで洗い出し、同一コミット内で結線または明示的に対象�
 | コンテンツコレクションのschemaにフィールド追加 | R1: getCollection消費側を全grep |
 | カタログ/キー一覧/enumに項目追加 | R1: 参照SKILL.md・skill_refsを全grep |
 | 検分・監査で「プレースホルダのまま」を発見 | R2: データ実在を先に確認して分類 |
+| agent.md / checklist / SKILL.md で参照ファイルを引用 | R1: 引用先エージェントの manifest skill_refs を grep で照合 |
+| LLM 出力に「手元にない」「参照できない」が含まれる | R1: 供給欠落として扱い manifest を修正 |
