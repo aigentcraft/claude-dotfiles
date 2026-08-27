@@ -23,4 +23,4 @@ researcher に Bash を許可する代わりに PreToolUse フック `tools/lab_
 - `docker volume rm` は `weevee-lab-` を含む場合のみ許可（prune/rmi は引き続き禁止）
 - `tests/test_lab_guard.py` に誤ブロック回帰テストと課金/秘密情報の禁止テストを追加
 - **予防ルール: 許可リスト型ガードは初回実走の監査ログ（blocked=true の全件）を必ずレビューし、安全な誤ブロックを許可へ移す。観察系コマンドを最初から含める**
-- 関連: [[lab-guard-false-block-quoted-operators]] [[feedback-no-paid-operations]]
+- 関連: [[uc-articles-too-advanced-for-beginner-readers]]（同日の実走で発見）・人間決定③「researcher に Bash 許可・課金操作は一切禁止」

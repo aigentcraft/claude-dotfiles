@@ -25,3 +25,4 @@ exit 2 ではなく stdout の `{"hookSpecificOutput":{"permissionDecision":"den
 ## このクラスターのノード一覧
 
 - [[../nodes/claude-headless-permission-flags-ignored-under-bypass.md]] — `claude-headless`, `permissions`, `hooks`, `sandbox`, `windows`
+- [[../nodes/lab-guard-blocked-readonly-utils-and-own-volume.md]] — `lab-guard`, `allowlist`, `false-block`, `docker`（PreToolUse 許可リストは初回実走の監査ログで補正する）
