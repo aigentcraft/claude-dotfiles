@@ -86,6 +86,7 @@
 - [[nodes/grace-skip-needs-escalation-for-human-only-recovery.md]] — `monitoring` cluster (`silent-failure`, `grace-degradation`, `hitl`, `session-expiry`, `pullie`)
 - [[nodes/gsc-final-lag-outruns-lookback-window.md]] — `pullie` cluster (`gsc`, `data-collection`, `lookback-window`, `upsert`, `silent-failure`)
 - [[nodes/image-dark-canvas-margin-passes-vision-review.md]] — `pullie` cluster (`image-generation`, `gpt-image`, `vision-review`, `alpha-channel`, `deterministic-gate`)
+- [[nodes/image-reuse-by-section-index-after-restructure.md]] — `images` cluster (`idempotency`, `pipeline`, `caption-mismatch`, `weevee`)
 - [[nodes/instant-approval-path-skips-sns-fanout.md]] — `pullie` cluster (`sns`, `pipeline-wiring`, `dual-path`, `approval-flow`, `x-twitter`)
 - [[nodes/intersection-threshold-hides-tall-sections.md]] — `web-frontend` cluster (`intersection-observer`, `reveal-animation`, `mobile`, `viewport`, `pullie`)
 - [[nodes/kintone-calc-no-today-function.md]] — `kintone` cluster (`api`, `calc-field`, `GAIA_IL01`, `pullie`)
