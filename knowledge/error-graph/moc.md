@@ -90,6 +90,7 @@
 - [[nodes/llm-json-extract-object-regex-breaks-arrays.md]] — `llm` cluster (`json`, `regex`, `parsing`)
 - [[nodes/llm-json-raw-control-characters.md]] — `llm` cluster (`json`, `parsing`, `python`, `pullie`)
 - [[nodes/llm-json-unescaped-inner-quotes.md]] — `llm` cluster (`json`, `parsing`, `python`, `pullie`)
+- [[nodes/llm-output-fence-heuristic-matches-inner-code-block.md]] — `llm` cluster (`output-parsing`, `regex`, `markdown`, `deterministic-crash`, `pullie`)
 - [[nodes/llm-output-strict-prefix-check-16run-dead-feature.md]] — `llm` cluster (`output-parsing`, `grace-degradation`, `silent-failure`, `link-validation`, `pullie`)
 - [[nodes/llm-self-reported-index-silent-drop.md]] — `llm` cluster (`contract-validation`, `pullie`, `images`, `silent-failure`)
 - [[nodes/note-kpi-weekly-cadence-window-blind-spot.md]] — `observability` cluster (`kpi`, `note`, `producer-consumer-sync`, `window-alignment`, `cadence`, `pullie`)
