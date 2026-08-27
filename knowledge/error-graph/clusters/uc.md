@@ -73,6 +73,12 @@ LLMは曖昧さを成果が大きく見える方向に解消する（自己報�
 色は枝単位、クリックは反応（~330ms）を先に見せてから動かす。
 - 詳細: [[../nodes/uc-graph-focus-relayout-and-click-feedback.md]]
 
+### R14: モーションも参照駆動 — GSAP 公式デモのパラメータを写す
+自前の easing / lerp / CSS キーフレームは「レベルが低い」と言われる。GSAP 3.13+（全プラグイン無料）で、
+SplitText / DrawSVG / stagger from center + back.out / elastic ホバー / power3.inOut カメラ / ScrollTrigger.batch を
+公式ドキュメントのコード例のまま使い、独自調整はその後。
+- 詳細: [[../nodes/uc-handrolled-animation-low-quality-use-gsap-examples.md]]
+
 ## このクラスターのノード一覧
 
 - [[../nodes/uc-approval-request-local-path-instead-of-url.md]] — `user-correction`, `hitl`, `approval-flow`, `stale-assumption`
@@ -81,4 +87,5 @@ LLMは曖昧さを成果が大きく見える方向に解消する（自己報�
 - [[../nodes/uc-layout-without-design-reference.md]] — `user-correction`, `design`, `layout`, `reference-driven`
 - [[../nodes/uc-graph-hierarchy-zoom-and-fit.md]] — `user-correction`, `graph`, `layout`, `zoom`, `taxonomy`
 - [[../nodes/uc-graph-focus-relayout-and-click-feedback.md]] — `user-correction`, `graph`, `mind-map`, `motion`, `color`
+- [[../nodes/uc-handrolled-animation-low-quality-use-gsap-examples.md]] — `user-correction`, `animation`, `gsap`, `motion-quality`
 

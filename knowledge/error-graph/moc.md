@@ -137,6 +137,7 @@
 - [[nodes/uc-demo-screens-are-sales-assets.md]] — `uc` cluster (`pullie`, `screenshots`, `demo-quality`, `kintone`, `sales-perception`)
 - [[nodes/uc-graph-focus-relayout-and-click-feedback.md]] — `graph` cluster (`layout`, `mind-map`, `motion`, `color`, `weevee`)
 - [[nodes/uc-graph-hierarchy-zoom-and-fit.md]] — `graph` cluster (`layout`, `zoom`, `taxonomy`, `responsive`, `weevee`)
+- [[nodes/uc-handrolled-animation-low-quality-use-gsap-examples.md]] — `animation` cluster (`gsap`, `motion-quality`, `reference-driven`, `weevee`)
 - [[nodes/uc-inspection-must-match-reader-conditions.md]] — `pullie` cluster (`visual-inspection`, `viewport`, `verification`, `approval-flow`)
 - [[nodes/uc-knowledge-branch-isolation.md]] — `ai-behavior` cluster (`branch-isolation`, `knowledge-propagation`)
 - [[nodes/uc-layout-without-design-reference.md]] — `design` cluster (`layout`, `reference-driven`, `top-page`, `weevee`)
