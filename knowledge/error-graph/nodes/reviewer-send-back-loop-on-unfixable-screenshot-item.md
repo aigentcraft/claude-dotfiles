@@ -20,5 +20,6 @@ tags: ["reviewer", "send-back-loop", "structural-constraint", "screenshots", "ch
 ## 4. Act / Prevention Strategy (Fix)
 - checklist Q06 に適用条件を追記: ファクトシートにスクショ未取得とある場合は減点（情報図で代替なら 5〜6 点）に留め、**Q06 単独を must_fix / send_back の理由にしない**
 - 04 が `<!-- スクショ: -->` プレースホルダを機械除去し、writer の出力形式指示にも「置かない」を明記
+- 追記（同日）: checklist の注記だけでは reviewer は従わず、第 4 ラウンドも Q06 単独で send_back → 自動破棄された。**LLM への注記は予防にならない**。`06_review.decide_verdict()` で「構造的制約の Q 項目だけが不合格の send_back は不採用」を機械化（設計ルール 5: 決定論的処理は LLM-Free）
 - **予防ルール: 差し戻し理由は「次のラウンドで解消可能なもの」に限る。構造的制約（ラボ未取得・案件未アサイン・公開記事なし）は各項目に適用条件として書き、減点に留める**
 - 関連: [[uc-articles-too-advanced-for-beginner-readers]] [[writer-output-truncated-by-code-fence-misparse]]
