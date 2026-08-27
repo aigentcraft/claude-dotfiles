@@ -78,6 +78,7 @@
 - [[nodes/copywriting-indirect-motivation.md]] — `copywriting` cluster (`psychology`, `content-writing`, `behavioral`, `self-determination`)
 - [[nodes/deploy-wait-http-200-races-stale-build.md]] — `cloudflare` cluster (`pages`, `deploy`, `race-condition`, `verification`, `pullie`)
 - [[nodes/discard-path-topic-requeue-leak.md]] — `pipeline` cluster (`state-machine`, `cleanup`, `sqlite`)
+- [[nodes/cdp-port-9222-hijacked-by-wsl-relay-wrong-browser.md]] — `windows` cluster (`wsl`, `cdp`, `playwright`, `port-collision`, `misdiagnosis`, `pullie`)
 - [[nodes/frontmatter-field-not-wired-into-all-renderers.md]] — `producer-consumer-sync` cluster (`astro`, `schema-sync`, `renderer`, `visual-inspector`, `pullie`)
 - [[nodes/grace-skip-needs-escalation-for-human-only-recovery.md]] — `observability` cluster (`monitoring`, `silent-failure`, `grace-degradation`, `hitl`, `pullie`)
 - [[nodes/gsc-final-lag-outruns-lookback-window.md]] — `pullie` cluster (`gsc`, `data-collection`, `lookback-window`, `upsert`, `silent-failure`)
