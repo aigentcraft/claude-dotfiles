@@ -113,3 +113,4 @@ LLM は「ドラフトに無い＝NG」と判定し、別層が保証する項�
 - 詳細: [[../nodes/uc-unverified-hazudesu-reporting.md]]
 
 *Last updated: 2026-08-27 | Node count: 13*
+- [[../nodes/writer-output-truncated-by-code-fence-misparse.md]] — `parsing`, `llm-output`, `regex`, `silent-degradation`（フォールバック段が一次パーサと同じバグを共有）
