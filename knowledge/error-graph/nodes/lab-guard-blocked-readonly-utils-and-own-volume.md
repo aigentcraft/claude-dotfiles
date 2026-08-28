@@ -23,5 +23,6 @@ researcher に Bash を許可する代わりに PreToolUse フック `tools/lab_
 - `docker volume rm` は `weevee-lab-` を含む場合のみ許可（prune/rmi は引き続き禁止）
 - `tests/test_lab_guard.py` に誤ブロック回帰テストと課金/秘密情報の禁止テストを追加
 - 追記（2026-08-28 夕）: 禁止パターンにブランド語（`sakura|conoha`）を「どこに現れても」で入れていたため、公式料金ページ `https://www.conoha.jp/vps/pricing/` のスクショまで誤ブロックした。クラウド CLI は**コマンド先頭語**で検査し、URL は管理画面/申込/ログイン系（manage./console./…、/order|/cart|/signup|/login）だけを禁止に変更。公開ページの閲覧・スクショは可
+- 追記（2026-08-28 夜・記事8 Dify ラボ）: `.env` 禁止が clone 先の `.env.example` と `cp .env.example .env` を、`../../` 禁止がサブ dir から `tee -a ../../lab.log` を誤ブロック（80 件中 4 件）。`.env` はリポジトリ本体（`../` 遡り or 絶対パス）のみ禁止、遡りは 3 段以上のみ禁止、ラボ内のファイル操作（cp/mv/touch/chmod…）を許可に追加。**ガードは「守りたい資源」を名指しする（ファイル名の一致で守らない）**
 - **予防ルール: 許可リスト型ガードは初回実走の監査ログ（blocked=true の全件）を必ずレビューし、安全な誤ブロックを許可へ移す。観察系コマンドを最初から含める**
 - 関連: [[uc-articles-too-advanced-for-beginner-readers]]（同日の実走で発見）・人間決定③「researcher に Bash 許可・課金操作は一切禁止」
