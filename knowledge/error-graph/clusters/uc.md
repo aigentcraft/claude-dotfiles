@@ -93,6 +93,10 @@ SplitText / DrawSVG / stagger from center + back.out / elastic ホバー / power
 「GPT Image は日本語が崩れる」は自作の禁止指示（never Japanese characters / never numbers）が原因だった。ユーザーの元指示（GPT Image 2 で生成）から外れる時は、外れる根拠を実測で示す。
 - 詳細: [[../nodes/uc-gpt-image-japanese-text-was-self-forbidden.md]]
 
+### R18 「余白を減らせ」と「切るな」は同時に指示し、後処理の切り抜きは「切られて困る内容が無い」時だけ
+「端まで描け」は端で切れる図を生む。1 種別（情報図）で直した余白/切れのルールは hero など全種別に横展開する。
+- 詳細: [[../nodes/uc-hero-image-cropped-by-edge-to-edge-rule.md]]
+
 ## このクラスターのノード一覧
 
 - [[../nodes/uc-approval-request-local-path-instead-of-url.md]] — `user-correction`, `hitl`, `approval-flow`, `stale-assumption`
@@ -106,3 +110,4 @@ SplitText / DrawSVG / stagger from center + back.out / elastic ホバー / power
 - [[../nodes/uc-article-image-cropped-caption-overlap.md]] — `user-correction`, `images`, `captions`, `preview`（R15）
 - [[../nodes/uc-articles-too-advanced-for-beginner-readers.md]] — `user-correction`, `editorial`, `audience`, `beginner`（R16）
 - [[../nodes/uc-gpt-image-japanese-text-was-self-forbidden.md]] — `user-correction`, `images`, `gpt-image`, `false-premise`（R17）
+- [[../nodes/uc-hero-image-cropped-by-edge-to-edge-rule.md]] — `user-correction`, `images`, `hero`, `cropping`（R18）
