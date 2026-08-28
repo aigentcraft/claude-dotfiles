@@ -97,6 +97,10 @@ SplitText / DrawSVG / stagger from center + back.out / elastic ホバー / power
 「端まで描け」は端で切れる図を生む。1 種別（情報図）で直した余白/切れのルールは hero など全種別に横展開する。
 - 詳細: [[../nodes/uc-hero-image-cropped-by-edge-to-edge-rule.md]]
 
+### R19 画像の役割（何を伝えるか）を先に定義し、「見た人が記事との関係を説明できるか」で検収する
+記事冒頭/OGP の画像は「何の記事で結論は何か」を伝える面。装飾目的の抽象図を置かない。タイトル + 結論 + 主題図。
+- 詳細: [[../nodes/uc-hero-image-abstract-unrelated-to-article.md]]
+
 ## このクラスターのノード一覧
 
 - [[../nodes/uc-approval-request-local-path-instead-of-url.md]] — `user-correction`, `hitl`, `approval-flow`, `stale-assumption`
@@ -111,3 +115,4 @@ SplitText / DrawSVG / stagger from center + back.out / elastic ホバー / power
 - [[../nodes/uc-articles-too-advanced-for-beginner-readers.md]] — `user-correction`, `editorial`, `audience`, `beginner`（R16）
 - [[../nodes/uc-gpt-image-japanese-text-was-self-forbidden.md]] — `user-correction`, `images`, `gpt-image`, `false-premise`（R17）
 - [[../nodes/uc-hero-image-cropped-by-edge-to-edge-rule.md]] — `user-correction`, `images`, `hero`, `cropping`（R18）
+- [[../nodes/uc-hero-image-abstract-unrelated-to-article.md]] — `user-correction`, `images`, `hero`, `meaning`（R19）
