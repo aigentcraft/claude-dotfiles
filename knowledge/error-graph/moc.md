@@ -110,6 +110,7 @@
 - [[nodes/publish-worker-not-idempotent-after-push.md]] — `git` cluster (`idempotency`, `pipeline`, `publish`, `cloudflare-pages`)
 - [[nodes/queue-adjacency-same-article-consecutive-posts.md]] — `pullie` cluster (`sns`, `queue`, `scheduling`, `x-twitter`, `dedup`)
 - [[nodes/reviewer-checklist-without-applicability-conditions.md]] — `ai-behavior` cluster (`llm-pipeline`, `reviewer`, `checklist`, `scoring`, `weevee`)
+- [[nodes/reviewer-flagged-machine-rendered-log-image-as-fabricated.md]] — `reviewer` cluster (`false-positive`, `images`, `provenance`, `send-back-loop`, `weevee`)
 - [[nodes/reviewer-send-back-loop-on-unfixable-screenshot-item.md]] — `reviewer` cluster (`send-back-loop`, `structural-constraint`, `screenshots`, `checklist`, `weevee`)
 - [[nodes/rotation-starvation-by-unengageable-accounts.md]] — `scheduling` cluster (`starvation`, `x-twitter`, `silent-failure`, `budget`, `sqlite`)
 - [[nodes/semantic-graph-relationships.md]] — `system-design` cluster (`knowledge-graph`, `semantics`, `obsidian`)
