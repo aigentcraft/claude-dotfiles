@@ -144,6 +144,7 @@
 - [[nodes/uc-approval-request-local-path-instead-of-url.md]] — `hitl` cluster (`approval-flow`, `stale-assumption`, `cloudflare-pages`, `weevee`)
 - [[nodes/uc-article-image-cropped-caption-overlap.md]] — `images` cluster (`captions`, `rehype`, `css`, `preview`, `weevee`)
 - [[nodes/uc-article-images-decorative-not-explanatory.md]] — `images` cluster (`content-quality`, `screenshots`, `image-pipeline`, `weevee`)
+- [[nodes/uc-articles-contain-operator-facing-justifications.md]] — `editorial` cluster (`tone`, `internal-leak`, `compliance`, `weevee`)
 - [[nodes/uc-articles-must-carry-own-positioning.md]] — `pullie` cluster (`positioning`, `content-strategy`, `conversion`, `compliance`)
 - [[nodes/uc-articles-too-advanced-for-beginner-readers.md]] — `editorial` cluster (`audience`, `beginner`, `affiliate`, `writer`, `weevee`)
 - [[nodes/uc-demo-screens-are-sales-assets.md]] — `uc` cluster (`pullie`, `screenshots`, `demo-quality`, `kintone`, `sales-perception`)

@@ -101,6 +101,10 @@ SplitText / DrawSVG / stagger from center + back.out / elastic ホバー / power
 記事冒頭/OGP の画像は「何の記事で結論は何か」を伝える面。装飾目的の抽象図を置かない。タイトル + 結論 + 主題図。
 - 詳細: [[../nodes/uc-hero-image-abstract-unrelated-to-article.md]]
 
+### R20 内部文書を素材にする工程では「読者に無関係な語彙」を機械で検出する
+factsheet の弁明（禁止・予算・ラボ制約）を記事に写すと報告書になる。正直さは「何をした/していないか」で示し、「なぜできなかったか（運営事情）」は書かない。AI 執筆の明示はサイト単位（運営者情報）で。
+- 詳細: [[../nodes/uc-articles-contain-operator-facing-justifications.md]]
+
 ## このクラスターのノード一覧
 
 - [[../nodes/uc-approval-request-local-path-instead-of-url.md]] — `user-correction`, `hitl`, `approval-flow`, `stale-assumption`
@@ -116,3 +120,4 @@ SplitText / DrawSVG / stagger from center + back.out / elastic ホバー / power
 - [[../nodes/uc-gpt-image-japanese-text-was-self-forbidden.md]] — `user-correction`, `images`, `gpt-image`, `false-premise`（R17）
 - [[../nodes/uc-hero-image-cropped-by-edge-to-edge-rule.md]] — `user-correction`, `images`, `hero`, `cropping`（R18）
 - [[../nodes/uc-hero-image-abstract-unrelated-to-article.md]] — `user-correction`, `images`, `hero`, `meaning`（R19）
+- [[../nodes/uc-articles-contain-operator-facing-justifications.md]] — `user-correction`, `editorial`, `tone`, `internal-leak`（R20）
