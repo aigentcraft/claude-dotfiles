@@ -79,6 +79,7 @@
 - [[nodes/claude-headless-permission-flags-ignored-under-bypass.md]] — `claude-headless` cluster (`permissions`, `hooks`, `sandbox`, `windows`, `weevee`)
 - [[nodes/claude-hook-env-project-dir.md]] — `shell-hook-env` cluster
 - [[nodes/cloudflare-github-app-single-account-binding.md]] — `cloudflare-pages` cluster (`github-app`, `git-integration`, `infrastructure`, `multi-account`)
+- [[nodes/cloudflare-pages-wrangler-toml-overrides-dashboard-env-vars.md]] — `cloudflare` cluster (`pages`, `wrangler`, `env-vars`, `deploy`, `analytics`, `weevee`)
 - [[nodes/codex-image-tool-prompt-contract-multiline-and-attach-order.md]] — `codex` cluster (`imagegen`, `cli-contract`, `silent-failure`, `weevee`)
 - [[nodes/copywriting-indirect-motivation.md]] — `copywriting` cluster (`psychology`, `content-writing`, `behavioral`, `self-determination`)
 - [[nodes/deploy-wait-http-200-races-stale-build.md]] — `cloudflare` cluster (`pages`, `deploy`, `race-condition`, `verification`, `pullie`)
