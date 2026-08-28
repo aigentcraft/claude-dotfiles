@@ -89,6 +89,10 @@ SplitText / DrawSVG / stagger from center + back.out / elastic ホバー / power
 深掘りは末尾に隔離。推奨は実測値+「合わない人」でのみ行い、根拠のない強調（安直な訴求）は書かない。差し戻し理由は必ず writer の入力に届いているか実装を追う。
 - 詳細: [[../nodes/uc-articles-too-advanced-for-beginner-readers.md]]
 
+### R17 モデルの限界を語る前に「自分のプロンプトが作った限界」を疑い、1 枚の実測で検証する
+「GPT Image は日本語が崩れる」は自作の禁止指示（never Japanese characters / never numbers）が原因だった。ユーザーの元指示（GPT Image 2 で生成）から外れる時は、外れる根拠を実測で示す。
+- 詳細: [[../nodes/uc-gpt-image-japanese-text-was-self-forbidden.md]]
+
 ## このクラスターのノード一覧
 
 - [[../nodes/uc-approval-request-local-path-instead-of-url.md]] — `user-correction`, `hitl`, `approval-flow`, `stale-assumption`
@@ -101,3 +105,4 @@ SplitText / DrawSVG / stagger from center + back.out / elastic ホバー / power
 - [[../nodes/uc-focus-labels-too-small-after-zoom.md]] — `user-correction`, `graph`, `typography`, `readability`（R13 の補足: 状態ごとの実効フォントサイズを保証）
 - [[../nodes/uc-article-image-cropped-caption-overlap.md]] — `user-correction`, `images`, `captions`, `preview`（R15）
 - [[../nodes/uc-articles-too-advanced-for-beginner-readers.md]] — `user-correction`, `editorial`, `audience`, `beginner`（R16）
+- [[../nodes/uc-gpt-image-japanese-text-was-self-forbidden.md]] — `user-correction`, `images`, `gpt-image`, `false-premise`（R17）
