@@ -122,3 +122,4 @@ factsheet の弁明（禁止・予算・ラボ制約）を記事に写すと報�
 - [[../nodes/uc-hero-image-abstract-unrelated-to-article.md]] — `user-correction`, `images`, `hero`, `meaning`（R19）
 - [[../nodes/uc-articles-contain-operator-facing-justifications.md]] — `user-correction`, `editorial`, `tone`, `internal-leak`（R20）
 - [[../nodes/uc-comparison-article-without-real-measurement.md]] — `uc`, `measurement`, `policy-change`（方針変更は「実施不可」factsheet の再取得を起動する・Q03 は約束した対象の実測かを見る）
+- [[../nodes/uc-ai-authorship-still-visible-in-site-chrome.md]] — `uc`, `site-chrome`, `scope-of-fix`（「X を消して」は意図として公開面全体を grep・移設しない）
