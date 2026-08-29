@@ -26,3 +26,4 @@ exit 2 ではなく stdout の `{"hookSpecificOutput":{"permissionDecision":"den
 
 - [[../nodes/claude-headless-permission-flags-ignored-under-bypass.md]] — `claude-headless`, `permissions`, `hooks`, `sandbox`, `windows`
 - [[../nodes/lab-guard-blocked-readonly-utils-and-own-volume.md]] — `lab-guard`, `allowlist`, `false-block`, `docker`（PreToolUse 許可リストは初回実走の監査ログで補正する）
+- [[../nodes/payment-gate-false-positive-stripe-hidden-iframe.md]] — `payment-gate`, `stripe`, `false-positive`（可視・サイズありの決済要素だけで止める）

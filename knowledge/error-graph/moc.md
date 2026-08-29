@@ -107,6 +107,7 @@
 - [[nodes/llm-reviewer-false-ng-on-template-layer-items.md]] — `ai-behavior` cluster (`llm-pipeline`, `reviewer`, `checklist`, `audit-log`, `weevee`)
 - [[nodes/llm-self-reported-index-silent-drop.md]] — `llm` cluster (`contract-validation`, `pullie`, `images`, `silent-failure`)
 - [[nodes/note-kpi-weekly-cadence-window-blind-spot.md]] — `observability` cluster (`kpi`, `note`, `producer-consumer-sync`, `window-alignment`, `cadence`, `pullie`)
+- [[nodes/payment-gate-false-positive-stripe-hidden-iframe.md]] — `payment-gate` cluster (`playwright`, `stripe`, `false-positive`, `research-lab`, `weevee`)
 - [[nodes/pipeline-resume-guard-orphaned-early-stage-drafts.md]] — `pullie` cluster (`pipeline`, `orchestration`, `resume`, `orphan`)
 - [[nodes/powershell-hash-literal-git.md]] — `powershell` cluster (`git`, `syntax-error`)
 - [[nodes/preview-built-published-md-instead-of-rewrite-draft.md]] — `preview` cluster (`rewrite-lane`, `build`, `stale-artifact`, `weevee`)
