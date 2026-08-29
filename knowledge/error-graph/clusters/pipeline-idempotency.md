@@ -39,3 +39,4 @@ kill・クラッシュは年齢ゼロのロックを残す。pid を保存して
 
 - [[../nodes/image-reuse-by-section-index-after-restructure.md]] — `images`, `idempotency`, `pipeline`, `caption-mismatch`
 - [[../nodes/stale-pipeline-lock-after-killed-run.md]] — `lock`, `pipeline`, `resume`, `windows`
+- [[../nodes/preview-built-published-md-instead-of-rewrite-draft.md]] — `preview`, `rewrite-lane`, `stale-artifact`（検査対象は常に今回の成果物に固定）
