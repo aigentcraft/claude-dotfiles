@@ -116,3 +116,4 @@ LLM は「ドラフトに無い＝NG」と判定し、別層が保証する項�
 - [[../nodes/writer-output-truncated-by-code-fence-misparse.md]] — `parsing`, `llm-output`, `regex`, `silent-degradation`（フォールバック段が一次パーサと同じバグを共有）
 - [[../nodes/reviewer-send-back-loop-on-unfixable-screenshot-item.md]] — `reviewer`, `send-back-loop`, `structural-constraint`（差し戻し理由は次ラウンドで解消可能なものに限る）
 - [[../nodes/reviewer-flagged-machine-rendered-log-image-as-fabricated.md]] — `reviewer`, `false-positive`, `provenance`（検閲者に成果物の出所メタデータを渡す）
+- [[../nodes/writer-internal-handoff-notes-leak.md]] — `writer`, `public-tone`, `mechanical-strip`（禁止事項は検査ではなく決定論的除去で担保）

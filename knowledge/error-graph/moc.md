@@ -130,6 +130,7 @@
 - [[nodes/windows-subprocess-cp932-decode-crash.md]] — `windows` cluster (`python`, `subprocess`, `encoding`, `cp932`, `utf8`)
 - [[nodes/windows-wsl-sqlite-transient-open-failure.md]] — `sqlite` cluster (`wsl`, `windows`, `wal`, `file-lock`, `pullie`)
 - [[nodes/wrangler-toml-referenced-file-missing.md]] — `cloudflare` cluster (`pages`, `d1`, `wrangler`, `deploy`, `lead-pipeline`)
+- [[nodes/writer-internal-handoff-notes-leak.md]] — `writer` cluster (`public-tone`, `mechanical-strip`, `llm-behavior`, `weevee`)
 - [[nodes/writer-output-truncated-by-code-fence-misparse.md]] — `parsing` cluster (`llm-output`, `regex`, `writer`, `silent-degradation`, `weevee`)
 - [[nodes/x-api-quote-restriction-silent-lane-death.md]] — `api` cluster (`x-twitter`, `policy-change`, `403`, `monitoring`, `silent-failure`)
 - [[nodes/x-api-reply-restriction-403.md]] — `api` cluster (`x-twitter`, `policy-change`, `403`, `mcp`)
