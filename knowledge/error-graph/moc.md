@@ -149,6 +149,7 @@
 - [[nodes/uc-antigravity-sync-isolation.md]] — `ai-behavior` cluster (`sync-failure`, `r-hazudesu`, `automation`)
 - [[nodes/uc-approval-flow-not-operable-from-notification.md]] — `uc` cluster (`hitl`, `discord`, `approval`, `ux`, `pullie`)
 - [[nodes/uc-approval-preview-must-exist-in-every-channel.md]] — `pullie` cluster (`approval-flow`, `preview`, `note`, `prosemirror`, `verification`)
+- [[nodes/uc-approval-reminder-without-clickable-preview-url.md]] — `uc` cluster (`notification`, `discord`, `approval`, `consistency`, `weevee`)
 - [[nodes/uc-approval-request-local-path-instead-of-url.md]] — `hitl` cluster (`approval-flow`, `stale-assumption`, `cloudflare-pages`, `weevee`)
 - [[nodes/uc-article-image-cropped-caption-overlap.md]] — `images` cluster (`captions`, `rehype`, `css`, `preview`, `weevee`)
 - [[nodes/uc-article-images-decorative-not-explanatory.md]] — `images` cluster (`content-quality`, `screenshots`, `image-pipeline`, `weevee`)
