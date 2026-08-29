@@ -87,6 +87,7 @@
 - [[nodes/frontmatter-field-not-wired-into-all-renderers.md]] — `producer-consumer-sync` cluster (`astro`, `schema-sync`, `renderer`, `visual-inspector`, `pullie`)
 - [[nodes/grace-skip-needs-escalation-for-human-only-recovery.md]] — `monitoring` cluster (`silent-failure`, `grace-degradation`, `hitl`, `session-expiry`, `pullie`)
 - [[nodes/gsc-final-lag-outruns-lookback-window.md]] — `pullie` cluster (`gsc`, `data-collection`, `lookback-window`, `upsert`, `silent-failure`)
+- [[nodes/headless-browser-blank-app-screens-bot-detection.md]] — `playwright` cluster (`headless`, `bot-detection`, `spa`, `research-lab`, `weevee`)
 - [[nodes/heredoc-python-escapes-corrupted-regex-and-tmp-path-mismatch.md]] — `git-bash` cluster (`heredoc`, `python`, `regex`, `windows-path`, `commit-gate`)
 - [[nodes/image-dark-canvas-margin-passes-vision-review.md]] — `pullie` cluster (`image-generation`, `gpt-image`, `vision-review`, `alpha-channel`, `deterministic-gate`)
 - [[nodes/image-reuse-by-section-index-after-restructure.md]] — `images` cluster (`idempotency`, `pipeline`, `caption-mismatch`, `weevee`)
