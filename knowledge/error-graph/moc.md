@@ -121,6 +121,7 @@
 - [[nodes/reviewer-send-back-loop-on-unfixable-screenshot-item.md]] — `reviewer` cluster (`send-back-loop`, `structural-constraint`, `screenshots`, `checklist`, `weevee`)
 - [[nodes/rotation-starvation-by-unengageable-accounts.md]] — `scheduling` cluster (`starvation`, `x-twitter`, `silent-failure`, `budget`, `sqlite`)
 - [[nodes/semantic-graph-relationships.md]] — `system-design` cluster (`knowledge-graph`, `semantics`, `obsidian`)
+- [[nodes/skill-internal-rule-procedure-conflict.md]] — `producer-consumer-sync` cluster (`skill-md`, `rule-conflict`, `image-generation`, `reviewer-loop`, `pullie`)
 - [[nodes/slack-api-silent-hang.md]] — `slack` cluster (`api`, `timeout`, `mcp`)
 - [[nodes/sqlite-unique-slug-permanent-crash-loop.md]] — `sqlite` cluster (`unique-constraint`, `pipeline`, `pullie`, `slug`, `self-healing`)
 - [[nodes/stale-claude-md-duplicate-implementation.md]] — `multi-machine` cluster (`git`, `claude-md`, `session-handoff`, `duplicate-work`)
