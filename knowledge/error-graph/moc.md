@@ -86,6 +86,7 @@
 - [[nodes/deploy-wait-http-200-races-stale-build.md]] — `cloudflare` cluster (`pages`, `deploy`, `race-condition`, `verification`, `pullie`)
 - [[nodes/discard-path-topic-requeue-leak.md]] — `pipeline` cluster (`state-machine`, `cleanup`, `sqlite`)
 - [[nodes/frontmatter-field-not-wired-into-all-renderers.md]] — `producer-consumer-sync` cluster (`astro`, `schema-sync`, `renderer`, `visual-inspector`, `pullie`)
+- [[nodes/google-ads-api-setup-gotchas-oauth-timeout-customer-not-enabled.md]] — `google-ads-api` cluster (`oauth`, `keyword-planner`, `claude-in-chrome`, `captcha`, `weevee`)
 - [[nodes/grace-skip-needs-escalation-for-human-only-recovery.md]] — `monitoring` cluster (`silent-failure`, `grace-degradation`, `hitl`, `session-expiry`, `pullie`)
 - [[nodes/gsc-final-lag-outruns-lookback-window.md]] — `pullie` cluster (`gsc`, `data-collection`, `lookback-window`, `upsert`, `silent-failure`)
 - [[nodes/headless-browser-blank-app-screens-bot-detection.md]] — `playwright` cluster (`headless`, `bot-detection`, `spa`, `research-lab`, `weevee`)
