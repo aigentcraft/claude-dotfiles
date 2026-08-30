@@ -121,6 +121,7 @@
 - [[nodes/reviewer-flagged-machine-rendered-log-image-as-fabricated.md]] — `reviewer` cluster (`false-positive`, `images`, `provenance`, `send-back-loop`, `weevee`)
 - [[nodes/reviewer-send-back-loop-on-unfixable-screenshot-item.md]] — `reviewer` cluster (`send-back-loop`, `structural-constraint`, `screenshots`, `checklist`, `weevee`)
 - [[nodes/rotation-starvation-by-unengageable-accounts.md]] — `scheduling` cluster (`starvation`, `x-twitter`, `silent-failure`, `budget`, `sqlite`)
+- [[nodes/run-tool-last-line-contract-multiline-json.md]] — `pipeline` cluster (`cli-contract`, `json`, `logging`, `weevee`)
 - [[nodes/semantic-graph-relationships.md]] — `system-design` cluster (`knowledge-graph`, `semantics`, `obsidian`)
 - [[nodes/single-attempt-gate-discards-cadence-slot.md]] — `reviewer-loop` cluster (`cadence`, `gate-design`, `note`, `pullie`)
 - [[nodes/skill-internal-rule-procedure-conflict.md]] — `skill-md` cluster (`rule-conflict`, `llm-pipeline`, `image-generation`, `reviewer-loop`, `pullie`)
