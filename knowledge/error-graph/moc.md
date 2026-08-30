@@ -122,6 +122,7 @@
 - [[nodes/reviewer-send-back-loop-on-unfixable-screenshot-item.md]] — `reviewer` cluster (`send-back-loop`, `structural-constraint`, `screenshots`, `checklist`, `weevee`)
 - [[nodes/rotation-starvation-by-unengageable-accounts.md]] — `scheduling` cluster (`starvation`, `x-twitter`, `silent-failure`, `budget`, `sqlite`)
 - [[nodes/semantic-graph-relationships.md]] — `system-design` cluster (`knowledge-graph`, `semantics`, `obsidian`)
+- [[nodes/single-attempt-gate-discards-cadence-slot.md]] — `ai-behavior` cluster (`reviewer-loop`, `cadence`, `gate-design`, `note`, `pullie`)
 - [[nodes/skill-internal-rule-procedure-conflict.md]] — `skill-md` cluster (`rule-conflict`, `llm-pipeline`, `image-generation`, `reviewer-loop`, `pullie`)
 - [[nodes/slack-api-silent-hang.md]] — `slack` cluster (`api`, `timeout`, `mcp`)
 - [[nodes/sqlite-unique-slug-permanent-crash-loop.md]] — `sqlite` cluster (`unique-constraint`, `pipeline`, `pullie`, `slug`, `self-healing`)
