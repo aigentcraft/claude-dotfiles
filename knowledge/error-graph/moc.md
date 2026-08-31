@@ -83,6 +83,7 @@
 - [[nodes/cloudflare-pages-wrangler-toml-overrides-dashboard-env-vars.md]] — `cloudflare` cluster (`pages`, `wrangler`, `env-vars`, `deploy`, `analytics`, `weevee`)
 - [[nodes/codex-image-tool-prompt-contract-multiline-and-attach-order.md]] — `codex` cluster (`imagegen`, `cli-contract`, `silent-failure`, `weevee`)
 - [[nodes/copywriting-indirect-motivation.md]] — `copywriting` cluster (`psychology`, `content-writing`, `behavioral`, `self-determination`)
+- [[nodes/cumulative-gauge-snapshot-summed-as-flow.md]] — `kpi` cluster (`aggregation`, `sqlite`, `weekly-report`, `note`, `pullie`)
 - [[nodes/deploy-wait-http-200-races-stale-build.md]] — `cloudflare` cluster (`pages`, `deploy`, `race-condition`, `verification`, `pullie`)
 - [[nodes/discard-path-topic-requeue-leak.md]] — `pipeline` cluster (`state-machine`, `cleanup`, `sqlite`)
 - [[nodes/frontmatter-field-not-wired-into-all-renderers.md]] — `producer-consumer-sync` cluster (`astro`, `schema-sync`, `renderer`, `visual-inspector`, `pullie`)
@@ -147,6 +148,7 @@
 
 ### [Type B] User Corrections (uc-)
 - [[nodes/catalog-key-added-without-consumer-sync.md]] — `multi-agent` cluster (`skill-sync`, `screenshot`, `pipeline`)
+- [[nodes/discord-embed-markdown-table-not-rendered.md]] — `discord` cluster (`notification`, `markdown`, `report-formatting`, `pullie`)
 - [[nodes/uc-abstract-knowledge-label.md]] — `knowledge-design` cluster (`system-design`)
 - [[nodes/uc-activity-report-inverted-engagement-direction.md]] — `pullie` cluster (`reporting-integrity`, `llm-summarization`, `direction-ambiguity`, `self-report-bias`)
 - [[nodes/uc-agents-must-learn-from-own-failed-work.md]] — `pullie` cluster (`learning-loop`, `self-retrospective`, `knowledge-db`, `agent-design`)
@@ -200,6 +202,7 @@
 - [[nodes/uc-verify-artifact-before-human-approval.md]] — `uc` cluster (`pullie`, `approval-flow`, `visual`, `asset-paths`, `llm-contract`)
 - [[nodes/uc-visual-inspection-of-rendered-reality.md]] — `uc` cluster (`pullie`, `visual`, `organization`, `knowledge-db`, `multimodal`)
 - [[nodes/uc-visualization-without-audit-purpose.md]] — `ai-behavior` cluster (`requirements`, `dashboard`, `verification`)
+- [[nodes/uc-weave-metaphor-confusing-use-graphrag-terms.md]] — `design` cluster (`information-architecture`, `terminology`, `weevee`)
 - [[nodes/uc-x-engagement-should-self-drive.md]] — `sns` cluster (`autonomy`, `hitl`, `notification-design`)
 
 ---
