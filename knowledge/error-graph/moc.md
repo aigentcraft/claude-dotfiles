@@ -214,6 +214,7 @@
 - [[nodes/uc-weave-metaphor-confusing-use-graphrag-terms.md]] — `design` cluster (`information-architecture`, `terminology`, `weevee`)
 - [[nodes/uc-x-account-suspected-as-ai.md]] — `pullie` cluster (`sns`, `x-twitter`, `bot-detection`, `humanization`, `trust`, `hitl`)
 - [[nodes/uc-x-engagement-should-self-drive.md]] — `sns` cluster (`autonomy`, `hitl`, `notification-design`)
+- [[nodes/uc-x-posts-must-deliver-official-facts-with-media.md]] — `uc` cluster (`sns`, `x-twitter`, `content-quality`, `media`, `weevee`, `breaking-lane`)
 
 ---
 
