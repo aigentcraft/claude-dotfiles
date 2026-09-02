@@ -76,6 +76,7 @@
 - [[nodes/cdp-port-9222-hijacked-by-wsl-relay-wrong-browser.md]] — `wsl` cluster (`cdp`, `playwright`, `chrome`, `port-collision`, `misdiagnosis`, `pullie`)
 - [[nodes/checklist-references-file-not-in-skill-refs.md]] — `producer-consumer-sync` cluster (`skill-sync`, `agent-manifest`, `llm-pipeline`, `weevee`)
 - [[nodes/claude-bash-heredoc-backslash-escape-halved.md]] — `claude-code` cluster (`bash-tool`, `heredoc`, `python`, `escaping`, `windows`, `weevee`)
+- [[nodes/claude-cli-oauth-expiry-masked-as-subtype-success.md]] — `api-network` cluster (`claude-cli`, `oauth`, `auth-expiry`, `error-surface`, `pullie`, `diagnosability`)
 - [[nodes/claude-headless-chunk-timeout-truncation.md]] — `claude-headless` cluster (`llm-pipeline`, `timeout`, `streaming`, `weevee`)
 - [[nodes/claude-headless-permission-flags-ignored-under-bypass.md]] — `claude-headless` cluster (`permissions`, `hooks`, `sandbox`, `windows`, `weevee`)
 - [[nodes/claude-hook-env-project-dir.md]] — `shell-hook-env` cluster
