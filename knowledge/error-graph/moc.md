@@ -212,6 +212,7 @@
 - [[nodes/uc-visual-inspection-of-rendered-reality.md]] — `uc` cluster (`pullie`, `visual`, `organization`, `knowledge-db`, `multimodal`)
 - [[nodes/uc-visualization-without-audit-purpose.md]] — `ai-behavior` cluster (`requirements`, `dashboard`, `verification`)
 - [[nodes/uc-weave-metaphor-confusing-use-graphrag-terms.md]] — `design` cluster (`information-architecture`, `terminology`, `weevee`)
+- [[nodes/uc-x-account-suspected-as-ai.md]] — `pullie` cluster (`sns`, `x-twitter`, `bot-detection`, `humanization`, `trust`, `hitl`)
 - [[nodes/uc-x-engagement-should-self-drive.md]] — `sns` cluster (`autonomy`, `hitl`, `notification-design`)
 
 ---
