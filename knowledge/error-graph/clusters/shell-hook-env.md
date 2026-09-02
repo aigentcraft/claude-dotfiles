@@ -28,3 +28,5 @@ exit 2 ではなく stdout の `{"hookSpecificOutput":{"permissionDecision":"den
 - [[../nodes/lab-guard-blocked-readonly-utils-and-own-volume.md]] — `lab-guard`, `allowlist`, `false-block`, `docker`（PreToolUse 許可リストは初回実走の監査ログで補正する）
 - [[../nodes/payment-gate-false-positive-stripe-hidden-iframe.md]] — `payment-gate`, `stripe`, `false-positive`（可視・サイズありの決済要素だけで止める）
 - [[../nodes/headless-browser-blank-app-screens-bot-detection.md]] — `playwright`, `headless`, `bot-detection`（受け入れ基準は認証画面に入力欄が見えること・UA 偽装しない）
+- [[../nodes/xmcp-venv-python-exe-lookup-windows.md]] — `windows`, `venv`, `path-exists`, `xmcp`（Windows の venv 実行ファイルは `python.exe`。拡張子なしの `Path.exists()` は False）
+- [[../nodes/claude-in-chrome-secret-exposure-find-tool-values.md]] — `claude-in-chrome`, `secrets`, `find-tool`, `screenshot`（秘密値モーダルでは find に「値を引用しない」を明示・コピーボタン ref クリック → クリップボード CLI・露出したら再生成）

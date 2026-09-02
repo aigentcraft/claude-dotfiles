@@ -80,6 +80,7 @@
 - [[nodes/claude-headless-chunk-timeout-truncation.md]] — `claude-headless` cluster (`llm-pipeline`, `timeout`, `streaming`, `weevee`)
 - [[nodes/claude-headless-permission-flags-ignored-under-bypass.md]] — `claude-headless` cluster (`permissions`, `hooks`, `sandbox`, `windows`, `weevee`)
 - [[nodes/claude-hook-env-project-dir.md]] — `shell-hook-env` cluster
+- [[nodes/claude-in-chrome-secret-exposure-find-tool-values.md]] — `claude-in-chrome` cluster (`secrets`, `find-tool`, `screenshot`, `clipboard`, `weevee`)
 - [[nodes/cloudflare-github-app-single-account-binding.md]] — `cloudflare-pages` cluster (`github-app`, `git-integration`, `infrastructure`, `multi-account`)
 - [[nodes/cloudflare-pages-wrangler-toml-overrides-dashboard-env-vars.md]] — `cloudflare` cluster (`pages`, `wrangler`, `env-vars`, `deploy`, `analytics`, `weevee`)
 - [[nodes/codex-image-tool-prompt-contract-multiline-and-attach-order.md]] — `codex` cluster (`imagegen`, `cli-contract`, `silent-failure`, `weevee`)
@@ -147,6 +148,7 @@
 - [[nodes/x-api-quote-restriction-silent-lane-death.md]] — `api` cluster (`x-twitter`, `policy-change`, `403`, `monitoring`, `silent-failure`)
 - [[nodes/x-api-reply-restriction-403.md]] — `api` cluster (`x-twitter`, `policy-change`, `403`, `mcp`)
 - [[nodes/x-users-search-ascii-only-query.md]] — `api` cluster (`x-twitter`, `400`, `validation`, `pullie`)
+- [[nodes/xmcp-venv-python-exe-lookup-windows.md]] — `windows` cluster (`venv`, `path-exists`, `xmcp`, `subprocess`, `weevee`)
 
 ### [Type B] User Corrections (uc-)
 - [[nodes/catalog-key-added-without-consumer-sync.md]] — `multi-agent` cluster (`skill-sync`, `screenshot`, `pipeline`)
