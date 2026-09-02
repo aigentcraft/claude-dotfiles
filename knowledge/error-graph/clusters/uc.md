@@ -105,6 +105,8 @@ SplitText / DrawSVG / stagger from center + back.out / elastic ホバー / power
 factsheet の弁明（禁止・予算・ラボ制約）を記事に写すと報告書になる。正直さは「何をした/していないか」で示し、「なぜできなかったか（運営事情）」は書かない。AI 執筆の明示はサイト単位（運営者情報）で。
 - 詳細: [[../nodes/uc-articles-contain-operator-facing-justifications.md]]
 
+- **X の発信の形式・本数・タイミング・文面を決めるコードを書かない**（機械が持つのは天井・ゲート・送信・ロックだけ）。新レーンを足すときは「予測（intent.predict）が付くか／週次検証の対象か／前回の結果を次の判断が読めるか」の3点を自己診断する — [[../nodes/uc-breaking-lane-tweet-format-is-strategist-judgment.md]]
+
 ## このクラスターのノード一覧
 
 - [[../nodes/uc-approval-request-local-path-instead-of-url.md]] — `user-correction`, `hitl`, `approval-flow`, `stale-assumption`
@@ -124,3 +126,4 @@ factsheet の弁明（禁止・予算・ラボ制約）を記事に写すと報�
 - [[../nodes/uc-comparison-article-without-real-measurement.md]] — `uc`, `measurement`, `policy-change`（方針変更は「実施不可」factsheet の再取得を起動する・Q03 は約束した対象の実測かを見る）
 - [[../nodes/uc-ai-authorship-still-visible-in-site-chrome.md]] — `uc`, `site-chrome`, `scope-of-fix`（「X を消して」は意図として公開面全体を grep・移設しない）
 - [[../nodes/uc-approval-reminder-without-clickable-preview-url.md]] — `uc`, `notification`, `discord`（行動を求める通知には開けるリンク・URL 生成は一箇所）
+- [[../nodes/uc-breaking-lane-tweet-format-is-strategist-judgment.md]] — `sns`, `pdca`, `llm-free-overreach`, `weevee`（速報レーンの X 発信を固定テンプレで書いた → 「LLM不要はやめて。PDCA が回らない」→ x-strategist の速報作戦へ）

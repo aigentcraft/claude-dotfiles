@@ -167,6 +167,7 @@
 - [[nodes/uc-articles-contain-operator-facing-justifications.md]] — `editorial` cluster (`tone`, `internal-leak`, `compliance`, `weevee`)
 - [[nodes/uc-articles-must-carry-own-positioning.md]] — `pullie` cluster (`positioning`, `content-strategy`, `conversion`, `compliance`)
 - [[nodes/uc-articles-too-advanced-for-beginner-readers.md]] — `editorial` cluster (`audience`, `beginner`, `affiliate`, `writer`, `weevee`)
+- [[nodes/uc-breaking-lane-tweet-format-is-strategist-judgment.md]] — `uc` cluster (`sns`, `x-twitter`, `llm-free-overreach`, `weevee`, `breaking-lane`)
 - [[nodes/uc-comparison-article-without-real-measurement.md]] — `uc` cluster (`measurement`, `research-lab`, `policy-change`, `reviewer-gap`, `weevee`)
 - [[nodes/uc-demo-screens-are-sales-assets.md]] — `uc` cluster (`pullie`, `screenshots`, `demo-quality`, `kintone`, `sales-perception`)
 - [[nodes/uc-focus-labels-too-small-after-zoom.md]] — `graph` cluster (`typography`, `zoom`, `readability`, `weevee`)
