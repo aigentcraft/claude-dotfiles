@@ -183,6 +183,7 @@
 - [[nodes/uc-local-pattern-no-generalization.md]] — `ai-behavior` cluster (`generalization`, `system-design`)
 - [[nodes/uc-mechanical-automation-wastes-llm-metacognition.md]] — `uc` cluster (`pullie`, `architecture`, `metacognition`, `agent-design`, `llm`)
 - [[nodes/uc-notification-instead-of-self-healing.md]] — `uc` cluster (`pullie`, `notification-policy`, `self-healing`, `hootl`)
+- [[nodes/uc-notification-must-carry-shared-entity-ids.md]] — `pullie` cluster (`notification-design`, `shared-identifiers`, `hitl`, `approval-flow`)
 - [[nodes/uc-own-comparison-article-exposes-product-gap.md]] — `uc` cluster (`pullie`, `product`, `mvp-scope`, `positioning`, `booth`)
 - [[nodes/uc-partial-solution-without-automation-path.md]] — `ai-behavior` cluster (`automation`, `system-design`)
 - [[nodes/uc-permission-prompt-fatigue.md]] — `ai-behavior` cluster (`permissions`, `claude-code`, `workflow-friction`)
