@@ -127,3 +127,4 @@ factsheet の弁明（禁止・予算・ラボ制約）を記事に写すと報�
 - [[../nodes/uc-ai-authorship-still-visible-in-site-chrome.md]] — `uc`, `site-chrome`, `scope-of-fix`（「X を消して」は意図として公開面全体を grep・移設しない）
 - [[../nodes/uc-approval-reminder-without-clickable-preview-url.md]] — `uc`, `notification`, `discord`（行動を求める通知には開けるリンク・URL 生成は一箇所）
 - [[../nodes/uc-breaking-lane-tweet-format-is-strategist-judgment.md]] — `sns`, `pdca`, `llm-free-overreach`, `weevee`（速報レーンの X 発信を固定テンプレで書いた → 「LLM不要はやめて。PDCA が回らない」→ x-strategist の速報作戦へ）
+- [[../nodes/uc-internal-handoff-note-live-on-published-page.md]] — `public-tone`, `internal-leak`, `publish-gate`（公開済みページに「editor-in-chief への申し送り」が残っていた → 生成側の修正は live に遡及しない・公開直前の最終テキストに機械ゲート）

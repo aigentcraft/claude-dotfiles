@@ -180,6 +180,7 @@
 - [[nodes/uc-hero-image-cropped-by-edge-to-edge-rule.md]] — `images` cluster (`hero`, `cropping`, `gpt-image`, `weevee`)
 - [[nodes/uc-incident-explanation-too-dense.md]] — `reporting` cluster (`communication`, `root-cause`, `pullie`)
 - [[nodes/uc-inspection-must-match-reader-conditions.md]] — `pullie` cluster (`visual-inspection`, `viewport`, `verification`, `approval-flow`)
+- [[nodes/uc-internal-handoff-note-live-on-published-page.md]] — `uc` cluster (`public-tone`, `internal-leak`, `publish-gate`, `weevee`, `writer`)
 - [[nodes/uc-knowledge-branch-isolation.md]] — `ai-behavior` cluster (`branch-isolation`, `knowledge-propagation`)
 - [[nodes/uc-layout-without-design-reference.md]] — `design` cluster (`layout`, `reference-driven`, `top-page`, `weevee`)
 - [[nodes/uc-local-pattern-no-generalization.md]] — `ai-behavior` cluster (`generalization`, `system-design`)
