@@ -139,6 +139,7 @@
 - [[nodes/windows-claude-cli-subprocess-needs-cmd-and-gitbash.md]] — `windows` cluster (`claude-code`, `subprocess`, `python`, `headless`, `npm`)
 - [[nodes/windows-claude-stream-burst-false-inactivity-kill.md]] — `windows` cluster (`claude-code`, `subprocess`, `streaming`, `timeout`, `buffering`)
 - [[nodes/windows-codex-imagegen-triple-failure.md]] — `windows` cluster (`codex`, `imagegen`, `subprocess`, `acl`, `npm-shim`, `sandbox`)
+- [[nodes/windows-cp932-print-crash-before-interactive-step.md]] — `windows` cluster (`encoding`, `cp932`, `print`, `interactive-tool`, `weevee`)
 - [[nodes/windows-python3-store-stub-silent-hook-failure.md]] — `windows` cluster (`python`, `hooks`, `claude-code`, `secrets`, `silent-failure`)
 - [[nodes/windows-subprocess-cp932-decode-crash.md]] — `windows` cluster (`python`, `subprocess`, `encoding`, `cp932`, `utf8`)
 - [[nodes/windows-wsl-sqlite-transient-open-failure.md]] — `sqlite` cluster (`wsl`, `windows`, `wal`, `file-lock`, `pullie`)

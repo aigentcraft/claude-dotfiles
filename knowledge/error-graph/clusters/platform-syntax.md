@@ -39,3 +39,4 @@ PowerShell は `@{...}`, `$var`, `(expr)` 等を自動的にPS構文として解
 *Last updated: 2026-02-25 | Node count: 1*
 - [[../nodes/codex-image-tool-prompt-contract-multiline-and-attach-order.md]] — `codex`, `imagegen`, `cli-contract`, `silent-failure`（1 行契約・-i は後ろ）
 - [[../nodes/heredoc-python-escapes-corrupted-regex-and-tmp-path-mismatch.md]] — `git-bash`, `heredoc`, `windows-path`, `commit-gate`（正規表現はリテラルのままファイルへ・/tmp を Python に渡さない・コミットは pytest の終了コードでゲート）
+- [[../nodes/windows-cp932-print-crash-before-interactive-step.md]] — `cp932`, `print`, `interactive-tool`（人間操作 CLI の案内 print が「—」で落ちて操作に到達しない → main 冒頭で stdout.reconfigure(utf-8)）
