@@ -127,6 +127,7 @@
 - [[nodes/rotation-starvation-by-unengageable-accounts.md]] — `scheduling` cluster (`starvation`, `x-twitter`, `silent-failure`, `budget`, `sqlite`)
 - [[nodes/run-tool-last-line-contract-multiline-json.md]] — `pipeline` cluster (`cli-contract`, `json`, `logging`, `weevee`)
 - [[nodes/semantic-graph-relationships.md]] — `system-design` cluster (`knowledge-graph`, `semantics`, `obsidian`)
+- [[nodes/shot-selector-assumes-absent-field-type.md]] — `producer-consumer-sync` cluster (`pullie`, `selector-brittleness`, `graceful-degradation`, `blame-routing`, `screenshot-catalog`, `pipeline-stall`, `playwright`)
 - [[nodes/single-attempt-gate-discards-cadence-slot.md]] — `reviewer-loop` cluster (`cadence`, `gate-design`, `note`, `pullie`)
 - [[nodes/skill-internal-rule-procedure-conflict.md]] — `skill-md` cluster (`rule-conflict`, `llm-pipeline`, `image-generation`, `reviewer-loop`, `pullie`)
 - [[nodes/slack-api-silent-hang.md]] — `slack` cluster (`api`, `timeout`, `mcp`)
@@ -170,6 +171,7 @@
 - [[nodes/uc-articles-too-advanced-for-beginner-readers.md]] — `editorial` cluster (`audience`, `beginner`, `affiliate`, `writer`, `weevee`)
 - [[nodes/uc-breaking-lane-tweet-format-is-strategist-judgment.md]] — `uc` cluster (`sns`, `x-twitter`, `llm-free-overreach`, `weevee`, `breaking-lane`)
 - [[nodes/uc-comparison-article-without-real-measurement.md]] — `uc` cluster (`measurement`, `research-lab`, `policy-change`, `reviewer-gap`, `weevee`)
+- [[nodes/uc-content-must-drive-affiliate-signup-desire.md]] — `uc` cluster (`editorial`, `affiliate`, `conversion`, `cta`, `sns`, `weevee`)
 - [[nodes/uc-demo-screens-are-sales-assets.md]] — `uc` cluster (`pullie`, `screenshots`, `demo-quality`, `kintone`, `sales-perception`)
 - [[nodes/uc-focus-labels-too-small-after-zoom.md]] — `graph` cluster (`typography`, `zoom`, `readability`, `weevee`)
 - [[nodes/uc-gpt-image-japanese-text-was-self-forbidden.md]] — `images` cluster (`gpt-image`, `japanese`, `false-premise`, `weevee`)
@@ -198,6 +200,7 @@
 - [[nodes/uc-repeat-master-push-despite-known-403.md]] — `git` cluster (`permissions`, `repeat-error`)
 - [[nodes/uc-reverted-user-config-without-asking-intent.md]] — `uc` cluster (`settings`, `permissions`, `user-intent`, `claude-code`)
 - [[nodes/uc-reviewer-verdict-had-no-enforcement-channel.md]] — `uc` cluster (`pullie`, `review-gate`, `llm-judgment`, `enforcement`, `completeness`)
+- [[nodes/uc-revision-loop-regresses-and-discards.md]] — `uc` cluster (`editorial`, `review-loop`, `regression`, `weevee`, `pipeline`)
 - [[nodes/uc-rewrite-approval-must-declare-itself.md]] — `pullie` cluster (`approval-flow`, `notification`, `rewrite`, `human-in-the-loop`)
 - [[nodes/uc-search-volume-missing-free-seo-stack.md]] — `seo` cluster (`keyword-planner`, `google-ads-api`, `data-provenance`, `weevee`)
 - [[nodes/uc-session-promise-vs-system.md]] — `ai-behavior` cluster (`too-ephemeral`, `system-design`)
@@ -215,6 +218,7 @@
 - [[nodes/uc-weave-metaphor-confusing-use-graphrag-terms.md]] — `design` cluster (`information-architecture`, `terminology`, `weevee`)
 - [[nodes/uc-x-account-suspected-as-ai.md]] — `pullie` cluster (`sns`, `x-twitter`, `bot-detection`, `humanization`, `trust`, `hitl`)
 - [[nodes/uc-x-engagement-should-self-drive.md]] — `sns` cluster (`autonomy`, `hitl`, `notification-design`)
+- [[nodes/uc-x-must-ride-trends-with-quote-replies.md]] — `uc` cluster (`sns`, `x-twitter`, `trend`, `quote-reply`, `analytics`, `weevee`)
 - [[nodes/uc-x-posts-must-deliver-official-facts-with-media.md]] — `uc` cluster (`sns`, `x-twitter`, `content-quality`, `media`, `weevee`, `breaking-lane`)
 
 ---
