@@ -68,6 +68,7 @@
 > Complete index below. Use clusters for structured entry.
 
 ### [Type A] Technical Errors
+- [[nodes/aggregate-material-collapses-distribution.md]] — `ai-behavior` cluster (`system-design`, `pullie`, `monitoring`, `observability`, `false-alarm`, `sql-aggregation`, `multi-agent`)
 - [[nodes/ai-context-blindness-at-scale.md]] — `ai-behavior` cluster (`scaling`, `system-design`, `architecture`)
 - [[nodes/ai-instruction-enforcement.md]] — `ai-behavior` cluster (`prompt-engineering`, `system-design`)
 - [[nodes/ai-sdk-v6-renamed-properties.md]] — `ai-sdk` cluster (`vercel-ai`, `typescript`, `api-migration`)
