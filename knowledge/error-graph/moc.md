@@ -135,6 +135,7 @@
 - [[nodes/stale-claude-md-duplicate-implementation.md]] — `multi-machine` cluster (`git`, `claude-md`, `session-handoff`, `duplicate-work`)
 - [[nodes/stale-pipeline-lock-after-killed-run.md]] — `lock` cluster (`pipeline`, `resume`, `windows`, `process-lifecycle`, `weevee`)
 - [[nodes/supabase-v2-types-resolve-never.md]] — `supabase` cluster (`typescript`, `database`, `type-safety`)
+- [[nodes/underpowered-verdicts-become-doctrine.md]] — `ai-behavior` cluster (`system-design`, `pullie`, `multi-agent`, `learning-loop`, `statistics`, `knowledge-graph`, `hypothesis-testing`)
 - [[nodes/utc-timestamps-render-as-last-night.md]] — `sqlite` cluster (`timezone`, `utc`, `dashboard`, `jst`, `pullie`)
 - [[nodes/weekly-guard-day-window-phase-skip.md]] — `scheduling` cluster (`cadence`, `guard`, `idempotency`, `false-alarm`, `pullie`)
 - [[nodes/windows-claude-cli-subprocess-needs-cmd-and-gitbash.md]] — `windows` cluster (`claude-code`, `subprocess`, `python`, `headless`, `npm`)
