@@ -48,10 +48,17 @@ x-listener が観測 → x-strategist/x-analyst が仮説を `hypotheses` に登
    結果（ノイズ）より過程（n=1でも構造的欠陥を示す）から学ぶ価値が高いのに、そこが空
 
 ## 4. Act / Prevention Strategy (Fix)
-計画へ反映済み（docs/12 §1.2・原理6・Phase 1）。実装はこれから。
+計画へ反映（docs/12 §1.2・原理6・Phase 1）。**1-1は2026-09-04に実装・実走検証済み**、残りは着手前。
 
-- **判定させないゲート**: `insufficient_data` を判定肢に追加して**既定にする**。さらに機械側で
-  最低試行数（例 n≥10 かつ impressions≥500）を課し、満たさない仮説はLLMに渡さない
+- **判定させないゲート ✅実装済み**: `insufficient_data` を status に追加（migration 026）し、
+  母数下限（`HYP_MIN_POSTS`既定5 / `HYP_MIN_IMPRESSIONS`既定300）を満たさない仮説は
+  **LLMに渡す前に**機械が確定させる（プロンプトにすら載せない）。
+  curator の昇格対象は `status IN ('adopted','rejected')` なので、値を足すだけで
+  昇格経路が構造的に塞がる。最も危険だった「延長2回目 → rejected」（データ無しを
+  「効かない」に読み替える経路）も `insufficient_data` へ変更。
+  安全弁 `STRICT_HYPOTHESIS_GATE=0`。
+  **検証**: 月曜の状況を再現した実走で、期限到来の8件が全て insufficient_data で確定し、
+  LLMに渡る判定対象が「（なし）」になることを確認（状態は完全復元）
 - **失敗時の思考ログを保存**（`if result.ok:` の分岐を外す）
 - **知識に由来と賞味期限**: 目視由来＝仮説 / 実測由来＝実証 を注入時に区別。降格・失効の経路を作る
 - **学習単位を「型×週」へ**上げる
