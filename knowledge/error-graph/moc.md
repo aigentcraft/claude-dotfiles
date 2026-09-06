@@ -181,6 +181,7 @@
 - [[nodes/uc-graph-focus-relayout-and-click-feedback.md]] — `graph` cluster (`layout`, `mind-map`, `motion`, `color`, `weevee`)
 - [[nodes/uc-graph-hierarchy-zoom-and-fit.md]] — `graph` cluster (`layout`, `zoom`, `taxonomy`, `responsive`, `weevee`)
 - [[nodes/uc-handrolled-animation-low-quality-use-gsap-examples.md]] — `animation` cluster (`gsap`, `motion-quality`, `reference-driven`, `weevee`)
+- [[nodes/uc-hardcoded-judgment-while-fixing-hardcoding.md]] — `uc` cluster (`pullie`, `self-application`, `llm-agent`, `hardcoding`, `system-design`, `notification`)
 - [[nodes/uc-hero-image-abstract-unrelated-to-article.md]] — `images` cluster (`hero`, `meaning`, `ogp`, `weevee`)
 - [[nodes/uc-hero-image-cropped-by-edge-to-edge-rule.md]] — `images` cluster (`hero`, `cropping`, `gpt-image`, `weevee`)
 - [[nodes/uc-incident-explanation-too-dense.md]] — `reporting` cluster (`communication`, `root-cause`, `pullie`)
