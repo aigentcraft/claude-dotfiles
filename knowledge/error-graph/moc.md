@@ -138,6 +138,7 @@
 - [[nodes/success-only-logging-and-overwrite-discard-history.md]] — `observability` cluster (`logging`, `data-loss`, `sqlite`, `learning-loop`, `agent`, `pullie`)
 - [[nodes/supabase-v2-types-resolve-never.md]] — `supabase` cluster (`typescript`, `database`, `type-safety`)
 - [[nodes/task-time-limit-kills-run-and-its-own-alarm.md]] — `observability` cluster (`monitoring`, `system-design`, `pullie`, `silent-failure`, `task-scheduler`, `windows`, `watchdog`)
+- [[nodes/unbounded-review-task-collapses-to-bounded-part.md]] — `ai-behavior` cluster (`observability`, `agent`, `learning-loop`, `prompt-design`, `pullie`)
 - [[nodes/underpowered-verdicts-become-doctrine.md]] — `ai-behavior` cluster (`system-design`, `pullie`, `multi-agent`, `learning-loop`, `statistics`, `knowledge-graph`, `hypothesis-testing`)
 - [[nodes/utc-timestamps-render-as-last-night.md]] — `sqlite` cluster (`timezone`, `utc`, `dashboard`, `jst`, `pullie`)
 - [[nodes/weekly-guard-day-window-phase-skip.md]] — `scheduling` cluster (`cadence`, `guard`, `idempotency`, `false-alarm`, `pullie`)
