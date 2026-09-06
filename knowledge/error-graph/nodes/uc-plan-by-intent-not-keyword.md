@@ -208,3 +208,53 @@ ai / llm / gpu は語彙の subject（`ai-runtime`）で 1 束になった。
 17. **キャッシュの鍵の設計ミスは、静かにデータを壊す**（例外もログも出ず、片方の値が消えるだけ）。
     鍵を決めたら「**異なる入力が同じ鍵に落ちないか**」をテストで固定する
     （`tests/test_serp.py::test_keyword_normalization_keeps_distinct_queries_apart`）
+
+### ③ 同じ流用が **2 か所目**に残っていた — 由来の嘘を返す統合候補（統合フェーズ 2026-09-06 夜）
+
+②で `keyword_serps.kw_norm` は `serp.normalize_keyword` に直したが、**`intent.merge_candidates` の
+指紋デデュープは `intent.normalize` のままだった**。DB は 2 行として正しく持っている面が、
+メモリ上で 1 面に潰れる:
+
+```python
+# 旧: 空白違いの 2 クエリが同じ n になり、後から来た指紋が黙って捨てられる
+n = normalize(key)
+if clean and n in known and n not in seen:
+    seen.add(n); usable[str(key)] = clean
+```
+
+結果、`topics 26`（「さくらのvps n8n」）と `topics 27`（「さくら の vps n8n」）が
+
+```
+source='serp'  confidence='confirmed'
+reason='SERP が同じ意図と判定（Google 自身の判定・SERP 単独（他のどのキーワードとも重ならない））'
+evidence=[]
+```
+
+として返った。**SERP は 2 語を一度も比較していない**（片方の指紋を捨てたので群が単独になった）のに、
+人間が採否を決める唯一の欄で「Google がそう言った」と主張している。しかも reason 文が
+「同じ意図と判定」と「他のどれとも重ならない」を同時に言っており、自己矛盾していた。
+
+**修正**（`workers/shared/intent.py`）:
+- `intent.serp_key`（= `serp.normalize_keyword`）を追加し、**SERP の面を引く鍵はすべてこれに統一**。
+  `_serp_groups` の `by_key` も企画側の鍵をこれで作る（`normalize` は keyword が無く title で引く時の保険に降格）
+- デデュープの条件を「正規化キーが同じ」から「正規化キーが同じ **かつ 指紋が完全一致**」に変更。
+  潰したかったのは `serp_index` が同じ面を生表記/正規化表記の 2 鍵で返す**別名**であって、
+  **中身の違う別の面**ではなかった
+- 回帰: `tests/test_intent_serp.py::test_whitespace_variants_merge_only_on_real_overlap_with_evidence` /
+  `…_with_disjoint_serps_are_not_merged_by_serp` / `…test_serp_index_aliases_do_not_pollute_evidence`
+
+**一般化した予防ルール**:
+
+18. **正規化の流用を 1 か所直したら、同じ関数の呼び出し元を全部数える**。①②の修正は DB 層だけに入り、
+    同じ誤りが判定層に残った。`grep` で呼び出し元を列挙し、**用途ごとにどの鍵が正しいか**を 1 件ずつ判断する。
+    「直した」と言えるのは全呼び出し元を見た後
+19. **デデュープの条件は「潰したい重複そのもの」を書く**。「別名を潰したい」のに「キーが同じものを潰す」と
+    書くと、キーが同じ**別物**まで巻き込む。落とす対象は鍵ではなく**中身の同一性**で判定する
+20. **由来（provenance）フィールドは、それを裏づける根拠と一緒でなければ出さない**。
+    `source='serp'` は「Google がそう判定した」という強い主張で、人間の採否を変える。
+    根拠 URL を付けられない束は `serp` を名乗らせない（`evidence` 空の `confirmed` を出さない）。
+    自己矛盾した理由文（「同じと判定」＋「どれとも重ならない」）は、由来が壊れている**症状**として読む
+21. **配線は「例外が出ない」では検証できない**。`merge_topics --auto` は `keywords` を JOIN しておらず
+    指紋も渡していなかったため、主 signal が**一度も効かないまま**正常終了していた。
+    新しい signal を足したら「**この signal が死んだら落ちるテスト**」を書く
+    （`tests/test_merge_topics.py::test_auto_groups_uses_serp_overlap_as_the_primary_signal`）
