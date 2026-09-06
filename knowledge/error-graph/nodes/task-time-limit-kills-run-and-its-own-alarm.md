@@ -2,7 +2,7 @@
 title: "Task Time Limit Killed the Run — and the Alarm That Would Have Reported It"
 description: "pullie の朝パイプラインが Windows Task Scheduler の ExecutionTimeLimit=PT2H で強制終了され、記事以降の工程（X課・note・知識キュレーション・運用監査・集約通知・ダッシュボード再生成）が丸ごとスキップされていた。プロセスが即死するため finally もログも走らず、**通知役の09_notify自身が道連れになるので『エラー通知が来ないこと』が唯一の症状**。2026-08-31 / 09-02 / 09-03 / 09-06 の4日発生し、4日間誰も気づかなかった（人間が『今日は不合格で終わったみたいだけど問題ない？』と聞いたことで発覚）。判定材料はDBに最初からあった — `run開始` の後に `run完了` が無い、それだけ。"
 type: "technical-error"
-tags: ["monitoring", "system-design", "pullie", "silent-failure", "observability", "task-scheduler", "windows", "watchdog"]
+tags: ["observability", "monitoring", "system-design", "pullie", "silent-failure", "task-scheduler", "windows", "watchdog"]
 ---
 
 ## 1. Plan / Context

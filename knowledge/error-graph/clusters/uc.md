@@ -105,6 +105,13 @@ SplitText / DrawSVG / stagger from center + back.out / elastic ホバー / power
 factsheet の弁明（禁止・予算・ラボ制約）を記事に写すと報告書になる。正直さは「何をした/していないか」で示し、「なぜできなかったか（運営事情）」は書かない。AI 執筆の明示はサイト単位（運営者情報）で。
 - 詳細: [[../nodes/uc-articles-contain-operator-facing-justifications.md]]
 
+### R21 企画の単位は検索意図。キーワードは素材であって記事の単位ではない
+KW 1 語 = 記事 1 本で企画すると、同じ意図が「動くのか」と「どう始めるのか」に割れ、読者は 2 本読むまで答えが揃わない。
+束ねる基準は「意図が同じ / 読者の作業が連続 / 判断の表裏 = 1 本」「対象製品が違う = 別」（記事タイプ違い・長さは分ける理由にならない）。
+競合分析は「穴（missing_topics）」と同時に「上位が揃って書いている必須要素（common_topics）」を出し、
+企画・執筆・検閲の 3 段すべてに網羅性を配線する（穴だけを埋める記事を作らせない）。
+- 詳細: [[../nodes/uc-plan-by-intent-not-keyword.md]]
+
 - **X の発信の形式・本数・タイミング・文面を決めるコードを書かない**（機械が持つのは天井・ゲート・送信・ロックだけ）。新レーンを足すときは「予測（intent.predict）が付くか／週次検証の対象か／前回の結果を次の判断が読めるか」の3点を自己診断する — [[../nodes/uc-breaking-lane-tweet-format-is-strategist-judgment.md]]
 
 ## このクラスターのノード一覧
@@ -129,3 +136,4 @@ factsheet の弁明（禁止・予算・ラボ制約）を記事に写すと報�
 - [[../nodes/uc-breaking-lane-tweet-format-is-strategist-judgment.md]] — `sns`, `pdca`, `llm-free-overreach`, `weevee`（速報レーンの X 発信を固定テンプレで書いた → 「LLM不要はやめて。PDCA が回らない」→ x-strategist の速報作戦へ）
 - [[../nodes/uc-internal-handoff-note-live-on-published-page.md]] — `public-tone`, `internal-leak`, `publish-gate`（公開済みページに「editor-in-chief への申し送り」が残っていた → 生成側の修正は live に遡及しない・公開直前の最終テキストに機械ゲート）
 - [[../nodes/uc-x-posts-must-deliver-official-facts-with-media.md]] — `sns`, `content-quality`, `media`（「注視中」で締まる速報ツイート → 公式リソースの具体 + 画像/動画を必ず付ける。合格条件は「禁止語がない」でなく「持ち帰りが 1 つある」）
+- [[../nodes/uc-plan-by-intent-not-keyword.md]] — `editorial`, `seo`, `search-intent`, `coverage`, `weevee`（R21: KW 1 語 = 記事 1 本で企画が意図ごとに割れていた → intent クラスタリング + common_topics + Q17 網羅性）
