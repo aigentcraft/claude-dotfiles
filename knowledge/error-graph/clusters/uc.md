@@ -114,6 +114,8 @@ KW 1 語 = 記事 1 本で企画すると、同じ意図が「動くのか」と
 
 - **X の発信の形式・本数・タイミング・文面を決めるコードを書かない**（機械が持つのは天井・ゲート・送信・ロックだけ）。新レーンを足すときは「予測（intent.predict）が付くか／週次検証の対象か／前回の結果を次の判断が読めるか」の3点を自己診断する — [[../nodes/uc-breaking-lane-tweet-format-is-strategist-judgment.md]]
 
+- **品質劣化を人間が目で見つけたら、直すのは「見えた症状」ではなく「機械が気づけなかった理由」**。フォールバックは記録と通知に出し（グレースは隠す仕組みではない）、生成物のラベルは実経路から導出し（定数のラベルは検閲に嘘を渡す）、復旧手順が確定している外部ツールのエラーは自己修復にする（環境を変える操作には無効化スイッチ・クールダウン・1プロセス1回・排他を付ける） — [[../nodes/uc-silent-fallback-labeled-as-gpt.md]]
+
 ## このクラスターのノード一覧
 
 - [[../nodes/uc-approval-request-local-path-instead-of-url.md]] — `user-correction`, `hitl`, `approval-flow`, `stale-assumption`
@@ -137,3 +139,4 @@ KW 1 語 = 記事 1 本で企画すると、同じ意図が「動くのか」と
 - [[../nodes/uc-internal-handoff-note-live-on-published-page.md]] — `public-tone`, `internal-leak`, `publish-gate`（公開済みページに「editor-in-chief への申し送り」が残っていた → 生成側の修正は live に遡及しない・公開直前の最終テキストに機械ゲート）
 - [[../nodes/uc-x-posts-must-deliver-official-facts-with-media.md]] — `sns`, `content-quality`, `media`（「注視中」で締まる速報ツイート → 公式リソースの具体 + 画像/動画を必ず付ける。合格条件は「禁止語がない」でなく「持ち帰りが 1 つある」）
 - [[../nodes/uc-plan-by-intent-not-keyword.md]] — `editorial`, `seo`, `search-intent`, `coverage`, `weevee`（R21: KW 1 語 = 記事 1 本で企画が意図ごとに割れていた → intent クラスタリング + common_topics + Q17 網羅性）
+- [[../nodes/uc-silent-fallback-labeled-as-gpt.md]] — `images`, `imagegen`, `fallback`, `silent-failure`, `labeling`, `self-healing`, `weevee`（画像エンジンが 3 日間全滅していたのに manifest は「GPT Image・読み戻し照合済み」と記録 → 実経路からのラベル導出・フォールバックの可視化・外部 CLI の自動更新）
