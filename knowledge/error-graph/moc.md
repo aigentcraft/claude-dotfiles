@@ -187,6 +187,7 @@
 - [[nodes/uc-breaking-lane-tweet-format-is-strategist-judgment.md]] — `uc` cluster (`sns`, `x-twitter`, `llm-free-overreach`, `weevee`, `breaking-lane`)
 - [[nodes/uc-comparison-article-without-real-measurement.md]] — `uc` cluster (`measurement`, `research-lab`, `policy-change`, `reviewer-gap`, `weevee`)
 - [[nodes/uc-content-must-drive-affiliate-signup-desire.md]] — `uc` cluster (`editorial`, `affiliate`, `conversion`, `cta`, `sns`, `weevee`)
+- [[nodes/uc-declared-missing-path-without-checking-detector-timing.md]] — `uc` cluster (`ai-behavior`, `observability`, `false-conclusion`, `over-engineering`, `pullie`)
 - [[nodes/uc-demo-screens-are-sales-assets.md]] — `uc` cluster (`pullie`, `screenshots`, `demo-quality`, `kintone`, `sales-perception`)
 - [[nodes/uc-focus-labels-too-small-after-zoom.md]] — `graph` cluster (`typography`, `zoom`, `readability`, `weevee`)
 - [[nodes/uc-gpt-image-japanese-text-was-self-forbidden.md]] — `images` cluster (`gpt-image`, `japanese`, `false-premise`, `weevee`)
