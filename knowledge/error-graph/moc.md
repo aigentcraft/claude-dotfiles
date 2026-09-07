@@ -48,7 +48,7 @@
 | [[clusters/producer-consumer-sync.md]] | 定義（スキーマ/カタログ/キー一覧）拡張時の消費側同期漏れ | 2 | スキーマ・カタログ・enum・frontmatterフィールドを拡張する時 |
 | [[clusters/kintone.md]] | kintone カスタマイズ（REST API・カスタムJS/CSS・全体カスタマイズ）の落とし穴 | 4 | kintone アプリ構築・カスタマイズ作業時 |
 | [[clusters/observability.md]] | 記録・計測・監視材料（**症状が出ない故障**・フォールバックの可視化・自己修復） | 8 | ログ/イベント/通知/監視を実装・変更する時、外部ツールに依存する経路を書く時 |
-| [[clusters/rendering-quality.md]] | 機械が描いた見た目の自己検証（情報図・プレビュー・**生成物のラベル**） | 3 | 画像/図/プレビューを生成する時、生成エンジンにフォールバックを付ける時 |
+| [[clusters/rendering-quality.md]] | 機械が描いた見た目の自己検証（情報図・プレビュー・**生成物のラベル**） | 4 | 画像/図/プレビューを生成する時、生成エンジンにフォールバックを付ける時 |
 | [[clusters/uc.md]] | ユーザー指摘（UC）から昇格した行動原則 | 28 | ユーザーに指摘された時・自律運用の設計を変える時 |
 | [[clusters/pipeline-idempotency.md]] | パイプラインの冪等性・再開・ロック | 4 | 多段パイプライン・再実行・ロックを設計する時 |
 | [[clusters/cloudflare.md]] | Cloudflare Pages / D1 / Workers の落とし穴 | 2 | Cloudflare へデプロイ・設定する時 |
@@ -103,6 +103,7 @@
 - [[nodes/headless-browser-blank-app-screens-bot-detection.md]] — `playwright` cluster (`headless`, `bot-detection`, `spa`, `research-lab`, `weevee`)
 - [[nodes/heredoc-python-escapes-corrupted-regex-and-tmp-path-mismatch.md]] — `git-bash` cluster (`heredoc`, `python`, `regex`, `windows-path`, `commit-gate`)
 - [[nodes/image-dark-canvas-margin-passes-vision-review.md]] — `pullie` cluster (`image-generation`, `gpt-image`, `vision-review`, `alpha-channel`, `deterministic-gate`)
+- [[nodes/image-postprocess-crop-cuts-text-in-screenshots.md]] — `rendering-quality` cluster (`image-postprocess`, `screenshot`, `crop`, `publishing`)
 - [[nodes/image-reuse-by-section-index-after-restructure.md]] — `images` cluster (`idempotency`, `pipeline`, `caption-mismatch`, `weevee`)
 - [[nodes/infographic-text-clipped-in-narrow-cards.md]] — `images` cluster (`rendering`, `infographic`, `overflow`, `self-verification`, `weevee`)
 - [[nodes/instant-approval-path-skips-sns-fanout.md]] — `pullie` cluster (`sns`, `pipeline-wiring`, `dual-path`, `approval-flow`, `x-twitter`)
@@ -122,6 +123,7 @@
 - [[nodes/llm-self-reported-index-silent-drop.md]] — `llm` cluster (`contract-validation`, `pullie`, `images`, `silent-failure`)
 - [[nodes/note-kpi-weekly-cadence-window-blind-spot.md]] — `observability` cluster (`kpi`, `note`, `producer-consumer-sync`, `window-alignment`, `cadence`, `pullie`)
 - [[nodes/payment-gate-false-positive-stripe-hidden-iframe.md]] — `payment-gate` cluster (`playwright`, `stripe`, `false-positive`, `research-lab`, `weevee`)
+- [[nodes/pinned-external-model-name-breaks-silently.md]] — `observability` cluster (`external-dependency`, `silent-failure`, `grace-degradation`, `cli`, `pullie`)
 - [[nodes/pipeline-resume-guard-orphaned-early-stage-drafts.md]] — `pullie` cluster (`pipeline`, `orchestration`, `resume`, `orphan`)
 - [[nodes/powershell-hash-literal-git.md]] — `powershell` cluster (`git`, `syntax-error`)
 - [[nodes/preview-built-published-md-instead-of-rewrite-draft.md]] — `preview` cluster (`rewrite-lane`, `build`, `stale-artifact`, `weevee`)

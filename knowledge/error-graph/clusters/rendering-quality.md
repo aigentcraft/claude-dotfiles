@@ -32,6 +32,12 @@
 生成器の健全性は成功率の平均でなく**「最後に成功した時刻」**で見る。
 - 詳細: [[../nodes/uc-silent-fallback-labeled-as-gpt.md]] / [[observability.md]] R8
 
+### R6: 画像処理の条件は「種別名」ではなく「性質」で書く
+`kind in ("diagram","hero")` のような**種別の列挙**で修正の適用範囲を決めると、同じ性質の
+経路が漏れる。「文字が入っている画像は切らない」のように**性質**で条件を書く。
+同種の欠陥を直したら、同じ性質を持つ経路を**全部数えてから**閉じる。
+- 詳細: [[../nodes/image-postprocess-crop-cuts-text-in-screenshots.md]]
+
 ---
 
 ## 状況 → ルール
@@ -42,9 +48,11 @@
 | 承認プレビュー・公開前ゲートを設計する | R3 |
 | 画像・図の「出所」を検閲や記事に出す | R4 |
 | 生成エンジンにフォールバックを付ける | R5 |
+| トリム・クロップ・リサイズを画像に掛ける | R6 |
 
 ## このクラスターのノード一覧
 
 - [[../nodes/infographic-text-clipped-in-narrow-cards.md]] — `rendering`, `infographic`, `overflow`, `self-verification`
 - [[../nodes/uc-article-image-cropped-caption-overlap.md]] — `user-correction`, `images`, `captions`, `preview`
 - [[../nodes/uc-silent-fallback-labeled-as-gpt.md]] — `uc`, `images`, `imagegen`, `fallback`, `silent-failure`, `labeling`, `self-healing`
+- [[../nodes/image-postprocess-crop-cuts-text-in-screenshots.md]] — `images`, `cropping`, `postprocess`, `kind-list-omission`
