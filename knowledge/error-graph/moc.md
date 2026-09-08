@@ -38,7 +38,7 @@
 
 | クラスター | 内容 | ノード数 | ロード条件 |
 |---|---|---|---|
-| [[clusters/ai-behavior.md]] | AI行動パターン・システム設計・知識グラフ設計 | 11 | AI設計・スケール・ナレッジシステム系タスク |
+| [[clusters/ai-behavior.md]] | AI行動パターン・システム設計・知識グラフ設計 | 12 | AI設計・スケール・ナレッジシステム系タスク |
 | [[clusters/api-network.md]] | API/ネットワーク・非同期・タイムアウト・プラットフォーム規制 | 3 | 外部API・ネットワークリクエストを書く時 |
 | [[clusters/platform-syntax.md]] | PowerShell/Windows固有の構文エラー | 1 | PowerShell・Windowsスクリプト作業時 |
 | [[clusters/copywriting-psychology.md]] | コピーライティング心理学・間接的動機づけ設計 | 1 | 記事・LP・SNS投稿のコピーを書く時 |
@@ -212,6 +212,7 @@
 - [[nodes/uc-own-comparison-article-exposes-product-gap.md]] — `uc` cluster (`pullie`, `product`, `mvp-scope`, `positioning`, `booth`)
 - [[nodes/uc-partial-solution-without-automation-path.md]] — `ai-behavior` cluster (`automation`, `system-design`)
 - [[nodes/uc-permission-prompt-fatigue.md]] — `ai-behavior` cluster (`permissions`, `claude-code`, `workflow-friction`)
+- [[nodes/uc-pipeline-is-conveyor-not-agent-org.md]] — `architecture` cluster (`agent-org`, `gates`, `conveyor`, `recurrence`, `weevee`)
 - [[nodes/uc-plan-by-intent-not-keyword.md]] — `uc` cluster (`editorial`, `seo`, `planning`, `search-intent`, `serp`, `clustering`, `coverage`, `competitor`, `weevee`)
 - [[nodes/uc-premature-completion-reports.md]] — `uc` cluster (`pullie`, `verification`, `reporting`, `discipline`)
 - [[nodes/uc-probe-must-cover-layout-overflow.md]] — `pullie` cluster (`visual-inspection`, `layout`, `overflow`, `mobile`, `verification`)
