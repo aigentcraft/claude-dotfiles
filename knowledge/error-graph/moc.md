@@ -98,6 +98,7 @@
 - [[nodes/enumeration-guards-never-close-use-structural-rules.md]] — `ai-behavior` cluster
 - [[nodes/frontmatter-field-not-wired-into-all-renderers.md]] — `producer-consumer-sync` cluster (`astro`, `schema-sync`, `renderer`, `visual-inspector`, `pullie`)
 - [[nodes/fs-demands-uncapturable-screens-deadlock.md]] — `producer-consumer-sync` cluster (`pullie`, `multi-agent`, `contract`, `screenshot-catalog`, `deadlock`, `pipeline-stall`)
+- [[nodes/generated-instruction-logged-then-discarded.md]] — `ai-behavior` cluster (`learning-loop`, `agent`, `retry-loop`, `observability`, `pullie`)
 - [[nodes/google-ads-api-setup-gotchas-oauth-timeout-customer-not-enabled.md]] — `google-ads-api` cluster (`oauth`, `keyword-planner`, `claude-in-chrome`, `captcha`, `weevee`)
 - [[nodes/grace-skip-needs-escalation-for-human-only-recovery.md]] — `monitoring` cluster (`silent-failure`, `grace-degradation`, `hitl`, `session-expiry`, `pullie`)
 - [[nodes/gsc-final-lag-outruns-lookback-window.md]] — `pullie` cluster (`gsc`, `data-collection`, `lookback-window`, `upsert`, `silent-failure`)
