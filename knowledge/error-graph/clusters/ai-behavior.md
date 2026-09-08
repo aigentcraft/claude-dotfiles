@@ -216,3 +216,4 @@ keep/demote/retire の判断はエージェント。この線を越えると R18
 - [[../nodes/reviewer-send-back-loop-on-unfixable-screenshot-item.md]] — `reviewer`, `send-back-loop`, `structural-constraint`（差し戻し理由は次ラウンドで解消可能なものに限る）
 - [[../nodes/reviewer-flagged-machine-rendered-log-image-as-fabricated.md]] — `reviewer`, `false-positive`, `provenance`（検閲者に成果物の出所メタデータを渡す）
 - [[../nodes/writer-internal-handoff-notes-leak.md]] — `writer`, `public-tone`, `mechanical-strip`（禁止事項は検査ではなく決定論的除去で担保）
+- [[../nodes/enumeration-guards-never-close-use-structural-rules.md]] — `guards`, `enumeration`, `structural-rules`, `limits`, `lab_guard`

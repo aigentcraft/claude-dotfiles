@@ -38,7 +38,7 @@
 
 | クラスター | 内容 | ノード数 | ロード条件 |
 |---|---|---|---|
-| [[clusters/ai-behavior.md]] | AI行動パターン・システム設計・知識グラフ設計 | 10 | AI設計・スケール・ナレッジシステム系タスク |
+| [[clusters/ai-behavior.md]] | AI行動パターン・システム設計・知識グラフ設計 | 11 | AI設計・スケール・ナレッジシステム系タスク |
 | [[clusters/api-network.md]] | API/ネットワーク・非同期・タイムアウト・プラットフォーム規制 | 3 | 外部API・ネットワークリクエストを書く時 |
 | [[clusters/platform-syntax.md]] | PowerShell/Windows固有の構文エラー | 1 | PowerShell・Windowsスクリプト作業時 |
 | [[clusters/copywriting-psychology.md]] | コピーライティング心理学・間接的動機づけ設計 | 1 | 記事・LP・SNS投稿のコピーを書く時 |
@@ -95,6 +95,7 @@
 - [[nodes/cumulative-gauge-snapshot-summed-as-flow.md]] — `kpi` cluster (`aggregation`, `sqlite`, `weekly-report`, `note`, `pullie`)
 - [[nodes/deploy-wait-http-200-races-stale-build.md]] — `cloudflare` cluster (`pages`, `deploy`, `race-condition`, `verification`, `pullie`)
 - [[nodes/discard-path-topic-requeue-leak.md]] — `pipeline` cluster (`state-machine`, `cleanup`, `sqlite`)
+- [[nodes/enumeration-guards-never-close-use-structural-rules.md]] — `ai-behavior` cluster
 - [[nodes/frontmatter-field-not-wired-into-all-renderers.md]] — `producer-consumer-sync` cluster (`astro`, `schema-sync`, `renderer`, `visual-inspector`, `pullie`)
 - [[nodes/fs-demands-uncapturable-screens-deadlock.md]] — `producer-consumer-sync` cluster (`pullie`, `multi-agent`, `contract`, `screenshot-catalog`, `deadlock`, `pipeline-stall`)
 - [[nodes/google-ads-api-setup-gotchas-oauth-timeout-customer-not-enabled.md]] — `google-ads-api` cluster (`oauth`, `keyword-planner`, `claude-in-chrome`, `captcha`, `weevee`)
