@@ -38,14 +38,14 @@
 
 | クラスター | 内容 | ノード数 | ロード条件 |
 |---|---|---|---|
-| [[clusters/ai-behavior.md]] | AI行動パターン・システム設計・知識グラフ設計 | 12 | AI設計・スケール・ナレッジシステム系タスク |
+| [[clusters/ai-behavior.md]] | AI行動パターン・システム設計・知識グラフ設計 | 13 | AI設計・スケール・ナレッジシステム系タスク |
 | [[clusters/api-network.md]] | API/ネットワーク・非同期・タイムアウト・プラットフォーム規制 | 3 | 外部API・ネットワークリクエストを書く時 |
 | [[clusters/platform-syntax.md]] | PowerShell/Windows固有の構文エラー | 1 | PowerShell・Windowsスクリプト作業時 |
 | [[clusters/copywriting-psychology.md]] | コピーライティング心理学・間接的動機づけ設計 | 1 | 記事・LP・SNS投稿のコピーを書く時 |
 | `database-orm` | Database/ORM の型・スキーマ・クエリエラー | 1 | Supabase・Prisma・ORM を使う時 |
 | `sdk-migration` | SDK バージョンアップグレード時のブレーキングチェンジ | 1 | ライブラリをアップグレードする時 |
 | [[clusters/shell-hook-env.md]] | Claude Code フック・シェル環境変数の落とし穴 | 1 | Claude Code フック・session-start.sh・シェルスクリプトを書く時 |
-| [[clusters/producer-consumer-sync.md]] | 定義（スキーマ/カタログ/キー一覧）拡張時の消費側同期漏れ | 4 | スキーマ・カタログ・enum・frontmatterフィールドを拡張する時 |
+| [[clusters/producer-consumer-sync.md]] | 定義（スキーマ/カタログ/キー一覧）拡張時の消費側同期漏れ | 5 | スキーマ・カタログ・enum・frontmatterフィールドを拡張する時 |
 | [[clusters/kintone.md]] | kintone カスタマイズ（REST API・カスタムJS/CSS・全体カスタマイズ）の落とし穴 | 4 | kintone アプリ構築・カスタマイズ作業時 |
 | [[clusters/observability.md]] | 記録・計測・監視材料（**症状が出ない故障**・フォールバックの可視化・自己修復） | 8 | ログ/イベント/通知/監視を実装・変更する時、外部ツールに依存する経路を書く時 |
 | [[clusters/rendering-quality.md]] | 機械が描いた見た目の自己検証（情報図・プレビュー・**生成物のラベル**） | 4 | 画像/図/プレビューを生成する時、生成エンジンにフォールバックを付ける時 |
@@ -79,6 +79,7 @@
 - [[nodes/ai-sdk-v6-renamed-properties.md]] — `ai-sdk` cluster (`vercel-ai`, `typescript`, `api-migration`)
 - [[nodes/api-rate-limit-exceeded.md]] — `api` cluster (`network`, `rate-limit`)
 - [[nodes/bash-awk-regex-and-array-accumulation.md]] — `bash` cluster (`awk`, `regex`, `arrays`, `windows`, `git-bash`, `cross-platform`)
+- [[nodes/bulk-migration-regex-ate-the-adjacent-block.md]] — `migration` cluster (`regex`, `bulk-edit`, `single-source`, `weevee`)
 - [[nodes/capture-success-is-not-content-correctness.md]] — `observability` cluster (`screenshot`, `publishing`, `review-gate`, `automation`, `pullie`)
 - [[nodes/cdp-port-9222-hijacked-by-wsl-relay-wrong-browser.md]] — `wsl` cluster (`cdp`, `playwright`, `chrome`, `port-collision`, `misdiagnosis`, `pullie`)
 - [[nodes/checklist-references-file-not-in-skill-refs.md]] — `producer-consumer-sync` cluster (`skill-sync`, `agent-manifest`, `llm-pipeline`, `weevee`)
@@ -151,6 +152,7 @@
 - [[nodes/success-only-logging-and-overwrite-discard-history.md]] — `observability` cluster (`logging`, `data-loss`, `sqlite`, `learning-loop`, `agent`, `pullie`)
 - [[nodes/supabase-v2-types-resolve-never.md]] — `supabase` cluster (`typescript`, `database`, `type-safety`)
 - [[nodes/task-time-limit-kills-run-and-its-own-alarm.md]] — `observability` cluster (`monitoring`, `system-design`, `pullie`, `silent-failure`, `task-scheduler`, `windows`, `watchdog`)
+- [[nodes/test-global-monkeypatch-leaks-to-whole-session.md]] — `pytest` cluster (`monkeypatch`, `test-pollution`, `weevee`)
 - [[nodes/unbounded-review-task-collapses-to-bounded-part.md]] — `ai-behavior` cluster (`observability`, `agent`, `learning-loop`, `prompt-design`, `pullie`)
 - [[nodes/underpowered-verdicts-become-doctrine.md]] — `ai-behavior` cluster (`system-design`, `pullie`, `multi-agent`, `learning-loop`, `statistics`, `knowledge-graph`, `hypothesis-testing`)
 - [[nodes/unmeasured-counted-as-zero-fabricates-rejection-evidence.md]] — `observability` cluster (`learning-loop`, `data-quality`, `sql`, `agent`, `pullie`)
