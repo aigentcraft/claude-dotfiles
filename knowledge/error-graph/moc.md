@@ -45,7 +45,7 @@
 | `database-orm` | Database/ORM の型・スキーマ・クエリエラー | 1 | Supabase・Prisma・ORM を使う時 |
 | `sdk-migration` | SDK バージョンアップグレード時のブレーキングチェンジ | 1 | ライブラリをアップグレードする時 |
 | [[clusters/shell-hook-env.md]] | Claude Code フック・シェル環境変数の落とし穴 | 1 | Claude Code フック・session-start.sh・シェルスクリプトを書く時 |
-| [[clusters/producer-consumer-sync.md]] | 定義（スキーマ/カタログ/キー一覧）拡張時の消費側同期漏れ | 2 | スキーマ・カタログ・enum・frontmatterフィールドを拡張する時 |
+| [[clusters/producer-consumer-sync.md]] | 定義（スキーマ/カタログ/キー一覧）拡張時の消費側同期漏れ | 3 | スキーマ・カタログ・enum・frontmatterフィールドを拡張する時 |
 | [[clusters/kintone.md]] | kintone カスタマイズ（REST API・カスタムJS/CSS・全体カスタマイズ）の落とし穴 | 4 | kintone アプリ構築・カスタマイズ作業時 |
 | [[clusters/observability.md]] | 記録・計測・監視材料（**症状が出ない故障**・フォールバックの可視化・自己修復） | 8 | ログ/イベント/通知/監視を実装・変更する時、外部ツールに依存する経路を書く時 |
 | [[clusters/rendering-quality.md]] | 機械が描いた見た目の自己検証（情報図・プレビュー・**生成物のラベル**） | 4 | 画像/図/プレビューを生成する時、生成エンジンにフォールバックを付ける時 |
@@ -95,6 +95,7 @@
 - [[nodes/cumulative-gauge-snapshot-summed-as-flow.md]] — `kpi` cluster (`aggregation`, `sqlite`, `weekly-report`, `note`, `pullie`)
 - [[nodes/deploy-wait-http-200-races-stale-build.md]] — `cloudflare` cluster (`pages`, `deploy`, `race-condition`, `verification`, `pullie`)
 - [[nodes/discard-path-topic-requeue-leak.md]] — `pipeline` cluster (`state-machine`, `cleanup`, `sqlite`)
+- [[nodes/duplicate-skill-dirs-manifest-points-at-stale-copy.md]] — `skills` cluster (`manifest`, `duplicate-source`, `stale-config`, `weevee`)
 - [[nodes/enumeration-guards-never-close-use-structural-rules.md]] — `ai-behavior` cluster
 - [[nodes/frontmatter-field-not-wired-into-all-renderers.md]] — `producer-consumer-sync` cluster (`astro`, `schema-sync`, `renderer`, `visual-inspector`, `pullie`)
 - [[nodes/fs-demands-uncapturable-screens-deadlock.md]] — `producer-consumer-sync` cluster (`pullie`, `multi-agent`, `contract`, `screenshot-catalog`, `deadlock`, `pipeline-stall`)
