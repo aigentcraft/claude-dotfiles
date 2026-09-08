@@ -179,7 +179,7 @@
 - [[nodes/uc-agents-must-learn-from-own-failed-work.md]] — `pullie` cluster (`learning-loop`, `self-retrospective`, `knowledge-db`, `agent-design`)
 - [[nodes/uc-ai-authorship-still-visible-in-site-chrome.md]] — `uc` cluster (`site-chrome`, `ai-disclosure`, `scope-of-fix`, `weevee`)
 - [[nodes/uc-antigravity-sync-isolation.md]] — `ai-behavior` cluster (`sync-failure`, `r-hazudesu`, `automation`)
-- [[nodes/uc-approval-flow-not-operable-from-notification.md]] — `uc` cluster (`hitl`, ``, `approval`, `ux`, `pullie`)
+- [[nodes/uc-approval-flow-not-operable-from-notification.md]] — `uc` cluster (`hitl`, `discord`, `approval`, `ux`, `pullie`)
 - [[nodes/uc-approval-preview-must-exist-in-every-channel.md]] — `pullie` cluster (`approval-flow`, `preview`, `note`, `prosemirror`, `verification`)
 - [[nodes/uc-approval-reminder-without-clickable-preview-url.md]] — `uc` cluster (`notification`, `discord`, `approval`, `consistency`, `weevee`)
 - [[nodes/uc-approval-request-local-path-instead-of-url.md]] — `hitl` cluster (`approval-flow`, `stale-assumption`, `cloudflare-pages`, `weevee`)
