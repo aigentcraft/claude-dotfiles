@@ -113,3 +113,4 @@ R1（一覧の同期）とR1b（能力表との契約）を満たしても、**�
 | 特定の題材・データのときだけUI操作が落ちる | R1c: 前提要素の実在を候補列＋総称セレクタで吸収 |
 | 「失敗したが処理は続行」の分岐を書く/見つけた | R1d: 記録・申し送り・代替表現の3点が揃っているか |
 - [[../nodes/duplicate-skill-dirs-manifest-points-at-stale-copy.md]] — `skills`, `manifest`, `duplicate-source`, `stale-config`
+- [[../nodes/single-source-migration-broke-the-legacy-reader.md]] — `migration`, `single-source`, `legacy-path`, `fail-safe`

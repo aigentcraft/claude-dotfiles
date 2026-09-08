@@ -45,7 +45,7 @@
 | `database-orm` | Database/ORM の型・スキーマ・クエリエラー | 1 | Supabase・Prisma・ORM を使う時 |
 | `sdk-migration` | SDK バージョンアップグレード時のブレーキングチェンジ | 1 | ライブラリをアップグレードする時 |
 | [[clusters/shell-hook-env.md]] | Claude Code フック・シェル環境変数の落とし穴 | 1 | Claude Code フック・session-start.sh・シェルスクリプトを書く時 |
-| [[clusters/producer-consumer-sync.md]] | 定義（スキーマ/カタログ/キー一覧）拡張時の消費側同期漏れ | 3 | スキーマ・カタログ・enum・frontmatterフィールドを拡張する時 |
+| [[clusters/producer-consumer-sync.md]] | 定義（スキーマ/カタログ/キー一覧）拡張時の消費側同期漏れ | 4 | スキーマ・カタログ・enum・frontmatterフィールドを拡張する時 |
 | [[clusters/kintone.md]] | kintone カスタマイズ（REST API・カスタムJS/CSS・全体カスタマイズ）の落とし穴 | 4 | kintone アプリ構築・カスタマイズ作業時 |
 | [[clusters/observability.md]] | 記録・計測・監視材料（**症状が出ない故障**・フォールバックの可視化・自己修復） | 8 | ログ/イベント/通知/監視を実装・変更する時、外部ツールに依存する経路を書く時 |
 | [[clusters/rendering-quality.md]] | 機械が描いた見た目の自己検証（情報図・プレビュー・**生成物のラベル**） | 4 | 画像/図/プレビューを生成する時、生成エンジンにフォールバックを付ける時 |
@@ -142,6 +142,7 @@
 - [[nodes/semantic-graph-relationships.md]] — `system-design` cluster (`knowledge-graph`, `semantics`, `obsidian`)
 - [[nodes/shot-selector-assumes-absent-field-type.md]] — `producer-consumer-sync` cluster (`pullie`, `selector-brittleness`, `graceful-degradation`, `blame-routing`, `screenshot-catalog`, `pipeline-stall`, `playwright`)
 - [[nodes/single-attempt-gate-discards-cadence-slot.md]] — `reviewer-loop` cluster (`cadence`, `gate-design`, `note`, `pullie`)
+- [[nodes/single-source-migration-broke-the-legacy-reader.md]] — `migration` cluster (`single-source`, `legacy-path`, `fail-safe`, `weevee`)
 - [[nodes/skill-internal-rule-procedure-conflict.md]] — `skill-md` cluster (`rule-conflict`, `llm-pipeline`, `image-generation`, `reviewer-loop`, `pullie`)
 - [[nodes/slack-api-silent-hang.md]] — `slack` cluster (`api`, `timeout`, `mcp`)
 - [[nodes/sqlite-unique-slug-permanent-crash-loop.md]] — `sqlite` cluster (`unique-constraint`, `pipeline`, `pullie`, `slug`, `self-healing`)
@@ -178,7 +179,7 @@
 - [[nodes/uc-agents-must-learn-from-own-failed-work.md]] — `pullie` cluster (`learning-loop`, `self-retrospective`, `knowledge-db`, `agent-design`)
 - [[nodes/uc-ai-authorship-still-visible-in-site-chrome.md]] — `uc` cluster (`site-chrome`, `ai-disclosure`, `scope-of-fix`, `weevee`)
 - [[nodes/uc-antigravity-sync-isolation.md]] — `ai-behavior` cluster (`sync-failure`, `r-hazudesu`, `automation`)
-- [[nodes/uc-approval-flow-not-operable-from-notification.md]] — `uc` cluster (`hitl`, `discord`, `approval`, `ux`, `pullie`)
+- [[nodes/uc-approval-flow-not-operable-from-notification.md]] — `uc` cluster (`hitl`, ``, `approval`, `ux`, `pullie`)
 - [[nodes/uc-approval-preview-must-exist-in-every-channel.md]] — `pullie` cluster (`approval-flow`, `preview`, `note`, `prosemirror`, `verification`)
 - [[nodes/uc-approval-reminder-without-clickable-preview-url.md]] — `uc` cluster (`notification`, `discord`, `approval`, `consistency`, `weevee`)
 - [[nodes/uc-approval-request-local-path-instead-of-url.md]] — `hitl` cluster (`approval-flow`, `stale-assumption`, `cloudflare-pages`, `weevee`)
