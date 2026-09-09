@@ -31,6 +31,10 @@
    > 「これは局所要件か、この種の構造すべてに必要な汎用要件か？」
    > 同種の構造が他にあれば、同じパターンを即座に展開する（例: relationships.md → 全グラフ構造）
 10. **R-HAZUDESU（実測報告の義務）**: テスト・動作確認タスクでは「〜のはずです」「〜されます」で終わらず、必ずコマンド実行結果（`gh run list` / `ls` / `git show` 等）を添えて実測値を報告する。確認コマンドが使えない場合は「確認できない理由」を明記する
+11. **「動いているはず」を rc=0 で信じない（静かな不発の検出）**: 定時タスク・ラッパー・バックグラウンド処理は、rc だけでなく **①所要時間 ②出力の有無 ③DB/成果物の増分** を見る。
+    開始と終了が同一秒・出力ゼロは「成功」ではなく**起動失敗**の兆候。ネイティブコマンドを呼ぶラッパーは「一度も起動しなかった」を専用の失敗コードで落とす（PowerShell なら `$LASTEXITCODE -eq $null`）。
+    実例: BOM 無し UTF-8 + LF の `.ps1` が日本語コメントで実行行を飲み込み、7 日間 rc=0 で何もしなかった（[[nodes/ps1-no-bom-lf-comment-swallows-next-line.md]]）
+12. **Windows の `.ps1` は UTF-8 BOM で保存する**: BOM が無いと PowerShell 5.1 は cp932 として読み、日本語コメント末尾の lead byte が改行を食って**次の行が消える**
 
 ---
 
@@ -40,7 +44,7 @@
 |---|---|---|---|
 | [[clusters/ai-behavior.md]] | AI行動パターン・システム設計・知識グラフ設計 | 14 | AI設計・スケール・ナレッジシステム系タスク |
 | [[clusters/api-network.md]] | API/ネットワーク・非同期・タイムアウト・プラットフォーム規制 | 3 | 外部API・ネットワークリクエストを書く時 |
-| [[clusters/platform-syntax.md]] | PowerShell/Windows固有の構文エラー | 1 | PowerShell・Windowsスクリプト作業時 |
+| [[clusters/platform-syntax.md]] | PowerShell/Windows固有の構文エラー・.ps1 の符号化 | 3 | PowerShell・Windowsスクリプト・定時タスク作業時 |
 | [[clusters/copywriting-psychology.md]] | コピーライティング心理学・間接的動機づけ設計 | 1 | 記事・LP・SNS投稿のコピーを書く時 |
 | `database-orm` | Database/ORM の型・スキーマ・クエリエラー | 1 | Supabase・Prisma・ORM を使う時 |
 | `sdk-migration` | SDK バージョンアップグレード時のブレーキングチェンジ | 1 | ライブラリをアップグレードする時 |
@@ -129,6 +133,7 @@
 - [[nodes/note-kpi-weekly-cadence-window-blind-spot.md]] — `observability` cluster (`kpi`, `note`, `producer-consumer-sync`, `window-alignment`, `cadence`, `pullie`)
 - [[nodes/payment-gate-false-positive-stripe-hidden-iframe.md]] — `payment-gate` cluster (`playwright`, `stripe`, `false-positive`, `research-lab`, `weevee`)
 - [[nodes/pinned-external-model-name-breaks-silently.md]] — `observability` cluster (`external-dependency`, `silent-failure`, `grace-degradation`, `cli`, `pullie`)
+- [[nodes/ps1-no-bom-lf-comment-swallows-next-line.md]] — `platform-syntax` cluster (`powershell`, `encoding`, `cp932`, `task-scheduler`, `silent-failure`, `weevee`)
 - [[nodes/pipeline-resume-guard-orphaned-early-stage-drafts.md]] — `pullie` cluster (`pipeline`, `orchestration`, `resume`, `orphan`)
 - [[nodes/powershell-hash-literal-git.md]] — `powershell` cluster (`git`, `syntax-error`)
 - [[nodes/preview-built-published-md-instead-of-rewrite-draft.md]] — `preview` cluster (`rewrite-lane`, `build`, `stale-artifact`, `weevee`)
