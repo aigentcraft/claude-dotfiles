@@ -51,7 +51,7 @@
 | [[clusters/shell-hook-env.md]] | Claude Code フック・シェル環境変数の落とし穴 | 1 | Claude Code フック・session-start.sh・シェルスクリプトを書く時 |
 | [[clusters/producer-consumer-sync.md]] | 定義（スキーマ/カタログ/キー一覧）拡張時の消費側同期漏れ | 5 | スキーマ・カタログ・enum・frontmatterフィールドを拡張する時 |
 | [[clusters/kintone.md]] | kintone カスタマイズ（REST API・カスタムJS/CSS・全体カスタマイズ）の落とし穴 | 4 | kintone アプリ構築・カスタマイズ作業時 |
-| [[clusters/observability.md]] | 記録・計測・監視材料（**症状が出ない故障**・フォールバックの可視化・自己修復） | 8 | ログ/イベント/通知/監視を実装・変更する時、外部ツールに依存する経路を書く時 |
+| [[clusters/observability.md]] | 記録・計測・監視材料（**症状が出ない故障**・フォールバックの可視化・自己修復） | 9 | ログ/イベント/通知/監視を実装・変更する時、外部ツールに依存する経路を書く時 |
 | [[clusters/rendering-quality.md]] | 機械が描いた見た目の自己検証（情報図・プレビュー・**生成物のラベル**） | 4 | 画像/図/プレビューを生成する時、生成エンジンにフォールバックを付ける時 |
 | [[clusters/uc.md]] | ユーザー指摘（UC）から昇格した行動原則 | 28 | ユーザーに指摘された時・自律運用の設計を変える時 |
 | [[clusters/pipeline-idempotency.md]] | パイプラインの冪等性・再開・ロック | 4 | 多段パイプライン・再実行・ロックを設計する時 |
@@ -133,13 +133,14 @@
 - [[nodes/note-kpi-weekly-cadence-window-blind-spot.md]] — `observability` cluster (`kpi`, `note`, `producer-consumer-sync`, `window-alignment`, `cadence`, `pullie`)
 - [[nodes/payment-gate-false-positive-stripe-hidden-iframe.md]] — `payment-gate` cluster (`playwright`, `stripe`, `false-positive`, `research-lab`, `weevee`)
 - [[nodes/pinned-external-model-name-breaks-silently.md]] — `observability` cluster (`external-dependency`, `silent-failure`, `grace-degradation`, `cli`, `pullie`)
-- [[nodes/ps1-no-bom-lf-comment-swallows-next-line.md]] — `platform-syntax` cluster (`powershell`, `encoding`, `cp932`, `task-scheduler`, `silent-failure`, `weevee`)
 - [[nodes/pipeline-resume-guard-orphaned-early-stage-drafts.md]] — `pullie` cluster (`pipeline`, `orchestration`, `resume`, `orphan`)
 - [[nodes/powershell-hash-literal-git.md]] — `powershell` cluster (`git`, `syntax-error`)
 - [[nodes/preview-built-published-md-instead-of-rewrite-draft.md]] — `preview` cluster (`rewrite-lane`, `build`, `stale-artifact`, `weevee`)
+- [[nodes/ps1-no-bom-lf-comment-swallows-next-line.md]] — `powershell` cluster (`encoding`, `cp932`, `windows`, `task-scheduler`, `silent-failure`, `weevee`, `bom`)
 - [[nodes/publish-worker-not-idempotent-after-push.md]] — `git` cluster (`idempotency`, `pipeline`, `publish`, `cloudflare-pages`)
 - [[nodes/queue-adjacency-same-article-consecutive-posts.md]] — `pullie` cluster (`sns`, `queue`, `scheduling`, `x-twitter`, `dedup`)
 - [[nodes/recover-ids-by-reconciling-observations-not-send-path.md]] — `observability` cluster (`data-recovery`, `irreversible-action`, `matching`, `api`, `pullie`)
+- [[nodes/reminder-covers-only-the-entity-it-was-written-for.md]] — `observability` cluster (`watchdog`, `notification`, `human-in-the-loop`, `note`, `silent-failure`, `pullie`)
 - [[nodes/researcher-hard-timeout-killed-after-measurements-done.md]] — `timeout` cluster (`retry`, `research-lab`, `resume`, `claude-client`, `weevee`)
 - [[nodes/reviewer-checklist-without-applicability-conditions.md]] — `ai-behavior` cluster (`llm-pipeline`, `reviewer`, `checklist`, `scoring`, `weevee`)
 - [[nodes/reviewer-flagged-machine-rendered-log-image-as-fabricated.md]] — `reviewer` cluster (`false-positive`, `images`, `provenance`, `send-back-loop`, `weevee`)

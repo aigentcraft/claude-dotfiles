@@ -83,3 +83,14 @@ oldest/newest・件数の内訳・母集団を添えて、分布のまま渡す�
 ただし**環境を変える操作**（`npm install -g` 等）を自動化するときは
 ①無効化スイッチ ②クールダウン ③1 プロセス 1 回 ④同時実行の排他 を必ず付ける。
 - 詳細: [[../nodes/uc-silent-fallback-labeled-as-gpt.md]] / [[../nodes/uc-notification-instead-of-self-healing.md]]
+
+### R10: 人間の1アクション待ちを新設したら、その督促の所在を同時に確認する
+承認・返信・アップロード待ちは**通知1回では届かない**（人間は読み飛ばす）。
+督促を entity ごとの `if` ブロックで並べると、後から生えたレーンが静かに抜ける
+（実例: articles と leads には督促があり、後から足した note だけ無く6日停止）。
+- 通知本文には「**その1件が何を止めているか**」を書く。1本の滞留でレーン全体が止まる
+  種類のキューでは、人間の優先度が変わる
+- 沈黙ウォッチドッグは「鳴ること」ではなく「**次の1手を決められる現在値が入っていること**」
+  がゴール。原因の断定（`if 条件: 断定文`）ではなく、最後の生成時刻・未処理の一覧を並べる
+- 詳細: [[../nodes/reminder-covers-only-the-entity-it-was-written-for.md]] /
+  [[ai-behavior.md]] R18 / [[../nodes/enumeration-guards-never-close-use-structural-rules.md]]
