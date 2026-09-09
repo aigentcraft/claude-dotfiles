@@ -116,6 +116,15 @@ KW 1 語 = 記事 1 本で企画すると、同じ意図が「動くのか」と
 
 - **品質劣化を人間が目で見つけたら、直すのは「見えた症状」ではなく「機械が気づけなかった理由」**。フォールバックは記録と通知に出し（グレースは隠す仕組みではない）、生成物のラベルは実経路から導出し（定数のラベルは検閲に嘘を渡す）、復旧手順が確定している外部ツールのエラーは自己修復にする（環境を変える操作には無効化スイッチ・クールダウン・1プロセス1回・排他を付ける） — [[../nodes/uc-silent-fallback-labeled-as-gpt.md]]
 
+### R22 落ちない検査は検査ではない — 成功条件は「事実が成立していないと出現し得ないもの」で取る
+「成立時に出るもの」を合図にすると、不成立時にも出ることがある（未ログイン画面にもアプリの枠は描画される・
+URL がログイン前後で変わらないサイトがある・制約の無い偽スキーマでは INSERT が常に通る）。
+合図は**不成立時に出るものが消えたこと**で取る。肯定と否定が同時に見えたら**否定に倒す**（未ログイン・不合格・未検証が安全側）。
+検査を書いたら、条件が成立していない状態で一度走らせて**赤を出してから**採用する。
+自分が書いた成功記録（ログの `LOGGED IN`・manifest のラベル）を、次の判断の証拠にしない。
+DB を使うテストは本番の `schema.sql` から作る — 表の形を手で写した瞬間、制約は消える。
+
+
 ## このクラスターのノード一覧
 
 - [[../nodes/uc-approval-request-local-path-instead-of-url.md]] — `user-correction`, `hitl`, `approval-flow`, `stale-assumption`
@@ -140,3 +149,5 @@ KW 1 語 = 記事 1 本で企画すると、同じ意図が「動くのか」と
 - [[../nodes/uc-x-posts-must-deliver-official-facts-with-media.md]] — `sns`, `content-quality`, `media`（「注視中」で締まる速報ツイート → 公式リソースの具体 + 画像/動画を必ず付ける。合格条件は「禁止語がない」でなく「持ち帰りが 1 つある」）
 - [[../nodes/uc-plan-by-intent-not-keyword.md]] — `editorial`, `seo`, `search-intent`, `coverage`, `weevee`（R21: KW 1 語 = 記事 1 本で企画が意図ごとに割れていた → intent クラスタリング + common_topics + Q17 網羅性）
 - [[../nodes/uc-silent-fallback-labeled-as-gpt.md]] — `images`, `imagegen`, `fallback`, `silent-failure`, `labeling`, `self-healing`, `weevee`（画像エンジンが 3 日間全滅していたのに manifest は「GPT Image・読み戻し照合済み」と記録 → 実経路からのラベル導出・フォールバックの可視化・外部 CLI の自動更新）
+- [[../nodes/verification-tool-that-cannot-fail.md]] — `user-correction`, `verification`, `false-positive`, `test-schema`, `weevee`（R22: URL 一致で「LOGGED IN」・未ログイン画面にも出る語を「ログイン後にだけ出る語」に登録・偽スキーマが本番の CHECK/FK/NOT NULL を隠す — 同じ型が 1 時間で 3 件）
+- [[../nodes/uc-gave-up-on-paid-service-without-checking.md]] — `user-correction`, `verification`, `premature-giving-up`, `cost-rule`, `weevee`（契約済みの ChatGPT Pro を「有料だから触れない」と確認せず結論 — 課金禁止は**新たな課金**の禁止であって有料サービスを使わないことではない）

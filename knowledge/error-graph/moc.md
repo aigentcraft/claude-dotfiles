@@ -38,7 +38,7 @@
 
 | クラスター | 内容 | ノード数 | ロード条件 |
 |---|---|---|---|
-| [[clusters/ai-behavior.md]] | AI行動パターン・システム設計・知識グラフ設計 | 13 | AI設計・スケール・ナレッジシステム系タスク |
+| [[clusters/ai-behavior.md]] | AI行動パターン・システム設計・知識グラフ設計 | 14 | AI設計・スケール・ナレッジシステム系タスク |
 | [[clusters/api-network.md]] | API/ネットワーク・非同期・タイムアウト・プラットフォーム規制 | 3 | 外部API・ネットワークリクエストを書く時 |
 | [[clusters/platform-syntax.md]] | PowerShell/Windows固有の構文エラー | 1 | PowerShell・Windowsスクリプト作業時 |
 | [[clusters/copywriting-psychology.md]] | コピーライティング心理学・間接的動機づけ設計 | 1 | 記事・LP・SNS投稿のコピーを書く時 |
@@ -196,6 +196,7 @@
 - [[nodes/uc-declared-missing-path-without-checking-detector-timing.md]] — `uc` cluster (`ai-behavior`, `observability`, `false-conclusion`, `over-engineering`, `pullie`)
 - [[nodes/uc-demo-screens-are-sales-assets.md]] — `uc` cluster (`pullie`, `screenshots`, `demo-quality`, `kintone`, `sales-perception`)
 - [[nodes/uc-focus-labels-too-small-after-zoom.md]] — `graph` cluster (`typography`, `zoom`, `readability`, `weevee`)
+- [[nodes/uc-gave-up-on-paid-service-without-checking.md]] — `verification` cluster (`premature-giving-up`, `cost-rule`, `weevee`)
 - [[nodes/uc-gpt-image-japanese-text-was-self-forbidden.md]] — `images` cluster (`gpt-image`, `japanese`, `false-premise`, `weevee`)
 - [[nodes/uc-graph-focus-relayout-and-click-feedback.md]] — `graph` cluster (`layout`, `mind-map`, `motion`, `color`, `weevee`)
 - [[nodes/uc-graph-hierarchy-zoom-and-fit.md]] — `graph` cluster (`layout`, `zoom`, `taxonomy`, `responsive`, `weevee`)
@@ -247,6 +248,7 @@
 - [[nodes/uc-x-engagement-should-self-drive.md]] — `sns` cluster (`autonomy`, `hitl`, `notification-design`)
 - [[nodes/uc-x-must-ride-trends-with-quote-replies.md]] — `uc` cluster (`sns`, `x-twitter`, `trend`, `quote-reply`, `analytics`, `weevee`)
 - [[nodes/uc-x-posts-must-deliver-official-facts-with-media.md]] — `uc` cluster (`sns`, `x-twitter`, `content-quality`, `media`, `weevee`, `breaking-lane`)
+- [[nodes/verification-tool-that-cannot-fail.md]] — `verification` cluster (`false-positive`, `test-schema`, `playwright`, `weevee`)
 
 ---
 

@@ -227,3 +227,4 @@ keep/demote/retire の判断はエージェント。この線を越えると R18
 - [[../nodes/enumeration-guards-never-close-use-structural-rules.md]] — `guards`, `enumeration`, `structural-rules`, `limits`, `lab_guard`
 - [[../nodes/uc-pipeline-is-conveyor-not-agent-org.md]] — `uc`, `architecture`, `agent-org`, `gates`, `conveyor`, `recurrence`
 - [[../nodes/test-global-monkeypatch-leaks-to-whole-session.md]] — `pytest`, `monkeypatch`, `test-pollution`
+- [[../nodes/uc-gave-up-on-paid-service-without-checking.md]] — `uc`, `verification`, `premature-giving-up`, `cost-rule`
