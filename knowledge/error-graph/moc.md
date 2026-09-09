@@ -94,6 +94,7 @@
 - [[nodes/codex-image-tool-prompt-contract-multiline-and-attach-order.md]] — `codex` cluster (`imagegen`, `cli-contract`, `silent-failure`, `weevee`)
 - [[nodes/copywriting-indirect-motivation.md]] — `copywriting` cluster (`psychology`, `content-writing`, `behavioral`, `self-determination`)
 - [[nodes/cumulative-gauge-snapshot-summed-as-flow.md]] — `kpi` cluster (`aggregation`, `sqlite`, `weekly-report`, `note`, `pullie`)
+- [[nodes/db-file-restore-reverts-inflight-approval.md]] — `pipeline-idempotency` cluster (`testing`, `concurrency`, `irreversible-action`, `sqlite`, `pullie`)
 - [[nodes/deploy-wait-http-200-races-stale-build.md]] — `cloudflare` cluster (`pages`, `deploy`, `race-condition`, `verification`, `pullie`)
 - [[nodes/discard-path-topic-requeue-leak.md]] — `pipeline` cluster (`state-machine`, `cleanup`, `sqlite`)
 - [[nodes/duplicate-skill-dirs-manifest-points-at-stale-copy.md]] — `skills` cluster (`manifest`, `duplicate-source`, `stale-config`, `weevee`)
