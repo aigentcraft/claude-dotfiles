@@ -165,6 +165,7 @@
 - [[nodes/stale-pipeline-lock-after-killed-run.md]] — `lock` cluster (`pipeline`, `resume`, `windows`, `process-lifecycle`, `weevee`)
 - [[nodes/success-only-logging-and-overwrite-discard-history.md]] — `observability` cluster (`logging`, `data-loss`, `sqlite`, `learning-loop`, `agent`, `pullie`)
 - [[nodes/supabase-v2-types-resolve-never.md]] — `supabase` cluster (`typescript`, `database`, `type-safety`)
+- [[nodes/sweep-target-list-must-not-be-the-fixed-set.md]] — `observability` cluster (`testing`, `sweep`, `false-coverage`, `launcher`, `weevee`)
 - [[nodes/task-time-limit-kills-run-and-its-own-alarm.md]] — `observability` cluster (`monitoring`, `system-design`, `pullie`, `silent-failure`, `task-scheduler`, `windows`, `watchdog`)
 - [[nodes/test-global-monkeypatch-leaks-to-whole-session.md]] — `pytest` cluster (`monkeypatch`, `test-pollution`, `weevee`)
 - [[nodes/unbounded-review-task-collapses-to-bounded-part.md]] — `ai-behavior` cluster (`observability`, `agent`, `learning-loop`, `prompt-design`, `pullie`)

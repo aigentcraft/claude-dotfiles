@@ -106,3 +106,4 @@ oldest/newest・件数の内訳・母集団を添えて、分布のまま渡す�
 - **「同じ通知が繰り返し来る」＝重複抑止が無い、とは限らない。**
   完走回数と途中死回数を数えると「1通送って死ぬループ」が見える
 - 詳細: [[../nodes/error-handler-wrote-a-status-the-schema-forbids.md]]
+- [[../nodes/sweep-target-list-must-not-be-the-fixed-set.md]] — `testing`, `sweep`, `false-coverage`（横断検査の対象を「対策済みの目印」から作ると、直っていないものが検査対象にすらならない。対象は性質から導き、除外は名指し。旧コードで落ちる件数を先に見積もる）
