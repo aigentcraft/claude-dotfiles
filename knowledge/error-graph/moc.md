@@ -110,6 +110,7 @@
 - [[nodes/feedback-with-no-address-never-arrives.md]] — `feedback-loop` cluster (`sendback`, `infinite-loop`, `materials`, `llm-agent`, `weevee`)
 - [[nodes/frontmatter-field-not-wired-into-all-renderers.md]] — `producer-consumer-sync` cluster (`astro`, `schema-sync`, `renderer`, `visual-inspector`, `pullie`)
 - [[nodes/fs-demands-uncapturable-screens-deadlock.md]] — `producer-consumer-sync` cluster (`pullie`, `multi-agent`, `contract`, `screenshot-catalog`, `deadlock`, `pipeline-stall`)
+- [[nodes/gate-rejection-recorded-as-human-sendback-reset-the-limit.md]] — `pipeline-idempotency` cluster (`loop-termination`, `retry-loop`, `status-code-reuse`, `cost`, `pullie`)
 - [[nodes/generated-instruction-logged-then-discarded.md]] — `ai-behavior` cluster (`learning-loop`, `agent`, `retry-loop`, `observability`, `pullie`)
 - [[nodes/google-ads-api-setup-gotchas-oauth-timeout-customer-not-enabled.md]] — `google-ads-api` cluster (`oauth`, `keyword-planner`, `claude-in-chrome`, `captcha`, `weevee`)
 - [[nodes/grace-skip-needs-escalation-for-human-only-recovery.md]] — `monitoring` cluster (`silent-failure`, `grace-degradation`, `hitl`, `session-expiry`, `pullie`)

@@ -55,3 +55,13 @@ DB に入れた ≠ 届いた。空の鍵（`run_id=''`）で入れた行は後�
 - [[../nodes/preview-built-published-md-instead-of-rewrite-draft.md]] — `preview`, `rewrite-lane`, `stale-artifact`（検査対象は常に今回の成果物に固定）
 - [[../nodes/researcher-hard-timeout-killed-after-measurements-done.md]] — `timeout`, `retry`, `resume`（リトライには前回成果物からの再開指示を入れる）
 - [[../nodes/feedback-with-no-address-never-arrives.md]] — `feedback-loop`, `sendback`, `infinite-loop`, `materials`（宛先の無い指摘は届かない・材料が無いと LLM は嘘で埋める）
+
+### R-LOOP: ループの上限は「効くこと」を実データで確かめる
+上限のコードがあることと、上限が効くことは別。特に**数え方の起点が動く**実装
+（「最後の○○以降を数える」）は、その○○を別の主体が書けると上限が毎回リセットされる。
+- 「新しいサイクルの開始」を表す印を、AI側の差し戻しに流用しない
+- 「再試行で直る」に分類する前に、**その再実行が決定論かどうか**を見る。
+  同じ入力から同じ出力が出る工程を retry に分類すると無限に投げ続ける
+- **本来の上限ではない別の上限（コスト・時間・API制限）で止まったなら、
+  設計した上限は効いていない**。実測: 1記事が9時間で27回書き直し・LLM 188回
+- 詳細: [[../nodes/gate-rejection-recorded-as-human-sendback-reset-the-limit.md]]
