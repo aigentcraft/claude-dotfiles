@@ -24,6 +24,17 @@
 kill・クラッシュは年齢ゼロのロックを残す。pid を保存しているなら生存確認に使う。Windows で `os.kill(pid, 0)` は TerminateProcess になるため `tasklist`/psutil を使う。
 - 詳細: [[../nodes/stale-pipeline-lock-after-killed-run.md]]
 
+### R5: 記録した指摘は「誰がいつ読むか」まで辿ってから完了とする
+DB に入れた ≠ 届いた。空の鍵（`run_id=''`）で入れた行は後から束ね直せず、静かに孤立する。
+検出側を書いたら、受け取り側で実際に文字列が現れることをテストで固定する。
+同じ差し戻しが 3 ラウンド続いたら「直せていない」ではなく「届いていない」を疑う。
+- 詳細: [[../nodes/feedback-with-no-address-never-arrives.md]]
+
+### R6: エージェントに何かをさせるなら、必要な材料が渡っているかを先に実測する
+指示（SKILL.md）と材料（work dir のファイル）は別物。指示だけ足すと LLM は
+もっともらしい嘘で穴を埋める（存在しない slug・存在しない記事の紹介文）。
+- 詳細: [[../nodes/feedback-with-no-address-never-arrives.md]]
+
 ---
 
 ## 状況 → ルール
@@ -34,6 +45,8 @@ kill・クラッシュは年齢ゼロのロックを残す。pid を保存して
 | 差し戻し／リライトで章構成が変わる | R2: 再利用経路を実走確認 |
 | 生成物のファイル名に連番を使う | R3: 参照外の連番ファイルを掃除 |
 | ロックファイル/リースの残骸判定を書く | R4: 所有 pid の生存確認を一次条件に |
+| 検査結果・差し戻し理由を DB に記録する | R5: 受け取り側で現れることをテストで固定 |
+| エージェントに新しい作業を指示する | R6: 材料が work dir に届いているか実測 |
 
 ## このクラスターのノード一覧
 
@@ -41,3 +54,4 @@ kill・クラッシュは年齢ゼロのロックを残す。pid を保存して
 - [[../nodes/stale-pipeline-lock-after-killed-run.md]] — `lock`, `pipeline`, `resume`, `windows`
 - [[../nodes/preview-built-published-md-instead-of-rewrite-draft.md]] — `preview`, `rewrite-lane`, `stale-artifact`（検査対象は常に今回の成果物に固定）
 - [[../nodes/researcher-hard-timeout-killed-after-measurements-done.md]] — `timeout`, `retry`, `resume`（リトライには前回成果物からの再開指示を入れる）
+- [[../nodes/feedback-with-no-address-never-arrives.md]] — `feedback-loop`, `sendback`, `infinite-loop`, `materials`（宛先の無い指摘は届かない・材料が無いと LLM は嘘で埋める）

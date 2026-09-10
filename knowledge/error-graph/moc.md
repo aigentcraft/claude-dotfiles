@@ -35,6 +35,10 @@
     開始と終了が同一秒・出力ゼロは「成功」ではなく**起動失敗**の兆候。ネイティブコマンドを呼ぶラッパーは「一度も起動しなかった」を専用の失敗コードで落とす（PowerShell なら `$LASTEXITCODE -eq $null`）。
     実例: BOM 無し UTF-8 + LF の `.ps1` が日本語コメントで実行行を飲み込み、7 日間 rc=0 で何もしなかった（[[nodes/ps1-no-bom-lf-comment-swallows-next-line.md]]）
 12. **Windows の `.ps1` は UTF-8 BOM で保存する**: BOM が無いと PowerShell 5.1 は cp932 として読み、日本語コメント末尾の lead byte が改行を食って**次の行が消える**
+13. **同じ差し戻し・同じ検出が 3 回続いたら「直せていない」ではなく「届いていない」を疑う**: 検査結果を DB に記録した ≠ 受け手に届いた。
+    空の鍵（`run_id=''` 等）で入れた行は後から束ね直せず静かに孤立する。検出側を書いたら**受け取り側で文字列が現れることをテストで固定**する。
+    併せて、エージェントに新しい作業をさせる時は指示（SKILL.md）だけでなく**材料が work dir に届いているかを実測**する — 材料が無いと LLM はもっともらしい嘘で穴を埋める
+    （[[nodes/feedback-with-no-address-never-arrives.md]]）
 
 ---
 
@@ -54,7 +58,7 @@
 | [[clusters/observability.md]] | 記録・計測・監視材料（**症状が出ない故障**・フォールバックの可視化・自己修復） | 9 | ログ/イベント/通知/監視を実装・変更する時、外部ツールに依存する経路を書く時 |
 | [[clusters/rendering-quality.md]] | 機械が描いた見た目の自己検証（情報図・プレビュー・**生成物のラベル**） | 4 | 画像/図/プレビューを生成する時、生成エンジンにフォールバックを付ける時 |
 | [[clusters/uc.md]] | ユーザー指摘（UC）から昇格した行動原則 | 28 | ユーザーに指摘された時・自律運用の設計を変える時 |
-| [[clusters/pipeline-idempotency.md]] | パイプラインの冪等性・再開・ロック | 4 | 多段パイプライン・再実行・ロックを設計する時 |
+| [[clusters/pipeline-idempotency.md]] | パイプラインの冪等性・再開・ロック | 6 | 多段パイプライン・再実行・ロックを設計する時 |
 | [[clusters/cloudflare.md]] | Cloudflare Pages / D1 / Workers の落とし穴 | 2 | Cloudflare へデプロイ・設定する時 |
 
 ---
@@ -103,6 +107,7 @@
 - [[nodes/discard-path-topic-requeue-leak.md]] — `pipeline` cluster (`state-machine`, `cleanup`, `sqlite`)
 - [[nodes/duplicate-skill-dirs-manifest-points-at-stale-copy.md]] — `skills` cluster (`manifest`, `duplicate-source`, `stale-config`, `weevee`)
 - [[nodes/enumeration-guards-never-close-use-structural-rules.md]] — `ai-behavior` cluster
+- [[nodes/feedback-with-no-address-never-arrives.md]] — `pipeline-idempotency` cluster (`feedback-loop`, `sendback`, `infinite-loop`, `materials`, `weevee`)
 - [[nodes/frontmatter-field-not-wired-into-all-renderers.md]] — `producer-consumer-sync` cluster (`astro`, `schema-sync`, `renderer`, `visual-inspector`, `pullie`)
 - [[nodes/fs-demands-uncapturable-screens-deadlock.md]] — `producer-consumer-sync` cluster (`pullie`, `multi-agent`, `contract`, `screenshot-catalog`, `deadlock`, `pipeline-stall`)
 - [[nodes/generated-instruction-logged-then-discarded.md]] — `ai-behavior` cluster (`learning-loop`, `agent`, `retry-loop`, `observability`, `pullie`)
