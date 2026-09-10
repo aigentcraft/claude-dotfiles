@@ -94,3 +94,15 @@ oldest/newest・件数の内訳・母集団を添えて、分布のまま渡す�
   がゴール。原因の断定（`if 条件: 断定文`）ではなく、最後の生成時刻・未処理の一覧を並べる
 - 詳細: [[../nodes/reminder-covers-only-the-entity-it-was-written-for.md]] /
   [[ai-behavior.md]] R18 / [[../nodes/enumeration-guards-never-close-use-structural-rules.md]]
+
+### R11: エラーハンドラの中の書き込みは、正常系では一度も実行されない
+`except` 節の DB 書き込み・API 呼び出しは、**失敗したときにしか動かない**。
+そこが壊れていると、握ったはずの例外が上位へ抜けてワーカーごと死ぬ。
+実例: `finish_reflection(status="error")` がスキーマの `CHECK IN ('running','done','failed')`
+に弾かれ、通知役が38回連続で「1通送って死ぬ」を繰り返した（Discordが同じ通知で溢れた）。
+- **わざと例外を起こして except 節を1度実行する**
+- スキーマの語彙を文字列で書く箇所は、**共通関数の入口で丸める**（呼び出し側を全部直しても
+  次に増える呼び出し側は直っていない）
+- **「同じ通知が繰り返し来る」＝重複抑止が無い、とは限らない。**
+  完走回数と途中死回数を数えると「1通送って死ぬループ」が見える
+- 詳細: [[../nodes/error-handler-wrote-a-status-the-schema-forbids.md]]

@@ -107,6 +107,7 @@
 - [[nodes/discard-path-topic-requeue-leak.md]] — `pipeline` cluster (`state-machine`, `cleanup`, `sqlite`)
 - [[nodes/duplicate-skill-dirs-manifest-points-at-stale-copy.md]] — `skills` cluster (`manifest`, `duplicate-source`, `stale-config`, `weevee`)
 - [[nodes/enumeration-guards-never-close-use-structural-rules.md]] — `ai-behavior` cluster
+- [[nodes/error-handler-wrote-a-status-the-schema-forbids.md]] — `observability` cluster (`error-handling`, `notification-storm`, `db-constraint`, `silent-failure`, `pullie`)
 - [[nodes/feedback-with-no-address-never-arrives.md]] — `feedback-loop` cluster (`sendback`, `infinite-loop`, `materials`, `llm-agent`, `weevee`)
 - [[nodes/frontmatter-field-not-wired-into-all-renderers.md]] — `producer-consumer-sync` cluster (`astro`, `schema-sync`, `renderer`, `visual-inspector`, `pullie`)
 - [[nodes/fs-demands-uncapturable-screens-deadlock.md]] — `producer-consumer-sync` cluster (`pullie`, `multi-agent`, `contract`, `screenshot-catalog`, `deadlock`, `pipeline-stall`)
@@ -209,6 +210,7 @@
 - [[nodes/uc-content-must-drive-affiliate-signup-desire.md]] — `uc` cluster (`editorial`, `affiliate`, `conversion`, `cta`, `sns`, `weevee`)
 - [[nodes/uc-declared-missing-path-without-checking-detector-timing.md]] — `uc` cluster (`ai-behavior`, `observability`, `false-conclusion`, `over-engineering`, `pullie`)
 - [[nodes/uc-demo-screens-are-sales-assets.md]] — `uc` cluster (`pullie`, `screenshots`, `demo-quality`, `kintone`, `sales-perception`)
+- [[nodes/uc-explained-by-filename-not-by-role.md]] — `communication` cluster (`reporting`, `jargon`, `weevee`)
 - [[nodes/uc-focus-labels-too-small-after-zoom.md]] — `graph` cluster (`typography`, `zoom`, `readability`, `weevee`)
 - [[nodes/uc-gave-up-on-paid-service-without-checking.md]] — `verification` cluster (`premature-giving-up`, `cost-rule`, `weevee`)
 - [[nodes/uc-gpt-image-japanese-text-was-self-forbidden.md]] — `images` cluster (`gpt-image`, `japanese`, `false-premise`, `weevee`)
