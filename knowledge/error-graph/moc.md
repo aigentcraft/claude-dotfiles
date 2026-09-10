@@ -107,7 +107,7 @@
 - [[nodes/discard-path-topic-requeue-leak.md]] — `pipeline` cluster (`state-machine`, `cleanup`, `sqlite`)
 - [[nodes/duplicate-skill-dirs-manifest-points-at-stale-copy.md]] — `skills` cluster (`manifest`, `duplicate-source`, `stale-config`, `weevee`)
 - [[nodes/enumeration-guards-never-close-use-structural-rules.md]] — `ai-behavior` cluster
-- [[nodes/feedback-with-no-address-never-arrives.md]] — `pipeline-idempotency` cluster (`feedback-loop`, `sendback`, `infinite-loop`, `materials`, `weevee`)
+- [[nodes/feedback-with-no-address-never-arrives.md]] — `feedback-loop` cluster (`sendback`, `infinite-loop`, `materials`, `llm-agent`, `weevee`)
 - [[nodes/frontmatter-field-not-wired-into-all-renderers.md]] — `producer-consumer-sync` cluster (`astro`, `schema-sync`, `renderer`, `visual-inspector`, `pullie`)
 - [[nodes/fs-demands-uncapturable-screens-deadlock.md]] — `producer-consumer-sync` cluster (`pullie`, `multi-agent`, `contract`, `screenshot-catalog`, `deadlock`, `pipeline-stall`)
 - [[nodes/generated-instruction-logged-then-discarded.md]] — `ai-behavior` cluster (`learning-loop`, `agent`, `retry-loop`, `observability`, `pullie`)
