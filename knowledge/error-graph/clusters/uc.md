@@ -151,3 +151,5 @@ DB を使うテストは本番の `schema.sql` から作る — 表の形を手�
 - [[../nodes/uc-silent-fallback-labeled-as-gpt.md]] — `images`, `imagegen`, `fallback`, `silent-failure`, `labeling`, `self-healing`, `weevee`（画像エンジンが 3 日間全滅していたのに manifest は「GPT Image・読み戻し照合済み」と記録 → 実経路からのラベル導出・フォールバックの可視化・外部 CLI の自動更新）
 - [[../nodes/verification-tool-that-cannot-fail.md]] — `user-correction`, `verification`, `false-positive`, `test-schema`, `weevee`（R22: URL 一致で「LOGGED IN」・未ログイン画面にも出る語を「ログイン後にだけ出る語」に登録・偽スキーマが本番の CHECK/FK/NOT NULL を隠す — 同じ型が 1 時間で 3 件）
 - [[../nodes/uc-gave-up-on-paid-service-without-checking.md]] — `user-correction`, `verification`, `premature-giving-up`, `cost-rule`, `weevee`（契約済みの ChatGPT Pro を「有料だから触れない」と確認せず結論 — 課金禁止は**新たな課金**の禁止であって有料サービスを使わないことではない）
+
+- [[../nodes/uc-added-constraints-without-updating-the-goal.md]] — `goal-alignment`, `agent`, `prompt-design`, `producer-consumer-sync`, `pullie`（noteが3本続けて同じ理由で差し戻し → 私は禁止条項と差し戻し履歴を足したが、**その振る舞いを指示していた戦略文書（目的・レーン定義）を一度も読まなかった**。制約を足しても目的が古いままなら同じ場所に戻る。「順番を機械が決める」場所は判断が消えている場所）
