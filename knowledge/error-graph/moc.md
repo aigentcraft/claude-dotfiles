@@ -211,6 +211,7 @@
 - [[nodes/uc-content-must-drive-affiliate-signup-desire.md]] — `uc` cluster (`editorial`, `affiliate`, `conversion`, `cta`, `sns`, `weevee`)
 - [[nodes/uc-declared-missing-path-without-checking-detector-timing.md]] — `uc` cluster (`ai-behavior`, `observability`, `false-conclusion`, `over-engineering`, `pullie`)
 - [[nodes/uc-demo-screens-are-sales-assets.md]] — `uc` cluster (`pullie`, `screenshots`, `demo-quality`, `kintone`, `sales-perception`)
+- [[nodes/uc-endless-whack-a-mole.md]] — `uc` cluster (`process`, `verification`, `observability`, `whack-a-mole`, `weevee`)
 - [[nodes/uc-explained-by-filename-not-by-role.md]] — `communication` cluster (`reporting`, `jargon`, `weevee`)
 - [[nodes/uc-focus-labels-too-small-after-zoom.md]] — `graph` cluster (`typography`, `zoom`, `readability`, `weevee`)
 - [[nodes/uc-gave-up-on-paid-service-without-checking.md]] — `verification` cluster (`premature-giving-up`, `cost-rule`, `weevee`)
