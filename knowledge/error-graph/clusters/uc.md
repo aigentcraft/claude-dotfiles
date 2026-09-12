@@ -154,3 +154,5 @@ DB を使うテストは本番の `schema.sql` から作る — 表の形を手�
 
 - [[../nodes/uc-added-constraints-without-updating-the-goal.md]] — `goal-alignment`, `agent`, `prompt-design`, `producer-consumer-sync`, `pullie`（noteが3本続けて同じ理由で差し戻し → 私は禁止条項と差し戻し履歴を足したが、**その振る舞いを指示していた戦略文書（目的・レーン定義）を一度も読まなかった**。制約を足しても目的が古いままなら同じ場所に戻る。「順番を機械が決める」場所は判断が消えている場所）
 - [[../nodes/uc-endless-whack-a-mole.md]] — `process`, `verification`, `observability`, `weevee`（「直すたびに次が出る」の根本原因 3 つ: 成功の合図が事実を含意しない／観測者が観測対象の中に住む／同じ集合を手で 4 回書く。独立診断 39 エージェントで確定。私の当初の見立て 2 点は反証された）
+
+- [[../nodes/uc-pushed-a-decision-the-org-should-have-made.md]] — `delegation`, `decision-framing`, `agent-autonomy`, `pullie`（実装不能と分かった企画の作り直しを、材料も軸も添えずに人間へ3択で投げた → 「判断要素がよくわからない」。**担当エージェントがいる実務を人間に上げない**。選択肢を出すなら、各案が何をどう変えるかを必ず添える）

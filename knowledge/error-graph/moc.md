@@ -242,6 +242,7 @@
 - [[nodes/uc-plan-by-intent-not-keyword.md]] — `uc` cluster (`editorial`, `seo`, `planning`, `search-intent`, `serp`, `clustering`, `coverage`, `competitor`, `weevee`)
 - [[nodes/uc-premature-completion-reports.md]] — `uc` cluster (`pullie`, `verification`, `reporting`, `discipline`)
 - [[nodes/uc-probe-must-cover-layout-overflow.md]] — `pullie` cluster (`visual-inspection`, `layout`, `overflow`, `mobile`, `verification`)
+- [[nodes/uc-pushed-a-decision-the-org-should-have-made.md]] — `uc` cluster (`delegation`, `decision-framing`, `agent-autonomy`, `pullie`)
 - [[nodes/uc-real-but-unrelated-screenshots.md]] — `uc` cluster (`pullie`, `screenshots`, `content-image-consistency`, `kintone`, `inspection-coverage`)
 - [[nodes/uc-rejection-should-trigger-immediate-rework.md]] — `uc` cluster (`hitl`, `pipeline`, `feedback-loop`, `ux`, `pullie`)
 - [[nodes/uc-repeat-master-push-despite-known-403.md]] — `git` cluster (`permissions`, `repeat-error`)
