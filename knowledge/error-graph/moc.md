@@ -87,6 +87,7 @@
 - [[nodes/ai-sdk-v6-renamed-properties.md]] — `ai-sdk` cluster (`vercel-ai`, `typescript`, `api-migration`)
 - [[nodes/api-rate-limit-exceeded.md]] — `api` cluster (`network`, `rate-limit`)
 - [[nodes/bash-awk-regex-and-array-accumulation.md]] — `bash` cluster (`awk`, `regex`, `arrays`, `windows`, `git-bash`, `cross-platform`)
+- [[nodes/bash-heredoc-truncates-long-files.md]] — `claude-code` cluster (`bash`, `heredoc`, `windows`, `git-bash`, `platform-syntax`)
 - [[nodes/bulk-migration-regex-ate-the-adjacent-block.md]] — `migration` cluster (`regex`, `bulk-edit`, `single-source`, `weevee`)
 - [[nodes/capture-success-is-not-content-correctness.md]] — `observability` cluster (`screenshot`, `publishing`, `review-gate`, `automation`, `pullie`)
 - [[nodes/cdp-port-9222-hijacked-by-wsl-relay-wrong-browser.md]] — `wsl` cluster (`cdp`, `playwright`, `chrome`, `port-collision`, `misdiagnosis`, `pullie`)
@@ -106,6 +107,7 @@
 - [[nodes/deploy-wait-http-200-races-stale-build.md]] — `cloudflare` cluster (`pages`, `deploy`, `race-condition`, `verification`, `pullie`)
 - [[nodes/discard-path-topic-requeue-leak.md]] — `pipeline` cluster (`state-machine`, `cleanup`, `sqlite`)
 - [[nodes/duplicate-skill-dirs-manifest-points-at-stale-copy.md]] — `skills` cluster (`manifest`, `duplicate-source`, `stale-config`, `weevee`)
+- [[nodes/element-present-is-not-handler-bound.md]] — `playwright` cluster (`e2e`, `race`, `kintone`, `plugin`, `silent-failure`, `pullie`)
 - [[nodes/enumeration-guards-never-close-use-structural-rules.md]] — `ai-behavior` cluster
 - [[nodes/error-handler-wrote-a-status-the-schema-forbids.md]] — `observability` cluster (`error-handling`, `notification-storm`, `db-constraint`, `silent-failure`, `pullie`)
 - [[nodes/feedback-with-no-address-never-arrives.md]] — `feedback-loop` cluster (`sendback`, `infinite-loop`, `materials`, `llm-agent`, `weevee`)
@@ -146,6 +148,7 @@
 - [[nodes/prompt-never-arrived-but-the-run-looked-successful.md]] — `observability` cluster (`silent-failure`, `subprocess`, `stdin`, `prompt-size`, `self-reinforcing`, `pullie`)
 - [[nodes/ps1-no-bom-lf-comment-swallows-next-line.md]] — `powershell` cluster (`encoding`, `cp932`, `windows`, `task-scheduler`, `silent-failure`, `weevee`, `bom`)
 - [[nodes/publish-worker-not-idempotent-after-push.md]] — `git` cluster (`idempotency`, `pipeline`, `publish`, `cloudflare-pages`)
+- [[nodes/published-but-never-announced-because-url-stayed-in-stdout.md]] — `producer-consumer-sync` cluster (`silent-failure`, `handoff`, `booth`, `pullie`, `release`)
 - [[nodes/queue-adjacency-same-article-consecutive-posts.md]] — `pullie` cluster (`sns`, `queue`, `scheduling`, `x-twitter`, `dedup`)
 - [[nodes/recover-ids-by-reconciling-observations-not-send-path.md]] — `observability` cluster (`data-recovery`, `irreversible-action`, `matching`, `api`, `pullie`)
 - [[nodes/reminder-covers-only-the-entity-it-was-written-for.md]] — `observability` cluster (`watchdog`, `notification`, `human-in-the-loop`, `note`, `silent-failure`, `pullie`)

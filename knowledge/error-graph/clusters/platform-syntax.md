@@ -55,3 +55,12 @@ PowerShell 5.1 は BOM の無い `.ps1` を **cp932** として読む。日本�
 - [[../nodes/codex-image-tool-prompt-contract-multiline-and-attach-order.md]] — `codex`, `imagegen`, `cli-contract`, `silent-failure`（1 行契約・-i は後ろ）
 - [[../nodes/heredoc-python-escapes-corrupted-regex-and-tmp-path-mismatch.md]] — `git-bash`, `heredoc`, `windows-path`, `commit-gate`（正規表現はリテラルのままファイルへ・/tmp を Python に渡さない・コミットは pytest の終了コードでゲート）
 - [[../nodes/windows-cp932-print-crash-before-interactive-step.md]] — `cp932`, `print`, `interactive-tool`（人間操作 CLI の案内 print が「—」で落ちて操作に到達しない → main 冒頭で stdout.reconfigure(utf-8)）
+
+
+### R-HEREDOC: Bash ツールのヒアドキュメントは長いファイルで終端ごと切れる
+Claude Code の Bash ツールは、おおよそ **150〜180 行を超えるヒアドキュメント**でコマンドが
+途中で切られ、bash が「unexpected EOF while looking for matching quote」で落ちる（ファイルは作られない）。
+エラー文言はクォート不整合を指すが、原因は中身のエスケープではなく**長さ**。
+- **対策**: 長いファイルは Write ツールで書く。既存ファイルの部分変更は
+  `python - <<'EOF'` で「読む→`assert` で対象確認→置換→書く」（短く収まる）
+- 詳細: [[../nodes/bash-heredoc-truncates-long-files.md]]
