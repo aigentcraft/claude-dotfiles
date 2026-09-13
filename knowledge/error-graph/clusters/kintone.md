@@ -7,6 +7,8 @@ kintone カスタマイズ（REST API・カスタム JS/CSS・全体カスタマ
 - [[../nodes/kintone-system-js-head-execution-body-null.md]] — 全体カスタマイズ JS は `<head>` で実行され `document.body` が null
 - [[../nodes/kintone-delivered-js-manual-commentout-corruption.md]] — 配信 JS がクライアントの手動コメントアウトで構文破壊
 - [[../nodes/kintone-dropdown-query-nonexistent-option-error.md]] — ドロップダウンへの in クエリは選択肢に無い値でエラー（空結果ではない）
+- [[../nodes/kintone-form-editor-rebuilt-old-selectors-gone.md]] — フォーム編集画面が作り直され `fm-control-*-field-gaia` が全滅。新クラスはハッシュ付きなので前方一致で持つ
+- [[../nodes/writer-vocabulary-crashes-demo-app-build.md]] — 記号入りの項目名はフィールド**コード**が400。ラベルと識別子を分ける
 - [[../nodes/element-present-is-not-handler-bound.md]] — プラグイン設定画面は要素が出てから config.js が走る。要素待ちでクリックすると保存が静かに効かない
 
 ## 蒸留ルール（kintone 作業時に適用）
