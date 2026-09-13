@@ -174,6 +174,7 @@
 - [[nodes/slack-api-silent-hang.md]] — `slack` cluster (`api`, `timeout`, `mcp`)
 - [[nodes/sqlite-unique-slug-permanent-crash-loop.md]] — `sqlite` cluster (`unique-constraint`, `pipeline`, `pullie`, `slug`, `self-healing`)
 - [[nodes/stale-claude-md-duplicate-implementation.md]] — `multi-machine` cluster (`git`, `claude-md`, `session-handoff`, `duplicate-work`)
+- [[nodes/stale-external-approval-never-reverified.md]] — `observability` cluster (`external-dependency`, `waiting`, `stale-state`, `google-ads`, `weevee`)
 - [[nodes/stale-pipeline-lock-after-killed-run.md]] — `lock` cluster (`pipeline`, `resume`, `windows`, `process-lifecycle`, `weevee`)
 - [[nodes/success-only-logging-and-overwrite-discard-history.md]] — `observability` cluster (`logging`, `data-loss`, `sqlite`, `learning-loop`, `agent`, `pullie`)
 - [[nodes/supabase-v2-types-resolve-never.md]] — `supabase` cluster (`typescript`, `database`, `type-safety`)
