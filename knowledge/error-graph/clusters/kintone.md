@@ -10,6 +10,7 @@ kintone カスタマイズ（REST API・カスタム JS/CSS・全体カスタマ
 - [[../nodes/kintone-form-editor-rebuilt-old-selectors-gone.md]] — フォーム編集画面が作り直され `fm-control-*-field-gaia` が全滅。新クラスはハッシュ付きなので前方一致で持つ
 - [[../nodes/writer-vocabulary-crashes-demo-app-build.md]] — 記号入りの項目名はフィールド**コード**が400。ラベルと識別子を分ける
 - [[../nodes/element-present-is-not-handler-bound.md]] — プラグイン設定画面は要素が出てから config.js が走る。要素待ちでクリックすると保存が静かに効かない
+- [[../nodes/matched-sample-does-not-validate-unmatched-population.md]] — 6ヶ月の完全一致は「入金済みレコード」しか検証していなかった。延滞が17〜67%漏れた
 
 ## 蒸留ルール（kintone 作業時に適用）
 
