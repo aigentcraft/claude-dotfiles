@@ -86,6 +86,7 @@
 > Complete index below. Use clusters for structured entry.
 
 ### [Type A] Technical Errors
+- [[nodes/agent-action-space-cannot-express-custom-dropdown.md]] — `agent` cluster (`tools`, `action-space`, `kintone`, `playwright`, `pullie`, `transition-phase2`)
 - [[nodes/aggregate-material-collapses-distribution.md]] — `ai-behavior` cluster (`system-design`, `pullie`, `monitoring`, `observability`, `false-alarm`, `sql-aggregation`, `multi-agent`)
 - [[nodes/ai-context-blindness-at-scale.md]] — `ai-behavior` cluster (`scaling`, `system-design`, `architecture`)
 - [[nodes/ai-instruction-enforcement.md]] — `ai-behavior` cluster (`prompt-engineering`, `system-design`)

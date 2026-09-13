@@ -228,3 +228,13 @@ keep/demote/retire の判断はエージェント。この線を越えると R18
 - [[../nodes/uc-pipeline-is-conveyor-not-agent-org.md]] — `uc`, `architecture`, `agent-org`, `gates`, `conveyor`, `recurrence`
 - [[../nodes/test-global-monkeypatch-leaks-to-whole-session.md]] — `pytest`, `monkeypatch`, `test-pollution`
 - [[../nodes/uc-gave-up-on-paid-service-without-checking.md]] — `uc`, `verification`, `premature-giving-up`, `cost-rule`
+
+
+### R-ACTION-SPACE: エージェントの失敗は「判断」と「語彙」に分けてから診断する
+思考ログが筋の通った計画を書いているのに結果が出ていないなら、足りないのは判断力ではなく
+**操作の語彙（action space）**か**往復予算**である。
+- 実例: 独自ドロップダウンに `set` しか渡しておらず、メニューが開くだけで値が変わらない。
+  3項目の設定に最低6〜9往復要るのに予算4往復で打ち切り（あと1クリックだった）
+  — [[../nodes/agent-action-space-cannot-express-custom-dropdown.md]]
+- 対策: 操作単位をUIに合わせて設計する／必要操作数を先に数えて予算を決める／
+  直前の操作で現れた要素を次ターンの観測に含める
