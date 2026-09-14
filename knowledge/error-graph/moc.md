@@ -135,6 +135,7 @@
 - [[nodes/infographic-text-clipped-in-narrow-cards.md]] — `images` cluster (`rendering`, `infographic`, `overflow`, `self-verification`, `weevee`)
 - [[nodes/init-script-runs-before-documentelement-exists.md]] — `playwright` cluster (`addInitScript`, `mutationobserver`, `dom`, `silent-skip`, `weevee`)
 - [[nodes/instant-approval-path-skips-sns-fanout.md]] — `pullie` cluster (`sns`, `pipeline-wiring`, `dual-path`, `approval-flow`, `x-twitter`)
+- [[nodes/instrument-the-agent-cannot-turn-green.md]] — `agent-tools` cluster (`self-check`, `unreachable-pass`, `fail-open`, `contract`, `weevee`)
 - [[nodes/intersection-threshold-hides-tall-sections.md]] — `web-frontend` cluster (`intersection-observer`, `reveal-animation`, `mobile`, `viewport`, `pullie`)
 - [[nodes/kintone-calc-no-today-function.md]] — `kintone` cluster (`api`, `calc-field`, `GAIA_IL01`, `pullie`)
 - [[nodes/kintone-delivered-js-manual-commentout-corruption.md]] — `kintone` cluster (`custom-js`, `syntax-error`, `diagnosis`, `client-edit`, `block-comment`)
