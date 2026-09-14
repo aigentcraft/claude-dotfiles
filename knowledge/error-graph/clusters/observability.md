@@ -121,3 +121,24 @@ oldest/newest・件数の内訳・母集団を添えて、分布のまま渡す�
 - 詳細: [[../nodes/prompt-never-arrived-but-the-run-looked-successful.md]]
 - [[../nodes/stale-external-approval-never-reverified.md]] — `external-dependency`, `waiting`, `stale-state`（外部の審査を再確認の期限なしで「待ち」にし 2 週間放置。申請した場所がもう存在せず、正しい場所では 5 分で承認。同一エラー 3 日連続は「待ち」でなく「調査」の合図）
 - [[../nodes/documented-but-never-implemented.md]] — `docstring`, `unimplemented`, `silent-skip`, `naming-drift`（説明書の「自動解決」が未実装のまま 11 日「仕様」として引き継がれた + 同じ webhook に 2 つの名前。グレーススキップは理由を残す・書いた条件はテストで担保する）
+
+### R13: 守る仕掛けと、それが効いているかを見る仕掛けは、別の前提に立たせる
+同じ手がかりに立たせると、前提が崩れた日に**両方が同時に黙る**。
+実例: 録画に個人のサイドバーが写らないよう CSS で隠し、**同じセレクタ**で「見えていないこと」を
+確かめていたら、サイトが DOM を変えた時点で「隠せない」と「見つからない」が同時に起き、検査は永久に緑になる。
+- 隠す側はサイトの内部 id、確かめる側は**URL の形**（`a[href^="/c/"]`）のように、別の前提で数える
+- 検査を書いたら、**守る側だけを壊して赤を一度出す**（検査ごと壊すのでは意味がない）
+- 写り込み検査の記録は**件数だけ**にする。中身を持ち出すと、守る仕組みが個人情報を運ぶ
+- 詳細: [[../nodes/guard-and-its-check-must-not-share-the-same-handle.md]]
+- [[../nodes/init-script-runs-before-documentelement-exists.md]] — `addInitScript`, `mutationobserver`, `silent-skip`（初期化スクリプトは空の document で走るため `observe(document.documentElement)` が例外になり、catch に握られて監視が一度も付かない。自己修復を名乗る前に壊して直ることを実測する）
+- [[../nodes/browser-profile-remembers-offscreen-window-position.md]] — `chromium`, `persistent-context`, `mode-bleed`（画面外で動かす運転がプロファイルに焼き付き、人間に見せるモードでも画面外に出ていた。「表示されない = 起動していない」と決めつけず座標を実測する）
+
+
+### R-PROMPT-SIZE: プロンプトを組み立てる場所は全部に上限を入れる
+`claude -p` は**プロンプトが大きすぎると届かず、課金も ok=1 も成立したまま**
+まったく別のこと（リポジトリ探索・「何を進めますか？」）をする。
+実測しきい値: 5,479字=正常 / 21,000字超で発生 / 22,369字=未達。
+- 1度目の手当てを1箇所（X課の観測本文）にしか入れず、ライターの自己批評パスで再発
+  — [[../nodes/oversized-prompt-makes-agent-explore-repo-instead.md]]
+- **症状は毎回変わる**（「何を進めますか？」／「リポジトリを調べました」）。
+  症状名で既知/未知を判断しない。往復数の異常（1→51）が共通の指紋
