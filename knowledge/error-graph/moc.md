@@ -112,6 +112,7 @@
 - [[nodes/db-file-restore-reverts-inflight-approval.md]] — `pipeline-idempotency` cluster (`testing`, `concurrency`, `irreversible-action`, `sqlite`, `pullie`)
 - [[nodes/deploy-wait-http-200-races-stale-build.md]] — `cloudflare` cluster (`pages`, `deploy`, `race-condition`, `verification`, `pullie`)
 - [[nodes/discard-path-topic-requeue-leak.md]] — `pipeline` cluster (`state-machine`, `cleanup`, `sqlite`)
+- [[nodes/documented-but-never-implemented.md]] — `observability` cluster (`docstring`, `unimplemented`, `silent-skip`, `naming-drift`, `weevee`)
 - [[nodes/duplicate-skill-dirs-manifest-points-at-stale-copy.md]] — `skills` cluster (`manifest`, `duplicate-source`, `stale-config`, `weevee`)
 - [[nodes/element-present-is-not-handler-bound.md]] — `playwright` cluster (`e2e`, `race`, `kintone`, `plugin`, `silent-failure`, `pullie`)
 - [[nodes/enumeration-guards-never-close-use-structural-rules.md]] — `ai-behavior` cluster

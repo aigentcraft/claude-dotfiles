@@ -120,3 +120,4 @@ oldest/newest・件数の内訳・母集団を添えて、分布のまま渡す�
   （失敗→未処理が増える→入力が重くなる→また失敗。実測414件まで積み上がった）
 - 詳細: [[../nodes/prompt-never-arrived-but-the-run-looked-successful.md]]
 - [[../nodes/stale-external-approval-never-reverified.md]] — `external-dependency`, `waiting`, `stale-state`（外部の審査を再確認の期限なしで「待ち」にし 2 週間放置。申請した場所がもう存在せず、正しい場所では 5 分で承認。同一エラー 3 日連続は「待ち」でなく「調査」の合図）
+- [[../nodes/documented-but-never-implemented.md]] — `docstring`, `unimplemented`, `silent-skip`, `naming-drift`（説明書の「自動解決」が未実装のまま 11 日「仕様」として引き継がれた + 同じ webhook に 2 つの名前。グレーススキップは理由を残す・書いた条件はテストで担保する）
