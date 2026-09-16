@@ -92,6 +92,7 @@
 - [[nodes/ai-instruction-enforcement.md]] — `ai-behavior` cluster (`prompt-engineering`, `system-design`)
 - [[nodes/ai-sdk-v6-renamed-properties.md]] — `ai-sdk` cluster (`vercel-ai`, `typescript`, `api-migration`)
 - [[nodes/api-rate-limit-exceeded.md]] — `api` cluster (`network`, `rate-limit`)
+- [[nodes/automation-hijacked-the-human-screen.md]] — `playwright` cluster (`human-in-the-loop`, `ui`, `site-specific-assumption`, `hootl`)
 - [[nodes/bash-awk-regex-and-array-accumulation.md]] — `bash` cluster (`awk`, `regex`, `arrays`, `windows`, `git-bash`, `cross-platform`)
 - [[nodes/bash-heredoc-truncates-long-files.md]] — `claude-code` cluster (`bash`, `heredoc`, `windows`, `git-bash`, `platform-syntax`)
 - [[nodes/browser-profile-remembers-offscreen-window-position.md]] — `playwright` cluster (`chromium`, `persistent-context`, `window-placement`, `mode-bleed`, `weevee`)
