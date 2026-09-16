@@ -1,6 +1,11 @@
 #!/bin/bash
 # PreToolUse hook: git push の前に PDCA パイプライン + ブランチ制約を自動実行
 # Antigravity の sync.sh push と同じ安全チェックを Claude Code でも強制する
+#
+# 改行は必ず LF にすること。CRLF だと行継続の \ の直後に \r が入り、
+# macOS の bash が `||` で構文エラーになる。このフックは全 Bash 呼び出しに
+# 掛かるため、壊れると Claude Code から一切コマンドが実行できなくなる（実際に発生）。
+# 再発防止として、リポジトリ直下の .gitattributes で *.sh を eol=lf に固定している。
 
 TOOL_INPUT=$(cat)
 COMMAND=$(echo "$TOOL_INPUT" | python -c "import sys,json; d=json.load(sys.stdin); print(d.get('command',''))" 2>/dev/null \

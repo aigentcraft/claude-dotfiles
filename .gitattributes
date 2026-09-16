@@ -1,0 +1,5 @@
+# シェルスクリプトは必ず LF で扱う。
+# Windows 側（Antigravity）から同期された *.sh が CRLF になり、macOS の bash が
+# 行継続 `\` の直後の \r で構文エラーを起こして PreToolUse フックが全滅した（2026-09-16）。
+# フックが壊れると Claude Code から一切コマンドが実行できなくなるため、ここで固定する。
+*.sh text eol=lf
