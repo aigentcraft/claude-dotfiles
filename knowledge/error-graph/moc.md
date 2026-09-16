@@ -114,6 +114,7 @@
 - [[nodes/cumulative-gauge-snapshot-summed-as-flow.md]] — `kpi` cluster (`aggregation`, `sqlite`, `weekly-report`, `note`, `pullie`)
 - [[nodes/db-file-restore-reverts-inflight-approval.md]] — `pipeline-idempotency` cluster (`testing`, `concurrency`, `irreversible-action`, `sqlite`, `pullie`)
 - [[nodes/deploy-wait-http-200-races-stale-build.md]] — `cloudflare` cluster (`pages`, `deploy`, `race-condition`, `verification`, `pullie`)
+- [[nodes/destructive-test-destroyed-site-trust.md]] — `testing` cluster (`cloudflare`, `rate-limit`, `session`, `playwright`, `hootl`)
 - [[nodes/discard-path-topic-requeue-leak.md]] — `pipeline` cluster (`state-machine`, `cleanup`, `sqlite`)
 - [[nodes/documented-but-never-implemented.md]] — `docstring` cluster (`unimplemented`, `silent-skip`, `naming-drift`, `discord`, `weevee`)
 - [[nodes/duplicate-skill-dirs-manifest-points-at-stale-copy.md]] — `skills` cluster (`manifest`, `duplicate-source`, `stale-config`, `weevee`)
