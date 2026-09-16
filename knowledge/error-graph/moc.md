@@ -195,6 +195,7 @@
 - [[nodes/stale-selector-reported-success-as-failure.md]] — `selector-rot` cluster (`irreversible-action`, `playwright`, `scraping`, `false-negative`, `hootl`)
 - [[nodes/success-only-logging-and-overwrite-discard-history.md]] — `observability` cluster (`logging`, `data-loss`, `sqlite`, `learning-loop`, `agent`, `pullie`)
 - [[nodes/supabase-v2-types-resolve-never.md]] — `supabase` cluster (`typescript`, `database`, `type-safety`)
+- [[nodes/superseded-draft-kept-its-buttons.md]] — `ui` cluster (`irreversible-action`, `discord`, `approval`, `hootl`)
 - [[nodes/swallowed-error-logged-as-success.md]] — `error-handling` cluster (`logging`, `silent-failure`, `discord`, `observability`)
 - [[nodes/sweep-target-list-must-not-be-the-fixed-set.md]] — `testing` cluster (`sweep`, `false-coverage`, `launcher`, `silent-failure`, `weevee`)
 - [[nodes/task-time-limit-kills-run-and-its-own-alarm.md]] — `observability` cluster (`monitoring`, `system-design`, `pullie`, `silent-failure`, `task-scheduler`, `windows`, `watchdog`)
