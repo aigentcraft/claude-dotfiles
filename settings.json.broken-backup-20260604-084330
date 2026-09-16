@@ -1,0 +1,59 @@
+{
+  "model": "opus",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"/Users/user/.claude/hooks/gsd-check-update.js\""
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"/Users/user/.claude/hooks/gsd-context-monitor.js\""
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "node \"/Users/user/.claude/hooks/gsd-statusline.js\""
+  },
+  "autoUpdatesChannel": "latest",
+<<<<<<< HEAD
+  "effortLevel": "high",
+  "model": "opus",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash $HOME/claude-dotfiles/.claude/hooks/session-start.sh"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash $HOME/claude-dotfiles/.claude/hooks/pre-bash-git-push.sh"
+          }
+        ]
+      }
+    ]
+  }
+=======
+  "effortLevel": "high"
+>>>>>>> af5360f (auto-sync: 2026-03-13 09:30:22)
+}
