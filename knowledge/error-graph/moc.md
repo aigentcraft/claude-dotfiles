@@ -261,6 +261,7 @@
 - [[nodes/uc-hero-image-abstract-unrelated-to-article.md]] — `images` cluster (`hero`, `meaning`, `ogp`, `weevee`)
 - [[nodes/uc-hero-image-cropped-by-edge-to-edge-rule.md]] — `images` cluster (`hero`, `cropping`, `gpt-image`, `weevee`)
 - [[nodes/uc-incident-explanation-too-dense.md]] — `reporting` cluster (`communication`, `root-cause`, `pullie`)
+- [[nodes/uc-inherited-implementation-never-questioned.md]] — `uc` cluster (`assumption`, `investigation`, `scraping`, `irreversible-action`, `hootl`)
 - [[nodes/uc-inspection-must-match-reader-conditions.md]] — `pullie` cluster (`visual-inspection`, `viewport`, `verification`, `approval-flow`)
 - [[nodes/uc-internal-handoff-note-live-on-published-page.md]] — `uc` cluster (`public-tone`, `internal-leak`, `publish-gate`, `weevee`, `writer`)
 - [[nodes/uc-knowledge-branch-isolation.md]] — `ai-behavior` cluster (`branch-isolation`, `knowledge-propagation`)
