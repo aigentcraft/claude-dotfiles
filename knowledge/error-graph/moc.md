@@ -159,6 +159,7 @@
 - [[nodes/llm-self-reported-index-silent-drop.md]] — `llm` cluster (`contract-validation`, `pullie`, `images`, `silent-failure`)
 - [[nodes/matched-sample-does-not-validate-unmatched-population.md]] — `validation` cluster (`reconciliation`, `survivorship-bias`, `kintone`, `data-quality`, `adversarial-review`)
 - [[nodes/migration-moved-the-container-not-the-contents.md]] — `migration` cluster (`discord`, `ui`, `incomplete-migration`, `hootl`)
+- [[nodes/no-overwrite-guard-discarded-expensive-field.md]] — `idempotency` cluster (`upsert`, `silent-failure`, `cost`, `scraping`, `observability`, `hootl`)
 - [[nodes/note-kpi-weekly-cadence-window-blind-spot.md]] — `observability` cluster (`kpi`, `note`, `producer-consumer-sync`, `window-alignment`, `cadence`, `pullie`)
 - [[nodes/optional-step-failure-killed-the-notification.md]] — `error-handling` cluster (`ordering`, `notification`, `llm`, `silent-failure`, `hootl`)
 - [[nodes/oversized-prompt-makes-agent-explore-repo-instead.md]] — `claude-headless` cluster (`prompt-size`, `silent-failure`, `pullie`, `writer`, `cost`)
