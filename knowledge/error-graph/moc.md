@@ -185,6 +185,7 @@
 - [[nodes/reviewer-send-back-loop-on-unfixable-screenshot-item.md]] — `reviewer` cluster (`send-back-loop`, `structural-constraint`, `screenshots`, `checklist`, `weevee`)
 - [[nodes/rotation-starvation-by-unengageable-accounts.md]] — `scheduling` cluster (`starvation`, `x-twitter`, `silent-failure`, `budget`, `sqlite`)
 - [[nodes/run-tool-last-line-contract-multiline-json.md]] — `pipeline` cluster (`cli-contract`, `json`, `logging`, `weevee`)
+- [[nodes/second-implementation-inherits-first-irreversible-path.md]] — `irreversible-action` cluster (`multi-tenant`, `capabilities`, `type-safety`, `guard`, `hootl`)
 - [[nodes/semantic-graph-relationships.md]] — `system-design` cluster (`knowledge-graph`, `semantics`, `obsidian`)
 - [[nodes/shot-selector-assumes-absent-field-type.md]] — `producer-consumer-sync` cluster (`pullie`, `selector-brittleness`, `graceful-degradation`, `blame-routing`, `screenshot-catalog`, `pipeline-stall`, `playwright`)
 - [[nodes/single-attempt-gate-discards-cadence-slot.md]] — `reviewer-loop` cluster (`cadence`, `gate-design`, `note`, `pullie`)
