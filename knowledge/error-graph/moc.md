@@ -174,6 +174,7 @@
 - [[nodes/publish-worker-not-idempotent-after-push.md]] — `git` cluster (`idempotency`, `pipeline`, `publish`, `cloudflare-pages`)
 - [[nodes/published-but-never-announced-because-url-stayed-in-stdout.md]] — `producer-consumer-sync` cluster (`silent-failure`, `handoff`, `booth`, `pullie`, `release`)
 - [[nodes/queue-adjacency-same-article-consecutive-posts.md]] — `pullie` cluster (`sns`, `queue`, `scheduling`, `x-twitter`, `dedup`)
+- [[nodes/rate-limited-page-reads-as-zero-results.md]] — `rate-limit` cluster (`silent-failure`, `scraping`, `playwright`, `cloudflare`, `observability`, `hootl`)
 - [[nodes/recover-ids-by-reconciling-observations-not-send-path.md]] — `observability` cluster (`data-recovery`, `irreversible-action`, `matching`, `api`, `pullie`)
 - [[nodes/recovery-implemented-but-not-wired.md]] — `automation` cluster (`resilience`, `design-gap`, `verification`)
 - [[nodes/reminder-covers-only-the-entity-it-was-written-for.md]] — `observability` cluster (`watchdog`, `notification`, `human-in-the-loop`, `note`, `silent-failure`, `pullie`)
