@@ -156,3 +156,13 @@ DB を使うテストは本番の `schema.sql` から作る — 表の形を手�
 - [[../nodes/uc-endless-whack-a-mole.md]] — `process`, `verification`, `observability`, `weevee`（「直すたびに次が出る」の根本原因 3 つ: 成功の合図が事実を含意しない／観測者が観測対象の中に住む／同じ集合を手で 4 回書く。独立診断 39 エージェントで確定。私の当初の見立て 2 点は反証された）
 
 - [[../nodes/uc-pushed-a-decision-the-org-should-have-made.md]] — `delegation`, `decision-framing`, `agent-autonomy`, `pullie`（実装不能と分かった企画の作り直しを、材料も軸も添えずに人間へ3択で投げた → 「判断要素がよくわからない」。**担当エージェントがいる実務を人間に上げない**。選択肢を出すなら、各案が何をどう変えるかを必ず添える）
+
+
+### R-WHY-NOT-STOP: 止まらないループには、止め方より先に「進んだか」を見る
+打ち切り・タイムアウト・リトライ上限を提案する前に、**その処理は成功しうるのか**を確かめる。
+成功しえない処理に上限を付けても、失敗が安くなるだけで前に進まない。
+- 実例: 同じ記事を4回書き直しても通らず4日間枠を占有 → 「占有日数の上限」を提案したが、
+  検閲役は毎回「実績が無いので**差し戻しでは解消しない**」と日本語で書いていた
+  （[[../nodes/uc-proposed-a-timeout-instead-of-asking-why.md]] /
+  [[../nodes/reviewer-says-unfixable-but-loop-keeps-retrying.md]]）
+- スコアや判定が改善しているのに通らないなら、それは上限の問題ではない

@@ -127,3 +127,5 @@ R1（一覧の同期）とR1b（能力表との契約）を満たしても、**�
 - [[../nodes/duplicate-skill-dirs-manifest-points-at-stale-copy.md]] — `skills`, `manifest`, `duplicate-source`, `stale-config`
 - [[../nodes/single-source-migration-broke-the-legacy-reader.md]] — `migration`, `single-source`, `legacy-path`, `fail-safe`
 - [[../nodes/bulk-migration-regex-ate-the-adjacent-block.md]] — `migration`, `regex`, `bulk-edit`, `single-source`
+- [[../nodes/same-set-defined-in-four-places-one-silently-strips.md]] — `single-source`, `silent-strip`, `gate-wording`（「リンク先が実在する」の定義が計器・ゲート・ゲートの文言・公開時の 4 箇所にあり、最後だけが厳しく黙って直していた。集合と文言を 1 つにし、書き換えた事実を作者に届く場所へ残す）
+
