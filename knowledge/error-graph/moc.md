@@ -300,6 +300,7 @@
 - [[nodes/uc-sns-posts-lack-context-and-persona.md]] — `uc` cluster (`pullie`, `sns`, `copywriting`, `persona`, `context`)
 - [[nodes/uc-taste-recommendation-without-data.md]] — `ux-judgment` cluster (`branding`, `recommendation-framing`, `data-honesty`)
 - [[nodes/uc-tutorial-images-must-cover-every-step.md]] — `uc` cluster (`pullie`, `content-quality`, `screenshots`, `tutorial`)
+- [[nodes/uc-tweet-only-contradicts-comprehensive-media.md]] — `media-purpose` cluster (`planning-gate`, `tweet-only`, `coverage`, `weevee`)
 - [[nodes/uc-typography-must-meet-readability-floor.md]] — `uc` cluster (`pullie`, `typography`, `readability`, `design-port`, `web-frontend`)
 - [[nodes/uc-unverified-hazudesu-reporting.md]] — `ai-behavior` cluster (`unverified-claim`, `hazudesu`, `test-verification`)
 - [[nodes/uc-verify-artifact-before-human-approval.md]] — `uc` cluster (`pullie`, `approval-flow`, `visual`, `asset-paths`, `llm-contract`)
