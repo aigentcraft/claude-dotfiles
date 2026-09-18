@@ -64,3 +64,28 @@ Claude Code の Bash ツールは、おおよそ **150〜180 行を超えるヒ�
 - **対策**: 長いファイルは Write ツールで書く。既存ファイルの部分変更は
   `python - <<'EOF'` で「読む→`assert` で対象確認→置換→書く」（短く収まる）
 - 詳細: [[../nodes/bash-heredoc-truncates-long-files.md]]
+
+### R3: Windows の `spawn(shell:true)` — 引数は cmd.exe が解釈する。定数だけ渡し、本文は stdin。停止は `taskkill /T`
+npm シム（`claude.cmd` 等）を Node から起動するには shell が要るが、引数は cmd.exe に再解釈される
+（`()=>{}` の `>` がリダイレクトになり `{}` ファイルが出来た）。`child.kill()` は cmd.exe しか殺さない。
+- 詳細: [[../nodes/win32-shell-spawn-args-parsed-by-cmd-exe.md]]
+
+### R4: Git Bash は `/` 始まりの引数を Windows パスに変換する — Windows ネイティブの道具は PowerShell / cmd で検証
+`cmdkey ... /pass` が `C:/Git/pass` になり、エラーにならず別の意味で成功する。`MSYS_NO_PATHCONV=1` で回避。
+- 詳細: [[../nodes/git-bash-msys-path-conversion-mangles-slash-args.md]]
+
+### R5: Windows PowerShell 5.1 の `curl` は Invoke-WebRequest の別名 — `.ps1` では `curl.exe` と書く
+pwsh 7 には別名が無いので、pwsh で通っても 5.1 で落ちる。両方で実行する。
+- 詳細: [[../nodes/powershell51-curl-alias-shadows-curl-exe.md]]
+
+| 状況 | 適用するルール |
+|---|---|
+| Node/Python から npm 製 CLI（.cmd）を Windows で呼ぶ | R3: shell 経由・引数は定数・本文は stdin・停止は taskkill /T |
+| cmdkey / schtasks / reg 等を Git Bash から叩いて変な結果になる | R4: PowerShell / cmd で再実行（MSYS のパス変換） |
+| `.ps1` で curl / wget を呼ぶ | R5: `curl.exe` と書き、PowerShell 5.1 でも実行して確かめる |
+
+- [[../nodes/win32-shell-spawn-args-parsed-by-cmd-exe.md]] — `windows`, `node`, `cmd.exe`, `taskkill`（shell 経由の引数再解釈・ツリー kill）
+- [[../nodes/git-bash-msys-path-conversion-mangles-slash-args.md]] — `git-bash`, `msys`, `cmdkey`（`/pass` → `C:/Git/pass`）
+- [[../nodes/powershell51-curl-alias-shadows-curl-exe.md]] — `powershell`, `curl`, `alias`（5.1 の別名）
+
+*Last updated: 2026-09-19 | Node count: 9*
