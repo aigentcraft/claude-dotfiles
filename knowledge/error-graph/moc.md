@@ -110,6 +110,7 @@
 - [[nodes/claude-in-chrome-secret-exposure-find-tool-values.md]] — `claude-in-chrome` cluster (`secrets`, `find-tool`, `screenshot`, `clipboard`, `weevee`)
 - [[nodes/cloudflare-github-app-single-account-binding.md]] — `cloudflare-pages` cluster (`github-app`, `git-integration`, `infrastructure`, `multi-account`)
 - [[nodes/cloudflare-pages-wrangler-toml-overrides-dashboard-env-vars.md]] — `cloudflare` cluster (`pages`, `wrangler`, `env-vars`, `deploy`, `analytics`, `weevee`)
+- [[nodes/cmdkey-prompt-truncates-pasted-secret-to-one-char.md]] — `windows` cluster (`cmdkey`, `credentials`, `clipboard`, `dpapi`, `silent-failure`, `fukugyo-hootl`)
 - [[nodes/codex-image-tool-prompt-contract-multiline-and-attach-order.md]] — `codex` cluster (`imagegen`, `cli-contract`, `silent-failure`, `weevee`)
 - [[nodes/copywriting-indirect-motivation.md]] — `copywriting` cluster (`psychology`, `content-writing`, `behavioral`, `self-determination`)
 - [[nodes/crlf-breaks-hooks-on-macos.md]] — `shell` cluster (`line-endings`, `cross-platform`, `hooks`, `claude-code`, `windows-mac`)

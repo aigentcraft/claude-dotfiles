@@ -4,7 +4,7 @@ title: ファイル名と自作の呼び名で報告した — ユーザーは�
 cluster: uc
 type: "user-correction"
 tags: ["user-correction", "communication", "reporting", "jargon", "weevee"]
-date: 2026-09-10（2026-09-12 再発 / 2026-09-13 3回目により更新）
+date: 2026-09-10（2026-09-12 再発 / 2026-09-13 3回目 / 2026-09-19 4回目により更新）
 severity: critical
 ---
 
@@ -115,6 +115,25 @@ pullie の稼働状況をまとめた返答で、地の文にこう書いた:
 
 処置: `naming.py` に検閲項目の対応表を足す。
 根本: 返答を書く前に「英数字の記号が裸で出ていないか」を自分で確認する。通知だけでなく私の返答にも機械的に適用する。
+
+## 再発 4 回目（2026-09-19）— Discord 通知にファイル名だけ
+
+ユーザー指摘（原文）:「ディスコードへの通知なんだけど、ファイル名だけで言われても何もわからん。役割と機能で説明させて。」
+
+3 回目までの処置は **対応表（naming.py）を作り「人が読む行は必ず通す」と決めた**だけで、通す場所を機械で強制していなかった。
+Discord への送信は 27 ファイル・51 箇所から直接 `notify.discord()` を呼んでおり、そのどれかが `daily/02a_replenish_topics` や
+`keyword-research-20260919.log`、`tools/keyword_research.py` のような識別子をそのまま流した（私自身が当日書いた Jina の警告文にも
+`tools/keyword_research.py` が入っていた）。**書く側 51 箇所の注意に頼る限り、次の 1 箇所で必ず再発する。**
+
+処置（今回は出口で機械的に）:
+- `naming.WORKER_LABELS`: 日次/X/週次/案件/L4 の全ワーカー・tools/*.py・scheduler の全スクリプトに役割名を付ける
+- `naming.humanize(text)`: ワーカー id（`daily/02a_…`）・スクリプトのパス（`tools/x.py` / `.ps1` / `.sh`）・ログ名（`x-20260919.log`）を
+  「役割（識別子）」に書き換える。すでに「（識別子）」の形なら二重にしない。URL は触らない
+- `notify.discord` / `discord_embed` の**出口**で title / description / fields すべてに humanize を掛ける — 送り手が何を書いても届く前に直る
+- 役割名の無い識別子は送りつつ `execution_logs` に warn（未登録を放置しない）
+- **テスト**: リポジトリの全スクリプトに役割名があることを検査 — 役割名を書かずにワーカーを足すと CI が赤
+
+根本: 「必ず通す」というルールは、通さなくても動く場所に書いても守られない。**通らないと動かない場所（出口）に置く。**
 
 ## 関連
 - [[feedback-with-no-address-never-arrives]] — 「違う言葉で言うと同じ指摘だと気づけない」を機械には適用し、人間には適用していなかった
