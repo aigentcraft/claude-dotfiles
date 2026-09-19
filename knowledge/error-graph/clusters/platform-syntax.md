@@ -102,3 +102,14 @@ pwsh 7 には別名が無いので、pwsh で通っても 5.1 で落ちる。両
 - 対策: `& $cmd 2>&1 | Out-File -LiteralPath $log -Append -Encoding utf8`
 - 併せて: タスクスケジューラで常駐させる時は `-LogonType Interactive` が必須。
   「ログオンしていなくても実行」にすると DPAPI が開かず、**資格情報が全て「未登録」に見える**
+
+### R8: 「どの層で文字列になったか」を意識する — 子プロセスの出力は既に復号済み
+`curl` の出力を文字列で受けた後にバイト列へ戻すと二重復号になり、UTF-8 の日本語が壊れる。
+ISO-2022-JP は 7 ビットの範囲だけなので往復でき、**片方だけ壊れて気づきにくい**。
+- 符号化の検査は複数の組み合わせで行う（base64×UTF-8 / base64×ISO-2022-JP / 7bit×UTF-8）
+- 詳細: [[../nodes/mime-7bit-body-is-already-decoded.md]]
+
+### R9: コード片は平文ファイルに書いて読み込む（3 度踏んだ）
+ヒアドキュメントの中の JS 文字列でエスケープが失われ、生成したコードが壊れた。
+`cat > block.txt <<'EOF'` で本文を書き、スクリプトは `readFileSync` で差し込むだけにする。
+- 詳細: [[../nodes/win32-shell-spawn-args-parsed-by-cmd-exe.md]]（3 例目の節）
