@@ -145,6 +145,7 @@
 - [[nodes/instant-approval-path-skips-sns-fanout.md]] — `pullie` cluster (`sns`, `pipeline-wiring`, `dual-path`, `approval-flow`, `x-twitter`)
 - [[nodes/instrument-the-agent-cannot-turn-green.md]] — `agent-tools` cluster (`self-check`, `unreachable-pass`, `fail-open`, `contract`, `weevee`)
 - [[nodes/intersection-threshold-hides-tall-sections.md]] — `web-frontend` cluster (`intersection-observer`, `reveal-animation`, `mobile`, `viewport`, `pullie`)
+- [[nodes/jina-402-mid-run-degrades-to-lexical-clusters.md]] — `jina` cluster (`http-402`, `quota`, `silent-degradation`, `keyword-research`, `fail-closed`, `weevee`)
 - [[nodes/kintone-calc-no-today-function.md]] — `kintone` cluster (`api`, `calc-field`, `GAIA_IL01`, `pullie`)
 - [[nodes/kintone-delivered-js-manual-commentout-corruption.md]] — `kintone` cluster (`custom-js`, `syntax-error`, `diagnosis`, `client-edit`, `block-comment`)
 - [[nodes/kintone-dropdown-query-nonexistent-option-error.md]] — `kintone` cluster (`rest-api`, `query`, `dropdown`, `dynamic-range`, `error-handling`)
