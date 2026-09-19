@@ -96,3 +96,9 @@ pwsh 7 には別名が無いので、pwsh で通っても 5.1 で落ちる。両
 画面付きブラウザを 10 分間開いた（利用者が「ホーム画面に勝手に戻る」と報告して発覚）。
 - 対策は構文の注意ではなく**手順の固定**: `cat > file <<'EOF'` で書いてから `node file`
 - 詳細: [[../nodes/win32-shell-spawn-args-parsed-by-cmd-exe.md]]（2 例目の節）
+
+### R7: PowerShell 5.1 のリダイレクト（`*>>` / `>>`）は UTF-16 で書く — ログは `Out-File -Encoding utf8`
+常駐のログが全部化けた。`[Console]::OutputEncoding` を UTF-8 にしても、**書き出し側の既定は別**。
+- 対策: `& $cmd 2>&1 | Out-File -LiteralPath $log -Append -Encoding utf8`
+- 併せて: タスクスケジューラで常駐させる時は `-LogonType Interactive` が必須。
+  「ログオンしていなくても実行」にすると DPAPI が開かず、**資格情報が全て「未登録」に見える**

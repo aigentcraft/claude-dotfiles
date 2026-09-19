@@ -153,3 +153,10 @@ oldest/newest・件数の内訳・母集団を添えて、分布のまま渡す�
 - 詳細: [[../nodes/placeholder-guard-matched-only-angle-brackets.md]]
 
 - [[../nodes/placeholder-guard-matched-only-angle-brackets.md]] — `credentials`, `placeholder`, `guard`, `human-in-the-loop`（案内文の日本語がそのまま登録され「登録済み」と報告された）
+
+### R-SECRET-SHAPE: 秘密を登録したら、その場で長さと形を検査する（中身は出さない）
+`cmdkey` の伏せ字プロンプトが貼り付けを **1 文字**に切り詰め、16 文字のアプリパスワードと
+72 文字の Discord トークンが両方 1 文字で保存された。登録状況の確認は空でなければ「登録済み」と報告する。
+- 50 文字を超える秘密は GUI か API から入れる。伏せ字プロンプトに貼り付けない
+- 疎通経路があるなら疎通まで確かめる（形だけの検査しかない項目はその旨を出力に書く）
+- 詳細: [[../nodes/cmdkey-prompt-truncates-pasted-secret-to-one-char.md]]
