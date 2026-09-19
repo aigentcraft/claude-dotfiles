@@ -129,3 +129,17 @@ R1（一覧の同期）とR1b（能力表との契約）を満たしても、**�
 - [[../nodes/bulk-migration-regex-ate-the-adjacent-block.md]] — `migration`, `regex`, `bulk-edit`, `single-source`
 - [[../nodes/same-set-defined-in-four-places-one-silently-strips.md]] — `single-source`, `silent-strip`, `gate-wording`（「リンク先が実在する」の定義が計器・ゲート・ゲートの文言・公開時の 4 箇所にあり、最後だけが厳しく黙って直していた。集合と文言を 1 つにし、書き換えた事実を作者に届く場所へ残す）
 
+
+### R3: 名前を抽象化したら、旧名をリポジトリ全体で grep して残存 0 を確認する
+文字列リテラルは import で辿れないため、**依存グラフを追う発想では見つからない**。
+OS 抽象化で警告文だけ `STORE_LABEL` に置換し、情報ログ・使い方・別コマンドのエラー文・コメントが
+旧名（Keychain）のまま残った。型も通り例外も出ず、selftest 26 件も全部緑だった。
+- **表示の正しさは実行でしか確かめられない。** 移植・抽象化の後は「実際に 1 回動かして出力を読む」を出口条件に
+- 利用者に見える語は定数 1 箇所から供給する
+- 詳細: [[../nodes/abstraction-left-old-name-in-user-facing-strings.md]]
+
+| 状況 | 適用するルール |
+|---|---|
+| 定数・ラベル・OS 依存の呼び名を抽象化する | R3: 旧名を全文 grep して残存 0・実行して出力を読む |
+
+- [[../nodes/abstraction-left-old-name-in-user-facing-strings.md]] — `refactor`, `rename`, `user-facing-strings`, `windows`（警告文だけ置換し、情報ログ・使い方・別コマンドに旧名が残った）

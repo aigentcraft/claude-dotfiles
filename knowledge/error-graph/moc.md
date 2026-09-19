@@ -53,14 +53,14 @@
 |---|---|---|---|
 | [[clusters/ai-behavior.md]] | AI行動パターン・システム設計・知識グラフ設計 | 14 | AI設計・スケール・ナレッジシステム系タスク |
 | [[clusters/api-network.md]] | API/ネットワーク・非同期・タイムアウト・プラットフォーム規制 | 3 | 外部API・ネットワークリクエストを書く時 |
-| [[clusters/platform-syntax.md]] | PowerShell/Windows固有の構文エラー・.ps1 の符号化 | 3 | PowerShell・Windowsスクリプト・定時タスク作業時 |
+| [[clusters/platform-syntax.md]] | PowerShell/Windows固有の構文エラー・.ps1 の符号化・shell 経由の引数・MSYS のパス変換 | 6 | PowerShell・Windowsスクリプト・定時タスク作業時 |
 | [[clusters/copywriting-psychology.md]] | コピーライティング心理学・間接的動機づけ設計 | 1 | 記事・LP・SNS投稿のコピーを書く時 |
 | `database-orm` | Database/ORM の型・スキーマ・クエリエラー | 1 | Supabase・Prisma・ORM を使う時 |
 | `sdk-migration` | SDK バージョンアップグレード時のブレーキングチェンジ | 1 | ライブラリをアップグレードする時 |
 | [[clusters/shell-hook-env.md]] | Claude Code フック・シェル環境変数の落とし穴 | 1 | Claude Code フック・session-start.sh・シェルスクリプトを書く時 |
-| [[clusters/producer-consumer-sync.md]] | 定義（スキーマ/カタログ/キー一覧）拡張時の消費側同期漏れ | 5 | スキーマ・カタログ・enum・frontmatterフィールドを拡張する時 |
+| [[clusters/producer-consumer-sync.md]] | 定義（スキーマ/カタログ/キー一覧）拡張時の消費側同期漏れ・**抽象化後の旧名残存** | 6 | スキーマ・カタログ・enum・frontmatterフィールドを拡張する時 |
 | [[clusters/kintone.md]] | kintone カスタマイズ（REST API・カスタムJS/CSS・全体カスタマイズ）の落とし穴 | 4 | kintone アプリ構築・カスタマイズ作業時 |
-| [[clusters/observability.md]] | 記録・計測・監視材料（**症状が出ない故障**・フォールバックの可視化・自己修復） | 9 | ログ/イベント/通知/監視を実装・変更する時、外部ツールに依存する経路を書く時 |
+| [[clusters/observability.md]] | 記録・計測・監視材料（**症状が出ない故障**・フォールバックの可視化・自己修復・**形だけ通るガード**） | 10 | ログ/イベント/通知/監視を実装・変更する時、外部ツールに依存する経路を書く時 |
 | [[clusters/rendering-quality.md]] | 機械が描いた見た目の自己検証（情報図・プレビュー・**生成物のラベル**） | 4 | 画像/図/プレビューを生成する時、生成エンジンにフォールバックを付ける時 |
 | [[clusters/uc.md]] | ユーザー指摘（UC）から昇格した行動原則 | 28 | ユーザーに指摘された時・自律運用の設計を変える時 |
 | [[clusters/pipeline-idempotency.md]] | パイプラインの冪等性・再開・ロック | 6 | 多段パイプライン・再実行・ロックを設計する時 |
@@ -86,6 +86,7 @@
 > Complete index below. Use clusters for structured entry.
 
 ### [Type A] Technical Errors
+- [[nodes/abstraction-left-old-name-in-user-facing-strings.md]] — `refactor` cluster (`rename`, `user-facing-strings`, `windows`, `keychain`, `grep`, `fukugyo-hootl`)
 - [[nodes/agent-action-space-cannot-express-custom-dropdown.md]] — `agent` cluster (`tools`, `action-space`, `kintone`, `playwright`, `pullie`, `transition-phase2`)
 - [[nodes/aggregate-material-collapses-distribution.md]] — `ai-behavior` cluster (`system-design`, `pullie`, `monitoring`, `observability`, `false-alarm`, `sql-aggregation`, `multi-agent`)
 - [[nodes/ai-context-blindness-at-scale.md]] — `ai-behavior` cluster (`scaling`, `system-design`, `architecture`)
@@ -168,6 +169,7 @@
 - [[nodes/pinned-external-model-name-breaks-silently.md]] — `observability` cluster (`external-dependency`, `silent-failure`, `grace-degradation`, `cli`, `pullie`)
 - [[nodes/pipeline-resume-guard-orphaned-early-stage-drafts.md]] — `pullie` cluster (`pipeline`, `orchestration`, `resume`, `orphan`)
 - [[nodes/placeholder-copied-into-credential-store.md]] — `keychain` cluster (`secrets`, `developer-experience`, `silent-failure`, `cli-guidance`)
+- [[nodes/placeholder-guard-matched-only-angle-brackets.md]] — `credentials` cluster (`placeholder`, `guard`, `validation`, `human-in-the-loop`, `windows`, `fukugyo-hootl`)
 - [[nodes/powershell-hash-literal-git.md]] — `powershell` cluster (`git`, `syntax-error`)
 - [[nodes/powershell51-curl-alias-shadows-curl-exe.md]] — `powershell` cluster (`curl`, `alias`, `windows`, `fukugyo-hootl`)
 - [[nodes/precheck-false-negative.md]] — `discord` cluster (`api`, `precheck`, `false-negative`, `cache`)
@@ -262,6 +264,7 @@
 - [[nodes/uc-gpt-image-japanese-text-was-self-forbidden.md]] — `images` cluster (`gpt-image`, `japanese`, `false-premise`, `weevee`)
 - [[nodes/uc-graph-focus-relayout-and-click-feedback.md]] — `graph` cluster (`layout`, `mind-map`, `motion`, `color`, `weevee`)
 - [[nodes/uc-graph-hierarchy-zoom-and-fit.md]] — `graph` cluster (`layout`, `zoom`, `taxonomy`, `responsive`, `weevee`)
+- [[nodes/uc-handed-bash-syntax-to-a-powershell-user.md]] — `powershell` cluster (`windows`, `shell-mismatch`, `handoff`, `human-in-the-loop`, `fukugyo-hootl`)
 - [[nodes/uc-handrolled-animation-low-quality-use-gsap-examples.md]] — `animation` cluster (`gsap`, `motion-quality`, `reference-driven`, `weevee`)
 - [[nodes/uc-hardcoded-judgment-while-fixing-hardcoding.md]] — `uc` cluster (`pullie`, `self-application`, `llm-agent`, `hardcoding`, `system-design`, `notification`)
 - [[nodes/uc-hero-image-abstract-unrelated-to-article.md]] — `images` cluster (`hero`, `meaning`, `ogp`, `weevee`)

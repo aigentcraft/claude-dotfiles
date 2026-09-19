@@ -166,3 +166,11 @@ DB を使うテストは本番の `schema.sql` から作る — 表の形を手�
   （[[../nodes/uc-proposed-a-timeout-instead-of-asking-why.md]] /
   [[../nodes/reviewer-says-unfixable-but-loop-keeps-retrying.md]]）
 - スコアや判定が改善しているのに通らないなら、それは上限の問題ではない
+
+### R-SHELL: コマンドを人に渡す前に、その人のシェルを確かめる
+自分の手元（Bash ツール）で動く形をそのまま貼り、利用者の PowerShell で 1 行目から止めた。
+`VAR=value command` は POSIX 固有で PowerShell には無い。
+- **AI が実行できない部分を人に頼む時ほど、一発で通る形で渡す。** 切り分けを肩代わりさせない
+- Git Bash でしか動かないものは「どのシェルで実行するか」を明記する
+- そもそも**自分で実行できる作業を人に投げない**
+- 詳細: [[../nodes/uc-handed-bash-syntax-to-a-powershell-user.md]]
