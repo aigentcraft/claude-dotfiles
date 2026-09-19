@@ -286,6 +286,7 @@
 - [[nodes/uc-permission-prompt-fatigue.md]] — `ai-behavior` cluster (`permissions`, `claude-code`, `workflow-friction`)
 - [[nodes/uc-pipeline-is-conveyor-not-agent-org.md]] — `architecture` cluster (`agent-org`, `gates`, `conveyor`, `recurrence`, `weevee`)
 - [[nodes/uc-plan-by-intent-not-keyword.md]] — `uc` cluster (`editorial`, `seo`, `planning`, `search-intent`, `serp`, `clustering`, `coverage`, `competitor`, `weevee`)
+- [[nodes/uc-planned-without-the-designed-keyword-research.md]] — `planning` cluster (`keyword-research`, `serp-cluster`, `competitors`, `process-skipped`, `weevee`)
 - [[nodes/uc-premature-completion-reports.md]] — `uc` cluster (`pullie`, `verification`, `reporting`, `discipline`)
 - [[nodes/uc-probe-must-cover-layout-overflow.md]] — `pullie` cluster (`visual-inspection`, `layout`, `overflow`, `mobile`, `verification`)
 - [[nodes/uc-proposed-a-timeout-instead-of-asking-why.md]] — `root-cause` cluster (`pullie`, `triage`)

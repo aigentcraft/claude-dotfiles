@@ -89,3 +89,10 @@ pwsh 7 には別名が無いので、pwsh で通っても 5.1 で落ちる。両
 - [[../nodes/powershell51-curl-alias-shadows-curl-exe.md]] — `powershell`, `curl`, `alias`（5.1 の別名）
 
 *Last updated: 2026-09-19 | Node count: 9*
+
+### R6: `node -e "…"` を使わない。スクリプトはクォート付きヒアドキュメントでファイルに書く
+二重引用符の中のバッククォートはコマンド置換になる。**説明文として書いたコマンド例が実行される。**
+実例: 文書更新のつもりの `node -e "…"` が `npm run login -- indeed --manual` を実行し、
+画面付きブラウザを 10 分間開いた（利用者が「ホーム画面に勝手に戻る」と報告して発覚）。
+- 対策は構文の注意ではなく**手順の固定**: `cat > file <<'EOF'` で書いてから `node file`
+- 詳細: [[../nodes/win32-shell-spawn-args-parsed-by-cmd-exe.md]]（2 例目の節）
