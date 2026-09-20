@@ -160,3 +160,12 @@ oldest/newest・件数の内訳・母集団を添えて、分布のまま渡す�
 - 50 文字を超える秘密は GUI か API から入れる。伏せ字プロンプトに貼り付けない
 - 疎通経路があるなら疎通まで確かめる（形だけの検査しかない項目はその旨を出力に書く）
 - 詳細: [[../nodes/cmdkey-prompt-truncates-pasted-secret-to-one-char.md]]
+
+### R-STDERR: 失敗の記録には原因の断片（stderr の末尾）を必ず添える
+検閲ステップが存在しない列名で 6 日間毎 run 落ちた（2026-09-14〜20）。起動役は python を直接叩くため子の stderr は
+どこにも残らず、記録は「失敗」の 1 行だけ。人間には「介入が必要」の通知だけが届き、原因は保存済みの LLM 応答と
+DB のコピーで後段を再現して初めて分かった。
+- `run_step` は子の stderr の末尾を execution_logs.detail に残す
+- DB を引く関数は本番 schema のテストを 1 つ持つ（列名は誰も補完してくれない）
+- LLM の後段が落ちたら生応答で後段だけを再現する
+- 詳細: [[../nodes/review-step-crashed-six-days-on-a-wrong-column-name.md]]
