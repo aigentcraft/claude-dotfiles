@@ -209,6 +209,7 @@
 - [[nodes/stale-external-approval-never-reverified.md]] — `external-dependency` cluster (`waiting`, `stale-state`, `google-ads`, `verification`, `weevee`)
 - [[nodes/stale-pipeline-lock-after-killed-run.md]] — `lock` cluster (`pipeline`, `resume`, `windows`, `process-lifecycle`, `weevee`)
 - [[nodes/stale-selector-reported-success-as-failure.md]] — `selector-rot` cluster (`irreversible-action`, `playwright`, `scraping`, `false-negative`, `hootl`)
+- [[nodes/status-says-ready-but-the-page-was-never-served.md]] — `observability` cluster (`human-in-the-loop`, `notification`, `build-flakiness`, `astro`, `pullie`)
 - [[nodes/success-only-logging-and-overwrite-discard-history.md]] — `observability` cluster (`logging`, `data-loss`, `sqlite`, `learning-loop`, `agent`, `pullie`)
 - [[nodes/supabase-v2-types-resolve-never.md]] — `supabase` cluster (`typescript`, `database`, `type-safety`)
 - [[nodes/superseded-draft-kept-its-buttons.md]] — `ui` cluster (`irreversible-action`, `discord`, `approval`, `hootl`)
