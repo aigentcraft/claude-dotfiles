@@ -126,6 +126,7 @@
 - [[nodes/enumeration-guards-never-close-use-structural-rules.md]] — `ai-behavior` cluster
 - [[nodes/error-handler-wrote-a-status-the-schema-forbids.md]] — `observability` cluster (`error-handling`, `notification-storm`, `db-constraint`, `silent-failure`, `pullie`)
 - [[nodes/existence-vs-completion-check.md]] — `idempotency` cluster (`batch-processing`, `state-design`, `cost-control`)
+- [[nodes/external-button-needs-an-outside-count.md]] — `observability` cluster (`discord`, `interaction`, `approval`, `fail-closed`, `rc-zero`, `weevee`)
 - [[nodes/feedback-with-no-address-never-arrives.md]] — `feedback-loop` cluster (`sendback`, `infinite-loop`, `materials`, `llm-agent`, `weevee`)
 - [[nodes/frontmatter-field-not-wired-into-all-renderers.md]] — `producer-consumer-sync` cluster (`astro`, `schema-sync`, `renderer`, `visual-inspector`, `pullie`)
 - [[nodes/fs-demands-uncapturable-screens-deadlock.md]] — `producer-consumer-sync` cluster (`pullie`, `multi-agent`, `contract`, `screenshot-catalog`, `deadlock`, `pipeline-stall`)
@@ -202,6 +203,7 @@
 - [[nodes/second-implementation-inherits-first-irreversible-path.md]] — `irreversible-action` cluster (`multi-tenant`, `capabilities`, `type-safety`, `guard`, `hootl`)
 - [[nodes/semantic-graph-relationships.md]] — `system-design` cluster (`knowledge-graph`, `semantics`, `obsidian`)
 - [[nodes/shot-selector-assumes-absent-field-type.md]] — `producer-consumer-sync` cluster (`pullie`, `selector-brittleness`, `graceful-degradation`, `blame-routing`, `screenshot-catalog`, `pipeline-stall`, `playwright`)
+- [[nodes/signature-proves-origin-not-authority.md]] — `security` cluster (`authorization`, `discord`, `interaction`, `webhook`, `defense-in-depth`, `weevee`)
 - [[nodes/single-attempt-gate-discards-cadence-slot.md]] — `reviewer-loop` cluster (`cadence`, `gate-design`, `note`, `pullie`)
 - [[nodes/single-source-migration-broke-the-legacy-reader.md]] — `migration` cluster (`single-source`, `legacy-path`, `fail-safe`, `weevee`)
 - [[nodes/skill-internal-rule-procedure-conflict.md]] — `skill-md` cluster (`rule-conflict`, `llm-pipeline`, `image-generation`, `reviewer-loop`, `pullie`)
