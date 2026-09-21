@@ -86,6 +86,7 @@
 > Complete index below. Use clusters for structured entry.
 
 ### [Type A] Technical Errors
+- [[nodes/a-check-never-green-measures-the-wrong-expectation.md]] — `observability` cluster (`monitoring`, `threshold`, `false-positive`, `alert-fatigue`, `weevee`)
 - [[nodes/abstraction-left-old-name-in-user-facing-strings.md]] — `refactor` cluster (`rename`, `user-facing-strings`, `windows`, `keychain`, `grep`, `fukugyo-hootl`)
 - [[nodes/agent-action-space-cannot-express-custom-dropdown.md]] — `agent` cluster (`tools`, `action-space`, `kintone`, `playwright`, `pullie`, `transition-phase2`)
 - [[nodes/aggregate-material-collapses-distribution.md]] — `ai-behavior` cluster (`system-design`, `pullie`, `monitoring`, `observability`, `false-alarm`, `sql-aggregation`, `multi-agent`)
@@ -251,6 +252,7 @@
 - [[nodes/uc-added-constraints-without-updating-the-goal.md]] — `uc` cluster (`ai-behavior`, `agent`, `goal-alignment`, `prompt-design`, `producer-consumer-sync`, `pullie`)
 - [[nodes/uc-agents-must-learn-from-own-failed-work.md]] — `pullie` cluster (`learning-loop`, `self-retrospective`, `knowledge-db`, `agent-design`)
 - [[nodes/uc-ai-authorship-still-visible-in-site-chrome.md]] — `uc` cluster (`site-chrome`, `ai-disclosure`, `scope-of-fix`, `weevee`)
+- [[nodes/uc-alert-in-internal-words-with-no-next-step.md]] — `notification` cluster (`observability`, `wording`, `suppression`, `weevee`)
 - [[nodes/uc-antigravity-sync-isolation.md]] — `ai-behavior` cluster (`sync-failure`, `r-hazudesu`, `automation`)
 - [[nodes/uc-approval-asked-in-the-wrong-place.md]] — `notification` cluster (`approval`, `discord`, `interaction`, `where-the-action-happens`, `weevee`)
 - [[nodes/uc-approval-flow-not-operable-from-notification.md]] — `uc` cluster (`hitl`, `discord`, `approval`, `ux`, `pullie`)
