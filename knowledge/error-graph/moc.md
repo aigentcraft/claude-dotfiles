@@ -272,7 +272,7 @@
 - [[nodes/uc-declared-missing-path-without-checking-detector-timing.md]] — `uc` cluster (`ai-behavior`, `observability`, `false-conclusion`, `over-engineering`, `pullie`)
 - [[nodes/uc-demo-screens-are-sales-assets.md]] — `uc` cluster (`pullie`, `screenshots`, `demo-quality`, `kintone`, `sales-perception`)
 - [[nodes/uc-endless-whack-a-mole.md]] — `process` cluster (`verification`, `whack-a-mole`, `observability`, `producer-consumer-sync`, `weevee`)
-- [[nodes/uc-error-message-names-the-symptom-not-the-cause.md]] — `error-message` cluster (`ux`, `diagnosability`, `fukugyo-hootl`)
+- [[nodes/uc-error-message-names-the-symptom-not-the-cause.md]] — `error-message` cluster (`ux`, `diagnosability`, `affordance`, `noise`, `fukugyo-hootl`)
 - [[nodes/uc-explained-by-filename-not-by-role.md]] — `communication` cluster (`reporting`, `jargon`, `weevee`)
 - [[nodes/uc-flow-only-observation-never-sees-settled-facts.md]] — `uc` cluster (`observability`, `planning`)
 - [[nodes/uc-focus-labels-too-small-after-zoom.md]] — `graph` cluster (`typography`, `zoom`, `readability`, `weevee`)
@@ -336,6 +336,7 @@
 - [[nodes/uc-x-engagement-should-self-drive.md]] — `sns` cluster (`autonomy`, `hitl`, `notification-design`)
 - [[nodes/uc-x-must-ride-trends-with-quote-replies.md]] — `uc` cluster (`sns`, `x-twitter`, `trend`, `quote-reply`, `analytics`, `weevee`)
 - [[nodes/uc-x-posts-must-deliver-official-facts-with-media.md]] — `uc` cluster (`sns`, `x-twitter`, `content-quality`, `media`, `weevee`, `breaking-lane`)
+- [[nodes/uc-x-zero-impressions-engage-pool-starved-12-days.md]] — `x-twitter` cluster (`starvation`, `silent-failure`, `distribution`, `join-empty`, `weevee`)
 - [[nodes/verification-tool-that-cannot-fail.md]] — `verification` cluster (`false-positive`, `test-schema`, `playwright`, `weevee`)
 
 ---
