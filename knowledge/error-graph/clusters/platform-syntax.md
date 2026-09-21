@@ -113,3 +113,10 @@ ISO-2022-JP は 7 ビットの範囲だけなので往復でき、**片方だけ
 ヒアドキュメントの中の JS 文字列でエスケープが失われ、生成したコードが壊れた。
 `cat > block.txt <<'EOF'` で本文を書き、スクリプトは `readFileSync` で差し込むだけにする。
 - 詳細: [[../nodes/win32-shell-spawn-args-parsed-by-cmd-exe.md]]（3 例目の節）
+
+### R-PS-COUNT: `.Count` を使うなら `@()` で包む／検証は実行されるシェルで
+PowerShell 5.1 では 1 件だけの `Where-Object` はスカラーを返し、`CimInstance` に `Count` が無いため
+`$x.Count` が `$null` になる（7 では 1 が返るので、開発シェルが 7 だと再現しない）。
+Windows では `powershell` = 5.1 / `pwsh` = 7。`powershell -File` で動かすなら 5.1 で確かめる。
+- 詳細: [[../nodes/powershell51-scalar-count-is-null.md]]
+
