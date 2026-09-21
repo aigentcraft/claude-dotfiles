@@ -323,6 +323,7 @@
 - [[nodes/uc-sns-operation-is-not-just-posting.md]] — `sns` cluster (`x-twitter`, `operation-design`, `proposal`)
 - [[nodes/uc-sns-posts-lack-context-and-persona.md]] — `uc` cluster (`pullie`, `sns`, `copywriting`, `persona`, `context`)
 - [[nodes/uc-taste-recommendation-without-data.md]] — `ux-judgment` cluster (`branding`, `recommendation-framing`, `data-honesty`)
+- [[nodes/uc-told-user-to-act-somewhere-that-does-not-work.md]] — `ux` cluster (`affordance`, `dead-end`, `notification`, `fukugyo-hootl`)
 - [[nodes/uc-tutorial-images-must-cover-every-step.md]] — `uc` cluster (`pullie`, `content-quality`, `screenshots`, `tutorial`)
 - [[nodes/uc-tweet-only-contradicts-comprehensive-media.md]] — `media-purpose` cluster (`planning-gate`, `tweet-only`, `coverage`, `weevee`)
 - [[nodes/uc-typography-must-meet-readability-floor.md]] — `uc` cluster (`pullie`, `typography`, `readability`, `design-port`, `web-frontend`)
