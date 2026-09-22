@@ -185,6 +185,7 @@
 - [[nodes/preview-built-published-md-instead-of-rewrite-draft.md]] — `preview` cluster (`rewrite-lane`, `build`, `stale-artifact`, `weevee`)
 - [[nodes/prompt-never-arrived-but-the-run-looked-successful.md]] — `observability` cluster (`silent-failure`, `subprocess`, `stdin`, `prompt-size`, `self-reinforcing`, `pullie`)
 - [[nodes/ps1-no-bom-lf-comment-swallows-next-line.md]] — `powershell` cluster (`encoding`, `cp932`, `windows`, `task-scheduler`, `silent-failure`, `weevee`, `bom`)
+- [[nodes/publish-commit-sweeps-foreign-staged-changes.md]] — `git` cluster (`pipeline`, `publish`, `security`, `idempotency`, `weevee`)
 - [[nodes/publish-worker-not-idempotent-after-push.md]] — `git` cluster (`idempotency`, `pipeline`, `publish`, `cloudflare-pages`)
 - [[nodes/published-but-never-announced-because-url-stayed-in-stdout.md]] — `producer-consumer-sync` cluster (`silent-failure`, `handoff`, `booth`, `pullie`, `release`)
 - [[nodes/queue-adjacency-same-article-consecutive-posts.md]] — `pullie` cluster (`sns`, `queue`, `scheduling`, `x-twitter`, `dedup`)
