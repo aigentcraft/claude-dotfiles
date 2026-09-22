@@ -56,6 +56,17 @@ DB に入れた ≠ 届いた。空の鍵（`run_id=''`）で入れた行は後�
 - [[../nodes/researcher-hard-timeout-killed-after-measurements-done.md]] — `timeout`, `retry`, `resume`（リトライには前回成果物からの再開指示を入れる）
 - [[../nodes/feedback-with-no-address-never-arrives.md]] — `feedback-loop`, `sendback`, `infinite-loop`, `materials`（宛先の無い指摘は届かない・材料が無いと LLM は嘘で埋める）
 
+### R7: 冪等判定と commit は「自分が出すパス」だけで閉じる — インデックス全体を見ない
+「差分があれば commit」の差分判定と `git commit -m` がインデックス全体を見ると、
+**その作業ツリーで他人がステージしていた変更**を自分の件名で commit・push する。
+`git add` をパス個別指定にしても防げない（commit 側が全部載せる）。
+- 例: weevee の記事公開が、前セッションのステージ済み修理 約 900 行を `post: <記事名>` で main に push した
+  （[[../nodes/publish-commit-sweeps-foreign-staged-changes.md]]）。全体判定は R の冪等化修理
+  （[[../nodes/publish-worker-not-idempotent-after-push.md]]）で入ったもの — **冪等化が巻き込みの経路を開いた**
+- 自動 commit は `git diff --cached --quiet -- <paths>` + `git commit --only -m <msg> -- <paths>`
+- 作業インデックスに一切触れたくないなら `GIT_INDEX_FILE` の一時インデックス + `commit-tree`
+- テストは本物の git で「push された中身」を数える（一時リポジトリ + bare origin）
+
 ### R-LOOP: ループの上限は「効くこと」を実データで確かめる
 上限のコードがあることと、上限が効くことは別。特に**数え方の起点が動く**実装
 （「最後の○○以降を数える」）は、その○○を別の主体が書けると上限が毎回リセットされる。
