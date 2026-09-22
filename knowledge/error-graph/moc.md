@@ -309,6 +309,7 @@
 - [[nodes/uc-premature-completion-reports.md]] — `uc` cluster (`pullie`, `verification`, `reporting`, `discipline`)
 - [[nodes/uc-probe-must-cover-layout-overflow.md]] — `pullie` cluster (`visual-inspection`, `layout`, `overflow`, `mobile`, `verification`)
 - [[nodes/uc-proposed-a-timeout-instead-of-asking-why.md]] — `root-cause` cluster (`pullie`, `triage`)
+- [[nodes/uc-proposed-brittle-selectors-when-agent-was-wanted.md]] — `uc` cluster (`ai-behavior`, `agent`, `browser-automation`, `selector-rot`, `solution-design`, `fukugyo-hootl`)
 - [[nodes/uc-pushed-a-decision-the-org-should-have-made.md]] — `uc` cluster (`delegation`, `decision-framing`, `agent-autonomy`, `pullie`)
 - [[nodes/uc-real-but-unrelated-screenshots.md]] — `uc` cluster (`pullie`, `screenshots`, `content-image-consistency`, `kintone`, `inspection-coverage`)
 - [[nodes/uc-recovery-path-hardcoded-to-the-first-site.md]] — `approval-flow` cluster (`multi-site`, `error-message`, `partial-migration`)
