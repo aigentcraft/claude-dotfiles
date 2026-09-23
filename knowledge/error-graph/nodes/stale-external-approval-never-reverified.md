@@ -53,3 +53,13 @@ CLAUDE.md に「審査待ち（数時間〜）」と書いた。以後 **毎日�
 - [[uc-endless-whack-a-mole]] — 「同文の警告を毎日再送して処理の代わりにする」
 - [[google-ads-api-setup-gotchas-oauth-timeout-customer-not-enabled]] — 8/30 の時点で `CUSTOMER_NOT_ENABLED` は分かっていた
 - [[feedback-with-no-address-never-arrives]] — 記録した ≠ 届いた、の外部版（申請した ≠ 審査されている）
+
+## 再発（pullie・2026-09-23）— ナレッジはあったのに隣のプロジェクトへ届かなかった
+同じユーザーの pullie（kintone 受注メディア）が**同じ罠を 37 日**踏んでいた（2026-08-15 申請 → 09-21 まで毎週 403）。
+このノードが書かれた 9/14 以降も、pullie の CLAUDE.md は「Basic 審査待ち」のまま。エラーコードは途中で
+`CLOUD_PROJECT_NOT_APPROVED_FOR_PRODUCTION` に変わっていたが、取得ツールの案内文が固定の「承認待ちの可能性」だった。
+人間が「weevee では別経路で取れている」と指摘して初めて気づいた → [[uc-reported-stale-wait-while-sibling-had-the-fix]]。
+追加の予防ルール:
+4. **ナレッジにノードを書いたら、同じ依存先を持つ隣のプロジェクトを grep して横展開する**（Quick Rule 9 の外部依存版）。
+   書いただけでは隣には届かない（[[feedback-with-no-address-never-arrives]] と同じ形）
+5. **案内文を固定しない。** 理由コードごとに出し分けるか、コードを表示する（pullie の取得ツールで実装）
