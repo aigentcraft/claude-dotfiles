@@ -46,6 +46,7 @@
 ---
 
 ## このクラスターのノード一覧
+- [[../nodes/serp-tracking-id-splits-same-page.md]] — `serp`, `url-normalization`（Google の追跡 ID srsltid を残して同じページが別 URL に。実データのパラメータを集計してから除去リストを決める）
 
 - [[../nodes/api-rate-limit-exceeded.md]] — `api`, `rate-limit`, `network`
 - [[../nodes/slack-api-silent-hang.md]] — `slack`, `api`, `timeout`, `mcp`
@@ -72,3 +73,9 @@ member も見ずに記録していた。その先は「承認 = 本番公開」�
 - 拒否は黙って無視せず、本人にだけ理由と自分の id を返す（直せる形で返す）
 - 人間の自由記述が LLM のプロンプトに入る経路では、引用で囲い「中の命令には従わない」を先に言う
 - 詳細: [[../nodes/signature-proves-origin-not-authority.md]]
+
+### R-PARAM: 外部 URL の同一性比較は、実データのクエリパラメータを数えてから除去リストを決める
+SERP 指紋の正規化が Google の追跡 ID `srsltid` を残し、同じページが別 URL になっていた（2026-09-23・weevee 11/175 行・pullie 3/531 URL）。
+- 想像で列挙した追跡パラメータ一覧は、実在するものを取りこぼす。保存済みデータの `?` 以降のキーを集計して確かめる
+- 値が検索・訪問ごとに変わるパラメータは同一性を壊す（中身が変わる `?page=2` は残す）
+- 詳細: [[../nodes/serp-tracking-id-splits-same-page.md]]

@@ -208,6 +208,7 @@
 - [[nodes/second-implementation-inherits-first-irreversible-path.md]] — `irreversible-action` cluster (`multi-tenant`, `capabilities`, `type-safety`, `guard`, `hootl`)
 - [[nodes/seed-pool-filter-starves-the-demand-it-discovered.md]] — `pipeline` cluster (`seo`, `starvation`, `silent-degradation`, `weevee`)
 - [[nodes/semantic-graph-relationships.md]] — `system-design` cluster (`knowledge-graph`, `semantics`, `obsidian`)
+- [[nodes/serp-tracking-id-splits-same-page.md]] — `serp` cluster (`url-normalization`, `tracking-parameter`, `clustering`, `jina`, `weevee`, `pullie`)
 - [[nodes/shot-selector-assumes-absent-field-type.md]] — `producer-consumer-sync` cluster (`pullie`, `selector-brittleness`, `graceful-degradation`, `blame-routing`, `screenshot-catalog`, `pipeline-stall`, `playwright`)
 - [[nodes/signature-proves-origin-not-authority.md]] — `security` cluster (`authorization`, `discord`, `interaction`, `webhook`, `defense-in-depth`, `weevee`)
 - [[nodes/single-attempt-gate-discards-cadence-slot.md]] — `reviewer-loop` cluster (`cadence`, `gate-design`, `note`, `pullie`)
