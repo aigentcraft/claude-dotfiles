@@ -24,3 +24,10 @@ date: "2026-08-09"
 1. **Windowsで動かすPythonの `text=True` capture には必ず `encoding="utf-8"` を書く**（書かないコードはWindowsに持ち込んだ瞬間に地雷化する）
 2. エントリポイントのラッパーで `PYTHONUTF8=1` を立てるのを標準にする
 3. 「手動では動くがスケジューラで死ぬ」時は、フラグ・環境変数の差分（-X utf8 / PATH / PYTHONUTF8）をまず疑う
+
+## 再発（2026-09-23・weevee）
+`tools/diagram_render.py` の node 呼び出しが `text=True` だけで、UTF-8 モードでない起動経路から呼ばれた時に
+日本語パスの出力で読み取りスレッドが死に、`stdout` が None → `re.search` が TypeError（記事 30 の HTML 描画 6 枚が全滅）。
+前回は「落ちた箇所」だけを直していた。今回は `tests/test_subprocess_text_decoding.py` が ast で全ファイルの
+`text=True` 呼び出しを検査し、`errors=` の付け忘れを赤にする（10 箇所を一括修正）。
+予防ルール追加: **同じ型は列挙で直さず、全数を機械で検査するテストで閉じる。**

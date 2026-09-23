@@ -217,7 +217,9 @@ X の発信の監視は記録のある 25 回すべてで赤だった（2026-09-
 - 生死の判定に**タスクの状態を使わない**。実際の子プロセスか生存記録で見る
 - **プロセスを探す判定は用途ごとに広さを決める。** 起動を見送る判定は広くてよく、
   終わらせる判定は狭くなければならない。同じ述語を使い回すとどちらかが危険側に倒れる
-- 詳細: [[../nodes/stop-task-leaves-either-wrapper-or-child.md]]
+- **終わらせる対象は「自分が起動したもの」で定義する**（「普段の Chrome ではない」のような除外で定義しない）。
+  親子関係で選ぶなら親を消す前に控える。node は絞ったのにブラウザの掃除だけ PC 全体のままだった（2026-09-23）
+- 詳細: [[../nodes/stop-task-leaves-either-wrapper-or-child.md]] / [[../nodes/stop-script-killed-every-playwright-browser.md]]
 
 
 ### R-EXAMPLE: 例示値と検出器は対で設計する
@@ -225,3 +227,12 @@ X の発信の監視は記録のある 25 回すべてで赤だった（2026-09-
   （説明語でも `taro@example.com` でも同じだった）
 - 例示値は検出器が必ず弾く形（RFC 2606 の example.com 等）に限り、弾くことを selftest で固定する
 - 詳細: [[../nodes/placeholder-example-domain-executed-verbatim.md]]
+
+### R-REFUSE: 「使えない」は、相手が応答しなかった時だけ言う
+失敗を 1 種類（None）で返すと、上流は「上限」「相手が理由つきで断った」「故障」を区別できず、
+動いている相手を「応答していない」と通知する（2026-09-23 weevee: 画像の加工を GPT が断っただけで
+「GPT Image が 1 枚も応答していません」と誤報・上限に当たっても 12 回呼び続けた）。
+- 失敗は種類と相手の返事を運ぶ（`last_failure()` のような戻り値の外の経路でもよい）
+- 外部の上限は解除時刻まで呼ばない。状態は工程をまたいで共有する
+- 断られたら、断った理由を頼んだ担当に返す
+- 詳細: [[../nodes/image-engine-refusal-and-usage-limit-reported-as-outage.md]]
