@@ -101,6 +101,7 @@
 - [[nodes/bash-heredoc-truncates-long-files.md]] — `claude-code` cluster (`bash`, `heredoc`, `windows`, `git-bash`, `platform-syntax`)
 - [[nodes/browser-profile-remembers-offscreen-window-position.md]] — `playwright` cluster (`chromium`, `persistent-context`, `window-placement`, `mode-bleed`, `weevee`)
 - [[nodes/bulk-migration-regex-ate-the-adjacent-block.md]] — `migration` cluster (`regex`, `bulk-edit`, `single-source`, `weevee`)
+- [[nodes/button-disabled-on-press-never-restored.md]] — `discord` cluster (`ui-state`, `finally`, `retry-path`, `fukugyo-hootl`)
 - [[nodes/capability-flag-silently-dropped-site-from-dispatch.md]] — `capability-flags` cluster (`silent-failure`, `dispatch`, `regression`, `fukugyo-hootl`)
 - [[nodes/capture-success-is-not-content-correctness.md]] — `observability` cluster (`screenshot`, `publishing`, `review-gate`, `automation`, `pullie`)
 - [[nodes/cdp-port-9222-hijacked-by-wsl-relay-wrong-browser.md]] — `wsl` cluster (`cdp`, `playwright`, `chrome`, `port-collision`, `misdiagnosis`, `pullie`)

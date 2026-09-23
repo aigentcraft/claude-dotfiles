@@ -246,6 +246,13 @@ X の発信の監視は記録のある 25 回すべてで赤だった（2026-09-
   （CAPTCHA で止まったのに「persona.md に事実を足して」と案内した。2026-09-23 fukugyo-hootl #77）
 - 詳細: [[../nodes/image-engine-refusal-and-usage-limit-reported-as-outage.md]] / [[../nodes/not-ready-notice-blamed-persona-for-captcha.md]]
 
+### R-BUTTON: 押した時に消したボタンは、終わったら必ず戻す（finally）
+二重押し防止でボタンを消す作りは、**成功した時だけ次の画面に進む**。失敗・例外・途中停止で終わると
+誰も戻さず、「押し直してください」と案内しながら押せない（2026-09-24 fukugyo-hootl #77）。
+- 消す処理と戻す処理は対で書く。戻す側は finally に置き、**最新の状態から描き直す**（応募済みに戻さない）
+- 案内が「もう一度押して」を求めるなら、押せるボタンの存在を同じ経路で保証する
+- 詳細: [[../nodes/button-disabled-on-press-never-restored.md]] / [[../nodes/superseded-draft-kept-its-buttons.md]]（逆向き）
+
 ### R-NEXT-STEP: 鳴る頻度を数えてから通知にする
 「録画なし（実測ラボ）」は取材 15 回中 13 回鳴り、次の一手が一度も無かった（2026-09-23 weevee）。録るかどうかは担当の判断で、
 0 本は故障ではない。故障は「撮ったのに全部使えない」の方だった。
