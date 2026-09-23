@@ -335,6 +335,7 @@
 - [[nodes/uc-recovery-path-hardcoded-to-the-first-site.md]] — `approval-flow` cluster (`multi-site`, `error-message`, `partial-migration`)
 - [[nodes/uc-rejection-should-trigger-immediate-rework.md]] — `uc` cluster (`hitl`, `pipeline`, `feedback-loop`, `ux`, `pullie`)
 - [[nodes/uc-repeat-master-push-despite-known-403.md]] — `git` cluster (`permissions`, `repeat-error`)
+- [[nodes/uc-reported-in-english-to-japanese-user.md]] — `uc` cluster (`ai-behavior`, `language`, `communication`, `fukugyo-hootl`)
 - [[nodes/uc-reported-stale-wait-while-sibling-had-the-fix.md]] — `ai-behavior` cluster (`external-dependency`, `waiting`, `cross-project`, `knowledge-transfer`, `google-ads`, `pullie`)
 - [[nodes/uc-reverted-user-config-without-asking-intent.md]] — `uc` cluster (`settings`, `permissions`, `user-intent`, `claude-code`)
 - [[nodes/uc-reviewer-verdict-had-no-enforcement-channel.md]] — `uc` cluster (`pullie`, `review-gate`, `llm-judgment`, `enforcement`, `completeness`)
