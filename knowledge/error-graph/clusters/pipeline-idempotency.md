@@ -63,7 +63,12 @@ DB に入れた ≠ 届いた。空の鍵（`run_id=''`）で入れた行は後�
 - 例: weevee の記事公開が、前セッションのステージ済み修理 約 900 行を `post: <記事名>` で main に push した
   （[[../nodes/publish-commit-sweeps-foreign-staged-changes.md]]）。全体判定は R の冪等化修理
   （[[../nodes/publish-worker-not-idempotent-after-push.md]]）で入ったもの — **冪等化が巻き込みの経路を開いた**
+- 例2（2026-09-23 判明）: 移植元の pullie でも 2026-08-19 に `da92463 post: …` が手動セッションの 12 ファイルを
+  巻き込んでいた。当時は「競合（タイミング）」と診断して**人間側が気をつける**で閉じ、公開側を直さなかった
+  → 移植先で同じ事故が再発した。**巻き込みは「気をつける」で閉じず、外に出る層の範囲を直す**
 - 自動 commit は `git diff --cached --quiet -- <paths>` + `git commit --only -m <msg> -- <paths>`
+- **`--only` に渡すのは差分のあるパスだけ**（パスごとに判定する）。git が一度も見ていないパス
+  （全部掃除された新規の空フォルダ）を渡すと pathspec エラーで公開ごと落ちる — 旧コードの `commit -m` は落ちなかった
 - 作業インデックスに一切触れたくないなら `GIT_INDEX_FILE` の一時インデックス + `commit-tree`
 - テストは本物の git で「push された中身」を数える（一時リポジトリ + bare origin）
 

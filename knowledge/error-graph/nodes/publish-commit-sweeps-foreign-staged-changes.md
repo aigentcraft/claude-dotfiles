@@ -1,7 +1,7 @@
 ---
 title: "publish-commit-sweeps-foreign-staged-changes"
 type: "error"
-tags: ["git", "pipeline", "publish", "security", "idempotency", "weevee"]
+tags: ["git", "pipeline", "publish", "security", "idempotency", "weevee", "pullie"]
 date: "2026-09-22"
 ---
 
@@ -68,3 +68,44 @@ main への push は Cloudflare Pages の自動デプロイも起動する。秘
 
 - [[publish-worker-not-idempotent-after-push]] — 全体判定の `git diff --cached --quiet` が入った修理（今回の前段）
 - [[verification-tool-that-cannot-fail]] — 検査は外に出る結果（push された中身）で書く
+
+## 参照プロジェクトでも起きていた（2026-09-23 追記・Kintone受注目的メディア運営自動化 / pullie）
+
+weevee の移植元である pullie の記事公開にも同じ形が残っていた（weevee は欠陥ごと移植していた）。
+
+### 実は 1 か月前に一度起きていた — 診断が「競合」で止まっていた
+
+- 全 32 本の `post:` コミットを走査すると、**`da92463 post: kintone開発は内製か外注か？…`（2026-08-19）**に
+  記事と無関係な 12 ファイル（手動セッションのフォントサイズ変更一式 + CLAUDE.md + DEV_LOG.md）が載って main に push されていた。
+  巻き込みはこの 1 件だけ
+- 当時の記録は「手動セッションの git 操作はパイプラインの公開処理と**競合しうる**」。予防策は
+  「git 操作の前に承認待ちと lock を確認し、ステージから push まで間を置かない」＝**人間側が気をつける**で閉じており、
+  **公開コミットの範囲が原因だとは診断されなかった**。1 か月後、移植先の weevee で同じ事故が再発した
+
+### 修正 — weevee の `commit_and_push` を移植し、1 点だけ変えた
+
+- add / 差分判定 / commit を同じパス集合で閉じる（weevee と同じ）
+- **変更点: 差分判定をパスごとに行い、差分のあるパスだけを `--only` に渡す**。
+  `git commit --only -- <path>` は **git が一度も見ていないパス**を渡すと
+  `error: pathspec '…' did not match any file(s) known to git` で落ちる。新規記事の画像が全部未参照として掃除され、
+  空の未追跡フォルダだけが残るとこの状態になる。旧コードの `git commit -m` はこれで落ちなかったので、
+  **そのまま移植すると公開そのものが止まる経路を新しく作る**
+- 実測: テスト 5 本（weevee の 4 本 + 空フォルダ 1 本）。旧コードで 2 件赤
+  （`公開物以外が push された: {'code.py'}` / 差分なしの再実行で commit して `True`）→
+  **weevee そのままの移植で空フォルダの 1 件が赤**（上の pathspec エラー）→ パスごとの判定で 5/5 緑。
+  独立レビューの提案で「本文は同じ・画像だけ差し替え」を足して 6/6・全体 209 件緑（レビュー指摘なし）
+- 本番の形でも確認: 日本語を含むリポジトリパス + このリポジトリの pre-commit フック（秘密ファイル・パターン検査）を有効にし、
+  他人のステージとしてダミーの `.env` を積んだ状態で、公開物 2 本だけが push され `.env` はステージされたまま残った。
+  `--only` でも pre-commit フックは commit 対象（git が作る一時インデックス）を検査する —
+  `.env` そのものを `--only` で commit しようとするとフックが拒否することも実測
+- 全数: porcelain の `git commit` は pullie 全体で **公開処理の 1 箇所だけ**。プレビュー（06b）は `GIT_INDEX_FILE` の
+  一時インデックス + `commit-tree` で対象外。`git add -A` / `git add .` は 0 件
+- ~~weevee 側にも空フォルダの潜在経路が残っている~~ → **2026-09-23 weevee でも修正**（同じくパスごとの判定。`test_an_empty_image_folder_does_not_stop_the_publish` で旧コードの pathspec エラーを再現してから）
+
+### 予防ルール（追記）
+
+5. **`--only -- <paths>` に渡すのは「差分のあるパス」だけ。** git が知らないパス（空の未追跡フォルダ等）を渡すと
+   pathspec エラーで処理ごと落ちる。パスを絞る修正は、旧コードが黙って通していた入力で落ちないかを確かめる
+6. **巻き込み事故を「人間が気をつける」で閉じない。** 外に出る層（自動 commit）の範囲を直さない限り、
+   気をつける主体が変わる（別セッション・別プロジェクト・移植先）たびに再発する。
+   事故の記録に「競合」「タイミング」と書く前に、**どの層が他人の物まで外に出したか**を特定する
