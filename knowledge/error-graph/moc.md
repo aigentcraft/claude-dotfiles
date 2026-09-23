@@ -283,6 +283,7 @@
 - [[nodes/uc-articles-contain-operator-facing-justifications.md]] — `editorial` cluster (`tone`, `internal-leak`, `compliance`, `weevee`)
 - [[nodes/uc-articles-must-carry-own-positioning.md]] — `pullie` cluster (`positioning`, `content-strategy`, `conversion`, `compliance`)
 - [[nodes/uc-articles-too-advanced-for-beginner-readers.md]] — `editorial` cluster (`audience`, `beginner`, `affiliate`, `writer`, `weevee`)
+- [[nodes/uc-asked-user-to-edit-local-file-from-phone.md]] — `uc` cluster (`ai-behavior`, `hootl`, `human-in-the-loop`, `discord`, `fukugyo-hootl`)
 - [[nodes/uc-bot-check-wall-written-into-public-article.md]] — `editorial` cluster (`internal-leak`, `automation-exposure`, `compliance`, `weevee`)
 - [[nodes/uc-breaking-lane-tweet-format-is-strategist-judgment.md]] — `uc` cluster (`sns`, `x-twitter`, `llm-free-overreach`, `weevee`, `breaking-lane`)
 - [[nodes/uc-capability-change-left-existing-cards-stale.md]] — `discord` cluster (`capabilities`, `stale-ui`, `deploy`, `fukugyo-hootl`)
