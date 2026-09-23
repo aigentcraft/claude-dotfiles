@@ -56,3 +56,9 @@
 - [[../nodes/uc-article-image-cropped-caption-overlap.md]] — `user-correction`, `images`, `captions`, `preview`
 - [[../nodes/uc-silent-fallback-labeled-as-gpt.md]] — `uc`, `images`, `imagegen`, `fallback`, `silent-failure`, `labeling`, `self-healing`
 - [[../nodes/image-postprocess-crop-cuts-text-in-screenshots.md]] — `images`, `cropping`, `postprocess`, `kind-list-omission`
+
+### R-SHAPE: 画像の品質ゲートは、正しい出力の極端な形で通るか確かめる
+面積の余白率は、横長・縦長の対象を 3:2 に収めると必ず大きくなる（2.4:1 のメニューで最低 37.5%）。
+上限 32% では正しい画面の加工が永久に落ち、検閲は「画像が無い」を執筆担当に 3 回差し戻した（weevee 記事 31）。
+- 画面の加工は「一方の向きを埋めているか」で見る。閾値は合格例だけでなく、形の極端な正例で確かめる
+- 詳細: [[../nodes/screenshot-edit-area-border-gate-impossible-for-wide-ui.md]]
