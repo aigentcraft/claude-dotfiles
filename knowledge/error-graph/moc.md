@@ -102,7 +102,6 @@
 - [[nodes/bulk-migration-regex-ate-the-adjacent-block.md]] — `migration` cluster (`regex`, `bulk-edit`, `single-source`, `weevee`)
 - [[nodes/capability-flag-silently-dropped-site-from-dispatch.md]] — `capability-flags` cluster (`silent-failure`, `dispatch`, `regression`, `fukugyo-hootl`)
 - [[nodes/capture-success-is-not-content-correctness.md]] — `observability` cluster (`screenshot`, `publishing`, `review-gate`, `automation`, `pullie`)
-- [[nodes/catalog-key-added-without-consumer-sync.md]] — `multi-agent` cluster (`skill-sync`, `screenshot`, `pipeline`)
 - [[nodes/cdp-port-9222-hijacked-by-wsl-relay-wrong-browser.md]] — `wsl` cluster (`cdp`, `playwright`, `chrome`, `port-collision`, `misdiagnosis`, `pullie`)
 - [[nodes/checklist-references-file-not-in-skill-refs.md]] — `producer-consumer-sync` cluster (`skill-sync`, `agent-manifest`, `llm-pipeline`, `weevee`)
 - [[nodes/claude-bash-heredoc-backslash-escape-halved.md]] — `claude-code` cluster (`bash-tool`, `heredoc`, `python`, `escaping`, `windows`, `weevee`)
@@ -259,6 +258,7 @@
 - [[nodes/xmcp-venv-python-exe-lookup-windows.md]] — `windows` cluster (`venv`, `path-exists`, `xmcp`, `subprocess`, `weevee`)
 
 ### [Type B] User Corrections (uc-)
+- [[nodes/catalog-key-added-without-consumer-sync.md]] — `multi-agent` cluster (`skill-sync`, `screenshot`, `pipeline`)
 - [[nodes/discord-embed-markdown-table-not-rendered.md]] — `discord` cluster (`notification`, `markdown`, `report-formatting`, `pullie`)
 - [[nodes/uc-abstract-knowledge-label.md]] — `knowledge-design` cluster (`system-design`)
 - [[nodes/uc-activity-report-inverted-engagement-direction.md]] — `pullie` cluster (`reporting-integrity`, `llm-summarization`, `direction-ambiguity`, `self-report-bias`)
