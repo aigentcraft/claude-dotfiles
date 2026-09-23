@@ -242,7 +242,9 @@ X の発信の監視は記録のある 25 回すべてで赤だった（2026-09-
 - 失敗は種類と相手の返事を運ぶ（`last_failure()` のような戻り値の外の経路でもよい）
 - 外部の上限は解除時刻まで呼ばない。状態は工程をまたいで共有する
 - 断られたら、断った理由を頼んだ担当に返す
-- 詳細: [[../nodes/image-engine-refusal-and-usage-limit-reported-as-outage.md]]
+- **利用者への案内も理由ごとに分ける。** 1 種類の文面だと、別の理由の時に誤った行動を指示する
+  （CAPTCHA で止まったのに「persona.md に事実を足して」と案内した。2026-09-23 fukugyo-hootl #77）
+- 詳細: [[../nodes/image-engine-refusal-and-usage-limit-reported-as-outage.md]] / [[../nodes/not-ready-notice-blamed-persona-for-captcha.md]]
 
 ### R-NEXT-STEP: 鳴る頻度を数えてから通知にする
 「録画なし（実測ラボ）」は取材 15 回中 13 回鳴り、次の一手が一度も無かった（2026-09-23 weevee）。録るかどうかは担当の判断で、

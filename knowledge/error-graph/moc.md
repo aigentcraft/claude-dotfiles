@@ -174,6 +174,7 @@
 - [[nodes/migration-moved-the-container-not-the-contents.md]] — `migration` cluster (`discord`, `ui`, `incomplete-migration`, `hootl`)
 - [[nodes/mime-7bit-body-is-already-decoded.md]] — `mime` cluster (`encoding`, `iso-2022-jp`, `utf-8`, `mail`, `imap`, `fukugyo-hootl`)
 - [[nodes/no-overwrite-guard-discarded-expensive-field.md]] — `idempotency` cluster (`upsert`, `silent-failure`, `cost`, `scraping`, `observability`, `hootl`)
+- [[nodes/not-ready-notice-blamed-persona-for-captcha.md]] — `user-facing-message` cluster (`misattribution`, `cloudflare`, `captcha`, `agent`, `fukugyo-hootl`)
 - [[nodes/note-kpi-weekly-cadence-window-blind-spot.md]] — `observability` cluster (`kpi`, `note`, `producer-consumer-sync`, `window-alignment`, `cadence`, `pullie`)
 - [[nodes/once-error-listener-lets-the-daemon-die-silently.md]] — `daemon` cluster (`discord`, `event-emitter`, `silent-failure`, `observability`, `fukugyo-hootl`)
 - [[nodes/one-sample-form-shape-assumed-universal.md]] — `form` cluster (`sampling`, `doctor`, `negative-control`, `fukugyo-hootl`, `kyujinbox`)
