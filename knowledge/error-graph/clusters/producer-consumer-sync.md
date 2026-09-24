@@ -36,6 +36,17 @@ grepで洗い出し、同一コミット内で結線または明示的に対象�
 - 失敗が無症状な連鎖（起きるはずだった別のことが起きないだけ）は通知できない。
   下流の入口条件を上流のツールに満たさせる
 
+### R1g: 例外を細分化したら、既存の `except` 節が全部消費側 — 新しい例外は既存の型の子にする
+投げる側が例外を新設・分割するのは定義の拡張と同じで、**`except 旧型` を書いている全箇所**が消費側。
+新しい例外を既存の型の**兄弟**にすると、「失敗はこの型で来る」という既存の契約が黙って破れ、
+区別のために直した1箇所以外ではプロセスごと落ちる。
+- 例: 画像生成の利用上限を `ImageQuotaExceeded(RuntimeError)` として `ImageGenError` の兄弟にした。
+  記事側だけ `except ImageQuotaExceeded` を足し、note 側の `except ImageGenError`（画像を諦めて続行）は
+  素通り → 本文を書き上げ検閲も通った note が未コミットの行ごと消え、週2枠の1回が丸ごと失われた
+  （[[../nodes/exception-split-into-sibling-escaped-existing-handlers.md]]）
+- **子にすれば既存の catch は従来どおり拾い、区別したい箇所は子の except を先に書くだけ**
+- 固定枠（週N回）でしか走らない処理は、連続失敗の通知が枠の間隔では鳴らない。翌回やり直しを持たせる
+
 ### R1b: 定義への「同期」だけでは足りない — 上流の指定は下流の能力表と契約させる
 消費側一覧の同期（R1）を守っていても、**上流エージェントが自由記述で「指定」を出す構造**なら
 能力外の指定が素通りする。指示を出す側（FS・企画・仕様書）にも能力表（カタログ）への参照を
@@ -124,6 +135,7 @@ R1（一覧の同期）とR1b（能力表との契約）を満たしても、**�
 | LLM 出力に「手元にない」「参照できない」が含まれる | R1: 供給欠落として扱い manifest を修正 |
 | 特定の題材・データのときだけUI操作が落ちる | R1c: 前提要素の実在を候補列＋総称セレクタで吸収 |
 | 「失敗したが処理は続行」の分岐を書く/見つけた | R1d: 記録・申し送り・代替表現の3点が揃っているか |
+| 既存の例外を細分化して新しい例外クラスを作る | R1g: 既存の型の子にする・`except 旧型` を全 grep |
 - [[../nodes/duplicate-skill-dirs-manifest-points-at-stale-copy.md]] — `skills`, `manifest`, `duplicate-source`, `stale-config`
 - [[../nodes/single-source-migration-broke-the-legacy-reader.md]] — `migration`, `single-source`, `legacy-path`, `fail-safe`
 - [[../nodes/bulk-migration-regex-ate-the-adjacent-block.md]] — `migration`, `regex`, `bulk-edit`, `single-source`

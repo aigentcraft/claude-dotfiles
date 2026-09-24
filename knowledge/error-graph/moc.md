@@ -130,6 +130,7 @@
 - [[nodes/element-present-is-not-handler-bound.md]] — `playwright` cluster (`e2e`, `race`, `kintone`, `plugin`, `silent-failure`, `pullie`)
 - [[nodes/enumeration-guards-never-close-use-structural-rules.md]] — `ai-behavior` cluster
 - [[nodes/error-handler-wrote-a-status-the-schema-forbids.md]] — `observability` cluster (`error-handling`, `notification-storm`, `db-constraint`, `silent-failure`, `pullie`)
+- [[nodes/exception-split-into-sibling-escaped-existing-handlers.md]] — `producer-consumer-sync` cluster (`exception-hierarchy`, `silent-failure`, `note`, `pullie`, `cadence`)
 - [[nodes/existence-vs-completion-check.md]] — `idempotency` cluster (`batch-processing`, `state-design`, `cost-control`)
 - [[nodes/external-button-needs-an-outside-count.md]] — `observability` cluster (`discord`, `interaction`, `approval`, `fail-closed`, `rc-zero`, `weevee`)
 - [[nodes/fallback-notice-used-thread-api-on-channel.md]] — `discord` cluster (`fallback-path`, `silent-failure`, `notification`, `fukugyo-hootl`)
