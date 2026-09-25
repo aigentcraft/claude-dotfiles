@@ -209,6 +209,7 @@
 - [[nodes/reminder-covers-only-the-entity-it-was-written-for.md]] — `observability` cluster (`watchdog`, `notification`, `human-in-the-loop`, `note`, `silent-failure`, `pullie`)
 - [[nodes/repair-command-fed-all-sites-into-one-board.md]] — `multi-tenant` cluster (`repair`, `dry-run`, `discord`, `data-scoping`, `fukugyo-hootl`)
 - [[nodes/researcher-hard-timeout-killed-after-measurements-done.md]] — `timeout` cluster (`retry`, `research-lab`, `resume`, `claude-client`, `weevee`)
+- [[nodes/resumed-article-reused-fallback-images.md]] — `pipeline-idempotency` cluster (`reuse`, `fallback`, `image-generation`, `usage-limit`, `queue-starvation`, `weevee`)
 - [[nodes/review-step-crashed-six-days-on-a-wrong-column-name.md]] — `sqlite` cluster (`column-name`, `silent-crash`, `stderr`, `task-scheduler`, `fake-schema-test`, `weevee`)
 - [[nodes/reviewer-checklist-without-applicability-conditions.md]] — `ai-behavior` cluster (`llm-pipeline`, `reviewer`, `checklist`, `scoring`, `weevee`)
 - [[nodes/reviewer-flagged-machine-rendered-log-image-as-fabricated.md]] — `reviewer` cluster (`false-positive`, `images`, `provenance`, `send-back-loop`, `weevee`)

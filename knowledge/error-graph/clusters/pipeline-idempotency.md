@@ -13,6 +13,9 @@
 位置・連番・ファイル存在だけを再利用の根拠にしない。成果物が「何から作られたか」（見出し・種別・入力ハッシュ）をマニフェストに残し、一致した時だけ再利用する。
 マニフェストが無い旧世代の成果物は再利用しない（安全側に倒す）。
 - 詳細: [[../nodes/image-reuse-by-section-index-after-restructure.md]]
+- **同一性には「どう作られたか（経路・品質）」も含める**（2026-09-25）: 代用品（フォールバック）を「揃っている」と数えると、
+  待機・作り直しの仕組みがあっても代用品がそのまま出る。再試行するキューには順番を回す仕組み（直近の試行を後ろへ）を付ける
+  — [[../nodes/resumed-article-reused-fallback-images.md]]
 
 ### R2: 構成が変わる経路（差し戻し再執筆・リライト）で再利用ロジックを必ず通す
 冪等性は「入力が変わらない」前提で作られがち。差し戻し再執筆は章構成が変わる典型ケースなので、その経路で「新メタデータ + 旧成果物」の不一致が起きないかを実走で確認する。
@@ -56,6 +59,7 @@ DB に入れた ≠ 届いた。空の鍵（`run_id=''`）で入れた行は後�
 - [[../nodes/preview-built-published-md-instead-of-rewrite-draft.md]] — `preview`, `rewrite-lane`, `stale-artifact`（検査対象は常に今回の成果物に固定）
 - [[../nodes/researcher-hard-timeout-killed-after-measurements-done.md]] — `timeout`, `retry`, `resume`（リトライには前回成果物からの再開指示を入れる）
 - [[../nodes/feedback-with-no-address-never-arrives.md]] — `feedback-loop`, `sendback`, `infinite-loop`, `materials`（宛先の無い指摘は届かない・材料が無いと LLM は嘘で埋める）
+- [[../nodes/resumed-article-reused-fallback-images.md]] — `reuse`, `fallback`, `queue-starvation`（代用品を「揃っている」と数えない・キューの順番を回す）
 - [[../nodes/regenerated-images-never-reached-live-site.md]] — `deploy`, `silent-failure`, `image-generation`, `usage-limit`（作り直しても本番に出ない・本番を数える）
 
 ### R7: 冪等判定と commit は「自分が出すパス」だけで閉じる — インデックス全体を見ない
