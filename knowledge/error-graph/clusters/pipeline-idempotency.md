@@ -47,6 +47,7 @@ DB に入れた ≠ 届いた。空の鍵（`run_id=''`）で入れた行は後�
 | ロックファイル/リースの残骸判定を書く | R4: 所有 pid の生存確認を一次条件に |
 | 検査結果・差し戻し理由を DB に記録する | R5: 受け取り側で現れることをテストで固定 |
 | エージェントに新しい作業を指示する | R6: 材料が work dir に届いているか実測 |
+| 生成物を作り直す道具を書く | R8: 公開中のものが変わったかを本番で数える |
 
 ## このクラスターのノード一覧
 
@@ -55,6 +56,7 @@ DB に入れた ≠ 届いた。空の鍵（`run_id=''`）で入れた行は後�
 - [[../nodes/preview-built-published-md-instead-of-rewrite-draft.md]] — `preview`, `rewrite-lane`, `stale-artifact`（検査対象は常に今回の成果物に固定）
 - [[../nodes/researcher-hard-timeout-killed-after-measurements-done.md]] — `timeout`, `retry`, `resume`（リトライには前回成果物からの再開指示を入れる）
 - [[../nodes/feedback-with-no-address-never-arrives.md]] — `feedback-loop`, `sendback`, `infinite-loop`, `materials`（宛先の無い指摘は届かない・材料が無いと LLM は嘘で埋める）
+- [[../nodes/regenerated-images-never-reached-live-site.md]] — `deploy`, `silent-failure`, `image-generation`, `usage-limit`（作り直しても本番に出ない・本番を数える）
 
 ### R7: 冪等判定と commit は「自分が出すパス」だけで閉じる — インデックス全体を見ない
 「差分があれば commit」の差分判定と `git commit -m` がインデックス全体を見ると、
@@ -71,6 +73,17 @@ DB に入れた ≠ 届いた。空の鍵（`run_id=''`）で入れた行は後�
   （全部掃除された新規の空フォルダ）を渡すと pathspec エラーで公開ごと落ちる — 旧コードの `commit -m` は落ちなかった
 - 作業インデックスに一切触れたくないなら `GIT_INDEX_FILE` の一時インデックス + `commit-tree`
 - テストは本物の git で「push された中身」を数える（一時リポジトリ + bare origin）
+
+
+### R8: 修理の経路は「公開の経路」まで通して完了とする — 手元の成果物・記録は証拠にならない
+作り直しの道具が書き換えるのが下書きと作業フォルダだけなら、**公開中のものは何度直しても変わらない**。
+記録（manifest・ログ）は「直した」と言い、本番だけが古いまま — 誰も気づかない。
+- 例: weevee の画像の作り直しキューは、公開中の記事の図を GPT で描き直しても commit・push せず、
+  「端で切れた図」の直し（9/21〜22）も週上限中に簡易版で公開された 4 本（9/23〜24）も本番に出ていなかった
+  （[[../nodes/regenerated-images-never-reached-live-site.md]]）
+- 反映の段は「変わった部分だけ」「書き直し中の下書きを混ぜない判定つき」で持つ（見出し・本文の一致）
+- 成果チェックは **本番（HEAD の記録 / 配信 URL）** を数える。手元の記録を数えると同じ食い違いを見落とす
+- 作り直しの順番は「いま読者に見えているもの」を先に
 
 ### R-LOOP: ループの上限は「効くこと」を実データで確かめる
 上限のコードがあることと、上限が効くことは別。特に**数え方の起点が動く**実装

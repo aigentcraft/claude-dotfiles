@@ -205,6 +205,7 @@
 - [[nodes/recover-ids-by-reconciling-observations-not-send-path.md]] — `observability` cluster (`data-recovery`, `irreversible-action`, `matching`, `api`, `pullie`)
 - [[nodes/recovery-implemented-but-not-wired.md]] — `automation` cluster (`resilience`, `design-gap`, `verification`)
 - [[nodes/recovery-path-inherited-the-slow-cadence.md]] — `resilience` cluster (`retry`, `cadence`, `degradation`, `self-healing`, `hootl`)
+- [[nodes/regenerated-images-never-reached-live-site.md]] — `pipeline-idempotency` cluster (`silent-failure`, `deploy`, `image-generation`, `usage-limit`, `observability`, `weevee`)
 - [[nodes/reminder-covers-only-the-entity-it-was-written-for.md]] — `observability` cluster (`watchdog`, `notification`, `human-in-the-loop`, `note`, `silent-failure`, `pullie`)
 - [[nodes/repair-command-fed-all-sites-into-one-board.md]] — `multi-tenant` cluster (`repair`, `dry-run`, `discord`, `data-scoping`, `fukugyo-hootl`)
 - [[nodes/researcher-hard-timeout-killed-after-measurements-done.md]] — `timeout` cluster (`retry`, `research-lab`, `resume`, `claude-client`, `weevee`)
