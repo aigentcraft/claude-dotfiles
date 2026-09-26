@@ -187,7 +187,9 @@ DB のコピーで後段を再現して初めて分かった。
 - 新しい経路の最初の 1 件は、**親チャンネルを実物で確かめる**（成功ログは届いたことしか言わない）
 - **人に聞く時は、本人が見ている場所（その会話のスレッド）で聞き、そこで返事を受け取る。**
   別チャンネルのカードで聞き、スレッドへの「何が必要？」を無視していた（2026-09-26 ユニタス）
-- 詳細: [[../nodes/arrival-notice-hardwired-to-first-site-channel.md]] / [[../nodes/info-request-asked-in-other-channel-ignored-thread-reply.md]]
+- **人が書いたものには必ず何か返す。** ログに残すだけの無反応は、常駐が落ちているのと区別できない
+  （同日、上の予防ルールを書いたのにコードに入れず、「再度やって」「応募しました」を黙って捨てた）
+- 詳細: [[../nodes/arrival-notice-hardwired-to-first-site-channel.md]] / [[../nodes/info-request-asked-in-other-channel-ignored-thread-reply.md]] / [[../nodes/thread-message-logged-only-never-answered.md]]
 
 ### R-OUTSIDE: 外の系に置いた操作は、押した画面が先に「成功」を見せる — 届いたかは家の側から数える
 Discord の承認ボタン（2026-09-21）。押した瞬間に「🟢 承認しました」に変わるが、実体が動くのは

@@ -16,6 +16,10 @@
 - **同一性には「どう作られたか（経路・品質）」も含める**（2026-09-25）: 代用品（フォールバック）を「揃っている」と数えると、
   待機・作り直しの仕組みがあっても代用品がそのまま出る。再試行するキューには順番を回す仕組み（直近の試行を後ろへ）を付ける
   — [[../nodes/resumed-article-reused-fallback-images.md]]
+- **グレース（止めずに続行）で「完了」の記録を書かない / 関門は原因ではなく結果で書く**（2026-09-26）:
+  図の担当の企画失敗を「描き終えた」と記録し、画像 0 枚・簡易版のまま承認依頼が 4 本出た。「上限なら待つ」という原因側の
+  条件は別の原因を通す — 公開の手前で**成果物そのもの**（本文の参照 + manifest の経路）を数える
+  — [[../nodes/uc-approval-requested-with-non-gpt-images.md]]
 
 ### R2: 構成が変わる経路（差し戻し再執筆・リライト）で再利用ロジックを必ず通す
 冪等性は「入力が変わらない」前提で作られがち。差し戻し再執筆は章構成が変わる典型ケースなので、その経路で「新メタデータ + 旧成果物」の不一致が起きないかを実走で確認する。
@@ -61,6 +65,7 @@ DB に入れた ≠ 届いた。空の鍵（`run_id=''`）で入れた行は後�
 - [[../nodes/feedback-with-no-address-never-arrives.md]] — `feedback-loop`, `sendback`, `infinite-loop`, `materials`（宛先の無い指摘は届かない・材料が無いと LLM は嘘で埋める）
 - [[../nodes/resumed-article-reused-fallback-images.md]] — `reuse`, `fallback`, `queue-starvation`（代用品を「揃っている」と数えない・キューの順番を回す）
 - [[../nodes/regenerated-images-never-reached-live-site.md]] — `deploy`, `silent-failure`, `image-generation`, `usage-limit`（作り直しても本番に出ない・本番を数える）
+- [[../nodes/uc-approval-requested-with-non-gpt-images.md]] — `uc`, `fallback`, `grace`, `human-in-the-loop`（グレースで完了を書かない・関門は結果で書く・押す場所へのリンク）
 
 ### R7: 冪等判定と commit は「自分が出すパス」だけで閉じる — インデックス全体を見ない
 「差分があれば commit」の差分判定と `git commit -m` がインデックス全体を見ると、
