@@ -152,6 +152,7 @@
 - [[nodes/image-engine-refusal-and-usage-limit-reported-as-outage.md]] — `observability` cluster (`false-alarm`, `image-generation`, `codex`, `usage-limit`, `encoding`, `weevee`)
 - [[nodes/image-postprocess-crop-cuts-text-in-screenshots.md]] — `rendering-quality` cluster (`image-postprocess`, `screenshot`, `crop`, `publishing`)
 - [[nodes/image-reuse-by-section-index-after-restructure.md]] — `images` cluster (`idempotency`, `pipeline`, `caption-mismatch`, `weevee`)
+- [[nodes/info-request-asked-in-other-channel-ignored-thread-reply.md]] — `human-in-the-loop` cluster (`discord`, `thread`, `hootl`, `notification`, `fukugyo-hootl`)
 - [[nodes/infographic-text-clipped-in-narrow-cards.md]] — `images` cluster (`rendering`, `infographic`, `overflow`, `self-verification`, `weevee`)
 - [[nodes/init-script-runs-before-documentelement-exists.md]] — `playwright` cluster (`addInitScript`, `mutationobserver`, `dom`, `silent-skip`, `weevee`)
 - [[nodes/instant-approval-path-skips-sns-fanout.md]] — `pullie` cluster (`sns`, `pipeline-wiring`, `dual-path`, `approval-flow`, `x-twitter`)
