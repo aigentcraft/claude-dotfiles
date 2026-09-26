@@ -173,6 +173,7 @@
 - [[nodes/llm-output-strict-prefix-check-16run-dead-feature.md]] — `llm` cluster (`output-parsing`, `grace-degradation`, `silent-failure`, `link-validation`, `pullie`)
 - [[nodes/llm-reviewer-false-ng-on-template-layer-items.md]] — `ai-behavior` cluster (`llm-pipeline`, `reviewer`, `checklist`, `audit-log`, `weevee`)
 - [[nodes/llm-self-reported-index-silent-drop.md]] — `llm` cluster (`contract-validation`, `pullie`, `images`, `silent-failure`)
+- [[nodes/mail-header-folded-value-read-as-empty.md]] — `mime` cluster (`rfc5322`, `header-folding`, `mail`, `imap`, `silent-failure`, `fukugyo-hootl`)
 - [[nodes/matched-sample-does-not-validate-unmatched-population.md]] — `validation` cluster (`reconciliation`, `survivorship-bias`, `kintone`, `data-quality`, `adversarial-review`)
 - [[nodes/migration-moved-the-container-not-the-contents.md]] — `migration` cluster (`discord`, `ui`, `incomplete-migration`, `hootl`)
 - [[nodes/mime-7bit-body-is-already-decoded.md]] — `mime` cluster (`encoding`, `iso-2022-jp`, `utf-8`, `mail`, `imap`, `fukugyo-hootl`)
