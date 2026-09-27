@@ -63,7 +63,9 @@ Claude Code の Bash ツールは、おおよそ **150〜180 行を超えるヒ�
 エラー文言はクォート不整合を指すが、原因は中身のエスケープではなく**長さ**。
 - **対策**: 長いファイルは Write ツールで書く。既存ファイルの部分変更は
   `python - <<'EOF'` で「読む→`assert` で対象確認→置換→書く」（短く収まる）
-- 詳細: [[../nodes/bash-heredoc-truncates-long-files.md]]
+- **もう 1 つの罠: 引用ヒアドキュメントでも `\\` が `\` に畳まれる**（ツールの前処理・2026-09-27 実測）。
+  バックスラッシュを含む書き換えは Bash に通さず、Edit ツールか「Write でスクリプトを書いて node で実行」にする
+- 詳細: [[../nodes/bash-heredoc-truncates-long-files.md]] / [[../nodes/heredoc-python-escapes-corrupted-regex-and-tmp-path-mismatch.md]]
 
 ### R3: Windows の `spawn(shell:true)` — 引数は cmd.exe が解釈する。定数だけ渡し、本文は stdin。停止は `taskkill /T`
 npm シム（`claude.cmd` 等）を Node から起動するには shell が要るが、引数は cmd.exe に再解釈される
