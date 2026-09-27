@@ -290,6 +290,7 @@
 - [[nodes/uc-article-images-decorative-not-explanatory.md]] — `images` cluster (`content-quality`, `screenshots`, `image-pipeline`, `weevee`)
 - [[nodes/uc-articles-contain-operator-facing-justifications.md]] — `editorial` cluster (`tone`, `internal-leak`, `compliance`, `weevee`)
 - [[nodes/uc-articles-must-carry-own-positioning.md]] — `pullie` cluster (`positioning`, `content-strategy`, `conversion`, `compliance`)
+- [[nodes/uc-articles-not-modeled-on-top-ranking-pages.md]] — `uc` cluster (`editorial`, `competitor`, `serp`, `coverage`, `review`, `sns`, `weevee`)
 - [[nodes/uc-articles-too-advanced-for-beginner-readers.md]] — `editorial` cluster (`audience`, `beginner`, `affiliate`, `writer`, `weevee`)
 - [[nodes/uc-asked-user-to-edit-local-file-from-phone.md]] — `uc` cluster (`ai-behavior`, `hootl`, `human-in-the-loop`, `discord`, `fukugyo-hootl`)
 - [[nodes/uc-bot-check-wall-written-into-public-article.md]] — `editorial` cluster (`internal-leak`, `automation-exposure`, `compliance`, `weevee`)
