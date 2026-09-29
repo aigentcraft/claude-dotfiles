@@ -332,6 +332,7 @@
 - [[nodes/uc-own-comparison-article-exposes-product-gap.md]] — `uc` cluster (`pullie`, `product`, `mvp-scope`, `positioning`, `booth`)
 - [[nodes/uc-partial-solution-without-automation-path.md]] — `ai-behavior` cluster (`automation`, `system-design`)
 - [[nodes/uc-permission-prompt-fatigue.md]] — `ai-behavior` cluster (`permissions`, `claude-code`, `workflow-friction`)
+- [[nodes/uc-persona-reply-bounced-for-format.md]] — `uc` cluster (`human-in-the-loop`, `discord`, `thread`, `llm-judgement`, `user-facing-message`, `fukugyo-hootl`)
 - [[nodes/uc-pipeline-is-conveyor-not-agent-org.md]] — `architecture` cluster (`agent-org`, `gates`, `conveyor`, `recurrence`, `weevee`)
 - [[nodes/uc-plan-by-intent-not-keyword.md]] — `uc` cluster (`editorial`, `seo`, `planning`, `search-intent`, `serp`, `clustering`, `coverage`, `competitor`, `weevee`)
 - [[nodes/uc-planned-without-the-designed-keyword-research.md]] — `planning` cluster (`keyword-research`, `serp-cluster`, `competitors`, `process-skipped`, `weevee`)

@@ -189,7 +189,9 @@ DB のコピーで後段を再現して初めて分かった。
   別チャンネルのカードで聞き、スレッドへの「何が必要？」を無視していた（2026-09-26 ユニタス）
 - **人が書いたものには必ず何か返す。** ログに残すだけの無反応は、常駐が落ちているのと区別できない
   （同日、上の予防ルールを書いたのにコードに入れず、「再度やって」「応募しました」を黙って捨てた）
-- 詳細: [[../nodes/arrival-notice-hardwired-to-first-site-channel.md]] / [[../nodes/info-request-asked-in-other-channel-ignored-thread-reply.md]] / [[../nodes/thread-message-logged-only-never-answered.md]]
+- **人の自由な書き込みを、書式違いで突き返さない。** 読めなければ文脈を持つ LLM に回す。「質問中」の状態は前提が変わったら消す
+  （2026-09-29 #71: 人物像の質問の口だけ「`項目: 値` の形で」と定型文で返し、質問も残り続けてスレッドが塞がった）
+- 詳細: [[../nodes/arrival-notice-hardwired-to-first-site-channel.md]] / [[../nodes/info-request-asked-in-other-channel-ignored-thread-reply.md]] / [[../nodes/thread-message-logged-only-never-answered.md]] / [[../nodes/uc-persona-reply-bounced-for-format.md]]
 
 ### R-OUTSIDE: 外の系に置いた操作は、押した画面が先に「成功」を見せる — 届いたかは家の側から数える
 Discord の承認ボタン（2026-09-21）。押した瞬間に「🟢 承認しました」に変わるが、実体が動くのは
@@ -248,6 +250,7 @@ X の発信の監視は記録のある 25 回すべてで赤だった（2026-09-
 - 断られたら、断った理由を頼んだ担当に返す
 - **利用者への案内も理由ごとに分ける。** 1 種類の文面だと、別の理由の時に誤った行動を指示する
   （CAPTCHA で止まったのに「persona.md に事実を足して」と案内した。2026-09-23 fukugyo-hootl #77）
+  理由を正規表現で読むなら、**任意の欄を外し、答えても進まない理由（添付）を先に見る**（2026-09-29 #71 で再発）
 - 詳細: [[../nodes/image-engine-refusal-and-usage-limit-reported-as-outage.md]] / [[../nodes/not-ready-notice-blamed-persona-for-captcha.md]]
 
 ### R-BUTTON: 押した時に消したボタンは、終わったら必ず戻す（finally）
