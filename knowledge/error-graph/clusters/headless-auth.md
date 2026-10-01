@@ -27,11 +27,14 @@
 9. **失効は必ず起きる前提で設計する**: セッション Cookie も OAuth トークンも失効する。
    失効時に人間を呼ばずに自己回復できる経路（長期トークン・保存済み資格情報）を
    最初から用意しないと、無人運用が破綻する
+10. **実測した CLI の挙動には版数を付け、頼る前に測り直す**: claude CLI は 9/15 には env のトークンを
+    読まなかったが、10/01 には保存済みログインより優先した。コピーした秘密は使う側で空白を除いてから渡す
 
 ---
 
 ## ノード
 
 - [[../nodes/claude-cli-headless-oauth-expiry.md]] — `claude auth status` は loggedIn でも `claude -p` が 401
+- [[../nodes/claude-cli-env-token-overrides-login-wrapped-copy.md]] — env のトークンがログインより優先され、折り返しコピーの空白で全滅
 - [[../nodes/recovery-implemented-but-not-wired.md]] — 自動ログインを実装したのに無人経路に配線していなかった
 - [[../nodes/existence-vs-completion-check.md]] — 「存在するか」で弾いて「処理済みか」を見ていなかった
