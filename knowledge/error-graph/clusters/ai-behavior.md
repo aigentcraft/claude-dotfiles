@@ -224,6 +224,7 @@ keep/demote/retire の判断はエージェント。この線を越えると R18
 - [[../nodes/reviewer-send-back-loop-on-unfixable-screenshot-item.md]] — `reviewer`, `send-back-loop`, `structural-constraint`（差し戻し理由は次ラウンドで解消可能なものに限る）
 - [[../nodes/reviewer-flagged-machine-rendered-log-image-as-fabricated.md]] — `reviewer`, `false-positive`, `provenance`（検閲者に成果物の出所メタデータを渡す）
 - [[../nodes/writer-internal-handoff-notes-leak.md]] — `writer`, `public-tone`, `mechanical-strip`（禁止事項は検査ではなく決定論的除去で担保）
+- [[../nodes/llm-preamble-delivered-to-company-despite-approval.md]] — `llm-output`, `output-hygiene`, `approval-flow`, `fukugyo-hootl`（前置きが承認を経て企業に届いた → 生成直後と送る直前に同じ純関数の検査。R-OUTBOUND）
 - [[../nodes/enumeration-guards-never-close-use-structural-rules.md]] — `guards`, `enumeration`, `structural-rules`, `limits`, `lab_guard`
 - [[../nodes/uc-pipeline-is-conveyor-not-agent-org.md]] — `uc`, `architecture`, `agent-org`, `gates`, `conveyor`, `recurrence`
 - [[../nodes/test-global-monkeypatch-leaks-to-whole-session.md]] — `pytest`, `monkeypatch`, `test-pollution`
@@ -238,6 +239,16 @@ keep/demote/retire の判断はエージェント。この線を越えると R18
   — [[../nodes/agent-action-space-cannot-express-custom-dropdown.md]]
 - 対策: 操作単位をUIに合わせて設計する／必要操作数を先に数えて予算を決める／
   直前の操作で現れた要素を次ターンの観測に含める
+
+### R-OUTBOUND: LLM の出力を外へ出すなら、出口に決定論の検査を置く（指示も人の承認も検査ではない）
+LLM は判断や作業を独り言として本文の前後に書く（「…に抵触しないため、応募メッセージを作成します。」「これで最終版とする。 ---」）。
+指示文で禁じていても出るし、承認カードに全文が出ていても数十秒で押される。**2 プロジェクトで同じ形が 3 回起きた**
+（weevee の申し送り・副業HOOTL の常駐の作業メモ・副業HOOTL の前置き）。
+- 検査は**生成直後**（1 回だけ書き直させ、だめなら出さない）と**送る直前**（承認待ちに残った古いものも止める）の 2 か所に、同じ純関数で置く
+- 止める経路を足したら、**止めた後に人が次に押すものがあるか**を確かめる。押した瞬間に外れるボタンなら、その場で作り直して出す
+- 正規表現は**実データ全件**に当てて、検出数と誤検出数を数で確かめてから入れる（副業HOOTL: 170 件中 11 件・誤検出 0）
+- 「この文面そのもの」を指す語（返信文・応募メッセージ）は、経歴の話にも出るので**冒頭と末尾の段落だけ**で見る
+- 詳細: [[../nodes/llm-preamble-delivered-to-company-despite-approval.md]] / [[../nodes/writer-internal-handoff-notes-leak.md]]
 
 ### R: エージェントが自分で回す計器は「正しく行動したら緑に変わる」こと
 合格に到達できない検査は、捏造か無限再試行しか生まない。逆に壊れても緑を返す検査は、
