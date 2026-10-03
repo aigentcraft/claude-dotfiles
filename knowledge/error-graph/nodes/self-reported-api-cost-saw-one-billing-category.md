@@ -43,5 +43,11 @@ date: "2026-10-03"
 - **R-COST3: 支出は成果と並べて記録する。** 「検索した・0件」を毎回ログに出していても、費用が横に
   無ければ無駄は見えない。成果ゼロが続く支出は、まず止めるか頻度を落とす候補
 
-関連: [[unmeasured-counted-as-zero-fabricates-rejection-evidence]]（計測の欠落が結論を作る）/
+関連: [[uc-x-api-spend-guard-counted-requests-not-dollars]]（同じ日・同じ指摘の weevee 版。こちらは
+「上限が金額でなく回数で数えられていた」— 推定の欠け（こちら）と上限の単位違い（あちら）は同じ根の別の枝）/
+[[unmeasured-counted-as-zero-fabricates-rejection-evidence]]（計測の欠落が結論を作る）/
 [[x-api-reply-restriction-403]]（同じ X API の規制変更を推測で扱った例）
+
+設計の違い（同じ日に2プロジェクトで別々に決めた）: weevee はログイン切れの時に API へ黙って戻さない、
+pullie は API で代わりに行って記録し、その日1回だけ知らせる（交流レーンの沈黙死を3回経験しているため、
+費用が一時的に戻ることより止まらないことを優先）。どちらも「戻ったことが人に見える」点は共通
