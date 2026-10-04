@@ -22,6 +22,13 @@ exit 2 ではなく stdout の `{"hookSpecificOutput":{"permissionDecision":"den
 - **対策**: サブエージェントを制限したら、必ず非許可コマンドで拒否を実測してから本番投入する
 - 詳細: [[../nodes/claude-headless-permission-flags-ignored-under-bypass.md]]
 
+### R3: 常駐から外部 CLI を起動する時は PATH に頼らない
+Claude Code が npm 版からネイティブ版（`~/.local/bin/claude.exe`）に自動で切り替わり、npm の `claude.cmd` が消えた。
+前日から動いている常駐の PATH には新しい置き場所が無く、claude の呼び出しが全部「認識されていません」になった（fukugyo-hootl 2026-10-04）。
+- **対策**: 既知の置き場所を順に確かめ（ネイティブ版 → npm 版）、見つからない時だけ PATH に任せる。起動箇所は 1 つの関数に揃える
+- 「全部が同じ時刻から一斉に失敗」は、個々の処理より起動の土台（PATH・認証・実体）を先に疑う
+- 詳細: [[../nodes/claude-cli-native-migration-breaks-resident-path.md]]
+
 ## このクラスターのノード一覧
 
 - [[../nodes/claude-headless-permission-flags-ignored-under-bypass.md]] — `claude-headless`, `permissions`, `hooks`, `sandbox`, `windows`
@@ -30,3 +37,4 @@ exit 2 ではなく stdout の `{"hookSpecificOutput":{"permissionDecision":"den
 - [[../nodes/headless-browser-blank-app-screens-bot-detection.md]] — `playwright`, `headless`, `bot-detection`（受け入れ基準は認証画面に入力欄が見えること・UA 偽装しない）
 - [[../nodes/xmcp-venv-python-exe-lookup-windows.md]] — `windows`, `venv`, `path-exists`, `xmcp`（Windows の venv 実行ファイルは `python.exe`。拡張子なしの `Path.exists()` は False）
 - [[../nodes/claude-in-chrome-secret-exposure-find-tool-values.md]] — `claude-in-chrome`, `secrets`, `find-tool`, `screenshot`（秘密値モーダルでは find に「値を引用しない」を明示・コピーボタン ref クリック → クリップボード CLI・露出したら再生成）
+- [[../nodes/claude-cli-native-migration-breaks-resident-path.md]] — `windows`, `claude-cli`, `path`, `resident`（常駐から CLI を起動する時は既知の置き場所を順に確かめる。npm→ネイティブ版の切り替えで実体が引っ越す）
