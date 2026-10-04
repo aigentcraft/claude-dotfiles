@@ -109,7 +109,7 @@
 - [[nodes/claude-bash-heredoc-backslash-escape-halved.md]] — `claude-code` cluster (`bash-tool`, `heredoc`, `python`, `escaping`, `windows`, `weevee`)
 - [[nodes/claude-cli-env-token-overrides-login-wrapped-copy.md]] — `claude-code` cluster (`cli`, `auth`, `headless`, `credentials`, `clipboard`, `windows`, `fukugyo-hootl`)
 - [[nodes/claude-cli-headless-oauth-expiry.md]] — `claude-code` cluster (`cli`, `auth`, `headless`, `automation`, `diagnosis-method`)
-- [[nodes/claude-cli-native-migration-breaks-resident-path.md]] — `windows` cluster (`claude-cli`, `path`, `subprocess`, `resident`, `fukugyo-hootl`)
+- [[nodes/claude-cli-native-migration-breaks-resident-path.md]] — `windows` cluster (`claude-cli`, `path`, `subprocess`, `resident`, `fukugyo-hootl`, `weevee`, `pullie`, `cross-project-sweep`)
 - [[nodes/claude-cli-oauth-expiry-masked-as-subtype-success.md]] — `api-network` cluster (`claude-cli`, `oauth`, `auth-expiry`, `error-surface`, `pullie`, `diagnosability`)
 - [[nodes/claude-headless-chunk-timeout-truncation.md]] — `claude-headless` cluster (`llm-pipeline`, `timeout`, `streaming`, `weevee`)
 - [[nodes/claude-headless-permission-flags-ignored-under-bypass.md]] — `claude-headless` cluster (`permissions`, `hooks`, `sandbox`, `windows`, `weevee`)
