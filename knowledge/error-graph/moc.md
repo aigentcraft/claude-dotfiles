@@ -89,6 +89,7 @@
 - [[nodes/a-check-never-green-measures-the-wrong-expectation.md]] — `observability` cluster (`monitoring`, `threshold`, `false-positive`, `alert-fatigue`, `weevee`)
 - [[nodes/abstraction-left-old-name-in-user-facing-strings.md]] — `refactor` cluster (`rename`, `user-facing-strings`, `windows`, `keychain`, `grep`, `fukugyo-hootl`)
 - [[nodes/agent-action-space-cannot-express-custom-dropdown.md]] — `agent` cluster (`tools`, `action-space`, `kintone`, `playwright`, `pullie`, `transition-phase2`)
+- [[nodes/agent-input-drops-attachments-silently.md]] — `ai-behavior` cluster (`agent`, `input-pipeline`, `discord`, `multimodal`, `silent-drop`, `fukugyo-hootl`)
 - [[nodes/aggregate-material-collapses-distribution.md]] — `ai-behavior` cluster (`system-design`, `pullie`, `monitoring`, `observability`, `false-alarm`, `sql-aggregation`, `multi-agent`)
 - [[nodes/ai-context-blindness-at-scale.md]] — `ai-behavior` cluster (`scaling`, `system-design`, `architecture`)
 - [[nodes/ai-instruction-enforcement.md]] — `ai-behavior` cluster (`prompt-engineering`, `system-design`)

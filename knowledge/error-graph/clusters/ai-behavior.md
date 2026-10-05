@@ -229,6 +229,7 @@ keep/demote/retire の判断はエージェント。この線を越えると R18
 - [[../nodes/uc-pipeline-is-conveyor-not-agent-org.md]] — `uc`, `architecture`, `agent-org`, `gates`, `conveyor`, `recurrence`
 - [[../nodes/test-global-monkeypatch-leaks-to-whole-session.md]] — `pytest`, `monkeypatch`, `test-pollution`
 - [[../nodes/uc-gave-up-on-paid-service-without-checking.md]] — `uc`, `verification`, `premature-giving-up`, `cost-rule`
+- [[../nodes/agent-input-drops-attachments-silently.md]] — `agent`, `input-pipeline`, `multimodal`, `silent-drop`, `fukugyo-hootl`（Discord の画像を受け口で捨て、秘書が「見られない」と答えた → 入口で捨てるものを明示し、落としたらエージェントに書き添える）
 
 
 ### R-ACTION-SPACE: エージェントの失敗は「判断」と「語彙」に分けてから診断する
