@@ -364,6 +364,7 @@
 - [[nodes/uc-reported-in-english-to-japanese-user.md]] — `uc` cluster (`ai-behavior`, `language`, `communication`, `fukugyo-hootl`)
 - [[nodes/uc-reported-stale-wait-while-sibling-had-the-fix.md]] — `ai-behavior` cluster (`external-dependency`, `waiting`, `cross-project`, `knowledge-transfer`, `google-ads`, `pullie`)
 - [[nodes/uc-resident-leaked-working-notes-to-thread.md]] — `uc` cluster (`agent`, `discord`, `streaming`, `output-hygiene`, `fukugyo-hootl`)
+- [[nodes/uc-resident-only-answers-never-patrols-cases.md]] — `uc` cluster (`proactive`, `resident`, `secretary`, `case-management`, `mail`, `contacts`, `fukugyo-hootl`)
 - [[nodes/uc-resident-site-actions-bypassed-auto-login.md]] — `uc` cluster (`resident`, `chrome`, `session-expiry`, `auto-login`, `mamaworks`, `fukugyo-hootl`)
 - [[nodes/uc-reverted-user-config-without-asking-intent.md]] — `uc` cluster (`settings`, `permissions`, `user-intent`, `claude-code`)
 - [[nodes/uc-reviewer-verdict-had-no-enforcement-channel.md]] — `uc` cluster (`pullie`, `review-gate`, `llm-judgment`, `enforcement`, `completeness`)
