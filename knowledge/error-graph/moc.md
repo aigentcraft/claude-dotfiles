@@ -382,6 +382,7 @@
 - [[nodes/uc-tutorial-images-must-cover-every-step.md]] — `uc` cluster (`pullie`, `content-quality`, `screenshots`, `tutorial`)
 - [[nodes/uc-tweet-only-contradicts-comprehensive-media.md]] — `media-purpose` cluster (`planning-gate`, `tweet-only`, `coverage`, `weevee`)
 - [[nodes/uc-typography-must-meet-readability-floor.md]] — `uc` cluster (`pullie`, `typography`, `readability`, `design-port`, `web-frontend`)
+- [[nodes/uc-unconfirmed-jobs-notified-as-candidates.md]] — `uc` cluster (`notification`, `screening`, `criteria`, `scout`, `mail`, `fukugyo-hootl`)
 - [[nodes/uc-unread-flag-buries-messages-the-user-already-read.md]] — `silent-failure` cluster (`inbox`, `unread`, `indeed`, `notification`, `state-source`, `fukugyo-hootl`)
 - [[nodes/uc-unverified-hazudesu-reporting.md]] — `ai-behavior` cluster (`unverified-claim`, `hazudesu`, `test-verification`)
 - [[nodes/uc-verify-artifact-before-human-approval.md]] — `uc` cluster (`pullie`, `approval-flow`, `visual`, `asset-paths`, `llm-contract`)
