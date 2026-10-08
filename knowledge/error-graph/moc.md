@@ -62,7 +62,7 @@
 | [[clusters/kintone.md]] | kintone カスタマイズ（REST API・カスタムJS/CSS・全体カスタマイズ）の落とし穴 | 4 | kintone アプリ構築・カスタマイズ作業時 |
 | [[clusters/observability.md]] | 記録・計測・監視材料（**症状が出ない故障**・フォールバックの可視化・自己修復・**形だけ通るガード**） | 10 | ログ/イベント/通知/監視を実装・変更する時、外部ツールに依存する経路を書く時 |
 | [[clusters/rendering-quality.md]] | 機械が描いた見た目の自己検証（情報図・プレビュー・**生成物のラベル**） | 4 | 画像/図/プレビューを生成する時、生成エンジンにフォールバックを付ける時 |
-| [[clusters/uc.md]] | ユーザー指摘（UC）から昇格した行動原則 | 28 | ユーザーに指摘された時・自律運用の設計を変える時 |
+| [[clusters/uc.md]] | ユーザー指摘（UC）から昇格した行動原則 | 29 | ユーザーに指摘された時・自律運用の設計を変える時 |
 | [[clusters/pipeline-idempotency.md]] | パイプラインの冪等性・再開・ロック | 6 | 多段パイプライン・再実行・ロックを設計する時 |
 | [[clusters/cloudflare.md]] | Cloudflare Pages / D1 / Workers の落とし穴 | 2 | Cloudflare へデプロイ・設定する時 |
 
@@ -382,6 +382,7 @@
 - [[nodes/uc-told-user-to-act-somewhere-that-does-not-work.md]] — `ux` cluster (`affordance`, `dead-end`, `notification`, `fukugyo-hootl`)
 - [[nodes/uc-told-user-to-go-elsewhere-instead-of-wiring-it.md]] — `discord` cluster (`cross-site`, `hootl`, `apply`, `fukugyo-hootl`)
 - [[nodes/uc-training-deck-compressed-by-minutes-dropped-empathy-flow.md]] — `uc` cluster (`training-design`, `presentation`, `empathy`, `audience`)
+- [[nodes/uc-demo-recording-showed-output-without-the-ai-at-work.md]] — `uc` cluster (`demo-recording`, `presentation`, `portfolio`, `staging`)
 - [[nodes/uc-tutorial-images-must-cover-every-step.md]] — `uc` cluster (`pullie`, `content-quality`, `screenshots`, `tutorial`)
 - [[nodes/uc-tweet-only-contradicts-comprehensive-media.md]] — `media-purpose` cluster (`planning-gate`, `tweet-only`, `coverage`, `weevee`)
 - [[nodes/uc-typography-must-meet-readability-floor.md]] — `uc` cluster (`pullie`, `typography`, `readability`, `design-port`, `web-frontend`)
