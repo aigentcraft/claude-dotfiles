@@ -314,6 +314,7 @@
 - [[nodes/uc-demo-screens-are-sales-assets.md]] — `uc` cluster (`pullie`, `screenshots`, `demo-quality`, `kintone`, `sales-perception`)
 - [[nodes/uc-desk-agent-still-mechanical-one-shot.md]] — `uc` cluster (`agent-architecture`, `discord`, `human-in-the-loop`, `claude-code`, `fukugyo-hootl`)
 - [[nodes/uc-do-not-measure-what-is-officially-published.md]] — `uc` cluster (`editorial`, `measurement`, `breaking`, `weevee`)
+- [[nodes/uc-empathy-deck-built-as-gray-text-on-flat-background.md]] — `uc` cluster (`presentation`, `visual-design`, `quality-bar`, `empathy`)
 - [[nodes/uc-endless-whack-a-mole.md]] — `process` cluster (`verification`, `whack-a-mole`, `observability`, `producer-consumer-sync`, `weevee`)
 - [[nodes/uc-error-message-names-the-symptom-not-the-cause.md]] — `error-message` cluster (`ux`, `diagnosability`, `affordance`, `noise`, `fukugyo-hootl`)
 - [[nodes/uc-explained-by-filename-not-by-role.md]] — `communication` cluster (`reporting`, `jargon`, `weevee`)
