@@ -288,6 +288,7 @@
 - [[nodes/uc-agents-must-learn-from-own-failed-work.md]] — `pullie` cluster (`learning-loop`, `self-retrospective`, `knowledge-db`, `agent-design`)
 - [[nodes/uc-ai-authorship-still-visible-in-site-chrome.md]] — `uc` cluster (`site-chrome`, `ai-disclosure`, `scope-of-fix`, `weevee`)
 - [[nodes/uc-alert-in-internal-words-with-no-next-step.md]] — `notification` cluster (`observability`, `wording`, `suppression`, `weevee`)
+- [[nodes/uc-ambient-motion-driven-by-slide-clicks.md]] — `uc` cluster (`presentation`, `animation`, `powerpoint`)
 - [[nodes/uc-antigravity-sync-isolation.md]] — `ai-behavior` cluster (`sync-failure`, `r-hazudesu`, `automation`)
 - [[nodes/uc-approval-asked-in-the-wrong-place.md]] — `notification` cluster (`approval`, `discord`, `interaction`, `where-the-action-happens`, `weevee`)
 - [[nodes/uc-approval-flow-not-operable-from-notification.md]] — `uc` cluster (`hitl`, `discord`, `approval`, `ux`, `pullie`)
