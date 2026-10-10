@@ -385,6 +385,7 @@
 - [[nodes/uc-taste-recommendation-without-data.md]] — `ux-judgment` cluster (`branding`, `recommendation-framing`, `data-honesty`)
 - [[nodes/uc-told-user-to-act-somewhere-that-does-not-work.md]] — `ux` cluster (`affordance`, `dead-end`, `notification`, `fukugyo-hootl`)
 - [[nodes/uc-told-user-to-go-elsewhere-instead-of-wiring-it.md]] — `discord` cluster (`cross-site`, `hootl`, `apply`, `fukugyo-hootl`)
+- [[nodes/uc-training-benefits-abstract-without-done-state.md]] — `uc` cluster (`presentation`, `training-design`, `adoption`)
 - [[nodes/uc-training-deck-compressed-by-minutes-dropped-empathy-flow.md]] — `uc` cluster (`training-design`, `presentation`, `empathy`, `audience`)
 - [[nodes/uc-tutorial-images-must-cover-every-step.md]] — `uc` cluster (`pullie`, `content-quality`, `screenshots`, `tutorial`)
 - [[nodes/uc-tweet-only-contradicts-comprehensive-media.md]] — `media-purpose` cluster (`planning-gate`, `tweet-only`, `coverage`, `weevee`)
