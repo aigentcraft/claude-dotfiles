@@ -41,4 +41,4 @@
 - [[../nodes/claude-cli-env-token-overrides-login-wrapped-copy.md]] — env のトークンがログインより優先され、折り返しコピーの空白で全滅
 - [[../nodes/recovery-implemented-but-not-wired.md]] — 自動ログインを実装したのに無人経路に配線していなかった
 - [[../nodes/existence-vs-completion-check.md]] — 「存在するか」で弾いて「処理済みか」を見ていなかった
-- [[../nodes/uc-resident-site-actions-bypassed-auto-login.md]] — 自動ログインは巡回側だけで、常駐の会話は普段の Chrome（夜の間に切れる）でサイトを触っていた。認証の要る操作はコードの経路（承認カード）に寄せる
+- [[../nodes/uc-resident-site-actions-bypassed-auto-login.md]] — 自動ログインは巡回側だけで、常駐の会話は普段の Chrome（夜の間に切れる）でサイトを触っていた。認証の要る操作はコードの経路（承認カード）に寄せる。2026-10-07 の 3 回目: プロファイルの鍵をプロセス間にして、常駐が自動ログインする側のブラウザで読めるようにした（秘密を扱わない道は塞がない）

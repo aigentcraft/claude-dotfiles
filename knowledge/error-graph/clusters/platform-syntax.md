@@ -124,3 +124,9 @@ PowerShell 5.1 では 1 件だけの `Where-Object` はスカラーを返し、`
 Windows では `powershell` = 5.1 / `pwsh` = 7。`powershell -File` で動かすなら 5.1 で確かめる。
 - 詳細: [[../nodes/powershell51-scalar-count-is-null.md]]
 
+### R-TZ: Git Bash で地域名の TZ（Asia/Tokyo）を使わない — 黙って UTC になる
+Git Bash には zoneinfo が無く、知らない TZ 名は警告なしに UTC 扱い（9時間ずれる）。
+日本時間は `TZ=JST-9` か現地時刻、Node なら `toLocaleString('sv-SE', { timeZone: 'Asia/Tokyo' })`。
+記録に時刻を書く前に、現地時刻と並べて1回確かめる。
+- 詳細: [[../nodes/git-bash-tz-name-silently-falls-back-to-utc.md]]
+
