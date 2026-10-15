@@ -3,7 +3,7 @@ name: stale-clock-reading-carried-across-user-turns
 title: 朝に読んだ時計を、夜に届いた返事のあとも使い続けた — 記録の時刻と確認の予定が11時間ずれた
 cluster: ai-behavior
 type: "ai-behavior"
-tags: ["time", "clock", "scheduling", "stale-assumption", "cron", "royal-cloak"]
+tags: ["ai-behavior", "time", "clock", "scheduling", "stale-assumption", "cron", "royal-cloak"]
 date: 2026-10-15
 severity: medium
 relationships:

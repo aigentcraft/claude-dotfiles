@@ -244,7 +244,7 @@
 - [[nodes/slack-api-silent-hang.md]] — `slack` cluster (`api`, `timeout`, `mcp`)
 - [[nodes/sqlite-unique-slug-permanent-crash-loop.md]] — `sqlite` cluster (`unique-constraint`, `pipeline`, `pullie`, `slug`, `self-healing`)
 - [[nodes/stale-claude-md-duplicate-implementation.md]] — `multi-machine` cluster (`git`, `claude-md`, `session-handoff`, `duplicate-work`)
-- [[nodes/stale-clock-reading-carried-across-user-turns.md]] — `time` cluster (`clock`, `scheduling`, `stale-assumption`, `cron`, `royal-cloak`)
+- [[nodes/stale-clock-reading-carried-across-user-turns.md]] — `ai-behavior` cluster (`time`, `clock`, `scheduling`, `stale-assumption`, `cron`, `royal-cloak`)
 - [[nodes/stale-external-approval-never-reverified.md]] — `external-dependency` cluster (`waiting`, `stale-state`, `google-ads`, `verification`, `weevee`)
 - [[nodes/stale-pipeline-lock-after-killed-run.md]] — `lock` cluster (`pipeline`, `resume`, `windows`, `process-lifecycle`, `weevee`)
 - [[nodes/stale-selector-reported-success-as-failure.md]] — `selector-rot` cluster (`irreversible-action`, `playwright`, `scraping`, `false-negative`, `hootl`)
