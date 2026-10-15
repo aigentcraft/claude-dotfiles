@@ -333,6 +333,7 @@
 - [[nodes/uc-graph-focus-relayout-and-click-feedback.md]] — `graph` cluster (`layout`, `mind-map`, `motion`, `color`, `weevee`)
 - [[nodes/uc-graph-hierarchy-zoom-and-fit.md]] — `graph` cluster (`layout`, `zoom`, `taxonomy`, `responsive`, `weevee`)
 - [[nodes/uc-handed-bash-syntax-to-a-powershell-user.md]] — `powershell` cluster (`windows`, `shell-mismatch`, `handoff`, `human-in-the-loop`, `fukugyo-hootl`)
+- [[nodes/uc-handed-owner-a-todo-list-instead-of-routing-to-staff.md]] — `uc` cluster (`delegation`, `escalation-routing`, `human-in-the-loop`, `slack`, `royal-cloak`)
 - [[nodes/uc-handrolled-animation-low-quality-use-gsap-examples.md]] — `animation` cluster (`gsap`, `motion-quality`, `reference-driven`, `weevee`)
 - [[nodes/uc-hardcoded-judgment-while-fixing-hardcoding.md]] — `uc` cluster (`pullie`, `self-application`, `llm-agent`, `hardcoding`, `system-design`, `notification`)
 - [[nodes/uc-hero-image-abstract-unrelated-to-article.md]] — `images` cluster (`hero`, `meaning`, `ogp`, `weevee`)
