@@ -357,6 +357,7 @@
 - [[nodes/uc-model-comparison-too-shallow-competitor-bypass.md]] — `uc` cluster (`editorial`, `comparison`, `competitor`, `research-protocol`, `sns`, `weevee`)
 - [[nodes/uc-motion-opening-tempo-below-reference.md]] — `uc` cluster (`motion-graphics`, `opening`, `tempo`, `showreel`, `blender`, `music-sync`, `portfolio`)
 - [[nodes/uc-news-must-show-what-ai-can-now-do-across-fields.md]] — `uc` cluster (`editorial`, `x-collection`, `news`, `weevee`)
+- [[nodes/uc-niche-news-articles-without-search-demand.md]] — `uc` cluster (`editorial`, `seo`, `news`, `breaking-lane`, `weevee`)
 - [[nodes/uc-notification-instead-of-self-healing.md]] — `uc` cluster (`pullie`, `notification-policy`, `self-healing`, `hootl`)
 - [[nodes/uc-notification-must-carry-shared-entity-ids.md]] — `pullie` cluster (`notification-design`, `shared-identifiers`, `hitl`, `approval-flow`)
 - [[nodes/uc-own-comparison-article-exposes-product-gap.md]] — `uc` cluster (`pullie`, `product`, `mvp-scope`, `positioning`, `booth`)
