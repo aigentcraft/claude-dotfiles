@@ -20,12 +20,18 @@
   図の担当の企画失敗を「描き終えた」と記録し、画像 0 枚・簡易版のまま承認依頼が 4 本出た。「上限なら待つ」という原因側の
   条件は別の原因を通す — 公開の手前で**成果物そのもの**（本文の参照 + manifest の経路）を数える
   — [[../nodes/uc-approval-requested-with-non-gpt-images.md]]
+- **pullie の note でも同じ型**（2026-10-16）: 上限中に「作れた画像だけで続行」して承認依頼まで出し、
+  「画像がない」で6回続けて人間に差し戻された。**本文を守る（保存）と依頼を出すは別の判断** —
+  保存したら依頼は保留し、解除後に続きから作る — [[../nodes/fallback-the-approver-always-rejects.md]]
 
 ### R2: 構成が変わる経路（差し戻し再執筆・リライト）で再利用ロジックを必ず通す
 冪等性は「入力が変わらない」前提で作られがち。差し戻し再執筆は章構成が変わる典型ケースなので、その経路で「新メタデータ + 旧成果物」の不一致が起きないかを実走で確認する。
 
 ### R3: 参照が外れた成果物は掃除する
 番号がずれた旧ファイルを残すと、次回の再利用判定や重複検知・プレビュー配信を汚染する。参照集合に無いものは削除。
+- **ただし消すのは自分が置いたものだけ**（2026-10-16）: ビルド検証で一時的に置いた記事ファイルを無条件に消し、
+  リライトでは公開中の本文まで手元から消していた（誤コミットで本番から記事が消える状態）。置く前にあったものは元へ戻す
+  — [[../nodes/build-staging-deleted-the-published-article.md]]
 
 ### R4: ロック/リースの残骸は「所有者の生存」で判定する（年齢は二次条件）
 kill・クラッシュは年齢ゼロのロックを残す。pid を保存しているなら生存確認に使う。Windows で `os.kill(pid, 0)` は TerminateProcess になるため `tasklist`/psutil を使う。
@@ -55,6 +61,9 @@ DB に入れた ≠ 届いた。空の鍵（`run_id=''`）で入れた行は後�
 | 検査結果・差し戻し理由を DB に記録する | R5: 受け取り側で現れることをテストで固定 |
 | エージェントに新しい作業を指示する | R6: 材料が work dir に届いているか実測 |
 | 生成物を作り直す道具を書く | R8: 公開中のものが変わったかを本番で数える |
+| 取りこぼしの拾い直し（自己回復）を書く | R-LOOP: 回数上限・進めない間は起動しない・必要な工程だけ起動 |
+| 一時ファイルを本番の場所に置いて検証する | R3: 自分が置いたものだけ消す（既存は元に戻す） |
+| 外部の上限中に代用品で続行する | R1: 承認者が受け入れる場合だけ。依頼は成果物がそろってから |
 
 ## このクラスターのノード一覧
 
@@ -66,6 +75,9 @@ DB に入れた ≠ 届いた。空の鍵（`run_id=''`）で入れた行は後�
 - [[../nodes/resumed-article-reused-fallback-images.md]] — `reuse`, `fallback`, `queue-starvation`（代用品を「揃っている」と数えない・キューの順番を回す）
 - [[../nodes/regenerated-images-never-reached-live-site.md]] — `deploy`, `silent-failure`, `image-generation`, `usage-limit`（作り直しても本番に出ない・本番を数える）
 - [[../nodes/uc-approval-requested-with-non-gpt-images.md]] — `uc`, `fallback`, `grace`, `human-in-the-loop`（グレースで完了を書かない・関門は結果で書く・押す場所へのリンク）
+- [[../nodes/selfheal-misread-rewrite-start-as-human-sendback.md]] — `loop-termination`, `self-healing`, `status-code-reuse`（印は書き手の種類で読む・拾い直しに上限・必要な工程だけ起動）
+- [[../nodes/fallback-the-approver-always-rejects.md]] — `fallback`, `usage-limit`, `human-in-the-loop`, `note`（承認者が毎回却下する代用品は出さない・依頼は成果物がそろってから）
+- [[../nodes/build-staging-deleted-the-published-article.md]] — `cleanup`, `rewrite`, `git`（一時ファイルの後始末は自分が置いたものだけ・既存は元に戻す）
 
 ### R7: 冪等判定と commit は「自分が出すパス」だけで閉じる — インデックス全体を見ない
 「差分があれば commit」の差分判定と `git commit -m` がインデックス全体を見ると、
@@ -103,6 +115,11 @@ DB に入れた ≠ 届いた。空の鍵（`run_id=''`）で入れた行は後�
 - **本来の上限ではない別の上限（コスト・時間・API制限）で止まったなら、
   設計した上限は効いていない**。実測: 1記事が9時間で27回書き直し・LLM 188回
 - 詳細: [[../nodes/gate-rejection-recorded-as-human-sendback-reset-the-limit.md]]
+- **取りこぼしの拾い直し（自己回復）にも同じことが言える**（2026-10-16）: 9/10 に印の書き手を1つ分けたが、
+  同じ印を書くもう1つの書き手（リライトレーン）が残り、15分ごとに日次処理を丸ごと再起動して約380回・
+  X へ一晩18本連投した。印の読み手は**書き手の種類**（人間か）で判定し、拾い直しには回数上限と
+  「進めない理由がある間は起動しない」を付ける。別の契機から定時runを丸ごと呼ばず、必要な工程だけの入口を作る
+  — [[../nodes/selfheal-misread-rewrite-start-as-human-sendback.md]]
 
 
 ### R-UNFIXABLE: 「書き直しで直るか」を判定に持たないループは終わらない
