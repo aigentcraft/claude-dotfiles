@@ -168,13 +168,21 @@
 - P0: sync.ps1 パリティ修正（2026-03-02）
   - `scripts/validate-nodes.ps1` 新設（YAML frontmatter バリデーション Windows 版）
   - `scripts/sync.ps1` に全6安全ゲートを移植（validate-nodes / コンフリクト検知×2 / extract-pdca×2 / generate-moc 実行順序修正）
+- エラーナレッジノードの停止（2026-10-17）
+  - ユーザー判断（「もういらないかな、いったん切っておきたい」）で、エラーノード・UC ノードの作成・更新・参照を止めた。既存 335 件・クラスター・moc.md は保存
+  - `knowledge/error-graph/PAUSED.md` を新設（停止スイッチ兼、止めた範囲・元のルールの原文・再開手順）
+  - ノード用スクリプト 6 本（validate-nodes / extract-pdca / generate-moc の sh・ps1）は PAUSED.md があれば即終了
+  - CLAUDE.md から `fix:` 出口条件・push 前 UC スキャン・UC 検出トリガー・開始時の moc.md 読み込みを外し、「停止中」の節を追加
+  - スキル: `pdca-error-graph` は自動起動しない（`disable-model-invocation: true`）、`auto-sync-rule` の PDCA 振り返りを外した
 
 ### 未解決・次のタスク
 - **P1: GraphRAG の自動生成化** — GRAPH_RAG.md / skills-moc.md / skills-graph/relationships.md を自動生成するスクリプトがない（純粋なドキュメント状態で既に陳腐化）
-- **P2: クラスター孤立ノードの解消** — 5件（25%）のノードがどのクラスターにも属していない
+- **P2: クラスター孤立ノードの解消** — 5件（25%）のノードがどのクラスターにも属していない（2026-10-17〜 エラーナレッジノード停止中のため保留）
 - **P3: relationships.md トラバーサルのコード化** — 現状は AI が読んで従うだけ。PreToolUse フックで自動化を検討
 - 各プロジェクトの Settings > Secrets に `CLAUDE_DOTFILES_PAT` を登録する（Maia-ai など）
 - me.md の Conversation Log を会話ごとに積み上げていく（継続中）
+- Mac 側の確認: `~/.claude/CLAUDE.md` がリポジトリの `CLAUDE.md` へのリンクか（実ファイルならエラーナレッジノード停止の修正を同じように入れる）。Antigravity を使うなら `~/.gemini/antigravity/ANTIGRAVITY.md` のエラーノード義務も止める
+- Windows の `~/.claude/CLAUDE.md` がリポジトリの `CLAUDE.md` とハードリンクでなくなっている（DEV_LOG ルール約 46 行分ずれている）。どちらかに揃えてリンクし直す
 
 ### 環境情報
 - 特に必要な環境変数なし（フックは CLAUDE_CODE_REMOTE / CLAUDE_PROJECT_DIR を自動参照）

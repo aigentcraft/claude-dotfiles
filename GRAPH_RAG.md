@@ -21,11 +21,14 @@ AIへの指示: 新しいセッション開始時・ファイル追加・構造�
 | N11 | file | `knowledge/skills-moc.md` | スキル MOC（スキル一覧・手順・グラフへのリンク） |
 | N12 | dir | `knowledge/skills-graph/` | スキル補完グラフ |
 | N13 | file | `knowledge/skills-graph/relationships.md` | スキル間補完エッジの定義（中央グラフ） |
-| N14 | dir | `knowledge/error-graph/` | PDCA エラー知識グラフ |
+| N14 | dir | `knowledge/error-graph/` | PDCA エラー知識グラフ（2026-10-17〜 停止中・既存ノードは保存） |
 | N15 | file | `knowledge/error-graph/moc.md` | エラー MOC（Quick Rules + クラスター一覧） |
 | N16 | dir | `knowledge/error-graph/clusters/` | トピック別クラスターサマリー |
 | N17 | dir | `knowledge/error-graph/nodes/` | 個別エラーノード |
 | N18 | file | `knowledge/me.md` | ユーザー個人コンテキスト（Profile・Goals・会話ログ・成長軌跡） |
+| N19 | file | `knowledge/error-graph/PAUSED.md` | エラーナレッジノードの停止スイッチ兼再開手順（あればノード用スクリプトは即終了） |
+| N20 | file | `DEV_LOG.md` | 開発履歴（追記専用） |
+| N21 | file | `scripts/{validate-nodes,extract-pdca,generate-moc}.{sh,ps1}` | エラーノード用スクリプト（検証・コミットからの抽出・MOC 生成） |
 
 ---
 
@@ -45,6 +48,9 @@ AIへの指示: 新しいセッション開始時・ファイル追加・構造�
 | N11 | N15 | 相互参照 | skills-moc ↔ error-moc で知識体系を横断 |
 | N18 | N2 | 強化 | me.md が CLAUDE.md のルール適用を個人化・文脈化 |
 | N10 | N18 | 包含 | knowledge/ が me.md を含む（セッション開始時一括適用） |
+| N19 | N21 | 停止 | PAUSED.md があるとノード用スクリプトは何もせず終了 |
+| N2 | N19 | 参照 | CLAUDE.md の「停止中」節が停止範囲・再開手順として参照 |
+| N7 | N21 | 実行 | sync.sh / sync.ps1 と push 前フックがノード用スクリプトを呼ぶ |
 
 ---
 
@@ -56,7 +62,8 @@ AIへの指示: 新しいセッション開始時・ファイル追加・構造�
     ├── me.md                 ← ユーザー個人コンテキスト（最優先で読む）
     ├── skills-moc.md         ← スキルの地図
     ├── skills-graph/         ← スキル間関係（補完グラフ）
-    └── error-graph/          ← 失敗知識（PDCA）
+    └── error-graph/          ← 失敗知識（PDCA・2026-10-17〜 停止中）
+          ├── PAUSED.md       ← 停止スイッチ兼再開手順
           ├── moc.md
           ├── clusters/
           └── nodes/
@@ -75,10 +82,10 @@ AIへの指示: 新しいセッション開始時・ファイル追加・構造�
 
 ## 現在の開発フォーカス
 
-- **Personal Memory 実装**（2026-02-26）
-  - `knowledge/me.md` 新設（ユーザー個人コンテキスト）
-  - CLAUDE.md に Personal Memory ルール追加
-  - 知識読み込み順序: me.md → error-graph → skills-moc に更新
+- **エラーナレッジノードの停止**（2026-10-17）
+  - ユーザー判断で、エラーノード・UC ノードの作成・更新・参照を止めた（既存ノードは保存）
+  - 停止スイッチ兼再開手順: `knowledge/error-graph/PAUSED.md`（N19）
+  - 知識読み込み順序: me.md → skills-moc（error-graph は読まない）
 
 ---
 
