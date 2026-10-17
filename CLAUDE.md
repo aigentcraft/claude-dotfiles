@@ -17,6 +17,12 @@
 - `fix:` コミットにもノードは要らない。既存のノードは消さずに残してある
 - 止めた範囲・元のルールの原文・再開手順: `~/claude-dotfiles/knowledge/error-graph/PAUSED.md`
 
+## 動画・モーションリールの制作ルール（全プロジェクト共通・必須）
+- モーションリール・オープニング映像・モーショングラフィックスの動画は、**HyperFrames の書式で作る**（`index.html`＋`meta.json`、場面は `data-start`／`data-duration` を持つクリップ、GSAP のタイムラインを `window.__timelines` に登録）。スキルを読むだけで、自作の撮影スクリプト（Playwright で1コマずつ撮るなど）で書き出さない
+- 場面が多いものは、章ごとに `compositions/` のサブコンポジションに分けて親から呼ぶ。Studio で章をドラッグしたとき、中の動きも一緒に動くようにするため
+- **見せるときは mp4 だけでなく Studio も開いて渡す**：`npx hyperframes lint` を通す → `npx hyperframes preview --background` → アプリ内ブラウザで `http://localhost:<port>/#project/<フォルダ名>` を開き、その URL も伝える。書き出しは `npx hyperframes render`
+- 経緯: 2026-10-18「HyperFrames を使ってくれていると思っていたが、タイムライン編集の UI を一度も見たことがない」と指摘。調べると、スキルは読んでいたが実際は自作の HTML と撮影スクリプトで作っていて、Studio で開ける形になっていなかった
+
 ## セッション引き継ぎルール（全プロジェクト共通・必須）
 - ユーザーは Windows と Mac の2台で開発している
 - **commit & push 時に、プロジェクトの `CLAUDE.md` の「現在の作業状態」セクションも必ず更新すること**
@@ -174,6 +180,9 @@
   - ノード用スクリプト 6 本（validate-nodes / extract-pdca / generate-moc の sh・ps1）は PAUSED.md があれば即終了
   - CLAUDE.md から `fix:` 出口条件・push 前 UC スキャン・UC 検出トリガー・開始時の moc.md 読み込みを外し、「停止中」の節を追加
   - スキル: `pdca-error-graph` は自動起動しない（`disable-model-invocation: true`）、`auto-sync-rule` の PDCA 振り返りを外した
+- 動画・モーションリールの制作ルールを追加（2026-10-18）
+  - ユーザーの指摘（「HyperFrames を使ってくれていると思っていたが、タイムライン編集の UI を一度も見たことがない」）を受けて、「HyperFrames の書式で作る／場面が多いものは章ごとのサブコンポジション／見せるときは Studio も開いて URL を渡す」の節を追加（リポジトリ版と `~/.claude/CLAUDE.md` の両方）
+  - 実例：`過去実績紹介＋活用導入demo/制作/07_HyperFrames/opening-v2`（オープニング v2 を HyperFrames 版に移し、Studio で開けることを確認）
 
 ### 未解決・次のタスク
 - **P1: GraphRAG の自動生成化** — GRAPH_RAG.md / skills-moc.md / skills-graph/relationships.md を自動生成するスクリプトがない（純粋なドキュメント状態で既に陳腐化）
