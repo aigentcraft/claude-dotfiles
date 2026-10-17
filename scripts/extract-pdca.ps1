@@ -3,6 +3,12 @@ param([string]$Since = "1.day.ago")
 $WorkspaceDir = (Resolve-Path "$PSScriptRoot\..").Path
 $NodesDir = "$WorkspaceDir\knowledge\error-graph\nodes"
 
+# error-graph is paused while knowledge/error-graph/PAUSED.md exists (see it to resume)
+if (Test-Path "$WorkspaceDir\knowledge\error-graph\PAUSED.md") {
+    Write-Host "[extract-pdca] error-graph is paused. Skipped." -ForegroundColor Cyan
+    return
+}
+
 $commits = git -C $WorkspaceDir log "--since=$Since" --format='%H' --grep='PDCA:'
 if (-not $commits) {
     Write-Host "[extract-pdca] No PDCA commits found." -ForegroundColor Cyan

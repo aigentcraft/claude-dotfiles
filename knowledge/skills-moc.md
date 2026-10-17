@@ -17,6 +17,8 @@ relationships:
 
 > 1スキル発見→即実行は禁止。必ずグラフを確認すること。
 
+> **停止中（2026-10-17〜）**: `skill-pdca-error-graph` と `error-graph/moc.md` は、エラーナレッジノードの停止に合わせて使わない。補完先に出てきても読み込まない（`knowledge/error-graph/PAUSED.md`）。
+
 ---
 
 ## Core Configuration Skills

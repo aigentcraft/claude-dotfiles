@@ -15,20 +15,13 @@ Command to run:
 
 Do not assume the code is up to date just because the session just started. The user may have just pushed changes from their other device 5 seconds ago!
 
-## 2. PHASE 2: PDCA REFLECTION & POST-FLIGHT PUSH
-When you have finished addressing the user's prompt (right before calling `notify_user` or finishing your task boundary), you are about to trigger the final push.
-**STOP. DO NOT PUSH YET.**
+## 2. PHASE 2: POST-FLIGHT PUSH
+When you have finished addressing the user's prompt (right before calling `notify_user` or finishing your task boundary), push your changes.
 
-### The PDCA Reflection Checkpoint (MANDATORY)
-Before running the push script, you MUST explicitly ask yourself:
-*"During this task, did I encounter any errors, bugs, or misunderstandings that cost me time to debug?"*
-*"Did I learn a new rule about the user's preferences or environment?"*
-
-- **If YES:** You MUST temporarily halt your completion sequence. Go to the `knowledge/error-graph/nodes/` directory, create a new PDCA markdown node documenting the fix, and link it in `knowledge/error-graph/moc.md` (as instructed in the `pdca-error-graph` skill).
-- **If NO:** You may proceed directly.
+> **停止中（2026-10-17〜）**: 以前ここにあった PDCA Reflection Checkpoint（push 前にエラーノードを作る振り返り）は、ユーザーの判断で止めている。ノードは作らずにそのまま push する。元の手順と再開手順は `knowledge/error-graph/PAUSED.md`。
 
 ### The Final Push
-Only after clearing the PDCA Reflection checkpoint, you MUST push your changes to sync the hive mind.
+You MUST push your changes to sync the hive mind.
 Command to run:
 - On Windows (PowerShell): `.\scripts\sync.ps1 push`
 - On Mac/Linux (Bash): `bash scripts/sync.sh push`

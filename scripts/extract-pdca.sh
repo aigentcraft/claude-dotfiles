@@ -7,6 +7,12 @@ WORKSPACE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 NODES_DIR="$WORKSPACE_DIR/knowledge/error-graph/nodes"
 SINCE="${1:---since=1.day.ago}"
 
+# エラーナレッジノードは停止中（再開手順: knowledge/error-graph/PAUSED.md）
+if [ -f "$WORKSPACE_DIR/knowledge/error-graph/PAUSED.md" ]; then
+    echo "[extract-pdca] error-graph は停止中のためスキップ"
+    exit 0
+fi
+
 mkdir -p "$NODES_DIR"
 
 # PDCA: ブロックを含むコミットを検索

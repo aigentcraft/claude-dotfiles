@@ -11,13 +11,11 @@
 ## Git 同期ルール（全プロジェクト共通・必須）
 - **会話の最初のコード変更の前に** `git pull` を実行すること
 - 作業が一区切りついたら commit & push を提案すること
-- **バグ修正コミット（`fix:`）の出口条件**: コミット前に必ず以下を実施する
-  1. `knowledge/error-graph/nodes/` にエラーノードを作成（症状・根本原因・修正・予防ルールを記述）
-  2. 該当クラスターのサマリーを更新（なければ新クラスター作成）
-  3. `knowledge/error-graph/moc.md` のインデックスに追記
-  → ナレッジ蓄積なしの `fix:` コミットは不完全とみなす
-- **push 前の UC スキャン（必須）**: push 前に「このセッションでユーザーに指摘された点はあったか？」を自問し、あれば UC ノードが作成済みであることを確認してから push する
-- **UC 検出トリガー**: ユーザーの発言に「足りない」「まずい」「問題だ」「なぜしない」「仕組みにして」「そうじゃない」等が含まれたら、**返答の前に** UC ノード作成を開始する
+
+## エラーナレッジノード（2026-10-17〜 停止中）
+- `knowledge/error-graph/`（エラーノード・UC ノード・クラスター・`moc.md`）は、新しく作らない・更新しない・セッション開始時に読まない。ユーザーが再開を指示するまでこのまま
+- `fix:` コミットにもノードは要らない。既存のノードは消さずに残してある
+- 止めた範囲・元のルールの原文・再開手順: `~/claude-dotfiles/knowledge/error-graph/PAUSED.md`
 
 ## セッション引き継ぎルール（全プロジェクト共通・必須）
 - ユーザーは Windows と Mac の2台で開発している
@@ -72,7 +70,7 @@
 
 ### Claude Code on the Web（スマホ含む）
 - セッション内では `~/claude-dotfiles` への直接 push ができないため、**staging 経由で同期**する
-- エラーノード・知識ファイルは `.claude-knowledge-staging/` ディレクトリに配置して push する
+- 知識ファイルは `.claude-knowledge-staging/` ディレクトリに配置して push する（エラーナレッジノードは停止中なので置かない）
 - push をトリガーに GitHub Actions が自動で `claude-dotfiles` の `knowledge/` に同期し、staging を削除する
 - **ワークフローの自動インストール**: セッション開始時に `session-start.sh` が自動で `.github/workflows/sync-knowledge-to-dotfiles.yml` を検出・インストールする（手動コピー不要）
 - **新しいプロジェクトへの唯一の手動作業**: 対象リポジトリの Settings > Secrets に `CLAUDE_DOTFILES_PAT`（claude-dotfiles への write 権限付き PAT）を一度だけ登録する
@@ -89,8 +87,7 @@
 
 ### 共通：セッション開始時に以下を順番に読むこと
 1. `~/claude-dotfiles/knowledge/me.md` — ユーザーの個人コンテキスト（最優先で読む）
-2. `~/claude-dotfiles/knowledge/error-graph/moc.md` — 失敗の知識・Quick Rules
-3. `~/claude-dotfiles/knowledge/skills-moc.md` — スキル一覧と合成プロトコル
+2. `~/claude-dotfiles/knowledge/skills-moc.md` — スキル一覧と合成プロトコル
 
 ## Personal Memory ルール（必須）
 - セッション開始時に `~/claude-dotfiles/knowledge/me.md` を読み、ユーザーの人物・目標・文脈を把握すること

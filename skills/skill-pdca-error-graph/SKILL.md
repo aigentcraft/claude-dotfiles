@@ -1,9 +1,12 @@
 ---
 name: pdca-error-graph
 description: An automated self-correction system that instructs the AI to record failures, root causes, and prevention strategies into a Markdown Knowledge Graph (PDCA cycle) to avoid repeating mistakes.
+disable-model-invocation: true
 ---
 
 # PDCA Error Knowledge Graph Skill
+
+> **停止中（2026-10-17〜）**: ユーザーの判断で、エラーナレッジノードの作成・更新・参照を止めている。ユーザーがはっきり頼んだとき以外は、このスキルの手順を実行しない。止めた範囲と再開手順は `~/claude-dotfiles/knowledge/error-graph/PAUSED.md`。
 
 This skill implements the "Plan, Do, Check, Act" (PDCA) cycle for AI self-correction.
 Instead of making the same mistake twice, proactively consult past failures before acting and automatically document new failures when they occur.

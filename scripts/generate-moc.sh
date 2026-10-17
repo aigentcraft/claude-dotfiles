@@ -10,6 +10,12 @@ KNOWLEDGE_DIR="$WORKSPACE_DIR/knowledge/error-graph"
 NODES_DIR="$KNOWLEDGE_DIR/nodes"
 MOC_FILE="$KNOWLEDGE_DIR/moc.md"
 
+# エラーナレッジノードは停止中（再開手順: knowledge/error-graph/PAUSED.md）
+if [ -f "$KNOWLEDGE_DIR/PAUSED.md" ]; then
+    echo "[generate-moc] error-graph は停止中のためスキップ"
+    exit 0
+fi
+
 if [ ! -f "$MOC_FILE" ]; then
     echo "Error: moc.md not found at $MOC_FILE"
     exit 1

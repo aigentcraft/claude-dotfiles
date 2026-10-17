@@ -2,6 +2,12 @@
 # validate-nodes.sh — ノードファイルの YAML frontmatter を検証
 set -e
 
+# エラーナレッジノードは停止中（再開手順: knowledge/error-graph/PAUSED.md）
+if [ -f "$(dirname "${BASH_SOURCE[0]}")/../knowledge/error-graph/PAUSED.md" ]; then
+    echo "[validate-nodes] error-graph は停止中のためスキップ"
+    exit 0
+fi
+
 NODES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../knowledge/error-graph/nodes" && pwd)"
 ERRORS=0
 

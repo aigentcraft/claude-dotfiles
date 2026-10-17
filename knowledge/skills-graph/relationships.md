@@ -8,6 +8,8 @@ relationships:
 
 # Skills Complement Graph
 
+> **停止中のスキル（2026-10-17〜）**: `skill-pdca-error-graph` はエラーナレッジノードの停止に合わせて止めている。下の表で補完先に出てきても読み込まない（`knowledge/error-graph/PAUSED.md`）。
+
 ## AIへの指示（必読）
 
 スキルを使用する際は、**必ずこのファイルを先に参照**し、補完スキルを確認すること。

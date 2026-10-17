@@ -8,6 +8,12 @@ Checks that every node file in knowledge/error-graph/nodes/ has:
 Returns exit code 1 if any validation errors found.
 #>
 
+# error-graph is paused while knowledge/error-graph/PAUSED.md exists (see it to resume)
+if (Test-Path "$PSScriptRoot\..\knowledge\error-graph\PAUSED.md") {
+    Write-Host "[validate-nodes] error-graph is paused. Skipped." -ForegroundColor Cyan
+    exit 0
+}
+
 $NodesDir = (Resolve-Path "$PSScriptRoot\..\knowledge\error-graph\nodes").Path
 $Errors = 0
 

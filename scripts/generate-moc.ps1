@@ -15,6 +15,12 @@ $KnowledgeDir = "$WorkspaceDir\knowledge\error-graph"
 $NodesDir = "$KnowledgeDir\nodes"
 $MocFile = "$KnowledgeDir\moc.md"
 
+# error-graph is paused while knowledge/error-graph/PAUSED.md exists (see it to resume)
+if (Test-Path "$KnowledgeDir\PAUSED.md") {
+    Write-Host "[generate-moc] error-graph is paused. Skipped." -ForegroundColor Cyan
+    exit 0
+}
+
 if (-not (Test-Path $MocFile)) {
     Write-Error "moc.md not found at $MocFile"
     exit 1
