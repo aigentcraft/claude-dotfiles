@@ -52,3 +52,29 @@
 
 ### 現在の状態
 - push 済み。Mac 側は pull すればルールが入る（Mac の `~/.claude/CLAUDE.md` がリポジトリへのリンクでない場合は、同じ節を別途足す必要がある）
+
+---
+
+## Session 2026-10-23 #1 — yomiyasu スキルの導入
+
+### ユーザーの指示・要件
+- 「https://github.com/nanaism/yomiyasu.git をこのクロードコードに導入してください。」
+
+### 実施した変更
+- AI が書いた日本語を読みやすく直すスキル `nanaism/yomiyasu` v2.1.3 を、skill-installer の手順どおり `npx skills add nanaism/yomiyasu --skill yomiyasu --global --yes` で導入した。実体は `~/.agents/skills/yomiyasu/` で、`~/.claude/skills/yomiyasu` はジャンクション。このリポジトリには入らない
+- 導入前に中身を確認した。スクリプトは外部と通信せず、起動するのは同梱の lint と diff だけで、消すのは自分が作った一時フォルダだけ。任意のフック（`yomiyasu_hook.py`）は設定を表示するだけなので、登録していない。npx skills の安全評価は Gen「Safe」、Socket「0 alerts」、Snyk「Low Risk」
+- 導入後に 38 ファイルを上流の v2.1.3 とハッシュで照合し、すべて一致した。見本の文で lint、比較検査（`run`）、提出前の照合（`verify`）を `python` で実行し、動くことを確かめた
+- `knowledge/skills-graph/relationships.md`: 末尾に「日本語推敲クラスター」を追加（copywriting → yomiyasu。日本語のコピーのときだけ）
+- `knowledge/skills-moc.md`: 「日本語の推敲」節を追加し、copywriting の補完に yomiyasu を書いた
+- `GRAPH_RAG.md`: N22（yomiyasu）と、N11・N13 からのエッジ、開発フォーカスを追記
+- `CLAUDE.md`: 作業状態の「完了済み」「未解決」「環境情報」に追記
+
+### 学んだこと・重要な知見
+- この Windows の `python3` は Microsoft Store の仮のコマンドで、実行すると終了コード 49 で失敗する。yomiyasu の SKILL.md は `python3 …` で呼ぶので、Windows では `python`（3.13.5）か `py -3` で動かす
+- Windows の長いパスの設定が無効（LongPathsEnabled = 0）。「フォルダなし」の会話用フォルダはパスが約 155 文字あるため、そこでの git clone や、yomiyasu の記録（`.yomiyasu/index/by-final/<64 桁>`）が 260 文字を超えて失敗した。普段のプロジェクトフォルダなら問題ない。必要なら `--state-dir` に短い場所を渡す
+- `npx skills` で入れたスキルは `~/.agents/skills/` に置かれ、claude-dotfiles では同期されない。Mac では同じコマンドを一度実行する必要がある
+- 導入したスキルは、Claude Code を再起動しなくても、その会話のスキル一覧に表示された
+
+### 現在の状態
+- 導入済み・動作確認済み（v2.1.3）。更新は `npx skills update yomiyasu`
+- Mac への導入はまだ

@@ -29,6 +29,7 @@ AIへの指示: 新しいセッション開始時・ファイル追加・構造�
 | N19 | file | `knowledge/error-graph/PAUSED.md` | エラーナレッジノードの停止スイッチ兼再開手順（あればノード用スクリプトは即終了） |
 | N20 | file | `DEV_LOG.md` | 開発履歴（追記専用） |
 | N21 | file | `scripts/{validate-nodes,extract-pdca,generate-moc}.{sh,ps1}` | エラーノード用スクリプト（検証・コミットからの抽出・MOC 生成） |
+| N22 | skill（リポジトリ外） | `~/.agents/skills/yomiyasu/` | AI が書いた日本語の推敲スキル（nanaism/yomiyasu v2.1.3）。`npx skills add --global` で導入し、`~/.claude/skills/yomiyasu` からジャンクションでつなぐ。このリポジトリでは同期しない |
 
 ---
 
@@ -51,6 +52,8 @@ AIへの指示: 新しいセッション開始時・ファイル追加・構造�
 | N19 | N21 | 停止 | PAUSED.md があるとノード用スクリプトは何もせず終了 |
 | N2 | N19 | 参照 | CLAUDE.md の「停止中」節が停止範囲・再開手順として参照 |
 | N7 | N21 | 実行 | sync.sh / sync.ps1 と push 前フックがノード用スクリプトを呼ぶ |
+| N13 | N22 | 制御 | relationships.md の「日本語推敲クラスター」が copywriting → yomiyasu を定義 |
+| N11 | N22 | 索引 | skills-moc.md の「日本語の推敲」節が yomiyasu を索引化 |
 
 ---
 
@@ -88,6 +91,9 @@ AIへの指示: 新しいセッション開始時・ファイル追加・構造�
   - 知識読み込み順序: me.md → skills-moc（error-graph は読まない）
 - **動画・モーションリールの制作ルール**（2026-10-18）
   - CLAUDE.md に「HyperFrames の書式で作る・章ごとのサブコンポジション・見せるときは Studio も開く」の節を追加（ファイル構成の変更はなし）
+- **yomiyasu スキルの導入**（2026-10-23）
+  - `nanaism/yomiyasu` v2.1.3 を `npx skills` で導入（N22）。補完グラフに「日本語推敲クラスター」を追加
+  - スキル本体はリポジトリ外（`~/.agents/skills/`）なので、Mac では同じコマンドで別に入れる
 
 ---
 

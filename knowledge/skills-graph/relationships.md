@@ -73,6 +73,14 @@ relationships:
 | `auto-sync-rule` | `skill-pdca-error-graph` | 同期後に失敗知識を確認してから開発を進める |
 | `skill-installer` | `auto-sync-rule` | 新スキルインストール後は同期ルールを即適用する |
 
+### 日本語推敲クラスター
+
+> `yomiyasu` は名前を出して頼まれたときに使う設計（SKILL.md の description）。ほかの日本語校正スキルと同時に読むと指示が食い違うことがある（README）ため、補完先に校正系のスキルは置かない。
+
+| プライマリスキル | 補完スキル | 理由 |
+|---|---|---|
+| `copywriting` | `yomiyasu` | 日本語のコピーを書いたときだけ。AI 特有の比喩・装飾・主述のあいまいさを直して仕上げる（yomiyasu には宣伝文の種類 promo がある） |
+
 ---
 
 ## メンテナンスルール

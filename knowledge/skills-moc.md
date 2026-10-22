@@ -40,6 +40,7 @@ relationships:
 
 ## Copywriting & SNS
 - [[../skills/copywriting/SKILL.md|copywriting]] : Marketing copy for web pages.
+  - 補完: `yomiyasu`（日本語のコピーのとき）
 - [[../skills/x-viral-writing/SKILL.md|x-viral-writing]] : X(Twitter) viral posts and threads.
   - 補完: `x-image-prompt`, `copywriting`
 - [[../skills/ai-social-media-content/SKILL.md|ai-social-media-content]] : AI-powered content for TikTok, Instagram, YouTube, X.
@@ -54,6 +55,10 @@ relationships:
   - 補完: `nanobanana`
 - [[../skills/x-image-prompt/SKILL.md|x-image-prompt]] : X post eye-catch image prompt generator.
   - 補完: `nanobanana`, `nano-banana-pro-prompts-recommend-skill`
+
+## 日本語の推敲
+- yomiyasu（実体は `~/.agents/skills/yomiyasu/`。`npx skills` で導入したので、このリポジトリには入っていない）: AI が書いた日本語の不自然な比喩・あいまいな主述・不要な装飾を直す（nanaism/yomiyasu）。名前を出して頼んだときに使う
+  - 補完元: `copywriting`（日本語のコピーの仕上げ）
 
 ---
 

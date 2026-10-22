@@ -183,6 +183,10 @@
 - 動画・モーションリールの制作ルールを追加（2026-10-18）
   - ユーザーの指摘（「HyperFrames を使ってくれていると思っていたが、タイムライン編集の UI を一度も見たことがない」）を受けて、「HyperFrames の書式で作る／場面が多いものは章ごとのサブコンポジション／見せるときは Studio も開いて URL を渡す」の節を追加（リポジトリ版と `~/.claude/CLAUDE.md` の両方）
   - 実例：`過去実績紹介＋活用導入demo/制作/07_HyperFrames/opening-v2`（オープニング v2 を HyperFrames 版に移し、Studio で開けることを確認）
+- yomiyasu スキルを導入（2026-10-23）
+  - ユーザーの依頼（「https://github.com/nanaism/yomiyasu.git をこのクロードコードに導入してください。」）で、AI が書いた日本語を読みやすく直すスキル `nanaism/yomiyasu` v2.1.3 を `npx skills add nanaism/yomiyasu --skill yomiyasu --global --yes` で導入（実体は `~/.agents/skills/yomiyasu/`、`~/.claude/skills/yomiyasu` はジャンクション）
+  - 導入前に中身を確認（外部への通信なし・同梱のスクリプトしか起動しない・任意のフックは登録しない）。導入後に上流とハッシュで照合し、lint・比較検査・verify を `python` で実行して確認
+  - `relationships.md` に「日本語推敲クラスター」（copywriting → yomiyasu）、`skills-moc.md` に「日本語の推敲」節、`GRAPH_RAG.md` に N22 を追加
 
 ### 未解決・次のタスク
 - **P1: GraphRAG の自動生成化** — GRAPH_RAG.md / skills-moc.md / skills-graph/relationships.md を自動生成するスクリプトがない（純粋なドキュメント状態で既に陳腐化）
@@ -192,6 +196,9 @@
 - me.md の Conversation Log を会話ごとに積み上げていく（継続中）
 - Mac 側の確認: `~/.claude/CLAUDE.md` がリポジトリの `CLAUDE.md` へのリンクか（実ファイルならエラーナレッジノード停止の修正を同じように入れる）。Antigravity を使うなら `~/.gemini/antigravity/ANTIGRAVITY.md` のエラーノード義務も止める
 - Windows の `~/.claude/CLAUDE.md` がリポジトリの `CLAUDE.md` とハードリンクでなくなっている（DEV_LOG ルール約 46 行分ずれている）。どちらかに揃えてリンクし直す
+- Mac にも yomiyasu を入れる: `npx skills add nanaism/yomiyasu --skill yomiyasu --global --yes`（スキル本体は `~/.agents/skills/` にあり、このリポジトリでは同期されない）
 
 ### 環境情報
 - 特に必要な環境変数なし（フックは CLAUDE_CODE_REMOTE / CLAUDE_PROJECT_DIR を自動参照）
+- Windows の `python3` は Microsoft Store の仮のコマンドで動かない（終了コード 49）。スキルの Python スクリプトは `python`（3.13.5）か `py -3` で動かす
+- Windows の長いパスの設定は無効（LongPathsEnabled = 0）。「フォルダなし」の会話用フォルダ（パスが約 155 文字）では、git clone や yomiyasu の記録が 260 文字を超えて失敗することがある
