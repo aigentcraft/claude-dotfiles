@@ -54,6 +54,7 @@ AIへの指示: 新しいセッション開始時・ファイル追加・構造�
 | N7 | N21 | 実行 | sync.sh / sync.ps1 と push 前フックがノード用スクリプトを呼ぶ |
 | N13 | N22 | 制御 | relationships.md の「日本語推敲クラスター」が copywriting → yomiyasu を定義 |
 | N11 | N22 | 索引 | skills-moc.md の「日本語の推敲」節が yomiyasu を索引化 |
+| N2 | N22 | 参照 | CLAUDE.md の「日本語の文章の推敲ルール」が、日本語の文章を書くときに yomiyasu を使わせる |
 
 ---
 
@@ -94,6 +95,7 @@ AIへの指示: 新しいセッション開始時・ファイル追加・構造�
 - **yomiyasu スキルの導入**（2026-10-23）
   - `nanaism/yomiyasu` v2.1.3 を `npx skills` で導入（N22）。補完グラフに「日本語推敲クラスター」を追加
   - スキル本体はリポジトリ外（`~/.agents/skills/`）なので、Mac では同じコマンドで別に入れる
+  - CLAUDE.md に「日本語の文章の推敲ルール」を追加（README の 1 行。リポジトリ版と `~/.claude/CLAUDE.md` の両方）
 
 ---
 

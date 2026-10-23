@@ -23,6 +23,10 @@
 - **見せるときは mp4 だけでなく Studio も開いて渡す**：`npx hyperframes lint` を通す → `npx hyperframes preview --background` → アプリ内ブラウザで `http://localhost:<port>/#project/<フォルダ名>` を開き、その URL も伝える。書き出しは `npx hyperframes render`
 - 経緯: 2026-10-18「HyperFrames を使ってくれていると思っていたが、タイムライン編集の UI を一度も見たことがない」と指摘。調べると、スキルは読んでいたが実際は自作の HTML と撮影スクリプトで作っていて、Studio で開ける形になっていなかった
 
+## 日本語の文章の推敲ルール（全プロジェクト共通・必須）
+- 記事、ドキュメント、PR の説明文、コミットメッセージなどの日本語の文章を書いたり直したりするときは、常に yomiyasu スキルで推敲してください。コードを直したあとの作業の報告には使わなくてかまいません。
+- 経緯: 2026-10-23 に yomiyasu（nanaism/yomiyasu）を導入し、ユーザーの指示で README が勧めるこの 1 行を追加した
+
 ## セッション引き継ぎルール（全プロジェクト共通・必須）
 - ユーザーは Windows と Mac の2台で開発している
 - **commit & push 時に、プロジェクトの `CLAUDE.md` の「現在の作業状態」セクションも必ず更新すること**
@@ -187,6 +191,7 @@
   - ユーザーの依頼（「https://github.com/nanaism/yomiyasu.git をこのクロードコードに導入してください。」）で、AI が書いた日本語を読みやすく直すスキル `nanaism/yomiyasu` v2.1.3 を `npx skills add nanaism/yomiyasu --skill yomiyasu --global --yes` で導入（実体は `~/.agents/skills/yomiyasu/`、`~/.claude/skills/yomiyasu` はジャンクション）
   - 導入前に中身を確認（外部への通信なし・同梱のスクリプトしか起動しない・任意のフックは登録しない）。導入後に上流とハッシュで照合し、lint・比較検査・verify を `python` で実行して確認
   - `relationships.md` に「日本語推敲クラスター」（copywriting → yomiyasu）、`skills-moc.md` に「日本語の推敲」節、`GRAPH_RAG.md` に N22 を追加
+  - ユーザーの指示で、README の「日本語の文章はいつも yomiyasu で推敲する」1 行を「日本語の文章の推敲ルール」の節として追加（リポジトリ版と `~/.claude/CLAUDE.md` の両方）
 
 ### 未解決・次のタスク
 - **P1: GraphRAG の自動生成化** — GRAPH_RAG.md / skills-moc.md / skills-graph/relationships.md を自動生成するスクリプトがない（純粋なドキュメント状態で既に陳腐化）
@@ -196,7 +201,7 @@
 - me.md の Conversation Log を会話ごとに積み上げていく（継続中）
 - Mac 側の確認: `~/.claude/CLAUDE.md` がリポジトリの `CLAUDE.md` へのリンクか（実ファイルならエラーナレッジノード停止の修正を同じように入れる）。Antigravity を使うなら `~/.gemini/antigravity/ANTIGRAVITY.md` のエラーノード義務も止める
 - Windows の `~/.claude/CLAUDE.md` がリポジトリの `CLAUDE.md` とハードリンクでなくなっている（DEV_LOG ルール約 46 行分ずれている）。どちらかに揃えてリンクし直す
-- Mac にも yomiyasu を入れる: `npx skills add nanaism/yomiyasu --skill yomiyasu --global --yes`（スキル本体は `~/.agents/skills/` にあり、このリポジトリでは同期されない）
+- Mac にも yomiyasu を入れる: `npx skills add nanaism/yomiyasu --skill yomiyasu --global --yes`（スキル本体は `~/.agents/skills/` にあり、このリポジトリでは同期されない。「日本語の文章の推敲ルール」が yomiyasu を使うので、入れるまで Mac ではスキルが見つからない）
 
 ### 環境情報
 - 特に必要な環境変数なし（フックは CLAUDE_CODE_REMOTE / CLAUDE_PROJECT_DIR を自動参照）
